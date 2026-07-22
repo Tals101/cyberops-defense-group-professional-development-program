@@ -1,0 +1,19 @@
+* text=auto
+
+# Linux-executed files
+*.sh text eol=lf
+
+# Documentation and evidence
+*.md text eol=lf
+*.txt text eol=lf
+*.csv text eol=lf
+*.svg text eol=lf
+
+# Windows scripts
+*.ps1 text eol=crlf
+
+# Binary files
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.pdf binary
