@@ -1,0 +1,2 @@
+Jul 20 19:42:01 ubuntu-soc-lab ssh-bruteforce[4163]: ALERT: 6 failed SSH login attempts from 192.168.56.111 during the last 5 minutes
+Jul 20 19:43:01 ubuntu-soc-lab ssh-bruteforce[4186]: ALERT: 6 failed SSH login attempts from 192.168.56.111 during the last 5 minutes

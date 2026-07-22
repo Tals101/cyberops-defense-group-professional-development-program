@@ -1,0 +1,6 @@
+table inet ticket001 {
+	chain input {
+		type filter hook input priority filter; policy accept;
+		ip saddr 192.168.56.111 tcp dport 22 counter packets 5 bytes 300 drop comment "Ticket001 containment"
+	}
+}
