@@ -1,0 +1,83 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#333"/>
+    </marker>
+    <style>
+      .title { font: bold 30px Arial, sans-serif; fill: #111; }
+      .subtitle { font: 18px Arial, sans-serif; fill: #444; }
+      .box-title { font: bold 20px Arial, sans-serif; fill: #111; }
+      .box-text { font: 16px Arial, sans-serif; fill: #222; }
+      .label { font: bold 15px Arial, sans-serif; fill: #333; }
+      .box { stroke: #222; stroke-width: 2; rx: 18; ry: 18; }
+      .line { stroke: #333; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+      .dash { stroke: #555; stroke-width: 2; stroke-dasharray: 9 7; fill: none; marker-end: url(#arrow); }
+    </style>
+  </defs>
+
+  <rect width="1200" height="720" fill="#ffffff"/>
+
+  <text x="600" y="52" text-anchor="middle" class="title">
+    Ticket 001 — SSH Authentication Investigation
+  </text>
+  <text x="600" y="82" text-anchor="middle" class="subtitle">
+    Lab Architecture and Evidence Flow
+  </text>
+
+  <!-- Kali -->
+  <rect x="55" y="160" width="245" height="150" class="box" fill="#f3f3f3"/>
+  <text x="177" y="200" text-anchor="middle" class="box-title">Kali Linux</text>
+  <text x="177" y="232" text-anchor="middle" class="box-text">192.168.56.111</text>
+  <text x="177" y="262" text-anchor="middle" class="box-text">Simulated SSH source</text>
+  <text x="177" y="288" text-anchor="middle" class="box-text">11 failures + 1 success</text>
+
+  <!-- Ubuntu -->
+  <rect x="365" y="140" width="285" height="190" class="box" fill="#f3f3f3"/>
+  <text x="507" y="182" text-anchor="middle" class="box-title">Ubuntu Target</text>
+  <text x="507" y="214" text-anchor="middle" class="box-text">192.168.56.121</text>
+  <text x="507" y="244" text-anchor="middle" class="box-text">SSH service — TCP 22</text>
+  <text x="507" y="272" text-anchor="middle" class="box-text">Account: sshlab</text>
+  <text x="507" y="300" text-anchor="middle" class="box-text">Wazuh agent: ubuntu-lab7</text>
+
+  <!-- Wazuh -->
+  <rect x="735" y="160" width="265" height="150" class="box" fill="#f3f3f3"/>
+  <text x="867" y="200" text-anchor="middle" class="box-title">Wazuh Server</text>
+  <text x="867" y="232" text-anchor="middle" class="box-text">192.168.56.122</text>
+  <text x="867" y="262" text-anchor="middle" class="box-text">Rule 5551</text>
+  <text x="867" y="288" text-anchor="middle" class="box-text">Rule 40112</text>
+
+  <!-- Windows -->
+  <rect x="850" y="430" width="285" height="155" class="box" fill="#f3f3f3"/>
+  <text x="992" y="470" text-anchor="middle" class="box-title">Windows Host</text>
+  <text x="992" y="502" text-anchor="middle" class="box-text">192.168.56.1</text>
+  <text x="992" y="532" text-anchor="middle" class="box-text">Evidence storage</text>
+  <text x="992" y="560" text-anchor="middle" class="box-text">Portfolio and ZIP creation</text>
+
+  <!-- Evidence -->
+  <rect x="300" y="430" width="420" height="190" class="box" fill="#f8f8f8"/>
+  <text x="510" y="470" text-anchor="middle" class="box-title">Ticket 001 Evidence Package</text>
+  <text x="510" y="505" text-anchor="middle" class="box-text">SSH logs, last, lastb, Wazuh alerts</text>
+  <text x="510" y="535" text-anchor="middle" class="box-text">Screenshots, timeline, containment records</text>
+  <text x="510" y="565" text-anchor="middle" class="box-text">Detector script and cron configuration</text>
+  <text x="510" y="595" text-anchor="middle" class="box-text">SHA-256 inventory and hashes</text>
+
+  <!-- Connections -->
+  <path d="M300 235 L365 235" class="line"/>
+  <text x="332" y="215" text-anchor="middle" class="label">SSH</text>
+
+  <path d="M650 235 L735 235" class="line"/>
+  <text x="692" y="215" text-anchor="middle" class="label">Agent logs</text>
+
+  <path d="M507 330 L507 430" class="line"/>
+  <text x="525" y="385" class="label">Evidence</text>
+
+  <path d="M867 310 C865 365, 805 390, 720 470" class="dash"/>
+  <text x="805" y="390" class="label">Alerts and screenshots</text>
+
+  <path d="M720 525 L850 525" class="line"/>
+  <text x="785" y="505" text-anchor="middle" class="label">Transfer</text>
+
+  <text x="600" y="675" text-anchor="middle" class="subtitle">
+    Authorized isolated lab environment
+  </text>
+</svg>
