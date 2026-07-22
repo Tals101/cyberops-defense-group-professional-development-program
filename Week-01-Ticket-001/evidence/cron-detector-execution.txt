@@ -1,0 +1,4 @@
+Jul 20 19:42:01 ubuntu-soc-lab CRON[4155]: (root) CMD (/usr/local/bin/detect-ssh-bruteforce.sh)
+Jul 20 19:43:01 ubuntu-soc-lab CRON[4178]: (root) CMD (/usr/local/bin/detect-ssh-bruteforce.sh)
+Jul 20 19:44:28 ubuntu-soc-lab CRON[4193]: (root) CMD (/usr/local/bin/detect-ssh-bruteforce.sh)
+Jul 20 19:45:01 ubuntu-soc-lab CRON[4209]: (root) CMD (/usr/local/bin/detect-ssh-bruteforce.sh)
