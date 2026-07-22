@@ -1,0 +1,4 @@
+2026-07-20T18:36:50.438397+00:00 ubuntu-soc-lab sshd[2863]: Accepted password for sshlab from 192.168.56.111 port 35618 ssh2
+2026-07-20T18:36:50.441003+00:00 ubuntu-soc-lab sshd[2863]: pam_unix(sshd:session): session opened for user sshlab(uid=1001) by sshlab(uid=0)
+2026-07-20T18:36:50.491204+00:00 ubuntu-soc-lab (systemd): pam_unix(systemd-user:session): session opened for user sshlab(uid=1001) by sshlab(uid=0)
+2026-07-20T18:40:47.725878+00:00 ubuntu-soc-lab sshd[2863]: pam_unix(sshd:session): session closed for user sshlab

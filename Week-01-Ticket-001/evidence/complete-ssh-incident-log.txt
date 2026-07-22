@@ -1,0 +1,36 @@
+Jul 20 18:27:22 ubuntu-soc-lab sshd[2743]: Connection closed by 192.168.56.111 port 37036
+Jul 20 18:29:52 ubuntu-soc-lab sshd[2781]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.56.111  user=sshlab
+Jul 20 18:29:54 ubuntu-soc-lab sshd[2781]: Failed password for sshlab from 192.168.56.111 port 47736 ssh2
+Jul 20 18:29:54 ubuntu-soc-lab sshd[2781]: Connection closed by authenticating user sshlab 192.168.56.111 port 47736 [preauth]
+Jul 20 18:30:58 ubuntu-soc-lab sshd[2790]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.56.111  user=sshlab
+Jul 20 18:31:00 ubuntu-soc-lab sshd[2790]: Failed password for sshlab from 192.168.56.111 port 44504 ssh2
+Jul 20 18:31:02 ubuntu-soc-lab sshd[2790]: Connection closed by authenticating user sshlab 192.168.56.111 port 44504 [preauth]
+Jul 20 18:31:04 ubuntu-soc-lab sshd[2792]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.56.111  user=sshlab
+Jul 20 18:31:06 ubuntu-soc-lab sshd[2792]: Failed password for sshlab from 192.168.56.111 port 50862 ssh2
+Jul 20 18:31:06 ubuntu-soc-lab sshd[2792]: Connection closed by authenticating user sshlab 192.168.56.111 port 50862 [preauth]
+Jul 20 18:31:08 ubuntu-soc-lab sshd[2794]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.56.111  user=sshlab
+Jul 20 18:31:11 ubuntu-soc-lab sshd[2794]: Failed password for sshlab from 192.168.56.111 port 50876 ssh2
+Jul 20 18:31:13 ubuntu-soc-lab sshd[2794]: Connection closed by authenticating user sshlab 192.168.56.111 port 50876 [preauth]
+Jul 20 18:31:15 ubuntu-soc-lab sshd[2796]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.56.111  user=sshlab
+Jul 20 18:31:16 ubuntu-soc-lab sshd[2796]: Failed password for sshlab from 192.168.56.111 port 58318 ssh2
+Jul 20 18:31:17 ubuntu-soc-lab sshd[2796]: Connection closed by authenticating user sshlab 192.168.56.111 port 58318 [preauth]
+Jul 20 18:31:19 ubuntu-soc-lab sshd[2798]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.56.111  user=sshlab
+Jul 20 18:31:20 ubuntu-soc-lab sshd[2798]: Failed password for sshlab from 192.168.56.111 port 58328 ssh2
+Jul 20 18:31:21 ubuntu-soc-lab sshd[2798]: Connection closed by authenticating user sshlab 192.168.56.111 port 58328 [preauth]
+Jul 20 18:31:23 ubuntu-soc-lab sshd[2800]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.56.111  user=sshlab
+Jul 20 18:31:25 ubuntu-soc-lab sshd[2800]: Failed password for sshlab from 192.168.56.111 port 44908 ssh2
+Jul 20 18:31:25 ubuntu-soc-lab sshd[2800]: Connection closed by authenticating user sshlab 192.168.56.111 port 44908 [preauth]
+Jul 20 18:31:27 ubuntu-soc-lab sshd[2802]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.56.111  user=sshlab
+Jul 20 18:31:28 ubuntu-soc-lab sshd[2802]: Failed password for sshlab from 192.168.56.111 port 44916 ssh2
+Jul 20 18:31:29 ubuntu-soc-lab sshd[2802]: Connection closed by authenticating user sshlab 192.168.56.111 port 44916 [preauth]
+Jul 20 18:31:31 ubuntu-soc-lab sshd[2804]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.56.111  user=sshlab
+Jul 20 18:31:33 ubuntu-soc-lab sshd[2804]: Failed password for sshlab from 192.168.56.111 port 44920 ssh2
+Jul 20 18:31:33 ubuntu-soc-lab sshd[2804]: Connection closed by authenticating user sshlab 192.168.56.111 port 44920 [preauth]
+Jul 20 18:31:35 ubuntu-soc-lab sshd[2806]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.56.111  user=sshlab
+Jul 20 18:31:37 ubuntu-soc-lab sshd[2806]: Failed password for sshlab from 192.168.56.111 port 58070 ssh2
+Jul 20 18:31:37 ubuntu-soc-lab sshd[2806]: Connection closed by authenticating user sshlab 192.168.56.111 port 58070 [preauth]
+Jul 20 18:31:40 ubuntu-soc-lab sshd[2808]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.56.111  user=sshlab
+Jul 20 18:31:41 ubuntu-soc-lab sshd[2808]: Failed password for sshlab from 192.168.56.111 port 58078 ssh2
+Jul 20 18:31:42 ubuntu-soc-lab sshd[2808]: Connection closed by authenticating user sshlab 192.168.56.111 port 58078 [preauth]
+Jul 20 18:36:50 ubuntu-soc-lab sshd[2863]: Accepted password for sshlab from 192.168.56.111 port 35618 ssh2
+Jul 20 18:36:50 ubuntu-soc-lab sshd[2863]: pam_unix(sshd:session): session opened for user sshlab(uid=1001) by sshlab(uid=0)
