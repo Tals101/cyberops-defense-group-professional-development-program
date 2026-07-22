@@ -1,0 +1,6 @@
+Jul 20 19:12:16 ubuntu-soc-lab sshd[3863]: Failed password for sshlab from 192.168.56.111 port 47792 ssh2
+Jul 20 19:12:22 ubuntu-soc-lab sshd[3865]: Failed password for sshlab from 192.168.56.111 port 47802 ssh2
+Jul 20 19:12:26 ubuntu-soc-lab sshd[3867]: Failed password for sshlab from 192.168.56.111 port 39304 ssh2
+Jul 20 19:12:33 ubuntu-soc-lab sshd[3869]: Failed password for sshlab from 192.168.56.111 port 51476 ssh2
+Jul 20 19:12:39 ubuntu-soc-lab sshd[3871]: Failed password for sshlab from 192.168.56.111 port 51490 ssh2
+Jul 20 19:12:45 ubuntu-soc-lab sshd[3873]: Failed password for sshlab from 192.168.56.111 port 56940 ssh2

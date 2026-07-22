@@ -1,0 +1,25 @@
+WAZUH SSH INCIDENT FINDINGS
+
+Brute-Force Alert
+Rule ID: 5551
+Rule Level: 10
+Description: PAM: Multiple failed logins in a small period of time.
+Source IP: 192.168.56.111
+Target User: sshlab
+Agent: ubuntu-lab7
+MITRE ATT&CK: T1110 - Brute Force
+Failure Frequency: 8
+
+Successful Compromise Alert
+Rule ID: 40112
+Rule Level: 12
+Description: Multiple authentication failures followed by a success.
+Source IP: 192.168.56.111
+Source Port: 35618
+Target User: sshlab
+Agent: ubuntu-lab7
+Original Event: Accepted password for sshlab from 192.168.56.111 port 35618 ssh2
+MITRE ATT&CK: T1078 - Valid Accounts; T1110 - Brute Force
+
+Conclusion:
+Wazuh detected repeated SSH authentication failures followed by a successful password login from the same source IP.
