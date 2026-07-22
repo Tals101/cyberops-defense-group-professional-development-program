@@ -17,3 +17,6 @@
 *.jpg binary
 *.jpeg binary
 *.pdf binary
+
+# Preserve forensic evidence exactly as collected
+Week-01-Ticket-001/evidence/** -text
