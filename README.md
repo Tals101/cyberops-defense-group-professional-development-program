@@ -1,102 +1,100 @@
 ﻿# CyberOps Defense Group Professional Development Program
 
-## Overview
+## About This Repository
 
-This repository documents my work throughout the CyberOps Defense Group Professional Development Program.
+This repository documents my work in the CyberOps Defense Group Professional Development Program.
 
-It is designed to reflect the investigation, troubleshooting, documentation, and review practices used by a professional security engineering team.
+Each week, I complete a technical ticket based on a realistic cybersecurity or systems-engineering scenario. I use this repository to show not only the final result, but also how I approached the problem, what evidence I reviewed, which challenges I encountered, and what I learned.
 
-Each weekly ticket contains technical work, supporting evidence, lessons learned, and documentation demonstrating continued engineering growth.
+My goal is to document each ticket clearly enough that another engineer can understand the project without needing additional explanation.
 
-## Program Objectives
+All investigations and security tests documented here were completed in isolated and authorized lab environments.
 
-This program develops practical skills in:
+## My Goals
 
-- Security operations
-- Incident investigation
-- Detection engineering
-- Linux administration
-- Cloud and container security
-- Technical troubleshooting
-- Evidence preservation
-- Engineering documentation
-- Professional communication
-- Continuous improvement
+Through this program, I am working to improve my ability to:
+
+- Investigate security incidents methodically
+- Analyze logs and connect related events
+- Build accurate technical timelines
+- Validate alerts using multiple evidence sources
+- Apply containment controls safely
+- Create practical security detections
+- Preserve and verify evidence
+- Troubleshoot technical issues independently
+- Write clear technical documentation
+- Use Git and GitHub as part of a professional workflow
+- Explain findings to technical and nontechnical audiences
 
 ## Technologies and Tools Used
 
-The following technologies and tools have been used in the CyberOps Defense Group Professional Development Program so far.
+This section includes only the technologies and tools I have used in the program so far. I will update it as I complete additional tickets.
 
 ### Operating Systems
 
-- Windows 11 host system
-- Ubuntu Linux SSH target
-- Kali Linux security-testing system
+- Windows 11
+- Ubuntu Linux
+- Kali Linux
 
 ### Security Monitoring and Investigation
 
-- Wazuh manager
-- Wazuh dashboard
-- Wazuh Linux agent
+- Wazuh Manager
+- Wazuh Dashboard
+- Wazuh Linux Agent
 - Linux SSH authentication logs
-- systemd journal and `journalctl`
-- `last` successful-login history
-- `lastb` failed-login history
+- `journalctl`
+- `last`
+- `lastb`
 
 ### Remote Access and Authentication
 
 - OpenSSH
-- SSH password authentication
 - Windows OpenSSH client
 - `scp`
 - `sshpass`
 
 ### Linux Administration and Containment
 
-- `systemctl`
-- Linux user and account-management commands
-- `passwd`
-- nftables
-- Cron
 - Bash
+- Cron
+- `systemctl`
+- `passwd`
+- Linux user-management commands
+- nftables
 
 ### Detection Engineering
 
-- Custom Bash SSH brute-force detector
+- Custom Bash detection scripts
+- Threshold-based SSH failure detection
 - Wazuh rule 5551
 - Wazuh rule 40112
 - MITRE ATT&CK mappings
-- Threshold-based authentication-failure detection
 
-### Evidence Collection and Integrity
+### Evidence and Documentation
 
-- SHA-256
+- SHA-256 hashing
 - `sha256sum`
 - PowerShell `Get-FileHash`
 - Evidence inventories
-- Incident timelines
-- Log preservation
-- Screenshot collection
-
-### Documentation and Reporting
-
+- Technical timelines
 - Markdown
 - CSV
 - PDF
 - Microsoft Word
-- SVG architecture diagrams
-- PowerShell here-strings
+- SVG diagrams
+- Screenshots
 
-### Version Control and Portfolio Management
+### Version Control
 
 - Git
 - GitHub
 - PowerShell
 - `.gitignore`
+- `.gitattributes`
 
-This section will be expanded only when additional tools are used in future program tickets.
+## Repository Organization
 
-## Repository Structure
+Each weekly folder is treated as its own technical project.
 
     cyberops-defense-group-professional-development-program/
     |
@@ -107,118 +105,149 @@ This section will be expanded only when additional tools are used in future prog
     |   |-- Incident_Report.pdf
     |   |-- engineering_log.md
     |   |-- lessons_learned.md
-    |   |-- screenshots/
     |   |-- configs/
+    |   |-- diagrams/
     |   |-- evidence/
-    |   `-- diagrams/
+    |   `-- screenshots/
     |
     |-- Week-02-Ticket-002/
     |-- Week-03-Ticket-003/
     `-- ...
 
-## Weekly Ticket Requirements
+Each ticket folder may include:
 
-Each completed ticket should include:
-
-- Incident report
-- Executive summary
-- Technical timeline
-- Evidence collected
-- Root cause analysis
-- Recommendations
-- Supporting screenshots
-- Relevant logs
-- Commands executed
-- Configuration files
-- Diagrams when applicable
-- Engineering log
+- A project overview
+- The objective and investigation scope
+- Environment and tool details
+- Supporting evidence
+- Configuration files or scripts
+- Screenshots
+- Architecture or workflow diagrams
+- An engineering log
 - Lessons learned
-- Reproduction documentation
+- A final report
 
-## Engineering Log
+## Completed Tickets
 
-Each work session records:
+| Week | Ticket | Project | Status |
+|---|---|---|---|
+| Week 01 | Ticket 001 | SSH Authentication Investigation | Complete |
 
-- Date
-- Time spent
-- What was attempted
-- What worked
-- What failed
-- Next step
+This table will be updated as I complete new tickets.
 
-The engineering log demonstrates the investigation and troubleshooting process, not only the final result.
+## Ticket 001 — SSH Authentication Investigation
 
-## Engineering Reviews
+For Ticket 001, I investigated repeated SSH password failures against an Ubuntu server.
 
-Completed tickets are reviewed across the following areas:
+The failed attempts were followed by a successful login from the same source system. My responsibility was to determine what happened, identify the account and source IP involved, verify whether the login led to activity on the server, preserve the supporting evidence, and apply appropriate containment.
 
-- Investigation Process
-- Troubleshooting Methodology
-- Technical Accuracy
-- Documentation Quality
-- Communication
-- Engineering Judgment
-- Professionalism
+My work included:
 
-Reviews identify both strengths and opportunities for continued growth.
+- Reviewing native Linux authentication records
+- Identifying the source system and targeted account
+- Confirming the successful SSH session
+- Correlating failed and successful login activity
+- Reviewing Wazuh alerts
+- Verifying post-login activity
+- Locking the affected account
+- Testing a temporary network block
+- Building a custom SSH brute-force detector
+- Scheduling the detector with cron
+- Creating an evidence inventory
+- Generating SHA-256 hashes
+- Preparing a formal incident report
 
-The objective is continuous improvement, not perfection.
-
-## Week 01 — Ticket 001
-
-### SSH Authentication Investigation
-
-Ticket 001 investigated repeated SSH authentication failures followed by a successful login to an Ubuntu server.
-
-The investigation included:
-
-- SSH log analysis
-- Source-IP identification
-- Successful-login validation
-- Post-login activity confirmation
-- Wazuh detection review
-- Account containment
-- Temporary network containment
-- Custom SSH brute-force detection
-- Evidence hashing
-- Reproduction documentation
-- Weekly ticket closure documentation
-
-The completed ticket is located in:
+The completed project is located in:
 
     Week-01-Ticket-001/
 
-## Evidence and Security Notice
+## Skills Developed
 
-All testing documented in this repository was performed in an isolated and authorized lab environment.
+Ticket 001 gave me practical experience with:
 
-Credentials, IP addresses, hostnames, accounts, and artifacts shown in this repository are associated with controlled lab systems.
+- SSH incident investigation
+- Linux log analysis
+- Event correlation
+- Timeline development
+- Wazuh alert validation
+- Evidence preservation
+- Evidence hashing
+- Linux account containment
+- Network containment
+- Bash scripting
+- Cron scheduling
+- Detection engineering
+- Technical troubleshooting
+- Incident reporting
+- Git commit organization
+- Portfolio documentation
 
-The techniques documented here must only be used on systems where explicit authorization has been granted.
+## How I Document My Work
 
-## Professional Portfolio Purpose
+For each ticket, I try to answer five important questions:
 
-This repository demonstrates my ability to:
+1. What problem was I solving?
+2. Why did I choose this approach?
+3. What other approaches did I consider?
+4. What evidence supports my conclusion?
+5. What would I improve if I repeated the work?
 
-- Investigate security events
-- Correlate evidence across multiple systems
-- Troubleshoot technical failures
-- Develop and validate detections
-- Apply containment controls
-- Preserve evidence integrity
-- Produce reproducible documentation
-- Communicate technical conclusions
-- Learn from mistakes
-- Improve future engineering performance
+This approach makes the repository more than a collection of finished files. It also shows how I worked through the problem and how my decisions were supported.
 
-## Current Progress
+## Git Practices
 
-| Week | Ticket | Topic | Status |
-|---|---|---|---|
-| Week 01 | Ticket 001 | SSH Authentication Investigation | Complete |
-| Week 02 | Ticket 002 | To be added | Pending |
-| Week 03 | Ticket 003 | To be added | Pending |
+I use focused commits so the repository history reflects the progress of the investigation.
 
-## Repository Name
+Examples from Ticket 001 include:
 
-    cyberops-defense-group-professional-development-program
+- `Initialize professional development portfolio`
+- `Document Ticket 001 investigation process`
+- `Collect SSH authentication evidence`
+- `Add Wazuh detection evidence and screenshots`
+- `Add SSH containment and custom detection controls`
+- `Add Ticket 001 incident report and architecture diagram`
+- `Add validated evidence inventory and SHA256 manifest`
+
+This makes it easier to review how the project developed instead of seeing only one large final commit.
+
+## Protecting Sensitive Information
+
+Before committing files, I review the repository for:
+
+- Passwords
+- API keys
+- Authentication tokens
+- AWS credentials
+- SSH private keys
+- Personal information
+- Production logs
+- Webhook URLs
+- Secrets of any kind
+
+When a credential is needed in an example, I use a placeholder such as:
+
+    YOUR_API_KEY_HERE
+    YOUR_PASSWORD_HERE
+    YOUR_SSH_KEY_PATH
+
+Raw evidence is included only when it comes from an authorized lab environment and has been reviewed for sensitive information.
+
+## Professional Standard
+
+I write each project with the assumption that it may be reviewed by another engineer, a technical manager, a recruiter, or a hiring manager.
+
+My goal is to keep the work:
+
+- Clear
+- Accurate
+- Organized
+- Reproducible
+- Easy to navigate
+- Supported by evidence
+- Honest about challenges and limitations
+
+## Continuing Progress
+
+I will update this README as I complete new tickets, use additional technologies, and develop new technical skills.
+
+The purpose of this repository is to show steady improvement over time—not just completed assignments, but the development of my investigation, engineering, documentation, and problem-solving abilities.
