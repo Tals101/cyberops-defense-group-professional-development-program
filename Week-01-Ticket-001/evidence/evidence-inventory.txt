@@ -1,0 +1,24 @@
+﻿Ticket 001 Evidence Inventory
+Generated: 2026-07-22 16:45:01 -04:00
+Evidence file count: 18
+
+File Name	Size (Bytes)
+---------	------------
+automatic-detection-alerts.txt	268
+complete-ssh-incident-log.txt	4635
+containment-account-lock.txt	33
+containment-firewall-rule.txt	204
+cron-detector-execution.txt	384
+custom-detection-alert.txt	134
+failed-attempts-by-ip.txt	23
+failed-logins.txt	1166
+lab-start-time.txt	26
+lastb-failures.txt	1122
+last-successful-login.txt	102
+post-login-artifact.txt	433
+successful-login-session.txt	531
+technical_timeline.csv	881
+wazuh-agent-state.txt	645
+wazuh-alert-findings.txt	745
+wazuh-detection-test-start.txt	26
+wazuh-test-failed-logins.txt	636
