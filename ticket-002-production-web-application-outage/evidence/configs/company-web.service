@@ -1,0 +1,15 @@
+[Unit]
+Description=Internal Company Web Application
+After=network.target
+
+[Service]
+Type=simple
+User=analyst
+Group=analyst
+WorkingDirectory=/home/analyst/internal-web-outage-lab
+ExecStart=/usr/bin/python3 /home/analyst/internal-web-outage-lab/app.py
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
