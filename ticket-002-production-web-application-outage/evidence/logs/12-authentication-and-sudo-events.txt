@@ -1,0 +1,694 @@
+2026-07-21T18:26:01.978179+00:00 ubuntu-soc-lab CRON[2273]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T18:26:02.236981+00:00 ubuntu-soc-lab CRON[2273]: pam_unix(cron:session): session closed for user root
+2026-07-21T18:27:04.717365+00:00 ubuntu-soc-lab CRON[2309]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T18:27:04.747579+00:00 ubuntu-soc-lab CRON[2309]: pam_unix(cron:session): session closed for user root
+2026-07-21T18:27:27.685793+00:00 ubuntu-soc-lab login[819]: pam_unix(login:session): session opened for user analyst(uid=1000) by analyst(uid=0)
+2026-07-21T18:27:27.723462+00:00 ubuntu-soc-lab (systemd): pam_unix(systemd-user:session): session opened for user analyst(uid=1000) by analyst(uid=0)
+2026-07-21T18:27:48.979561+00:00 ubuntu-soc-lab sshd[2476]: Accepted password for analyst from 192.168.56.1 port 38162 ssh2
+2026-07-21T18:27:48.982775+00:00 ubuntu-soc-lab sshd[2476]: pam_unix(sshd:session): session opened for user analyst(uid=1000) by analyst(uid=0)
+2026-07-21T18:28:01.758156+00:00 ubuntu-soc-lab CRON[2533]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T18:28:01.781397+00:00 ubuntu-soc-lab CRON[2533]: pam_unix(cron:session): session closed for user root
+2026-07-21T18:29:01.790632+00:00 ubuntu-soc-lab CRON[2542]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T18:29:01.814138+00:00 ubuntu-soc-lab CRON[2542]: pam_unix(cron:session): session closed for user root
+2026-07-21T18:30:01.954175+00:00 ubuntu-soc-lab CRON[2553]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T18:30:01.974986+00:00 ubuntu-soc-lab CRON[2553]: pam_unix(cron:session): session closed for user root
+2026-07-21T18:31:01.979745+00:00 ubuntu-soc-lab CRON[2570]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T18:31:02.011430+00:00 ubuntu-soc-lab CRON[2570]: pam_unix(cron:session): session closed for user root
+2026-07-21T18:32:01.031861+00:00 ubuntu-soc-lab CRON[2589]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T18:32:01.058899+00:00 ubuntu-soc-lab CRON[2589]: pam_unix(cron:session): session closed for user root
+2026-07-21T18:33:01.085296+00:00 ubuntu-soc-lab CRON[2601]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T18:33:01.114208+00:00 ubuntu-soc-lab CRON[2601]: pam_unix(cron:session): session closed for user root
+2026-07-21T18:34:01.988884+00:00 ubuntu-soc-lab CRON[2610]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T18:34:02.013681+00:00 ubuntu-soc-lab CRON[2610]: pam_unix(cron:session): session closed for user root
+2026-07-21T18:35:01.025976+00:00 ubuntu-soc-lab CRON[2622]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T18:35:01.027042+00:00 ubuntu-soc-lab CRON[2621]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T18:35:01.037583+00:00 ubuntu-soc-lab CRON[2621]: pam_unix(cron:session): session closed for user root
+2026-07-21T18:35:01.052951+00:00 ubuntu-soc-lab CRON[2622]: pam_unix(cron:session): session closed for user root
+2026-07-21T18:36:03.648788+00:00 ubuntu-soc-lab CRON[2638]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T18:36:03.674778+00:00 ubuntu-soc-lab CRON[2638]: pam_unix(cron:session): session closed for user root
+2026-07-21T18:37:01.753752+00:00 ubuntu-soc-lab CRON[2649]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T18:37:01.788206+00:00 ubuntu-soc-lab CRON[2649]: pam_unix(cron:session): session closed for user root
+2026-07-21T18:38:01.842321+00:00 ubuntu-soc-lab CRON[3148]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T18:38:01.860227+00:00 ubuntu-soc-lab CRON[3148]: pam_unix(cron:session): session closed for user root
+2026-07-21T18:39:01.977166+00:00 ubuntu-soc-lab CRON[3161]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T18:39:02.007400+00:00 ubuntu-soc-lab CRON[3161]: pam_unix(cron:session): session closed for user root
+2026-07-21T18:40:01.061265+00:00 ubuntu-soc-lab CRON[3170]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T18:40:01.083936+00:00 ubuntu-soc-lab CRON[3170]: pam_unix(cron:session): session closed for user root
+2026-07-21T18:41:01.168145+00:00 ubuntu-soc-lab CRON[3184]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T18:41:01.171672+00:00 ubuntu-soc-lab CRON[3184]: pam_unix(cron:session): session closed for user root
+2026-07-21T18:42:01.184189+00:00 ubuntu-soc-lab CRON[3195]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T18:42:01.219366+00:00 ubuntu-soc-lab CRON[3195]: pam_unix(cron:session): session closed for user root
+2026-07-21T18:43:01.233265+00:00 ubuntu-soc-lab CRON[3205]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T18:43:01.266628+00:00 ubuntu-soc-lab CRON[3205]: pam_unix(cron:session): session closed for user root
+2026-07-21T18:44:01.293123+00:00 ubuntu-soc-lab CRON[3224]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T18:44:01.323539+00:00 ubuntu-soc-lab CRON[3224]: pam_unix(cron:session): session closed for user root
+2026-07-21T18:45:01.345757+00:00 ubuntu-soc-lab CRON[3237]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T18:45:01.346184+00:00 ubuntu-soc-lab CRON[3238]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T18:45:01.359510+00:00 ubuntu-soc-lab CRON[3237]: pam_unix(cron:session): session closed for user root
+2026-07-21T18:45:01.374478+00:00 ubuntu-soc-lab CRON[3238]: pam_unix(cron:session): session closed for user root
+2026-07-21T18:46:01.394965+00:00 ubuntu-soc-lab CRON[3251]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T18:46:01.429230+00:00 ubuntu-soc-lab CRON[3251]: pam_unix(cron:session): session closed for user root
+2026-07-21T18:47:01.670658+00:00 ubuntu-soc-lab CRON[3263]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T18:47:01.701376+00:00 ubuntu-soc-lab CRON[3263]: pam_unix(cron:session): session closed for user root
+2026-07-21T18:48:01.782177+00:00 ubuntu-soc-lab CRON[3272]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T18:48:01.816388+00:00 ubuntu-soc-lab CRON[3272]: pam_unix(cron:session): session closed for user root
+2026-07-21T18:49:01.820781+00:00 ubuntu-soc-lab CRON[3282]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T18:49:01.846318+00:00 ubuntu-soc-lab CRON[3282]: pam_unix(cron:session): session closed for user root
+2026-07-21T18:50:01.853466+00:00 ubuntu-soc-lab CRON[3302]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T18:50:01.883947+00:00 ubuntu-soc-lab CRON[3302]: pam_unix(cron:session): session closed for user root
+2026-07-21T18:51:01.895413+00:00 ubuntu-soc-lab CRON[3482]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T18:51:01.922347+00:00 ubuntu-soc-lab CRON[3482]: pam_unix(cron:session): session closed for user root
+2026-07-21T18:52:01.928819+00:00 ubuntu-soc-lab CRON[9332]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T18:52:01.989693+00:00 ubuntu-soc-lab CRON[9332]: pam_unix(cron:session): session closed for user root
+2026-07-21T18:53:01.997469+00:00 ubuntu-soc-lab CRON[15828]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T18:53:02.015553+00:00 ubuntu-soc-lab CRON[15828]: pam_unix(cron:session): session closed for user root
+2026-07-21T18:54:01.040148+00:00 ubuntu-soc-lab CRON[15839]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T18:54:01.070512+00:00 ubuntu-soc-lab CRON[15839]: pam_unix(cron:session): session closed for user root
+2026-07-21T18:55:01.078689+00:00 ubuntu-soc-lab CRON[15851]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T18:55:01.079320+00:00 ubuntu-soc-lab CRON[15850]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T18:55:01.085243+00:00 ubuntu-soc-lab CRON[15850]: pam_unix(cron:session): session closed for user root
+2026-07-21T18:55:01.101224+00:00 ubuntu-soc-lab CRON[15851]: pam_unix(cron:session): session closed for user root
+2026-07-21T18:56:02.263429+00:00 ubuntu-soc-lab CRON[15875]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T18:56:02.300544+00:00 ubuntu-soc-lab CRON[15875]: pam_unix(cron:session): session closed for user root
+2026-07-21T18:57:01.972598+00:00 ubuntu-soc-lab CRON[15884]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T18:57:02.005888+00:00 ubuntu-soc-lab CRON[15884]: pam_unix(cron:session): session closed for user root
+2026-07-21T18:58:01.849721+00:00 ubuntu-soc-lab CRON[15902]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T18:58:01.871639+00:00 ubuntu-soc-lab CRON[15902]: pam_unix(cron:session): session closed for user root
+2026-07-21T18:59:02.975847+00:00 ubuntu-soc-lab CRON[15913]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T18:59:02.999455+00:00 ubuntu-soc-lab CRON[15913]: pam_unix(cron:session): session closed for user root
+2026-07-21T19:00:02.009226+00:00 ubuntu-soc-lab CRON[15922]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T19:00:02.046850+00:00 ubuntu-soc-lab CRON[15922]: pam_unix(cron:session): session closed for user root
+2026-07-21T19:01:01.057203+00:00 ubuntu-soc-lab CRON[15933]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T19:01:01.084950+00:00 ubuntu-soc-lab CRON[15933]: pam_unix(cron:session): session closed for user root
+2026-07-21T19:02:01.093087+00:00 ubuntu-soc-lab CRON[15952]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T19:02:01.126879+00:00 ubuntu-soc-lab CRON[15952]: pam_unix(cron:session): session closed for user root
+2026-07-21T19:03:01.158286+00:00 ubuntu-soc-lab CRON[15963]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T19:03:01.188771+00:00 ubuntu-soc-lab CRON[15963]: pam_unix(cron:session): session closed for user root
+2026-07-21T19:04:01.202190+00:00 ubuntu-soc-lab CRON[15973]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T19:04:01.233999+00:00 ubuntu-soc-lab CRON[15973]: pam_unix(cron:session): session closed for user root
+2026-07-21T19:05:01.242212+00:00 ubuntu-soc-lab CRON[15983]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T19:05:01.242775+00:00 ubuntu-soc-lab CRON[15984]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T19:05:01.255888+00:00 ubuntu-soc-lab CRON[15983]: pam_unix(cron:session): session closed for user root
+2026-07-21T19:05:01.271173+00:00 ubuntu-soc-lab CRON[15984]: pam_unix(cron:session): session closed for user root
+2026-07-21T19:06:01.600574+00:00 ubuntu-soc-lab CRON[15996]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T19:06:01.627339+00:00 ubuntu-soc-lab CRON[15996]: pam_unix(cron:session): session closed for user root
+2026-07-21T19:07:01.793942+00:00 ubuntu-soc-lab CRON[16007]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T19:07:01.830030+00:00 ubuntu-soc-lab CRON[16007]: pam_unix(cron:session): session closed for user root
+2026-07-21T19:08:01.836326+00:00 ubuntu-soc-lab CRON[16029]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T19:08:01.869479+00:00 ubuntu-soc-lab CRON[16029]: pam_unix(cron:session): session closed for user root
+2026-07-21T19:09:02.001726+00:00 ubuntu-soc-lab CRON[16040]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T19:09:02.039996+00:00 ubuntu-soc-lab CRON[16040]: pam_unix(cron:session): session closed for user root
+2026-07-21T19:10:01.230771+00:00 ubuntu-soc-lab CRON[16051]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T19:10:01.269842+00:00 ubuntu-soc-lab CRON[16051]: pam_unix(cron:session): session closed for user root
+2026-07-21T19:11:01.457988+00:00 ubuntu-soc-lab CRON[16064]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T19:11:01.487529+00:00 ubuntu-soc-lab CRON[16064]: pam_unix(cron:session): session closed for user root
+2026-07-21T19:12:01.494001+00:00 ubuntu-soc-lab CRON[16073]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T19:12:01.512387+00:00 ubuntu-soc-lab CRON[16073]: pam_unix(cron:session): session closed for user root
+2026-07-21T19:13:01.520429+00:00 ubuntu-soc-lab CRON[16082]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T19:13:01.553460+00:00 ubuntu-soc-lab CRON[16082]: pam_unix(cron:session): session closed for user root
+2026-07-21T19:14:01.568812+00:00 ubuntu-soc-lab CRON[16103]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T19:14:01.595733+00:00 ubuntu-soc-lab CRON[16103]: pam_unix(cron:session): session closed for user root
+2026-07-21T19:15:01.604052+00:00 ubuntu-soc-lab CRON[16113]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T19:15:01.604406+00:00 ubuntu-soc-lab CRON[16112]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T19:15:01.609202+00:00 ubuntu-soc-lab CRON[16112]: pam_unix(cron:session): session closed for user root
+2026-07-21T19:15:01.630707+00:00 ubuntu-soc-lab CRON[16113]: pam_unix(cron:session): session closed for user root
+2026-07-21T19:16:01.666787+00:00 ubuntu-soc-lab CRON[16125]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T19:16:01.687913+00:00 ubuntu-soc-lab CRON[16125]: pam_unix(cron:session): session closed for user root
+2026-07-21T19:17:01.980811+00:00 ubuntu-soc-lab CRON[16134]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T19:17:01.981381+00:00 ubuntu-soc-lab CRON[16135]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T19:17:01.999946+00:00 ubuntu-soc-lab CRON[16134]: pam_unix(cron:session): session closed for user root
+2026-07-21T19:17:02.002949+00:00 ubuntu-soc-lab CRON[16135]: pam_unix(cron:session): session closed for user root
+2026-07-21T19:18:01.149230+00:00 ubuntu-soc-lab CRON[16147]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T19:18:01.179981+00:00 ubuntu-soc-lab CRON[16147]: pam_unix(cron:session): session closed for user root
+2026-07-21T19:19:01.492112+00:00 ubuntu-soc-lab CRON[16159]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T19:19:01.526670+00:00 ubuntu-soc-lab CRON[16159]: pam_unix(cron:session): session closed for user root
+2026-07-21T19:20:01.885175+00:00 ubuntu-soc-lab CRON[16179]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T19:20:01.928757+00:00 ubuntu-soc-lab CRON[16179]: pam_unix(cron:session): session closed for user root
+2026-07-21T19:21:01.979130+00:00 ubuntu-soc-lab CRON[16192]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T19:21:01.997395+00:00 ubuntu-soc-lab CRON[16192]: pam_unix(cron:session): session closed for user root
+2026-07-21T19:22:02.075231+00:00 ubuntu-soc-lab CRON[16201]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T19:22:02.107961+00:00 ubuntu-soc-lab CRON[16201]: pam_unix(cron:session): session closed for user root
+2026-07-21T19:23:01.326511+00:00 ubuntu-soc-lab CRON[16210]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T19:23:01.351779+00:00 ubuntu-soc-lab CRON[16210]: pam_unix(cron:session): session closed for user root
+2026-07-21T19:24:01.435240+00:00 ubuntu-soc-lab CRON[16220]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T19:24:01.464380+00:00 ubuntu-soc-lab CRON[16220]: pam_unix(cron:session): session closed for user root
+2026-07-21T19:25:02.054295+00:00 ubuntu-soc-lab CRON[16231]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T19:25:02.068516+00:00 ubuntu-soc-lab CRON[16231]: pam_unix(cron:session): session closed for user root
+2026-07-21T19:25:02.068675+00:00 ubuntu-soc-lab CRON[16232]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T19:25:02.081775+00:00 ubuntu-soc-lab CRON[16232]: pam_unix(cron:session): session closed for user root
+2026-07-21T19:26:01.089398+00:00 ubuntu-soc-lab CRON[16256]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T19:26:01.114521+00:00 ubuntu-soc-lab CRON[16256]: pam_unix(cron:session): session closed for user root
+2026-07-21T19:27:01.808855+00:00 ubuntu-soc-lab CRON[16265]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T19:27:01.839901+00:00 ubuntu-soc-lab CRON[16265]: pam_unix(cron:session): session closed for user root
+2026-07-21T19:28:01.850008+00:00 ubuntu-soc-lab CRON[16274]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T19:28:01.885073+00:00 ubuntu-soc-lab CRON[16274]: pam_unix(cron:session): session closed for user root
+2026-07-21T19:29:01.899859+00:00 ubuntu-soc-lab CRON[16283]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T19:29:01.922901+00:00 ubuntu-soc-lab CRON[16283]: pam_unix(cron:session): session closed for user root
+2026-07-21T19:30:01.928277+00:00 ubuntu-soc-lab CRON[16293]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T19:30:01.965244+00:00 ubuntu-soc-lab CRON[16293]: pam_unix(cron:session): session closed for user root
+2026-07-21T19:31:01.984870+00:00 ubuntu-soc-lab CRON[16307]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T19:31:02.012396+00:00 ubuntu-soc-lab CRON[16307]: pam_unix(cron:session): session closed for user root
+2026-07-21T19:32:01.459379+00:00 ubuntu-soc-lab CRON[16326]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T19:32:01.479741+00:00 ubuntu-soc-lab CRON[16326]: pam_unix(cron:session): session closed for user root
+2026-07-21T19:33:01.483393+00:00 ubuntu-soc-lab CRON[16336]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T19:33:01.495336+00:00 ubuntu-soc-lab CRON[16336]: pam_unix(cron:session): session closed for user root
+2026-07-21T19:34:01.531730+00:00 ubuntu-soc-lab CRON[16346]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T19:34:01.549365+00:00 ubuntu-soc-lab CRON[16346]: pam_unix(cron:session): session closed for user root
+2026-07-21T19:35:01.553228+00:00 ubuntu-soc-lab CRON[16356]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T19:35:01.559142+00:00 ubuntu-soc-lab CRON[16355]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T19:35:01.565836+00:00 ubuntu-soc-lab CRON[16355]: pam_unix(cron:session): session closed for user root
+2026-07-21T19:35:01.580660+00:00 ubuntu-soc-lab CRON[16356]: pam_unix(cron:session): session closed for user root
+2026-07-21T19:36:01.591276+00:00 ubuntu-soc-lab CRON[16370]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T19:36:01.626035+00:00 ubuntu-soc-lab CRON[16370]: pam_unix(cron:session): session closed for user root
+2026-07-21T19:37:01.663193+00:00 ubuntu-soc-lab CRON[16380]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T19:37:01.692795+00:00 ubuntu-soc-lab CRON[16380]: pam_unix(cron:session): session closed for user root
+2026-07-21T19:38:01.702788+00:00 ubuntu-soc-lab CRON[16399]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T19:38:01.736766+00:00 ubuntu-soc-lab CRON[16399]: pam_unix(cron:session): session closed for user root
+2026-07-21T19:39:01.749040+00:00 ubuntu-soc-lab CRON[16408]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T19:39:01.783414+00:00 ubuntu-soc-lab CRON[16408]: pam_unix(cron:session): session closed for user root
+2026-07-21T19:40:01.812930+00:00 ubuntu-soc-lab CRON[16432]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T19:40:01.845342+00:00 ubuntu-soc-lab CRON[16432]: pam_unix(cron:session): session closed for user root
+2026-07-21T19:41:01.855378+00:00 ubuntu-soc-lab CRON[16444]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T19:41:01.893351+00:00 ubuntu-soc-lab CRON[16444]: pam_unix(cron:session): session closed for user root
+2026-07-21T19:42:01.903858+00:00 ubuntu-soc-lab CRON[16454]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T19:42:01.940594+00:00 ubuntu-soc-lab CRON[16454]: pam_unix(cron:session): session closed for user root
+2026-07-21T19:43:01.949368+00:00 ubuntu-soc-lab CRON[16463]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T19:43:01.980268+00:00 ubuntu-soc-lab CRON[16463]: pam_unix(cron:session): session closed for user root
+2026-07-21T19:44:01.989308+00:00 ubuntu-soc-lab CRON[16481]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T19:44:02.017260+00:00 ubuntu-soc-lab CRON[16481]: pam_unix(cron:session): session closed for user root
+2026-07-21T19:45:01.024492+00:00 ubuntu-soc-lab CRON[16497]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T19:45:01.028512+00:00 ubuntu-soc-lab CRON[16496]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T19:45:01.043738+00:00 ubuntu-soc-lab CRON[16496]: pam_unix(cron:session): session closed for user root
+2026-07-21T19:45:01.056615+00:00 ubuntu-soc-lab CRON[16497]: pam_unix(cron:session): session closed for user root
+2026-07-21T19:46:01.063762+00:00 ubuntu-soc-lab CRON[16509]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T19:46:01.101301+00:00 ubuntu-soc-lab CRON[16509]: pam_unix(cron:session): session closed for user root
+2026-07-21T19:47:01.116558+00:00 ubuntu-soc-lab CRON[16520]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T19:47:01.145958+00:00 ubuntu-soc-lab CRON[16520]: pam_unix(cron:session): session closed for user root
+2026-07-21T19:48:01.154932+00:00 ubuntu-soc-lab CRON[16529]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T19:48:01.184345+00:00 ubuntu-soc-lab CRON[16529]: pam_unix(cron:session): session closed for user root
+2026-07-21T19:49:01.189630+00:00 ubuntu-soc-lab CRON[16539]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T19:49:01.219015+00:00 ubuntu-soc-lab CRON[16539]: pam_unix(cron:session): session closed for user root
+2026-07-21T19:50:01.246676+00:00 ubuntu-soc-lab CRON[16557]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T19:50:01.289459+00:00 ubuntu-soc-lab CRON[16557]: pam_unix(cron:session): session closed for user root
+2026-07-21T19:51:01.298543+00:00 ubuntu-soc-lab CRON[16571]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T19:51:01.332750+00:00 ubuntu-soc-lab CRON[16571]: pam_unix(cron:session): session closed for user root
+2026-07-21T19:52:01.347005+00:00 ubuntu-soc-lab CRON[16581]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T19:52:01.379992+00:00 ubuntu-soc-lab CRON[16581]: pam_unix(cron:session): session closed for user root
+2026-07-21T19:53:01.382802+00:00 ubuntu-soc-lab CRON[16596]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T19:53:01.402855+00:00 ubuntu-soc-lab CRON[16596]: pam_unix(cron:session): session closed for user root
+2026-07-21T19:54:01.415281+00:00 ubuntu-soc-lab CRON[16605]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T19:54:01.447101+00:00 ubuntu-soc-lab CRON[16605]: pam_unix(cron:session): session closed for user root
+2026-07-21T19:55:01.457155+00:00 ubuntu-soc-lab CRON[16615]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T19:55:01.458762+00:00 ubuntu-soc-lab CRON[16614]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T19:55:01.472102+00:00 ubuntu-soc-lab CRON[16614]: pam_unix(cron:session): session closed for user root
+2026-07-21T19:55:01.492105+00:00 ubuntu-soc-lab CRON[16615]: pam_unix(cron:session): session closed for user root
+2026-07-21T19:56:01.981621+00:00 ubuntu-soc-lab CRON[16636]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T19:56:02.003586+00:00 ubuntu-soc-lab CRON[16636]: pam_unix(cron:session): session closed for user root
+2026-07-21T19:57:01.020047+00:00 ubuntu-soc-lab CRON[16650]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T19:57:01.054670+00:00 ubuntu-soc-lab CRON[16650]: pam_unix(cron:session): session closed for user root
+2026-07-21T19:58:01.063610+00:00 ubuntu-soc-lab CRON[16660]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T19:58:01.096004+00:00 ubuntu-soc-lab CRON[16660]: pam_unix(cron:session): session closed for user root
+2026-07-21T19:59:01.102926+00:00 ubuntu-soc-lab CRON[16675]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T19:59:01.139897+00:00 ubuntu-soc-lab CRON[16675]: pam_unix(cron:session): session closed for user root
+2026-07-21T20:00:01.196258+00:00 ubuntu-soc-lab CRON[16686]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T20:00:01.231750+00:00 ubuntu-soc-lab CRON[16686]: pam_unix(cron:session): session closed for user root
+2026-07-21T20:01:01.237161+00:00 ubuntu-soc-lab CRON[16697]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T20:01:01.268992+00:00 ubuntu-soc-lab CRON[16697]: pam_unix(cron:session): session closed for user root
+2026-07-21T20:02:01.279101+00:00 ubuntu-soc-lab CRON[16714]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T20:02:01.313002+00:00 ubuntu-soc-lab CRON[16714]: pam_unix(cron:session): session closed for user root
+2026-07-21T20:03:01.325688+00:00 ubuntu-soc-lab CRON[16726]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T20:03:01.358215+00:00 ubuntu-soc-lab CRON[16726]: pam_unix(cron:session): session closed for user root
+2026-07-21T20:04:01.369015+00:00 ubuntu-soc-lab CRON[16736]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T20:04:01.389545+00:00 ubuntu-soc-lab CRON[16736]: pam_unix(cron:session): session closed for user root
+2026-07-21T20:05:01.396250+00:00 ubuntu-soc-lab CRON[16745]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T20:05:01.397967+00:00 ubuntu-soc-lab CRON[16746]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T20:05:01.402160+00:00 ubuntu-soc-lab CRON[16745]: pam_unix(cron:session): session closed for user root
+2026-07-21T20:05:01.431475+00:00 ubuntu-soc-lab CRON[16746]: pam_unix(cron:session): session closed for user root
+2026-07-21T20:06:01.438723+00:00 ubuntu-soc-lab CRON[16759]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T20:06:01.464738+00:00 ubuntu-soc-lab CRON[16759]: pam_unix(cron:session): session closed for user root
+2026-07-21T20:07:01.481382+00:00 ubuntu-soc-lab CRON[16768]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T20:07:01.507082+00:00 ubuntu-soc-lab CRON[16768]: pam_unix(cron:session): session closed for user root
+2026-07-21T20:08:01.512647+00:00 ubuntu-soc-lab CRON[16788]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T20:08:01.530477+00:00 ubuntu-soc-lab CRON[16788]: pam_unix(cron:session): session closed for user root
+2026-07-21T20:09:01.537131+00:00 ubuntu-soc-lab CRON[16797]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T20:09:01.572276+00:00 ubuntu-soc-lab CRON[16797]: pam_unix(cron:session): session closed for user root
+2026-07-21T20:10:01.587138+00:00 ubuntu-soc-lab CRON[16807]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T20:10:01.620044+00:00 ubuntu-soc-lab CRON[16807]: pam_unix(cron:session): session closed for user root
+2026-07-21T20:11:01.635061+00:00 ubuntu-soc-lab CRON[16819]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T20:11:01.667505+00:00 ubuntu-soc-lab CRON[16819]: pam_unix(cron:session): session closed for user root
+2026-07-21T20:12:01.684301+00:00 ubuntu-soc-lab CRON[16843]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T20:12:01.717632+00:00 ubuntu-soc-lab CRON[16843]: pam_unix(cron:session): session closed for user root
+2026-07-21T20:13:01.729757+00:00 ubuntu-soc-lab CRON[16853]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T20:13:01.769797+00:00 ubuntu-soc-lab CRON[16853]: pam_unix(cron:session): session closed for user root
+2026-07-21T20:14:01.776037+00:00 ubuntu-soc-lab CRON[16872]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T20:14:01.799573+00:00 ubuntu-soc-lab CRON[16872]: pam_unix(cron:session): session closed for user root
+2026-07-21T20:15:01.808843+00:00 ubuntu-soc-lab CRON[16882]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T20:15:01.815373+00:00 ubuntu-soc-lab CRON[16881]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T20:15:01.849080+00:00 ubuntu-soc-lab CRON[16881]: pam_unix(cron:session): session closed for user root
+2026-07-21T20:15:01.850297+00:00 ubuntu-soc-lab CRON[16882]: pam_unix(cron:session): session closed for user root
+2026-07-21T20:16:01.858497+00:00 ubuntu-soc-lab CRON[16894]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T20:16:01.890893+00:00 ubuntu-soc-lab CRON[16894]: pam_unix(cron:session): session closed for user root
+2026-07-21T20:17:01.898478+00:00 ubuntu-soc-lab CRON[16908]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T20:17:01.898750+00:00 ubuntu-soc-lab CRON[16907]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T20:17:01.919597+00:00 ubuntu-soc-lab CRON[16907]: pam_unix(cron:session): session closed for user root
+2026-07-21T20:17:01.927867+00:00 ubuntu-soc-lab CRON[16908]: pam_unix(cron:session): session closed for user root
+2026-07-21T20:18:02.204249+00:00 ubuntu-soc-lab CRON[16920]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T20:18:02.239413+00:00 ubuntu-soc-lab CRON[16920]: pam_unix(cron:session): session closed for user root
+2026-07-21T20:19:01.249272+00:00 ubuntu-soc-lab CRON[16930]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T20:19:01.282886+00:00 ubuntu-soc-lab CRON[16930]: pam_unix(cron:session): session closed for user root
+2026-07-21T20:20:01.295275+00:00 ubuntu-soc-lab CRON[16947]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T20:20:01.321926+00:00 ubuntu-soc-lab CRON[16947]: pam_unix(cron:session): session closed for user root
+2026-07-21T20:21:01.331181+00:00 ubuntu-soc-lab CRON[16961]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T20:21:01.350116+00:00 ubuntu-soc-lab CRON[16961]: pam_unix(cron:session): session closed for user root
+2026-07-21T20:22:01.360711+00:00 ubuntu-soc-lab CRON[16970]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T20:22:01.383846+00:00 ubuntu-soc-lab CRON[16970]: pam_unix(cron:session): session closed for user root
+2026-07-21T20:23:01.393728+00:00 ubuntu-soc-lab CRON[16980]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T20:23:01.412547+00:00 ubuntu-soc-lab CRON[16980]: pam_unix(cron:session): session closed for user root
+2026-07-21T20:24:01.426630+00:00 ubuntu-soc-lab CRON[16990]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T20:24:01.453021+00:00 ubuntu-soc-lab CRON[16990]: pam_unix(cron:session): session closed for user root
+2026-07-21T20:25:01.503696+00:00 ubuntu-soc-lab CRON[16999]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T20:25:01.512774+00:00 ubuntu-soc-lab CRON[17000]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T20:25:01.518818+00:00 ubuntu-soc-lab CRON[16999]: pam_unix(cron:session): session closed for user root
+2026-07-21T20:25:01.548019+00:00 ubuntu-soc-lab CRON[17000]: pam_unix(cron:session): session closed for user root
+2026-07-21T20:26:01.566463+00:00 ubuntu-soc-lab CRON[17021]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T20:26:01.608984+00:00 ubuntu-soc-lab CRON[17021]: pam_unix(cron:session): session closed for user root
+2026-07-21T20:27:01.627887+00:00 ubuntu-soc-lab CRON[17033]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T20:27:01.655567+00:00 ubuntu-soc-lab CRON[17033]: pam_unix(cron:session): session closed for user root
+2026-07-21T20:28:01.781624+00:00 ubuntu-soc-lab CRON[17042]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T20:28:01.820609+00:00 ubuntu-soc-lab CRON[17042]: pam_unix(cron:session): session closed for user root
+2026-07-21T20:29:01.851180+00:00 ubuntu-soc-lab CRON[17052]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T20:29:01.875424+00:00 ubuntu-soc-lab CRON[17052]: pam_unix(cron:session): session closed for user root
+2026-07-21T20:30:01.998865+00:00 ubuntu-soc-lab CRON[17061]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T20:30:02.017480+00:00 ubuntu-soc-lab CRON[17061]: pam_unix(cron:session): session closed for user root
+2026-07-21T20:31:01.063305+00:00 ubuntu-soc-lab CRON[17073]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-21T20:31:01.082368+00:00 ubuntu-soc-lab CRON[17073]: pam_unix(cron:session): session closed for user root
+2026-07-22T18:44:28.833041+00:00 ubuntu-soc-lab login[932]: pam_unix(login:session): session opened for user analyst(uid=1000) by analyst(uid=0)
+2026-07-22T18:44:28.920092+00:00 ubuntu-soc-lab (systemd): pam_unix(systemd-user:session): session opened for user analyst(uid=1000) by analyst(uid=0)
+2026-07-22T18:44:47.221952+00:00 ubuntu-soc-lab sshd[2550]: Accepted password for analyst from 192.168.56.1 port 47279 ssh2
+2026-07-22T18:44:47.225239+00:00 ubuntu-soc-lab sshd[2550]: pam_unix(sshd:session): session opened for user analyst(uid=1000) by analyst(uid=0)
+2026-07-22T18:45:02.906533+00:00 ubuntu-soc-lab CRON[2610]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-22T18:45:02.910857+00:00 ubuntu-soc-lab CRON[2609]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-22T18:45:02.934104+00:00 ubuntu-soc-lab CRON[2609]: pam_unix(cron:session): session closed for user root
+2026-07-22T18:45:03.092008+00:00 ubuntu-soc-lab CRON[2610]: pam_unix(cron:session): session closed for user root
+2026-07-22T18:45:34.240556+00:00 ubuntu-soc-lab sshd[2621]: Accepted password for analyst from 192.168.56.1 port 46174 ssh2
+2026-07-22T18:45:34.247272+00:00 ubuntu-soc-lab sshd[2621]: pam_unix(sshd:session): session opened for user analyst(uid=1000) by analyst(uid=0)
+2026-07-22T18:45:34.864561+00:00 ubuntu-soc-lab sshd[2621]: pam_unix(sshd:session): session closed for user analyst
+2026-07-22T18:46:01.101691+00:00 ubuntu-soc-lab CRON[2678]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-22T18:46:01.118888+00:00 ubuntu-soc-lab CRON[2678]: pam_unix(cron:session): session closed for user root
+2026-07-22T18:46:25.763024+00:00 ubuntu-soc-lab sshd[2687]: Accepted password for analyst from 192.168.56.1 port 29587 ssh2
+2026-07-22T18:46:25.769137+00:00 ubuntu-soc-lab sshd[2687]: pam_unix(sshd:session): session opened for user analyst(uid=1000) by analyst(uid=0)
+2026-07-22T18:46:26.138325+00:00 ubuntu-soc-lab sshd[2687]: pam_unix(sshd:session): session closed for user analyst
+2026-07-22T18:47:01.122977+00:00 ubuntu-soc-lab CRON[2735]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-22T18:47:01.143189+00:00 ubuntu-soc-lab CRON[2735]: pam_unix(cron:session): session closed for user root
+2026-07-22T18:48:01.148233+00:00 ubuntu-soc-lab CRON[2746]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-22T18:48:01.170398+00:00 ubuntu-soc-lab CRON[2746]: pam_unix(cron:session): session closed for user root
+2026-07-22T18:49:01.176548+00:00 ubuntu-soc-lab CRON[2755]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-22T18:49:01.208066+00:00 ubuntu-soc-lab CRON[2755]: pam_unix(cron:session): session closed for user root
+2026-07-22T18:50:01.211613+00:00 ubuntu-soc-lab CRON[2772]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-22T18:50:01.224793+00:00 ubuntu-soc-lab CRON[2772]: pam_unix(cron:session): session closed for user root
+2026-07-22T18:51:01.230261+00:00 ubuntu-soc-lab CRON[2792]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-22T18:51:01.260023+00:00 ubuntu-soc-lab CRON[2792]: pam_unix(cron:session): session closed for user root
+2026-07-22T18:52:01.268334+00:00 ubuntu-soc-lab CRON[2801]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-22T18:52:01.294367+00:00 ubuntu-soc-lab CRON[2801]: pam_unix(cron:session): session closed for user root
+2026-07-22T18:53:01.304473+00:00 ubuntu-soc-lab CRON[2810]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-22T18:53:01.328611+00:00 ubuntu-soc-lab CRON[2810]: pam_unix(cron:session): session closed for user root
+2026-07-22T18:54:01.331689+00:00 ubuntu-soc-lab CRON[2820]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-22T18:54:01.354068+00:00 ubuntu-soc-lab CRON[2820]: pam_unix(cron:session): session closed for user root
+2026-07-22T18:55:01.362880+00:00 ubuntu-soc-lab CRON[2832]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-22T18:55:01.380736+00:00 ubuntu-soc-lab CRON[2833]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-22T18:55:01.380883+00:00 ubuntu-soc-lab CRON[2832]: pam_unix(cron:session): session closed for user root
+2026-07-22T18:55:01.396024+00:00 ubuntu-soc-lab CRON[2833]: pam_unix(cron:session): session closed for user root
+2026-07-22T18:56:01.401326+00:00 ubuntu-soc-lab CRON[2844]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-22T18:56:01.421622+00:00 ubuntu-soc-lab CRON[2844]: pam_unix(cron:session): session closed for user root
+2026-07-22T18:57:01.429206+00:00 ubuntu-soc-lab CRON[2863]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-22T18:57:01.462276+00:00 ubuntu-soc-lab CRON[2863]: pam_unix(cron:session): session closed for user root
+2026-07-22T18:58:01.473163+00:00 ubuntu-soc-lab CRON[2872]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-22T18:58:01.499199+00:00 ubuntu-soc-lab CRON[2872]: pam_unix(cron:session): session closed for user root
+2026-07-22T18:59:01.506917+00:00 ubuntu-soc-lab CRON[2881]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-22T18:59:01.529068+00:00 ubuntu-soc-lab CRON[2881]: pam_unix(cron:session): session closed for user root
+2026-07-22T19:00:01.541630+00:00 ubuntu-soc-lab CRON[2898]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-22T19:00:01.569102+00:00 ubuntu-soc-lab CRON[2898]: pam_unix(cron:session): session closed for user root
+2026-07-22T19:01:01.572604+00:00 ubuntu-soc-lab CRON[2907]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-22T19:01:01.602086+00:00 ubuntu-soc-lab CRON[2907]: pam_unix(cron:session): session closed for user root
+2026-07-22T19:02:01.607959+00:00 ubuntu-soc-lab CRON[2916]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-22T19:02:01.627446+00:00 ubuntu-soc-lab CRON[2916]: pam_unix(cron:session): session closed for user root
+2026-07-22T19:03:01.633405+00:00 ubuntu-soc-lab CRON[2936]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-22T19:03:01.653290+00:00 ubuntu-soc-lab CRON[2936]: pam_unix(cron:session): session closed for user root
+2026-07-22T19:04:01.656578+00:00 ubuntu-soc-lab CRON[2945]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-22T19:04:01.681893+00:00 ubuntu-soc-lab CRON[2945]: pam_unix(cron:session): session closed for user root
+2026-07-22T19:05:01.687736+00:00 ubuntu-soc-lab CRON[2956]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-22T19:05:01.699418+00:00 ubuntu-soc-lab CRON[2957]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-22T19:05:01.714870+00:00 ubuntu-soc-lab CRON[2956]: pam_unix(cron:session): session closed for user root
+2026-07-22T19:05:01.721939+00:00 ubuntu-soc-lab CRON[2957]: pam_unix(cron:session): session closed for user root
+2026-07-22T19:06:01.727421+00:00 ubuntu-soc-lab CRON[2968]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-22T19:06:01.753302+00:00 ubuntu-soc-lab CRON[2968]: pam_unix(cron:session): session closed for user root
+2026-07-22T19:07:01.759585+00:00 ubuntu-soc-lab CRON[3001]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-22T19:07:01.790318+00:00 ubuntu-soc-lab CRON[3001]: pam_unix(cron:session): session closed for user root
+2026-07-22T19:08:01.799030+00:00 ubuntu-soc-lab CRON[3010]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-22T19:08:01.830378+00:00 ubuntu-soc-lab CRON[3010]: pam_unix(cron:session): session closed for user root
+2026-07-22T19:09:01.836121+00:00 ubuntu-soc-lab CRON[3029]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-22T19:09:01.856122+00:00 ubuntu-soc-lab CRON[3029]: pam_unix(cron:session): session closed for user root
+2026-07-22T19:10:01.871982+00:00 ubuntu-soc-lab CRON[3041]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-22T19:10:01.895139+00:00 ubuntu-soc-lab CRON[3041]: pam_unix(cron:session): session closed for user root
+2026-07-22T19:11:01.903091+00:00 ubuntu-soc-lab CRON[3051]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-22T19:11:01.936206+00:00 ubuntu-soc-lab CRON[3051]: pam_unix(cron:session): session closed for user root
+2026-07-22T19:12:01.940072+00:00 ubuntu-soc-lab CRON[3063]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-22T19:12:01.960625+00:00 ubuntu-soc-lab CRON[3063]: pam_unix(cron:session): session closed for user root
+2026-07-22T19:13:01.967861+00:00 ubuntu-soc-lab CRON[3072]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-22T19:13:01.995490+00:00 ubuntu-soc-lab CRON[3072]: pam_unix(cron:session): session closed for user root
+2026-07-22T19:14:02.003786+00:00 ubuntu-soc-lab CRON[3081]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-22T19:14:02.034636+00:00 ubuntu-soc-lab CRON[3081]: pam_unix(cron:session): session closed for user root
+2026-07-22T19:15:01.044646+00:00 ubuntu-soc-lab CRON[3102]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-22T19:15:01.046388+00:00 ubuntu-soc-lab CRON[3101]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-22T19:15:01.065574+00:00 ubuntu-soc-lab CRON[3101]: pam_unix(cron:session): session closed for user root
+2026-07-22T19:15:01.072327+00:00 ubuntu-soc-lab CRON[3102]: pam_unix(cron:session): session closed for user root
+2026-07-22T19:16:01.077432+00:00 ubuntu-soc-lab CRON[3114]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-22T19:16:01.102892+00:00 ubuntu-soc-lab CRON[3114]: pam_unix(cron:session): session closed for user root
+2026-07-22T19:17:01.106300+00:00 ubuntu-soc-lab CRON[3124]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-22T19:17:01.106622+00:00 ubuntu-soc-lab CRON[3123]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-22T19:17:01.121197+00:00 ubuntu-soc-lab CRON[3123]: pam_unix(cron:session): session closed for user root
+2026-07-22T19:17:01.123928+00:00 ubuntu-soc-lab CRON[3124]: pam_unix(cron:session): session closed for user root
+2026-07-22T19:17:31.738117+00:00 ubuntu-soc-lab sshd[2550]: pam_unix(sshd:session): session closed for user analyst
+2026-07-22T19:18:01.130215+00:00 ubuntu-soc-lab CRON[3136]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-22T19:18:01.165088+00:00 ubuntu-soc-lab CRON[3136]: pam_unix(cron:session): session closed for user root
+2026-07-22T19:19:01.171857+00:00 ubuntu-soc-lab CRON[3145]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-22T19:19:01.194735+00:00 ubuntu-soc-lab CRON[3145]: pam_unix(cron:session): session closed for user root
+2026-07-22T19:20:01.200170+00:00 ubuntu-soc-lab CRON[3159]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-22T19:20:01.237691+00:00 ubuntu-soc-lab CRON[3159]: pam_unix(cron:session): session closed for user root
+2026-07-22T19:21:01.242707+00:00 ubuntu-soc-lab CRON[3180]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-22T19:21:01.276083+00:00 ubuntu-soc-lab CRON[3180]: pam_unix(cron:session): session closed for user root
+2026-07-22T19:22:01.281365+00:00 ubuntu-soc-lab CRON[3190]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-22T19:22:01.305770+00:00 ubuntu-soc-lab CRON[3190]: pam_unix(cron:session): session closed for user root
+2026-07-22T19:23:01.308714+00:00 ubuntu-soc-lab CRON[3199]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-22T19:23:01.329889+00:00 ubuntu-soc-lab CRON[3199]: pam_unix(cron:session): session closed for user root
+2026-07-22T19:24:01.335551+00:00 ubuntu-soc-lab CRON[3208]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-22T19:24:01.369273+00:00 ubuntu-soc-lab CRON[3208]: pam_unix(cron:session): session closed for user root
+2026-07-22T19:25:01.375171+00:00 ubuntu-soc-lab CRON[3219]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-22T19:25:01.379055+00:00 ubuntu-soc-lab CRON[3218]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-22T19:25:01.389611+00:00 ubuntu-soc-lab CRON[3218]: pam_unix(cron:session): session closed for user root
+2026-07-22T19:25:01.403326+00:00 ubuntu-soc-lab CRON[3219]: pam_unix(cron:session): session closed for user root
+2026-07-27T19:19:01.716616+00:00 ubuntu-soc-lab CRON[2330]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T19:19:01.822244+00:00 ubuntu-soc-lab CRON[2330]: pam_unix(cron:session): session closed for user root
+2026-07-27T19:20:00.064677+00:00 ubuntu-soc-lab login[903]: pam_unix(login:session): session opened for user analyst(uid=1000) by analyst(uid=0)
+2026-07-27T19:20:00.153702+00:00 ubuntu-soc-lab (systemd): pam_unix(systemd-user:session): session opened for user analyst(uid=1000) by analyst(uid=0)
+2026-07-27T19:20:03.932886+00:00 ubuntu-soc-lab CRON[2502]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T19:20:03.951675+00:00 ubuntu-soc-lab CRON[2502]: pam_unix(cron:session): session closed for user root
+2026-07-27T19:20:35.243786+00:00 ubuntu-soc-lab sshd[2514]: Accepted password for analyst from 192.168.56.1 port 39777 ssh2
+2026-07-27T19:20:35.244628+00:00 ubuntu-soc-lab sshd[2514]: pam_unix(sshd:session): session opened for user analyst(uid=1000) by analyst(uid=0)
+2026-07-27T19:21:01.964015+00:00 ubuntu-soc-lab CRON[2572]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T19:21:01.996173+00:00 ubuntu-soc-lab CRON[2572]: pam_unix(cron:session): session closed for user root
+2026-07-27T19:22:02.018488+00:00 ubuntu-soc-lab CRON[2586]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T19:22:02.054361+00:00 ubuntu-soc-lab CRON[2586]: pam_unix(cron:session): session closed for user root
+2026-07-27T19:23:01.059394+00:00 ubuntu-soc-lab CRON[2595]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T19:23:01.091935+00:00 ubuntu-soc-lab CRON[2595]: pam_unix(cron:session): session closed for user root
+2026-07-27T19:24:01.111620+00:00 ubuntu-soc-lab CRON[2608]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T19:24:01.144556+00:00 ubuntu-soc-lab CRON[2608]: pam_unix(cron:session): session closed for user root
+2026-07-27T19:25:01.154550+00:00 ubuntu-soc-lab CRON[2629]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T19:25:01.155401+00:00 ubuntu-soc-lab CRON[2628]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T19:25:01.176219+00:00 ubuntu-soc-lab CRON[2628]: pam_unix(cron:session): session closed for user root
+2026-07-27T19:25:01.176691+00:00 ubuntu-soc-lab CRON[2629]: pam_unix(cron:session): session closed for user root
+2026-07-27T19:26:01.182025+00:00 ubuntu-soc-lab CRON[2640]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T19:26:01.219924+00:00 ubuntu-soc-lab CRON[2640]: pam_unix(cron:session): session closed for user root
+2026-07-27T19:27:01.227028+00:00 ubuntu-soc-lab CRON[2649]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T19:27:01.260713+00:00 ubuntu-soc-lab CRON[2649]: pam_unix(cron:session): session closed for user root
+2026-07-27T19:28:01.270702+00:00 ubuntu-soc-lab CRON[2659]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T19:28:01.287120+00:00 ubuntu-soc-lab CRON[2659]: pam_unix(cron:session): session closed for user root
+2026-07-27T19:29:01.293755+00:00 ubuntu-soc-lab CRON[2696]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T19:29:01.329711+00:00 ubuntu-soc-lab CRON[2696]: pam_unix(cron:session): session closed for user root
+2026-07-27T19:29:03.528027+00:00 ubuntu-soc-lab sudo:  analyst : TTY=pts/0 ; PWD=/home/analyst ; USER=root ; COMMAND=/usr/bin/systemctl status nginx --no-pager
+2026-07-27T19:29:03.540581+00:00 ubuntu-soc-lab sudo: pam_unix(sudo:session): session opened for user root(uid=0) by analyst(uid=1000)
+2026-07-27T19:29:03.545259+00:00 ubuntu-soc-lab sudo: pam_unix(sudo:session): session closed for user root
+2026-07-27T19:29:44.496698+00:00 ubuntu-soc-lab sudo:  analyst : TTY=pts/0 ; PWD=/home/analyst ; USER=root ; COMMAND=/usr/bin/apt update
+2026-07-27T19:29:44.497387+00:00 ubuntu-soc-lab sudo: pam_unix(sudo:session): session opened for user root(uid=0) by analyst(uid=1000)
+2026-07-27T19:29:54.856173+00:00 ubuntu-soc-lab sudo: pam_unix(sudo:session): session closed for user root
+2026-07-27T19:30:01.340830+00:00 ubuntu-soc-lab CRON[3034]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T19:30:01.371197+00:00 ubuntu-soc-lab CRON[3034]: pam_unix(cron:session): session closed for user root
+2026-07-27T19:30:32.458658+00:00 ubuntu-soc-lab sudo:  analyst : TTY=pts/0 ; PWD=/home/analyst ; USER=root ; COMMAND=/usr/bin/apt install nginx -y
+2026-07-27T19:30:32.459261+00:00 ubuntu-soc-lab sudo: pam_unix(sudo:session): session opened for user root(uid=0) by analyst(uid=1000)
+2026-07-27T19:30:40.089214+00:00 ubuntu-soc-lab sudo: pam_unix(sudo:session): session closed for user root
+2026-07-27T19:31:01.375919+00:00 ubuntu-soc-lab CRON[3354]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T19:31:01.397394+00:00 ubuntu-soc-lab CRON[3354]: pam_unix(cron:session): session closed for user root
+2026-07-27T19:32:01.535488+00:00 ubuntu-soc-lab CRON[3363]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T19:32:01.563978+00:00 ubuntu-soc-lab CRON[3363]: pam_unix(cron:session): session closed for user root
+2026-07-27T19:32:50.818209+00:00 ubuntu-soc-lab sudo:  analyst : TTY=pts/0 ; PWD=/home/analyst ; USER=root ; COMMAND=/usr/bin/systemctl status nginx --no-pager
+2026-07-27T19:32:50.820723+00:00 ubuntu-soc-lab sudo: pam_unix(sudo:session): session opened for user root(uid=0) by analyst(uid=1000)
+2026-07-27T19:32:50.866796+00:00 ubuntu-soc-lab sudo: pam_unix(sudo:session): session closed for user root
+2026-07-27T19:33:02.206846+00:00 ubuntu-soc-lab CRON[3375]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T19:33:02.237306+00:00 ubuntu-soc-lab CRON[3375]: pam_unix(cron:session): session closed for user root
+2026-07-27T19:34:01.274153+00:00 ubuntu-soc-lab CRON[3388]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T19:34:01.312026+00:00 ubuntu-soc-lab CRON[3388]: pam_unix(cron:session): session closed for user root
+2026-07-27T19:35:01.347545+00:00 ubuntu-soc-lab CRON[3400]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T19:35:01.347859+00:00 ubuntu-soc-lab CRON[3401]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T19:35:01.358978+00:00 ubuntu-soc-lab CRON[3400]: pam_unix(cron:session): session closed for user root
+2026-07-27T19:35:01.364701+00:00 ubuntu-soc-lab CRON[3401]: pam_unix(cron:session): session closed for user root
+2026-07-27T19:36:01.416731+00:00 ubuntu-soc-lab CRON[3415]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T19:36:01.444924+00:00 ubuntu-soc-lab CRON[3415]: pam_unix(cron:session): session closed for user root
+2026-07-27T19:37:01.551848+00:00 ubuntu-soc-lab CRON[3435]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T19:37:01.571453+00:00 ubuntu-soc-lab CRON[3435]: pam_unix(cron:session): session closed for user root
+2026-07-27T19:38:01.580330+00:00 ubuntu-soc-lab CRON[3447]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T19:38:01.612455+00:00 ubuntu-soc-lab CRON[3447]: pam_unix(cron:session): session closed for user root
+2026-07-27T19:39:01.617198+00:00 ubuntu-soc-lab CRON[3459]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T19:39:01.644576+00:00 ubuntu-soc-lab CRON[3459]: pam_unix(cron:session): session closed for user root
+2026-07-27T19:39:29.794982+00:00 ubuntu-soc-lab sudo:  analyst : TTY=pts/0 ; PWD=/home/analyst/internal-web-outage-lab ; USER=root ; COMMAND=/usr/bin/nano /var/www/html/index.html
+2026-07-27T19:39:29.804756+00:00 ubuntu-soc-lab sudo: pam_unix(sudo:session): session opened for user root(uid=0) by analyst(uid=1000)
+2026-07-27T19:39:37.557991+00:00 ubuntu-soc-lab sudo: pam_unix(sudo:session): session closed for user root
+2026-07-27T19:40:01.652250+00:00 ubuntu-soc-lab CRON[3472]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T19:40:01.678249+00:00 ubuntu-soc-lab CRON[3472]: pam_unix(cron:session): session closed for user root
+2026-07-27T19:41:01.698919+00:00 ubuntu-soc-lab CRON[3483]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T19:41:01.730926+00:00 ubuntu-soc-lab CRON[3483]: pam_unix(cron:session): session closed for user root
+2026-07-27T19:42:01.739007+00:00 ubuntu-soc-lab CRON[3494]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T19:42:01.771533+00:00 ubuntu-soc-lab CRON[3494]: pam_unix(cron:session): session closed for user root
+2026-07-27T19:43:01.775740+00:00 ubuntu-soc-lab CRON[3513]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T19:43:01.795243+00:00 ubuntu-soc-lab CRON[3513]: pam_unix(cron:session): session closed for user root
+2026-07-27T19:44:02.560213+00:00 ubuntu-soc-lab CRON[3524]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T19:44:02.587279+00:00 ubuntu-soc-lab CRON[3524]: pam_unix(cron:session): session closed for user root
+2026-07-27T19:45:01.593869+00:00 ubuntu-soc-lab CRON[3533]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T19:45:01.596886+00:00 ubuntu-soc-lab CRON[3534]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T19:45:01.609100+00:00 ubuntu-soc-lab CRON[3533]: pam_unix(cron:session): session closed for user root
+2026-07-27T19:45:01.625586+00:00 ubuntu-soc-lab CRON[3534]: pam_unix(cron:session): session closed for user root
+2026-07-27T19:46:01.737827+00:00 ubuntu-soc-lab CRON[3545]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T19:46:01.793107+00:00 ubuntu-soc-lab CRON[3545]: pam_unix(cron:session): session closed for user root
+2026-07-27T19:47:01.813863+00:00 ubuntu-soc-lab CRON[3559]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T19:47:01.850261+00:00 ubuntu-soc-lab CRON[3559]: pam_unix(cron:session): session closed for user root
+2026-07-27T19:48:02.106037+00:00 ubuntu-soc-lab CRON[3568]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T19:48:02.141847+00:00 ubuntu-soc-lab CRON[3568]: pam_unix(cron:session): session closed for user root
+2026-07-27T19:49:01.414142+00:00 ubuntu-soc-lab CRON[3588]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T19:49:01.451272+00:00 ubuntu-soc-lab CRON[3588]: pam_unix(cron:session): session closed for user root
+2026-07-27T19:50:01.536963+00:00 ubuntu-soc-lab CRON[3598]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T19:50:01.576543+00:00 ubuntu-soc-lab CRON[3598]: pam_unix(cron:session): session closed for user root
+2026-07-27T19:50:19.055751+00:00 ubuntu-soc-lab sudo:  analyst : TTY=pts/0 ; PWD=/home/analyst/internal-web-outage-lab ; USER=root ; COMMAND=/usr/bin/systemctl status nginx --no-pager -l
+2026-07-27T19:50:19.065953+00:00 ubuntu-soc-lab sudo: pam_unix(sudo:session): session opened for user root(uid=0) by analyst(uid=1000)
+2026-07-27T19:50:19.075796+00:00 ubuntu-soc-lab sudo: pam_unix(sudo:session): session closed for user root
+2026-07-27T19:51:01.615299+00:00 ubuntu-soc-lab CRON[3613]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T19:51:01.656026+00:00 ubuntu-soc-lab CRON[3613]: pam_unix(cron:session): session closed for user root
+2026-07-27T19:51:22.643404+00:00 ubuntu-soc-lab sudo:  analyst : TTY=pts/0 ; PWD=/home/analyst/internal-web-outage-lab ; USER=root ; COMMAND=/usr/bin/ss -lntp
+2026-07-27T19:51:22.647068+00:00 ubuntu-soc-lab sudo: pam_unix(sudo:session): session opened for user root(uid=0) by analyst(uid=1000)
+2026-07-27T19:51:22.664762+00:00 ubuntu-soc-lab sudo: pam_unix(sudo:session): session closed for user root
+2026-07-27T19:52:01.723602+00:00 ubuntu-soc-lab CRON[3626]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T19:52:01.759633+00:00 ubuntu-soc-lab CRON[3626]: pam_unix(cron:session): session closed for user root
+2026-07-27T19:53:02.034225+00:00 ubuntu-soc-lab CRON[3635]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T19:53:02.066658+00:00 ubuntu-soc-lab CRON[3635]: pam_unix(cron:session): session closed for user root
+2026-07-27T19:54:01.137402+00:00 ubuntu-soc-lab CRON[3644]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T19:54:01.169260+00:00 ubuntu-soc-lab CRON[3644]: pam_unix(cron:session): session closed for user root
+2026-07-27T19:55:01.193892+00:00 ubuntu-soc-lab CRON[3665]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T19:55:01.195988+00:00 ubuntu-soc-lab CRON[3666]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T19:55:01.205959+00:00 ubuntu-soc-lab CRON[3665]: pam_unix(cron:session): session closed for user root
+2026-07-27T19:55:01.223375+00:00 ubuntu-soc-lab CRON[3666]: pam_unix(cron:session): session closed for user root
+2026-07-27T19:55:41.841054+00:00 ubuntu-soc-lab sudo:  analyst : TTY=pts/0 ; PWD=/home/analyst/internal-web-outage-lab ; USER=root ; COMMAND=/usr/bin/ss -lntp
+2026-07-27T19:55:41.848483+00:00 ubuntu-soc-lab sudo: pam_unix(sudo:session): session opened for user root(uid=0) by analyst(uid=1000)
+2026-07-27T19:55:41.856998+00:00 ubuntu-soc-lab sudo: pam_unix(sudo:session): session closed for user root
+2026-07-27T19:56:01.230185+00:00 ubuntu-soc-lab CRON[3686]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T19:56:01.266485+00:00 ubuntu-soc-lab CRON[3686]: pam_unix(cron:session): session closed for user root
+2026-07-27T19:57:01.273511+00:00 ubuntu-soc-lab CRON[3695]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T19:57:01.293365+00:00 ubuntu-soc-lab CRON[3695]: pam_unix(cron:session): session closed for user root
+2026-07-27T19:57:44.138479+00:00 ubuntu-soc-lab sudo:  analyst : TTY=pts/0 ; PWD=/home/analyst/internal-web-outage-lab ; USER=root ; COMMAND=/usr/bin/apt install python3-flask -y
+2026-07-27T19:57:44.139782+00:00 ubuntu-soc-lab sudo: pam_unix(sudo:session): session opened for user root(uid=0) by analyst(uid=1000)
+2026-07-27T19:57:49.252433+00:00 ubuntu-soc-lab sudo: pam_unix(sudo:session): session closed for user root
+2026-07-27T19:58:01.301652+00:00 ubuntu-soc-lab CRON[3921]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T19:58:01.319248+00:00 ubuntu-soc-lab CRON[3921]: pam_unix(cron:session): session closed for user root
+2026-07-27T19:59:01.327794+00:00 ubuntu-soc-lab CRON[3933]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T19:59:01.365860+00:00 ubuntu-soc-lab CRON[3933]: pam_unix(cron:session): session closed for user root
+2026-07-27T19:59:34.317047+00:00 ubuntu-soc-lab sudo:  analyst : TTY=pts/0 ; PWD=/home/analyst/internal-web-outage-lab ; USER=root ; COMMAND=/usr/bin/ss -lntp
+2026-07-27T19:59:34.318678+00:00 ubuntu-soc-lab sudo: pam_unix(sudo:session): session opened for user root(uid=0) by analyst(uid=1000)
+2026-07-27T19:59:34.337423+00:00 ubuntu-soc-lab sudo: pam_unix(sudo:session): session closed for user root
+2026-07-27T20:00:01.377112+00:00 ubuntu-soc-lab CRON[3949]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T20:00:01.415537+00:00 ubuntu-soc-lab CRON[3949]: pam_unix(cron:session): session closed for user root
+2026-07-27T20:01:01.429734+00:00 ubuntu-soc-lab CRON[3974]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T20:01:01.472909+00:00 ubuntu-soc-lab CRON[3974]: pam_unix(cron:session): session closed for user root
+2026-07-27T20:02:01.482172+00:00 ubuntu-soc-lab CRON[3983]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T20:02:01.515850+00:00 ubuntu-soc-lab CRON[3983]: pam_unix(cron:session): session closed for user root
+2026-07-27T20:03:01.527202+00:00 ubuntu-soc-lab CRON[3994]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T20:03:01.560645+00:00 ubuntu-soc-lab CRON[3994]: pam_unix(cron:session): session closed for user root
+2026-07-27T20:04:01.571543+00:00 ubuntu-soc-lab CRON[4003]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T20:04:01.606264+00:00 ubuntu-soc-lab CRON[4003]: pam_unix(cron:session): session closed for user root
+2026-07-27T20:05:01.774107+00:00 ubuntu-soc-lab CRON[6617]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T20:05:01.776073+00:00 ubuntu-soc-lab CRON[6618]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T20:05:01.785324+00:00 ubuntu-soc-lab CRON[6617]: pam_unix(cron:session): session closed for user root
+2026-07-27T20:05:01.810027+00:00 ubuntu-soc-lab CRON[6618]: pam_unix(cron:session): session closed for user root
+2026-07-27T20:06:01.264440+00:00 ubuntu-soc-lab CRON[7619]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T20:06:01.302703+00:00 ubuntu-soc-lab CRON[7619]: pam_unix(cron:session): session closed for user root
+2026-07-27T20:07:01.311120+00:00 ubuntu-soc-lab CRON[7628]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T20:07:01.349207+00:00 ubuntu-soc-lab CRON[7628]: pam_unix(cron:session): session closed for user root
+2026-07-27T20:08:01.355357+00:00 ubuntu-soc-lab CRON[7637]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T20:08:01.388265+00:00 ubuntu-soc-lab CRON[7637]: pam_unix(cron:session): session closed for user root
+2026-07-27T20:08:55.739008+00:00 ubuntu-soc-lab sudo:  analyst : TTY=pts/0 ; PWD=/home/analyst/internal-web-outage-lab ; USER=root ; COMMAND=/usr/bin/cp /etc/nginx/sites-available/default /etc/nginx/sites-available/default.backup
+2026-07-27T20:08:55.755389+00:00 ubuntu-soc-lab sudo: pam_unix(sudo:session): session opened for user root(uid=0) by analyst(uid=1000)
+2026-07-27T20:08:55.755559+00:00 ubuntu-soc-lab sudo: pam_unix(sudo:session): session closed for user root
+2026-07-27T20:09:01.394733+00:00 ubuntu-soc-lab CRON[7652]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T20:09:01.415210+00:00 ubuntu-soc-lab CRON[7652]: pam_unix(cron:session): session closed for user root
+2026-07-27T20:09:58.533410+00:00 ubuntu-soc-lab sudo:  analyst : TTY=pts/0 ; PWD=/home/analyst/internal-web-outage-lab ; USER=root ; COMMAND=/usr/bin/nano /etc/nginx/sites-available/default
+2026-07-27T20:09:58.536472+00:00 ubuntu-soc-lab sudo: pam_unix(sudo:session): session opened for user root(uid=0) by analyst(uid=1000)
+2026-07-27T20:10:01.419771+00:00 ubuntu-soc-lab CRON[7671]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T20:10:01.448860+00:00 ubuntu-soc-lab CRON[7671]: pam_unix(cron:session): session closed for user root
+2026-07-27T20:11:01.454575+00:00 ubuntu-soc-lab CRON[7698]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T20:11:01.477101+00:00 ubuntu-soc-lab CRON[7698]: pam_unix(cron:session): session closed for user root
+2026-07-27T20:11:55.328905+00:00 ubuntu-soc-lab sudo: pam_unix(sudo:session): session closed for user root
+2026-07-27T20:12:01.491981+00:00 ubuntu-soc-lab CRON[7708]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T20:12:01.515692+00:00 ubuntu-soc-lab CRON[7708]: pam_unix(cron:session): session closed for user root
+2026-07-27T20:13:01.532458+00:00 ubuntu-soc-lab CRON[7717]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T20:13:01.558847+00:00 ubuntu-soc-lab CRON[7717]: pam_unix(cron:session): session closed for user root
+2026-07-27T20:14:01.564221+00:00 ubuntu-soc-lab CRON[7726]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T20:14:01.587839+00:00 ubuntu-soc-lab CRON[7726]: pam_unix(cron:session): session closed for user root
+2026-07-27T20:14:33.226496+00:00 ubuntu-soc-lab sudo:  analyst : TTY=pts/0 ; PWD=/home/analyst/internal-web-outage-lab ; USER=root ; COMMAND=/usr/sbin/nginx -t
+2026-07-27T20:14:33.228268+00:00 ubuntu-soc-lab sudo: pam_unix(sudo:session): session opened for user root(uid=0) by analyst(uid=1000)
+2026-07-27T20:14:33.238140+00:00 ubuntu-soc-lab sudo: pam_unix(sudo:session): session closed for user root
+2026-07-27T20:15:01.595617+00:00 ubuntu-soc-lab CRON[7744]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T20:15:01.596088+00:00 ubuntu-soc-lab CRON[7743]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T20:15:01.610687+00:00 ubuntu-soc-lab CRON[7743]: pam_unix(cron:session): session closed for user root
+2026-07-27T20:15:01.624970+00:00 ubuntu-soc-lab CRON[7744]: pam_unix(cron:session): session closed for user root
+2026-07-27T20:16:01.637975+00:00 ubuntu-soc-lab CRON[7757]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T20:16:01.644999+00:00 ubuntu-soc-lab sudo:  analyst : TTY=pts/0 ; PWD=/home/analyst/internal-web-outage-lab ; USER=root ; COMMAND=/usr/bin/systemctl reload nginx
+2026-07-27T20:16:01.651015+00:00 ubuntu-soc-lab sudo: pam_unix(sudo:session): session opened for user root(uid=0) by analyst(uid=1000)
+2026-07-27T20:16:01.676409+00:00 ubuntu-soc-lab sudo: pam_unix(sudo:session): session closed for user root
+2026-07-27T20:16:01.678871+00:00 ubuntu-soc-lab CRON[7757]: pam_unix(cron:session): session closed for user root
+2026-07-27T20:17:01.690239+00:00 ubuntu-soc-lab CRON[7788]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T20:17:01.691074+00:00 ubuntu-soc-lab CRON[7789]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T20:17:01.710459+00:00 ubuntu-soc-lab CRON[7788]: pam_unix(cron:session): session closed for user root
+2026-07-27T20:17:01.718797+00:00 ubuntu-soc-lab CRON[7789]: pam_unix(cron:session): session closed for user root
+2026-07-27T20:18:01.728054+00:00 ubuntu-soc-lab CRON[7800]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T20:18:01.763864+00:00 ubuntu-soc-lab CRON[7800]: pam_unix(cron:session): session closed for user root
+2026-07-27T20:19:01.776918+00:00 ubuntu-soc-lab CRON[7810]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T20:19:01.815914+00:00 ubuntu-soc-lab CRON[7810]: pam_unix(cron:session): session closed for user root
+2026-07-27T20:20:01.821994+00:00 ubuntu-soc-lab CRON[7822]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T20:20:01.842827+00:00 ubuntu-soc-lab CRON[7822]: pam_unix(cron:session): session closed for user root
+2026-07-27T20:20:43.619540+00:00 ubuntu-soc-lab sudo:  analyst : TTY=pts/0 ; PWD=/home/analyst/internal-web-outage-lab ; USER=root ; COMMAND=/usr/bin/nano /etc/systemd/system/company-web.service
+2026-07-27T20:20:43.620279+00:00 ubuntu-soc-lab sudo: pam_unix(sudo:session): session opened for user root(uid=0) by analyst(uid=1000)
+2026-07-27T20:21:01.848037+00:00 ubuntu-soc-lab CRON[7837]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T20:21:01.878354+00:00 ubuntu-soc-lab CRON[7837]: pam_unix(cron:session): session closed for user root
+2026-07-27T20:21:07.594284+00:00 ubuntu-soc-lab sudo: pam_unix(sudo:session): session closed for user root
+2026-07-27T20:21:28.569137+00:00 ubuntu-soc-lab sudo:  analyst : TTY=pts/0 ; PWD=/home/analyst/internal-web-outage-lab ; USER=root ; COMMAND=/usr/bin/systemctl daemon-reload
+2026-07-27T20:21:28.569948+00:00 ubuntu-soc-lab sudo: pam_unix(sudo:session): session opened for user root(uid=0) by analyst(uid=1000)
+2026-07-27T20:21:28.802750+00:00 ubuntu-soc-lab sudo: pam_unix(sudo:session): session closed for user root
+2026-07-27T20:22:01.897205+00:00 ubuntu-soc-lab CRON[7895]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T20:22:01.935827+00:00 ubuntu-soc-lab CRON[7895]: pam_unix(cron:session): session closed for user root
+2026-07-27T20:23:01.953048+00:00 ubuntu-soc-lab CRON[7914]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T20:23:01.984563+00:00 ubuntu-soc-lab CRON[7914]: pam_unix(cron:session): session closed for user root
+2026-07-27T20:24:01.997434+00:00 ubuntu-soc-lab CRON[7923]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T20:24:02.032181+00:00 ubuntu-soc-lab CRON[7923]: pam_unix(cron:session): session closed for user root
+2026-07-27T20:24:05.676232+00:00 ubuntu-soc-lab sudo:  analyst : TTY=pts/0 ; PWD=/home/analyst/internal-web-outage-lab ; USER=root ; COMMAND=/usr/bin/ss -lntp
+2026-07-27T20:24:05.678889+00:00 ubuntu-soc-lab sudo: pam_unix(sudo:session): session opened for user root(uid=0) by analyst(uid=1000)
+2026-07-27T20:24:05.698935+00:00 ubuntu-soc-lab sudo: pam_unix(sudo:session): session closed for user root
+2026-07-27T20:24:23.751379+00:00 ubuntu-soc-lab sudo:  analyst : TTY=pts/0 ; PWD=/home/analyst/internal-web-outage-lab ; USER=root ; COMMAND=/usr/bin/systemctl start company-web
+2026-07-27T20:24:23.752302+00:00 ubuntu-soc-lab sudo: pam_unix(sudo:session): session opened for user root(uid=0) by analyst(uid=1000)
+2026-07-27T20:24:23.775063+00:00 ubuntu-soc-lab sudo: pam_unix(sudo:session): session closed for user root
+2026-07-27T20:24:46.954195+00:00 ubuntu-soc-lab sudo:  analyst : TTY=pts/0 ; PWD=/home/analyst/internal-web-outage-lab ; USER=root ; COMMAND=/usr/bin/systemctl status company-web --no-pager -l
+2026-07-27T20:24:46.955109+00:00 ubuntu-soc-lab sudo: pam_unix(sudo:session): session opened for user root(uid=0) by analyst(uid=1000)
+2026-07-27T20:24:46.969472+00:00 ubuntu-soc-lab sudo: pam_unix(sudo:session): session closed for user root
+2026-07-27T20:25:01.037925+00:00 ubuntu-soc-lab CRON[7946]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T20:25:01.038360+00:00 ubuntu-soc-lab CRON[7947]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T20:25:01.045161+00:00 ubuntu-soc-lab CRON[7946]: pam_unix(cron:session): session closed for user root
+2026-07-27T20:25:01.055611+00:00 ubuntu-soc-lab CRON[7947]: pam_unix(cron:session): session closed for user root
+2026-07-27T20:25:23.555921+00:00 ubuntu-soc-lab sudo:  analyst : TTY=pts/0 ; PWD=/home/analyst/internal-web-outage-lab ; USER=root ; COMMAND=/usr/bin/systemctl enable company-web
+2026-07-27T20:25:23.558122+00:00 ubuntu-soc-lab sudo: pam_unix(sudo:session): session opened for user root(uid=0) by analyst(uid=1000)
+2026-07-27T20:25:23.793027+00:00 ubuntu-soc-lab sudo: pam_unix(sudo:session): session closed for user root
+2026-07-27T20:26:01.048248+00:00 ubuntu-soc-lab sudo:  analyst : TTY=pts/0 ; PWD=/home/analyst/internal-web-outage-lab ; USER=root ; COMMAND=/usr/bin/systemctl is-enabled company-web
+2026-07-27T20:26:01.050900+00:00 ubuntu-soc-lab sudo: pam_unix(sudo:session): session opened for user root(uid=0) by analyst(uid=1000)
+2026-07-27T20:26:01.063604+00:00 ubuntu-soc-lab sudo: pam_unix(sudo:session): session closed for user root
+2026-07-27T20:26:01.063913+00:00 ubuntu-soc-lab CRON[8009]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T20:26:01.084835+00:00 ubuntu-soc-lab CRON[8009]: pam_unix(cron:session): session closed for user root
+2026-07-27T20:27:01.208865+00:00 ubuntu-soc-lab CRON[8023]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T20:27:01.234612+00:00 ubuntu-soc-lab CRON[8023]: pam_unix(cron:session): session closed for user root
+2026-07-27T20:28:01.390967+00:00 ubuntu-soc-lab CRON[8032]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T20:28:01.419017+00:00 ubuntu-soc-lab CRON[8032]: pam_unix(cron:session): session closed for user root
+2026-07-27T20:29:01.458047+00:00 ubuntu-soc-lab CRON[8051]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T20:29:01.487017+00:00 ubuntu-soc-lab CRON[8051]: pam_unix(cron:session): session closed for user root
+2026-07-27T20:29:59.288799+00:00 ubuntu-soc-lab sudo:  analyst : TTY=pts/0 ; PWD=/home/analyst/internal-web-outage-lab ; USER=root ; COMMAND=/usr/bin/systemctl status nginx company-web --no-pager -l
+2026-07-27T20:29:59.291428+00:00 ubuntu-soc-lab sudo: pam_unix(sudo:session): session opened for user root(uid=0) by analyst(uid=1000)
+2026-07-27T20:29:59.313018+00:00 ubuntu-soc-lab sudo: pam_unix(sudo:session): session closed for user root
+2026-07-27T20:30:01.491376+00:00 ubuntu-soc-lab CRON[8097]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T20:30:01.509284+00:00 ubuntu-soc-lab CRON[8097]: pam_unix(cron:session): session closed for user root
+2026-07-27T20:31:00.663120+00:00 ubuntu-soc-lab sudo:  analyst : TTY=pts/0 ; PWD=/home/analyst/internal-web-outage-lab ; USER=root ; COMMAND=/usr/sbin/adduser webadmin
+2026-07-27T20:31:00.664209+00:00 ubuntu-soc-lab sudo: pam_unix(sudo:session): session opened for user root(uid=0) by analyst(uid=1000)
+2026-07-27T20:31:00.738767+00:00 ubuntu-soc-lab groupadd[8116]: group added to /etc/group: name=webadmin, GID=1002
+2026-07-27T20:31:00.746227+00:00 ubuntu-soc-lab groupadd[8116]: group added to /etc/gshadow: name=webadmin
+2026-07-27T20:31:00.748572+00:00 ubuntu-soc-lab groupadd[8116]: new group: name=webadmin, GID=1002
+2026-07-27T20:31:00.783391+00:00 ubuntu-soc-lab useradd[8123]: new user: name=webadmin, UID=1002, GID=1002, home=/home/webadmin, shell=/bin/bash, from=/dev/pts/1
+2026-07-27T20:31:01.539993+00:00 ubuntu-soc-lab CRON[8137]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T20:31:01.569260+00:00 ubuntu-soc-lab CRON[8137]: pam_unix(cron:session): session closed for user root
+2026-07-27T20:31:10.281224+00:00 ubuntu-soc-lab passwd[8136]: pam_unix(passwd:chauthtok): password changed for webadmin
+2026-07-27T20:31:13.005896+00:00 ubuntu-soc-lab chfn[8146]: changed user 'webadmin' information
+2026-07-27T20:31:14.482199+00:00 ubuntu-soc-lab gpasswd[8154]: members of group users set by root to sshlab,webadmin
+2026-07-27T20:31:14.486611+00:00 ubuntu-soc-lab sudo: pam_unix(sudo:session): session closed for user root
+2026-07-27T20:31:33.409003+00:00 ubuntu-soc-lab sudo:  analyst : TTY=pts/0 ; PWD=/home/analyst/internal-web-outage-lab ; USER=root ; COMMAND=/usr/sbin/usermod -aG sudo webadmin
+2026-07-27T20:31:33.418881+00:00 ubuntu-soc-lab sudo: pam_unix(sudo:session): session opened for user root(uid=0) by analyst(uid=1000)
+2026-07-27T20:31:33.434628+00:00 ubuntu-soc-lab usermod[8164]: add 'webadmin' to group 'sudo'
+2026-07-27T20:31:33.438659+00:00 ubuntu-soc-lab usermod[8164]: add 'webadmin' to shadow group 'sudo'
+2026-07-27T20:31:33.454991+00:00 ubuntu-soc-lab sudo: pam_unix(sudo:session): session closed for user root
+2026-07-27T20:32:01.579789+00:00 ubuntu-soc-lab CRON[8171]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T20:32:01.599013+00:00 ubuntu-soc-lab CRON[8171]: pam_unix(cron:session): session closed for user root
+2026-07-27T20:33:01.618273+00:00 ubuntu-soc-lab CRON[8182]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T20:33:01.652243+00:00 ubuntu-soc-lab CRON[8182]: pam_unix(cron:session): session closed for user root
+2026-07-27T20:33:07.568243+00:00 ubuntu-soc-lab sudo:  analyst : TTY=pts/0 ; PWD=/home/analyst/internal-web-outage-lab ; USER=root ; COMMAND=/usr/sbin/sshd -T
+2026-07-27T20:33:07.569424+00:00 ubuntu-soc-lab sudo: pam_unix(sudo:session): session opened for user root(uid=0) by analyst(uid=1000)
+2026-07-27T20:33:07.585868+00:00 ubuntu-soc-lab sudo: pam_unix(sudo:session): session closed for user root
+2026-07-27T20:34:01.724059+00:00 ubuntu-soc-lab CRON[8195]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T20:34:01.746231+00:00 ubuntu-soc-lab CRON[8195]: pam_unix(cron:session): session closed for user root
+2026-07-27T20:35:01.762536+00:00 ubuntu-soc-lab CRON[8215]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T20:35:01.763209+00:00 ubuntu-soc-lab CRON[8216]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T20:35:01.775186+00:00 ubuntu-soc-lab CRON[8215]: pam_unix(cron:session): session closed for user root
+2026-07-27T20:35:01.791480+00:00 ubuntu-soc-lab CRON[8216]: pam_unix(cron:session): session closed for user root
+2026-07-27T20:36:01.798004+00:00 ubuntu-soc-lab CRON[8227]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T20:36:01.825747+00:00 ubuntu-soc-lab CRON[8227]: pam_unix(cron:session): session closed for user root
+2026-07-27T20:37:01.841182+00:00 ubuntu-soc-lab CRON[8239]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T20:37:01.859280+00:00 ubuntu-soc-lab CRON[8239]: pam_unix(cron:session): session closed for user root
+2026-07-27T20:37:32.509881+00:00 ubuntu-soc-lab sshd[8249]: Accepted password for webadmin from 192.168.56.111 port 47708 ssh2
+2026-07-27T20:37:32.515520+00:00 ubuntu-soc-lab sshd[8249]: pam_unix(sshd:session): session opened for user webadmin(uid=1002) by webadmin(uid=0)
+2026-07-27T20:37:32.536324+00:00 ubuntu-soc-lab systemd-logind[732]: New session 92 of user webadmin.
+2026-07-27T20:37:32.564442+00:00 ubuntu-soc-lab (systemd): pam_unix(systemd-user:session): session opened for user webadmin(uid=1002) by webadmin(uid=0)
+2026-07-27T20:38:11.325853+00:00 ubuntu-soc-lab CRON[8380]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T20:38:11.341870+00:00 ubuntu-soc-lab CRON[8380]: pam_unix(cron:session): session closed for user root
+2026-07-27T20:38:56.396800+00:00 ubuntu-soc-lab sudo: pam_unix(sudo:auth): authentication failure; logname=webadmin uid=1002 euid=0 tty=/dev/pts/1 ruser=webadmin rhost=  user=webadmin
+2026-07-27T20:39:01.354597+00:00 ubuntu-soc-lab CRON[8391]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T20:39:01.377381+00:00 ubuntu-soc-lab CRON[8391]: pam_unix(cron:session): session closed for user root
+2026-07-27T20:39:33.683065+00:00 ubuntu-soc-lab sudo: webadmin : TTY=pts/1 ; PWD=/home/webadmin ; USER=root ; COMMAND=/usr/bin/systemctl stop nginx
+2026-07-27T20:39:33.684228+00:00 ubuntu-soc-lab sudo: pam_unix(sudo:session): session opened for user root(uid=0) by webadmin(uid=1002)
+2026-07-27T20:39:34.046783+00:00 ubuntu-soc-lab sudo: pam_unix(sudo:session): session closed for user root
+2026-07-27T20:40:03.915790+00:00 ubuntu-soc-lab CRON[8406]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T20:40:03.954281+00:00 ubuntu-soc-lab CRON[8406]: pam_unix(cron:session): session closed for user root
+2026-07-27T20:41:01.966418+00:00 ubuntu-soc-lab CRON[8428]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T20:41:01.988107+00:00 ubuntu-soc-lab CRON[8428]: pam_unix(cron:session): session closed for user root
+2026-07-27T20:42:04.401257+00:00 ubuntu-soc-lab CRON[8437]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T20:42:04.414022+00:00 ubuntu-soc-lab CRON[8437]: pam_unix(cron:session): session closed for user root
+2026-07-27T20:42:27.928352+00:00 ubuntu-soc-lab sudo:  analyst : TTY=pts/0 ; PWD=/home/analyst/internal-web-outage-lab ; USER=root ; COMMAND=/usr/bin/systemctl status nginx --no-pager -l
+2026-07-27T20:42:27.941191+00:00 ubuntu-soc-lab sudo: pam_unix(sudo:session): session opened for user root(uid=0) by analyst(uid=1000)
+2026-07-27T20:42:27.941647+00:00 ubuntu-soc-lab sudo: pam_unix(sudo:session): session closed for user root
+2026-07-27T20:43:01.420113+00:00 ubuntu-soc-lab CRON[8452]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T20:43:01.459323+00:00 ubuntu-soc-lab CRON[8452]: pam_unix(cron:session): session closed for user root
+2026-07-27T20:44:01.465866+00:00 ubuntu-soc-lab CRON[8467]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T20:44:01.502674+00:00 ubuntu-soc-lab CRON[8467]: pam_unix(cron:session): session closed for user root
+2026-07-27T20:45:01.512467+00:00 ubuntu-soc-lab CRON[8482]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T20:45:01.512853+00:00 ubuntu-soc-lab CRON[8483]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T20:45:01.528871+00:00 ubuntu-soc-lab CRON[8482]: pam_unix(cron:session): session closed for user root
+2026-07-27T20:45:01.540422+00:00 ubuntu-soc-lab CRON[8483]: pam_unix(cron:session): session closed for user root
+2026-07-27T20:45:29.424590+00:00 ubuntu-soc-lab sudo:  analyst : TTY=pts/0 ; PWD=/home/analyst/internal-web-outage-lab ; USER=root ; COMMAND=/usr/bin/ss -lntp
+2026-07-27T20:45:29.425329+00:00 ubuntu-soc-lab sudo: pam_unix(sudo:session): session opened for user root(uid=0) by analyst(uid=1000)
+2026-07-27T20:45:29.438243+00:00 ubuntu-soc-lab sudo: pam_unix(sudo:session): session closed for user root
+2026-07-27T20:46:01.546419+00:00 ubuntu-soc-lab CRON[8502]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T20:46:01.564339+00:00 ubuntu-soc-lab CRON[8502]: pam_unix(cron:session): session closed for user root
+2026-07-27T20:46:28.303867+00:00 ubuntu-soc-lab sudo:  analyst : TTY=pts/0 ; PWD=/home/analyst/internal-web-outage-lab ; USER=root ; COMMAND=/usr/bin/grep -E 'webadmin|sudo|Accepted|Failed password|session opened|session closed' /var/log/auth.log
+2026-07-27T20:46:28.304447+00:00 ubuntu-soc-lab sudo: pam_unix(sudo:session): session opened for user root(uid=0) by analyst(uid=1000)
+2026-07-27T20:46:28.315484+00:00 ubuntu-soc-lab sudo: pam_unix(sudo:session): session closed for user root
+2026-07-27T20:47:01.594010+00:00 ubuntu-soc-lab CRON[8525]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-27T20:47:01.625925+00:00 ubuntu-soc-lab CRON[8525]: pam_unix(cron:session): session closed for user root
+2026-07-27T20:47:18.440309+00:00 ubuntu-soc-lab sudo:  analyst : TTY=pts/0 ; PWD=/home/analyst/internal-web-outage-lab ; USER=root ; COMMAND=/usr/bin/grep -aE 'webadmin|sudo|Accepted|Failed password|session opened|session closed' /var/log/auth.log
+2026-07-27T20:47:18.441750+00:00 ubuntu-soc-lab sudo: pam_unix(sudo:session): session opened for user root(uid=0) by analyst(uid=1000)
