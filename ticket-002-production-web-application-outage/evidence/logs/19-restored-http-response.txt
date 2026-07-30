@@ -1,0 +1,22 @@
+HTTP/1.1 200 OK
+Server: nginx/1.24.0 (Ubuntu)
+Date: Tue, 28 Jul 2026 19:31:43 GMT
+Content-Type: text/html; charset=utf-8
+Content-Length: 387
+Connection: keep-alive
+
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Internal Company Portal</title>
+    </head>
+    <body>
+        <h1>Internal Company Web Application</h1>
+        <p>Status: Operational</p>
+        <p>Backend application is responding normally.</p>
+        <p>Server time: 2026-07-28T19:31:43.162533+00:00</p>
+    </body>
+    </html>
+    

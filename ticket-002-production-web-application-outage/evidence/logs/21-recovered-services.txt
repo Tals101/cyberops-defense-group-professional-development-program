@@ -1,0 +1,36 @@
+● nginx.service - A high performance web server and a reverse proxy server
+     Loaded: loaded (/usr/lib/systemd/system/nginx.service; enabled; preset: enabled)
+     Active: active (running) since Tue 2026-07-28 19:26:24 UTC; 7min ago
+       Docs: man:nginx(8)
+    Process: 939 ExecStartPre=/usr/sbin/nginx -t -q -g daemon on; master_process on; (code=exited, status=0/SUCCESS)
+    Process: 950 ExecStart=/usr/sbin/nginx -g daemon on; master_process on; (code=exited, status=0/SUCCESS)
+   Main PID: 962 (nginx)
+      Tasks: 3 (limit: 4600)
+     Memory: 3.8M (peak: 4.3M)
+        CPU: 27ms
+     CGroup: /system.slice/nginx.service
+             ├─962 "nginx: master process /usr/sbin/nginx -g daemon on; master_process on;"
+             ├─966 "nginx: worker process"
+             └─968 "nginx: worker process"
+
+Jul 28 19:26:24 ubuntu-soc-lab systemd[1]: Starting nginx.service - A high performance web server and a reverse proxy server...
+Jul 28 19:26:24 ubuntu-soc-lab systemd[1]: Started nginx.service - A high performance web server and a reverse proxy server.
+
+● company-web.service - Internal Company Web Application
+     Loaded: loaded (/etc/systemd/system/company-web.service; enabled; preset: enabled)
+     Active: active (running) since Tue 2026-07-28 19:26:22 UTC; 7min ago
+   Main PID: 685 (python3)
+      Tasks: 1 (limit: 4600)
+     Memory: 34.6M (peak: 35.1M)
+        CPU: 445ms
+     CGroup: /system.slice/company-web.service
+             └─685 /usr/bin/python3 /home/analyst/internal-web-outage-lab/app.py
+
+Jul 28 19:26:22 ubuntu-soc-lab systemd[1]: Started company-web.service - Internal Company Web Application.
+Jul 28 19:26:23 ubuntu-soc-lab python3[685]:  * Serving Flask app 'app'
+Jul 28 19:26:23 ubuntu-soc-lab python3[685]:  * Debug mode: off
+Jul 28 19:26:23 ubuntu-soc-lab python3[685]: WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+Jul 28 19:26:23 ubuntu-soc-lab python3[685]:  * Running on http://127.0.0.1:5050
+Jul 28 19:26:23 ubuntu-soc-lab python3[685]: Press CTRL+C to quit
+Jul 28 19:31:25 ubuntu-soc-lab python3[685]: 127.0.0.1 - - [28/Jul/2026 19:31:25] "GET / HTTP/1.0" 200 -
+Jul 28 19:31:43 ubuntu-soc-lab python3[685]: 127.0.0.1 - - [28/Jul/2026 19:31:43] "GET / HTTP/1.0" 200 -
