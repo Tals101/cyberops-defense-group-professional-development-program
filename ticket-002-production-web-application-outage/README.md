@@ -81,7 +81,6 @@ Detailed conclusions and supporting analysis are provided in `Incident_Report.pd
 - Service recovery and validation
 - Technical documentation
 - Business-impact analysis
-- Mock interview preparation
 - Git-based engineering workflow
 
 ## Technologies Used
@@ -125,8 +124,16 @@ Detailed conclusions and supporting analysis are provided in `Incident_Report.pd
 - Recovery actions
 - Remaining risks
 - Recommendations
-- Mock interview preparation
 
+### Interview Preparation Guide
+
+- `Interview_Preparation.pdf`
+- `Interview_Preparation.md`
+- Structured interview questions and answers
+- Investigation methodology explanations
+- Root-cause confirmation discussion
+- Containment and recovery reasoning
+- Monitoring and production-improvement recommendations
 ### Engineering Notebook
 
 - `engineering-notebook.md`
@@ -248,3 +255,4 @@ The commits represent logical project stages, including:
 - Final documentation
 
 These commits were created during repository packaging and were not backdated to imply that they occurred during the original live investigation.
+
