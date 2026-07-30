@@ -221,11 +221,17 @@ Logs can identify the account, source address, command, and timestamp. They may 
 
     ticket-002-production-web-application-outage/
     ├── README.md
-    ├── Incident_Report.pdf
     ├── engineering-notebook.md
     ├── lessons-learned.md
+    ├── reports/
+    │   ├── Incident_Report.md
+    │   ├── Incident_Report.pdf
+    │   ├── Interview_Preparation.md
+    │   └── Interview_Preparation.pdf
     ├── evidence/
     │   ├── screenshots/
+    │   │   ├── 01-restored-application-browser.png
+    │   │   └── 02-recovered-services.png
     │   ├── logs/
     │   ├── configs/
     │   ├── timeline/
@@ -236,7 +242,6 @@ Logs can identify the account, source address, command, and timestamp. They may 
         ├── application-architecture.mmd
         ├── investigation-flow.mmd
         └── incident-timeline.mmd
-
 ## Commit History Note
 
 This GitHub package was assembled from preserved investigation evidence using multiple meaningful commits rather than one final bulk upload.
@@ -255,5 +260,6 @@ The commits represent logical project stages, including:
 - Final documentation
 
 These commits were created during repository packaging and were not backdated to imply that they occurred during the original live investigation.
+
 
 
