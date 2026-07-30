@@ -1,0 +1,7 @@
+2026-07-27T20:37:32.509881+00:00 ubuntu-soc-lab sshd[8249]: Accepted password for webadmin from 192.168.56.111 port 47708 ssh2
+2026-07-27T20:37:32.515520+00:00 ubuntu-soc-lab sshd[8249]: pam_unix(sshd:session): session opened for user webadmin(uid=1002) by webadmin(uid=0)
+2026-07-27T20:37:32.536324+00:00 ubuntu-soc-lab systemd-logind[732]: New session 92 of user webadmin.
+2026-07-27T20:37:32.564442+00:00 ubuntu-soc-lab (systemd): pam_unix(systemd-user:session): session opened for user webadmin(uid=1002) by webadmin(uid=0)
+2026-07-27T20:38:56.396800+00:00 ubuntu-soc-lab sudo: pam_unix(sudo:auth): authentication failure; logname=webadmin uid=1002 euid=0 tty=/dev/pts/1 ruser=webadmin rhost=  user=webadmin
+2026-07-27T20:39:33.683065+00:00 ubuntu-soc-lab sudo: webadmin : TTY=pts/1 ; PWD=/home/webadmin ; USER=root ; COMMAND=/usr/bin/systemctl stop nginx
+2026-07-27T20:39:33.684228+00:00 ubuntu-soc-lab sudo: pam_unix(sudo:session): session opened for user root(uid=0) by webadmin(uid=1002)
