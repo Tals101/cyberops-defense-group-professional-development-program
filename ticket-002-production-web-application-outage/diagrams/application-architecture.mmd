@@ -1,0 +1,12 @@
+﻿flowchart LR
+    U[Employee Workstation<br/>192.168.56.1]
+    N[Ubuntu Application Server<br/>192.168.56.121]
+    W[Nginx Reverse Proxy<br/>TCP 80]
+    A[Flask Backend<br/>127.0.0.1:5050]
+    K[Kali Administrative Source<br/>192.168.56.111]
+
+    U -->|HTTP request| W
+    W -->|Proxy request| A
+    K -->|SSH TCP 22| N
+    W --- N
+    A --- N

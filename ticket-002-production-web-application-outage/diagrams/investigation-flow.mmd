@@ -1,0 +1,29 @@
+﻿flowchart TD
+    A[Users report application unavailable]
+    B[Test server reachability]
+    C{Server reachable?}
+    D[Investigate host or network failure]
+    E[Test TCP port 80]
+    F{Port 80 listening?}
+    G[Check Nginx service]
+    H[Test backend directly on port 5050]
+    I{Backend healthy?}
+    J[Investigate backend failure]
+    K[Review Nginx journal]
+    L{Crash or orderly stop?}
+    M[Investigate software or resource failure]
+    N[Review SSH sudo and authentication logs]
+    O[Correlate command and shutdown timestamps]
+    P[Contain account and preserve evidence]
+    Q[Validate configuration and restore service]
+    R[Confirm HTTP external access and reboot recovery]
+
+    A --> B --> C
+    C -- No --> D
+    C -- Yes --> E --> F
+    F -- Yes --> J
+    F -- No --> G --> H --> I
+    I -- No --> J
+    I -- Yes --> K --> L
+    L -- Crash --> M
+    L -- Orderly stop --> N --> O --> P --> Q --> R
