@@ -63,7 +63,7 @@ The investigation included:
 11. Restoring and validating application access
 12. Testing service recovery after reboot
 
-Detailed conclusions and supporting analysis are provided in `Incident_Report.pdf`.
+Detailed conclusions and supporting analysis are provided in `reports/Incident_Report.pdf`.
 
 ## Skills Demonstrated
 
@@ -111,7 +111,7 @@ Detailed conclusions and supporting analysis are provided in `Incident_Report.pd
 
 ### Incident Report
 
-- `Incident_Report.pdf`
+- `reports/Incident_Report.pdf`
 - Executive summary
 - Environment description
 - Investigation methodology
@@ -127,8 +127,8 @@ Detailed conclusions and supporting analysis are provided in `Incident_Report.pd
 
 ### Interview Preparation Guide
 
-- `Interview_Preparation.pdf`
-- `Interview_Preparation.md`
+- `reports/Interview_Preparation.pdf`
+- `reports/Interview_Preparation.md`
 - Structured interview questions and answers
 - Investigation methodology explanations
 - Root-cause confirmation discussion
@@ -255,4 +255,5 @@ The commits represent logical project stages, including:
 - Final documentation
 
 These commits were created during repository packaging and were not backdated to imply that they occurred during the original live investigation.
+
 
