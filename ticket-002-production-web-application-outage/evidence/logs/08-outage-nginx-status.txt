@@ -1,0 +1,17 @@
+○ nginx.service - A high performance web server and a reverse proxy server
+     Loaded: loaded (/usr/lib/systemd/system/nginx.service; enabled; preset: enabled)
+     Active: inactive (dead) since Mon 2026-07-27 20:39:34 UTC; 2min 53s ago
+   Duration: 34min 52.572s
+       Docs: man:nginx(8)
+    Process: 8404 ExecStop=/sbin/start-stop-daemon --quiet --stop --retry QUIT/5 --pidfile /run/nginx.pid (code=exited, status=0/SUCCESS)
+   Main PID: 5266 (code=exited, status=0/SUCCESS)
+        CPU: 51ms
+
+Jul 27 20:04:40 ubuntu-soc-lab systemd[1]: Starting nginx.service - A high performance web server and a reverse proxy server...
+Jul 27 20:04:41 ubuntu-soc-lab systemd[1]: Started nginx.service - A high performance web server and a reverse proxy server.
+Jul 27 20:16:01 ubuntu-soc-lab systemd[1]: Reloading nginx.service - A high performance web server and a reverse proxy server...
+Jul 27 20:16:01 ubuntu-soc-lab nginx[7770]: 2026/07/27 20:16:01 [notice] 7770#7770: signal process started
+Jul 27 20:16:01 ubuntu-soc-lab systemd[1]: Reloaded nginx.service - A high performance web server and a reverse proxy server.
+Jul 27 20:39:33 ubuntu-soc-lab systemd[1]: Stopping nginx.service - A high performance web server and a reverse proxy server...
+Jul 27 20:39:34 ubuntu-soc-lab systemd[1]: nginx.service: Deactivated successfully.
+Jul 27 20:39:34 ubuntu-soc-lab systemd[1]: Stopped nginx.service - A high performance web server and a reverse proxy server.

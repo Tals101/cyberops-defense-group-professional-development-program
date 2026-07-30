@@ -1,0 +1,11 @@
+=== WHO ===
+analyst  tty1         2026-07-27 19:20
+analyst  pts/0        2026-07-27 19:20 (192.168.56.1)
+webadmin pts/1        2026-07-27 20:37 (192.168.56.111)
+
+=== W ===
+ 20:45:54 up  1:27,  3 users,  load average: 0.09, 0.12, 0.09
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU  WHAT
+webadmin          192.168.56.111   20:37    1:27m  0.00s  0.06s sshd: webadmin [priv]
+analyst           192.168.56.1     19:20    1:27m  0.00s  0.01s sshd: analyst [priv]
+analyst  tty1     -                19:20    1:25m  0.01s   ?    -bash
