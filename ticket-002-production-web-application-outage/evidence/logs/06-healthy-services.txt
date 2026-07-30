@@ -1,0 +1,36 @@
+● nginx.service - A high performance web server and a reverse proxy server
+     Loaded: loaded (/usr/lib/systemd/system/nginx.service; enabled; preset: enabled)
+     Active: active (running) since Mon 2026-07-27 20:04:41 UTC; 25min ago
+       Docs: man:nginx(8)
+   Main PID: 5266 (nginx)
+      Tasks: 3 (limit: 4600)
+     Memory: 2.5M (peak: 4.4M)
+        CPU: 45ms
+     CGroup: /system.slice/nginx.service
+             ├─5266 "nginx: master process /usr/sbin/nginx -g daemon on; master_process on;"
+             ├─7772 "nginx: worker process"
+             └─7773 "nginx: worker process"
+
+Jul 27 20:04:40 ubuntu-soc-lab systemd[1]: Starting nginx.service - A high performance web server and a reverse proxy server...
+Jul 27 20:04:41 ubuntu-soc-lab systemd[1]: Started nginx.service - A high performance web server and a reverse proxy server.
+Jul 27 20:16:01 ubuntu-soc-lab systemd[1]: Reloading nginx.service - A high performance web server and a reverse proxy server...
+Jul 27 20:16:01 ubuntu-soc-lab nginx[7770]: 2026/07/27 20:16:01 [notice] 7770#7770: signal process started
+Jul 27 20:16:01 ubuntu-soc-lab systemd[1]: Reloaded nginx.service - A high performance web server and a reverse proxy server.
+
+● company-web.service - Internal Company Web Application
+     Loaded: loaded (/etc/systemd/system/company-web.service; enabled; preset: enabled)
+     Active: active (running) since Mon 2026-07-27 20:24:23 UTC; 5min ago
+   Main PID: 7940 (python3)
+      Tasks: 1 (limit: 4600)
+     Memory: 19.6M (peak: 20.1M)
+        CPU: 206ms
+     CGroup: /system.slice/company-web.service
+             └─7940 /usr/bin/python3 /home/analyst/internal-web-outage-lab/app.py
+
+Jul 27 20:24:23 ubuntu-soc-lab systemd[1]: Started company-web.service - Internal Company Web Application.
+Jul 27 20:24:23 ubuntu-soc-lab python3[7940]:  * Serving Flask app 'app'
+Jul 27 20:24:23 ubuntu-soc-lab python3[7940]:  * Debug mode: off
+Jul 27 20:24:23 ubuntu-soc-lab python3[7940]: WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+Jul 27 20:24:23 ubuntu-soc-lab python3[7940]:  * Running on http://127.0.0.1:5050
+Jul 27 20:24:23 ubuntu-soc-lab python3[7940]: Press CTRL+C to quit
+Jul 27 20:26:31 ubuntu-soc-lab python3[7940]: 127.0.0.1 - - [27/Jul/2026 20:26:31] "GET / HTTP/1.0" 200 -
