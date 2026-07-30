@@ -1,0 +1,22 @@
+HTTP/1.1 200 OK
+Server: Werkzeug/3.0.1 Python/3.12.3
+Date: Mon, 27 Jul 2026 20:44:32 GMT
+Content-Type: text/html; charset=utf-8
+Content-Length: 387
+Connection: close
+
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Internal Company Portal</title>
+    </head>
+    <body>
+        <h1>Internal Company Web Application</h1>
+        <p>Status: Operational</p>
+        <p>Backend application is responding normally.</p>
+        <p>Server time: 2026-07-27T20:44:32.531032+00:00</p>
+    </body>
+    </html>
+    
