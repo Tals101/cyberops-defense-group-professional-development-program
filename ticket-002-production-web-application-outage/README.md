@@ -128,7 +128,6 @@ Detailed conclusions and supporting analysis are provided in `reports/Incident_R
 ### Interview Preparation Guide
 
 - `reports/Interview_Preparation.pdf`
-- `reports/Interview_Preparation.md`
 - Structured interview questions and answers
 - Investigation methodology explanations
 - Root-cause confirmation discussion
@@ -224,9 +223,7 @@ Logs can identify the account, source address, command, and timestamp. They may 
     ├── engineering-notebook.md
     ├── lessons-learned.md
     ├── reports/
-    │   ├── Incident_Report.md
     │   ├── Incident_Report.pdf
-    │   ├── Interview_Preparation.md
     │   └── Interview_Preparation.pdf
     ├── evidence/
     │   ├── screenshots/
@@ -260,6 +257,7 @@ The commits represent logical project stages, including:
 - Final documentation
 
 These commits were created during repository packaging and were not backdated to imply that they occurred during the original live investigation.
+
 
 
 
