@@ -1,26 +1,32 @@
-﻿"""
-Purpose:
-    Provides the Flask backend used to reproduce and investigate the
-    production web application outage scenario.
+"""
+Flask backend for the production web application outage lab.
 
 Author:
-    Harold Wodinsky
+    Naftali Wodinsky
 
 Date:
     July 27, 2026
 
+Purpose:
+    Runs the internal backend application used during the outage
+    investigation. Nginx accepts user requests on TCP port 80 and
+    forwards them to this application on 127.0.0.1:5050.
+
 Usage:
-    1. Install Flask:
-       python -m pip install flask
+    Install Flask:
 
-    2. Run the application:
-       python internal_web_app.py
+        python -m pip install flask
 
-    3. Test the backend locally:
-       curl http://127.0.0.1:5050
+    Start the application:
 
-The application listens only on 127.0.0.1:5050 and is intended to be
-accessed through the Nginx reverse proxy.
+        python internal_web_app.py
+
+    Test the backend directly:
+
+        curl http://127.0.0.1:5050
+
+The application listens only on the local loopback interface and is
+intended to be reached through the Nginx reverse proxy.
 """
 
 from datetime import datetime, timezone
@@ -32,7 +38,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-    """Return the internal application status page."""
+    """Display the internal application status page."""
     current_time = datetime.now(timezone.utc).isoformat()
 
     return f"""

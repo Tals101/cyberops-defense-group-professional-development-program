@@ -1,14 +1,15 @@
 ﻿timeline
     title Production Web Application Outage
-    20:26 : Healthy HTTP response confirmed
-    20:37 : webadmin SSH login from 192.168.56.111
-    20:38 : Failed sudo authentication
-    20:39 : Privileged Nginx stop command executed
-          : Nginx became inactive
-    20:42 : Formal outage investigation began
-    20:43 : Backend returned HTTP 200 directly
-    Recovery : Account locked
-             : Active session terminated
-             : Nginx configuration validated
-             : Nginx restored
-             : External access confirmed
+    20:26 : Healthy application response confirmed
+    20:37 : webadmin logs in from 192.168.56.111
+    20:38 : Sudo authentication attempt fails
+    20:39 : Privileged command stops Nginx
+          : TCP port 80 becomes unavailable
+    20:42 : Outage investigation begins
+    20:43 : Flask backend returns HTTP 200 directly
+    Recovery : webadmin account is locked
+             : Active session is ended
+             : Nginx configuration passes validation
+             : Nginx is restarted
+             : External access is confirmed
+             : Recovery remains successful after reboot

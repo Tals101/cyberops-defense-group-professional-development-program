@@ -2,9 +2,11 @@
 
 ## Project Summary
 
-This project documents a structured investigation of a production-style internal web application outage. The original ticket intentionally contained limited information, requiring the investigation to begin without assuming that the web server, application, network, DNS, firewall, Docker, or Kubernetes was responsible.
+This project follows the investigation of an internal web application outage in a production-style lab environment. The initial ticket provided only the user-facing symptom: the application had been working earlier and was no longer accessible.
 
-The project demonstrates how an engineer can validate user symptoms, isolate application layers, test competing hypotheses, preserve technical evidence, restore service, and document the investigation for both technical and business audiences.
+Because the cause was unknown, the investigation did not begin with assumptions about the server, network, firewall, reverse proxy, backend application, Docker, or Kubernetes. Each part of the request path was tested separately until the failed layer could be isolated.
+
+The project shows how I approached an outage methodically, preserved evidence, compared several possible explanations, contained the identified risk, restored the service, and confirmed that the application remained available after a reboot.
 
 ## Environment
 
@@ -13,208 +15,231 @@ The project demonstrates how an engineer can validate user symptoms, isolate app
 - Hostname: `ubuntu-soc-lab`
 - Operating system: Ubuntu 24.04 LTS
 - IP address: `192.168.56.121`
-- Web listener: Nginx on TCP port 80
+- User-facing web service: Nginx on TCP port 80
 - Backend application: Flask on `127.0.0.1:5050`
-- Backend service: `company-web.service`
+- Backend systemd unit: `company-web.service`
 - Remote administration: SSH on TCP port 22
 
 ### Windows Workstation
 
-- Used to reproduce the reported user experience
-- Used for remote TCP connectivity testing
-- Used for browser-based recovery validation
-- Used to collect, organize, and publish project artifacts
+The Windows system represented the user side of the environment. It was used to:
+
+- Reproduce the reported outage
+- Test remote access to TCP port 80
+- Open the restored application in a browser
+- Organize and publish the completed project
 
 ### Kali Linux System
 
 - IP address: `192.168.56.111`
-- Used as the simulated remote administrative source during the investigation
+- Used as the simulated remote administrative source in the lab
 
-### Application Request Path
+### Normal Request Path
 
-`Windows workstation → Nginx TCP 80 → Flask backend TCP 5050`
+`Windows workstation -> Nginx on port 80 -> Flask backend on port 5050`
 
 ## Scenario
 
-Users reported that the internal company web application had become unavailable after working normally earlier in the day.
+Users reported that the internal application had become unavailable even though it had worked earlier in the day. No scheduled maintenance or approved change was included in the original ticket.
 
-The ticket did not specify:
+At the start of the investigation, several important questions were still unanswered:
 
-- What component had failed
-- Whether the server was reachable
-- Whether the backend application was healthy
-- Whether a recent configuration change had occurred
-- Whether the event was operational or security-related
+- Was the Ubuntu server online?
+- Was the network path working?
+- Was TCP port 80 reachable?
+- Was Nginx running?
+- Was the Flask backend still healthy?
+- Had a configuration change caused the outage?
+- Was the event operational, administrative, or security-related?
 
-The investigation tested each layer independently and documented evidence both for and against multiple possible causes.
+The investigation was designed to answer those questions using system state, service records, authentication logs, network checks, and HTTP testing.
 
-The investigation included:
+## Investigation Approach
 
-1. Establishing a healthy application baseline
-2. Reproducing and validating the outage
-3. Testing host and network availability
-4. Inspecting listening ports and service status
-5. Testing the backend directly
-6. Reviewing Nginx and systemd logs
-7. Reviewing SSH, authentication, and sudo activity
-8. Correlating account, command, and service timestamps
-9. Preserving evidence before recovery
-10. Containing the involved account
-11. Restoring and validating application access
-12. Testing service recovery after reboot
+The work was completed in a deliberate sequence:
 
-Detailed conclusions and supporting analysis are provided in `reports/Incident_Report.pdf`.
+1. Recorded a known-good baseline.
+2. Reproduced the outage from the user side.
+3. Confirmed that the Ubuntu host was still reachable.
+4. Checked listening ports and service states.
+5. Tested the Flask backend directly on port 5050.
+6. Reviewed the Nginx systemd journal.
+7. Examined SSH, sudo, and authentication records.
+8. Compared account activity with the service shutdown time.
+9. Preserved relevant evidence before recovery.
+10. Contained the account involved in the event.
+11. Validated the Nginx configuration.
+12. Restored the user-facing service.
+13. Confirmed access from Windows.
+14. Rebooted the server and verified that recovery persisted.
+
+The detailed findings and final analysis are available in `reports/Incident_Report.pdf`.
 
 ## Skills Demonstrated
 
-- Incident investigation
-- Linux system administration
-- Service-layer troubleshooting
-- Network connectivity testing
-- Log analysis and event correlation
-- Authentication and sudo auditing
-- Root cause analysis
+- Linux outage investigation
+- Incident response fundamentals
 - Hypothesis-driven troubleshooting
+- Service-layer isolation
+- Network connectivity testing
+- Nginx and Flask troubleshooting
+- systemd service analysis
+- Authentication and sudo-log review
+- Timeline reconstruction
+- Root-cause analysis
 - Evidence preservation
-- Incident classification
 - Account containment
-- Service recovery and validation
-- Technical documentation
-- Business-impact analysis
-- Git-based engineering workflow
+- Recovery validation
+- Technical report writing
+- Git and GitHub project organization
 
-## Technologies Used
+## Technologies and Commands Used
 
+### Platforms and Services
+
+- Windows 11
 - Ubuntu Linux
-- Windows PowerShell
 - Kali Linux
 - Nginx
 - Python
 - Flask
 - systemd
-- SSH and SCP
-- Git and GitHub
+- SSH
+- Git
+- GitHub
+
+### Investigation Commands
+
 - `systemctl`
 - `journalctl`
 - `curl`
 - `ss`
 - `ping`
-- `last`
-- `lastb`
 - `who`
 - `w`
+- `last`
+- `lastb`
 - `grep`
 - `sha256sum`
-- Mermaid diagrams
+- `Test-NetConnection`
 
 ## Deliverables
 
 ### Incident Report
 
-- `reports/Incident_Report.pdf`
+`reports/Incident_Report.pdf`
+
+The report includes:
+
 - Executive summary
-- Environment description
-- Investigation methodology
-- Timeline
-- Technical findings
-- Evidence review
-- Root cause analysis
+- Environment overview
+- Investigation method
+- Technical timeline
+- Findings from each application layer
+- Evidence analysis
+- Root-cause determination
 - Incident classification
 - Business impact
-- Recovery actions
+- Containment and recovery actions
 - Remaining risks
 - Recommendations
+- Final conclusion
 
 ### Interview Preparation Guide
 
-- `reports/Interview_Preparation.pdf`
-- Structured interview questions and answers
-- Investigation methodology explanations
-- Root-cause confirmation discussion
-- Containment and recovery reasoning
-- Monitoring and production-improvement recommendations
+`reports/Interview_Preparation.pdf`
+
+The guide includes practical responses to questions about:
+
+- The first troubleshooting hypothesis
+- Why the investigation began with infrastructure checks
+- Evidence that changed the direction of the investigation
+- How other possible causes were eliminated
+- How the technical cause was confirmed
+- Why the account was contained before service restoration
+- How the recovery was validated
+- Monitoring and operational improvements
+
 ### Engineering Notebook
 
-- `engineering-notebook.md`
-- Initial thoughts
+`engineering-notebook.md`
+
+The notebook records:
+
+- Initial observations
 - Twelve investigated hypotheses
-- Evidence for and against each hypothesis
-- Planned tests
-- Status updates
-- Reasoning changes
-- Open questions
-- Reusable investigation template
+- Evidence supporting each possibility
+- Evidence that contradicted each possibility
+- Status changes as the investigation progressed
+- The working conclusion
+- Recovery notes
+- Unanswered questions
+- Ideas for improving future investigations
+
+### Lessons Learned
+
+`lessons-learned.md`
+
+This document explains:
+
+- What stood out during the investigation
+- What should be checked earlier during a similar outage
+- Which troubleshooting habits improved
+- What parts of the process could be automated
+- Which questions could not be answered from the available evidence
 
 ### Evidence
 
-The `evidence` directory contains:
+The `evidence` folder contains the records used to support the investigation, including:
 
-- Baseline service and HTTP records
-- Outage-state service records
-- Listening-port output
-- Authentication and sudo events
-- Nginx service journal
-- Login and active-session evidence
-- Account-containment evidence
-- Recovery and external validation results
-- Nginx and systemd configuration files
-- Evidence integrity hashes
-- Technical timeline
+- Healthy baseline results
+- Outage-state service output
+- Listening-port checks
+- Backend HTTP tests
+- Authentication and sudo activity
+- Nginx journal entries
+- Active-session details
+- Account-locking evidence
+- Recovery verification
+- Reboot verification
+- Configuration files
+- Timeline files
+- Evidence hashes
+- Screenshots
 
 ### Scripts
 
-The `scripts` directory contains the documented Flask backend used in the investigation.
+The `scripts` folder contains the documented Flask backend application used during the lab.
 
 ### Diagrams
 
-The `diagrams` directory contains Mermaid source files for:
+The `diagrams` folder contains Mermaid source files for:
 
 - Application architecture
 - Investigation workflow
 - Incident timeline
 
-### Lessons Learned
+## Key Lessons
 
-The separate `lessons-learned.md` file addresses:
+### Start With the User Symptom, Not a Preferred Theory
 
-- What was surprising
-- What should be investigated sooner next time
-- What engineering habit improved
-- What should be automated
-- What remains unanswered
+An unavailable webpage does not automatically mean the backend application is down. The server, network, reverse proxy, and application should be tested as separate layers.
 
-## Evidence Organization
+### Compare Independent Evidence Sources
 
-- `evidence/screenshots/` — browser and terminal screenshots
-- `evidence/logs/` — exported logs, terminal output, monitoring results, and validation records
-- `evidence/configs/` — Nginx and systemd configuration files
-- `evidence/timeline/` — baseline time records and reconstructed technical timeline
+The clearest explanation came from comparing service state, open ports, HTTP results, systemd records, authentication activity, sudo commands, and active-session information.
 
-## Key Lessons Learned
+### Preserve Evidence Before Changing the System
 
-### Test Every Layer Independently
+Logs and session details can disappear after a service restart, logout, or reboot. Relevant information should be collected before recovery work begins whenever possible.
 
-A browser outage does not identify the failed component. Host availability, network access, reverse proxy status, and backend health must be tested separately.
+### Confirm Recovery From Outside the Server
 
-### Follow Evidence Instead of Assumptions
+A service showing as `active` is not enough. The application must also be tested through the same path used by the people who reported the problem.
 
-The investigation considered networking, DNS, firewall rules, backend failure, configuration errors, Docker, Kubernetes, software failure, and privileged activity. Each possibility was accepted or rejected using direct evidence.
+### Avoid Claims the Evidence Cannot Support
 
-### Correlate Multiple Sources
-
-The strongest conclusions came from correlating service status, listening ports, HTTP results, authentication logs, sudo records, session data, and systemd timestamps.
-
-### Preserve Evidence Before Recovery
-
-Authentication records, active-session details, network connections, and service logs were collected before performing unnecessary system changes.
-
-### Validate from the User Perspective
-
-A service showing `active` does not guarantee that the application works. Recovery was confirmed using HTTP responses, external TCP checks, browser access, and post-reboot testing.
-
-### Separate Technical Facts from Human Intent
-
-Logs can identify the account, source address, command, and timestamp. They may not prove who controlled the account or whether the action was accidental or intentional.
+The available records can show which account was used, where the session originated, which command ran, and when the service stopped. Those records do not automatically prove who controlled the account or whether the action was accidental or intentional.
 
 ## Repository Structure
 
@@ -239,25 +264,21 @@ Logs can identify the account, source address, command, and timestamp. They may 
         ├── application-architecture.mmd
         ├── investigation-flow.mmd
         └── incident-timeline.mmd
-## Commit History Note
 
-This GitHub package was assembled from preserved investigation evidence using multiple meaningful commits rather than one final bulk upload.
+## Commit History
 
-The commits represent logical project stages, including:
+The project was organized through separate commits for the major stages of the work, including:
 
-- Project initialization
-- Baseline capture
-- Outage-state documentation
+- Initial project structure
+- Baseline evidence
+- Outage-state evidence
 - Authentication and service-event correlation
 - Containment and recovery
-- Script documentation
-- Configuration collection
+- Application script and service configuration
 - Engineering notebook and timeline
-- Diagram creation
-- Final documentation
+- Diagrams
+- Final reports
+- Screenshots
+- Report-folder organization
 
-These commits were created during repository packaging and were not backdated to imply that they occurred during the original live investigation.
-
-
-
-
+The commits document how the completed investigation was organized for GitHub and do not claim to represent the exact timing of every action taken during the live lab.

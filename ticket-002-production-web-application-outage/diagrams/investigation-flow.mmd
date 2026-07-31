@@ -1,22 +1,22 @@
 ﻿flowchart TD
-    A[Users report application unavailable]
-    B[Test server reachability]
-    C{Server reachable?}
-    D[Investigate host or network failure]
+    A[Users report that the application is unavailable]
+    B[Confirm the Ubuntu server is reachable]
+    C{Is the server reachable?}
+    D[Investigate the host or network path]
     E[Test TCP port 80]
-    F{Port 80 listening?}
-    G[Check Nginx service]
-    H[Test backend directly on port 5050]
-    I{Backend healthy?}
-    J[Investigate backend failure]
-    K[Review Nginx journal]
-    L{Crash or orderly stop?}
+    F{Is port 80 listening?}
+    G[Check the Nginx service]
+    H[Test the Flask backend directly on port 5050]
+    I{Is the backend responding?}
+    J[Investigate the backend application]
+    K[Review the Nginx journal]
+    L{Did Nginx crash or stop normally?}
     M[Investigate software or resource failure]
-    N[Review SSH sudo and authentication logs]
-    O[Correlate command and shutdown timestamps]
-    P[Contain account and preserve evidence]
-    Q[Validate configuration and restore service]
-    R[Confirm HTTP external access and reboot recovery]
+    N[Review SSH sudo and authentication activity]
+    O[Compare the command and shutdown times]
+    P[Preserve evidence and contain the account]
+    Q[Validate the configuration and restart Nginx]
+    R[Confirm browser access external connectivity and reboot recovery]
 
     A --> B --> C
     C -- No --> D
@@ -26,4 +26,4 @@
     I -- No --> J
     I -- Yes --> K --> L
     L -- Crash --> M
-    L -- Orderly stop --> N --> O --> P --> Q --> R
+    L -- Normal stop --> N --> O --> P --> Q --> R

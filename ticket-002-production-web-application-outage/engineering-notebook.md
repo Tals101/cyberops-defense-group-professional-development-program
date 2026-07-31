@@ -1,559 +1,453 @@
-# Engineering Notebook
+﻿# Engineering Notebook
 
 ## Internal Web Application Outage Investigation
 
-**Purpose:** Informal investigation scratchpad showing how the reasoning developed, changed, and was tested.
+**Purpose:** This notebook records how my thinking changed throughout the investigation, including the possibilities I considered, the evidence I compared, and the reasons each theory was either supported or ruled out.
 
-**Note:** This notebook was reconstructed from the investigation evidence after the lab was completed. Future notebooks should be updated live during troubleshooting.
+**Note:** I reconstructed this notebook from the evidence collected during the completed lab. In a live incident, I would document these observations as the investigation unfolds.
 
 ---
 
 ## Initial Thoughts
 
-Users reported that the internal web application was unavailable.
+The only confirmed symptom at the beginning was that users could no longer reach the internal web application. The ticket did not identify which part of the environment had failed.
 
-The ticket did not identify which component had failed. Possible causes included:
+I started with a broad list of possibilities:
 
-- Client-side issue
-- Network connectivity
-- Firewall filtering
+- A client-side issue
+- Loss of network connectivity
 - DNS failure
+- A problem with TCP port 80
 - Nginx failure
-- Backend application failure
-- Server infrastructure failure
-- Docker or Kubernetes issues
-- Configuration error
+- Flask backend failure
+- A larger server problem
+- Firewall filtering
+- Docker interference
+- Kubernetes failure
+- A configuration problem
 - Administrative or security-related activity
 
-Normal request path:
+Rather than choosing one explanation too early, I planned to test each layer separately.
 
-`User browser → Network → TCP port 80 → Nginx → Flask backend on port 5050`
+The expected request path was:
 
-The first objective was to confirm the symptom and test each layer independently.
+`User browser -> Network -> TCP port 80 -> Nginx -> Flask backend on port 5050`
 
 ---
 
-## Hypothesis 1: Complete Server Failure
+## Hypothesis 1: The Entire Web Server Failed
 
-### Initial Thought
+### Why I Considered It
 
-The Ubuntu server may have crashed, shut down, or become unreachable.
+Because multiple users had lost access to the application, the Ubuntu server may have crashed, powered off, or become unreachable.
 
-### Evidence For
+### What Supported It
 
-- Multiple users could not access the application.
+- Several users could not open the application.
 - Browser access failed completely.
 
-### Evidence Against
+### What Did Not Fit
 
-- The Ubuntu host remained reachable.
-- SSH on TCP port 22 remained available.
-- Other services continued running.
-- The operating system remained operational.
+- The Ubuntu host still responded.
+- SSH remained reachable on TCP port 22.
+- Other services were still running.
+- The operating system itself was functioning normally.
 
-### Status
+### Result
 
 **Ruled out.**
 
-The server itself was still functioning.
+The host was still online, so this was not a complete server failure.
 
 ---
 
-## Hypothesis 2: Broad Network Failure
+## Hypothesis 2: A Broader Network Failure
 
-### Initial Thought
+### Why I Considered It
 
-The network path between users and the Ubuntu server may have failed.
+The path between the users and the Ubuntu server may have been interrupted.
 
-### Evidence For
+### What Supported It
 
 - Users could not reach the web application.
 - TCP port 80 was unavailable.
 
-### Evidence Against
+### What Did Not Fit
 
-- The Ubuntu host responded to network testing.
-- SSH on TCP port 22 remained reachable.
-- Other network services remained available.
-- Only the web application path was affected.
+- The server responded to network testing.
+- SSH remained accessible.
+- Other network services were available.
+- The failure was limited to the web application path.
 
-### Next Test
-
-- Test host reachability.
-- Test TCP ports 22 and 80 separately.
-- Review listening ports on the Ubuntu server.
-
-### Status
+### Result
 
 **Ruled out.**
 
-The general network path remained operational.
+The network was working. The issue was isolated to the web service.
 
 ---
 
-## Hypothesis 3: Firewall Blocking TCP Port 80
+## Hypothesis 3: A Firewall Was Blocking Port 80
 
-### Initial Thought
+### Why I Considered It
 
-A host or network firewall may have started blocking HTTP traffic.
+A host-based or network firewall might have started rejecting HTTP traffic while allowing other connections.
 
-### Evidence For
+### What Supported It
 
-- TCP port 80 could not be reached externally.
-- Other ports remained reachable.
+- External connections to TCP port 80 failed.
+- Other ports were still reachable.
 
-### Evidence Against
+### What Did Not Fit
 
-- Listening-port inspection showed that nothing was listening on TCP port 80.
+- Port inspection showed that no process was listening on TCP port 80.
 - Nginx was inactive.
-- No firewall change was required during recovery.
-- Starting Nginx restored TCP port 80 immediately.
+- I did not need to change any firewall rules during recovery.
+- Port 80 returned immediately after Nginx was started.
 
-### Next Test
-
-- Inspect listening ports with `ss`.
-- Review firewall status and rules if port 80 is listening locally.
-- Compare local and remote HTTP tests.
-
-### Status
+### Result
 
 **Ruled out.**
 
-Port 80 was unavailable because Nginx was stopped, not because traffic was filtered.
+Traffic was not being filtered. Port 80 was unavailable because Nginx was not running.
 
 ---
 
-## Hypothesis 4: DNS Failure
+## Hypothesis 4: DNS Failed
 
-### Initial Thought
+### Why I Considered It
 
-Users may have been unable to resolve the application hostname.
+A hostname-resolution problem can make a healthy application appear unavailable.
 
-### Evidence For
+### What Supported It
 
-- Browser access failed.
-- DNS problems can appear to users as application outages.
+- Users could not open the application in a browser.
+- DNS problems often look like application outages from the user side.
 
-### Evidence Against
+### What Did Not Fit
 
-- Direct testing by IP address also failed.
-- Requests using `127.0.0.1` bypassed DNS completely.
-- No DNS change was required during recovery.
+- Direct testing by IP address failed as well.
+- Local requests to `127.0.0.1` bypassed DNS.
+- No DNS changes were needed to restore access.
 
-### Next Test
-
-- Access the application directly by IP address.
-- Test the local service through the loopback address.
-- Compare hostname and IP-based results.
-
-### Status
+### Result
 
 **Ruled out.**
 
-The outage remained present when DNS was bypassed.
+The problem remained even when DNS was removed from the request path.
 
 ---
 
-## Hypothesis 5: Backend Application Failure
+## Hypothesis 5: The Flask Backend Failed
 
-### Initial Thought
+### Why I Considered It
 
-The Flask backend may have crashed or stopped responding.
+The backend may have crashed, stopped listening, or become unable to return application content.
 
-### Evidence For
+### What Supported It
 
-- Users could not access application content.
-- A failed backend could make the complete application appear unavailable.
+- Users could not retrieve any application content.
+- A failed backend could prevent the reverse proxy from serving the application correctly.
 
-### Evidence Against
+### What Did Not Fit
 
 - `company-web.service` remained active.
-- The backend remained listening on `127.0.0.1:5050`.
+- The Flask application was still listening on `127.0.0.1:5050`.
 - Direct requests to port 5050 returned HTTP 200.
-- No backend restart or code change was required.
+- The backend did not need to be restarted.
+- No application code had to be changed.
 
-### Next Test
-
-- Check `company-web.service` status.
-- Inspect whether port 5050 is listening.
-- Send an HTTP request directly to port 5050.
-
-### Status
+### Result
 
 **Ruled out.**
 
-The backend application remained healthy throughout the outage.
+The Flask backend remained healthy throughout the outage.
 
 ---
 
-## Hypothesis 6: Nginx Failure
+## Hypothesis 6: Nginx Was the Failed Layer
 
-### Initial Thought
+### Why I Considered It
 
-Nginx may have crashed, stopped, or failed to accept connections.
+Nginx was responsible for accepting user requests on port 80 and forwarding them to the Flask backend.
 
-### Evidence For
+### What Supported It
 
-- TCP port 80 was not listening.
-- `systemctl status nginx` showed Nginx inactive.
+- Nothing was listening on TCP port 80.
+- `systemctl status nginx` showed the service as inactive.
 - The backend remained healthy.
 - Users depended on Nginx to reach the backend.
 
-### Evidence Against
+### What Did Not Fit
 
-- No evidence contradicted Nginx being the immediate failed component.
+- Nothing contradicted Nginx being the immediate failed component.
 
-### Next Test
-
-- Review Nginx service status.
-- Review the Nginx systemd journal.
-- Validate the configuration.
-- Determine whether Nginx crashed or received a stop command.
-
-### Status
+### Result
 
 **Confirmed as the immediate failed component.**
 
-### Reasoning Update
+At this point, I knew what had failed, but not yet why.
 
-The investigation narrowed from a general application outage to one question:
+The next question became:
 
 **Why did Nginx stop?**
 
 ---
 
-## Hypothesis 7: Nginx Configuration Error
+## Hypothesis 7: The Nginx Configuration Was Invalid
 
-### Initial Thought
+### Why I Considered It
 
-A syntax error or incorrect reverse-proxy setting may have prevented Nginx from operating.
+A syntax error or incorrect reverse-proxy setting could have prevented Nginx from starting or remaining operational.
 
-### Evidence For
+### What Supported It
 
-- Configuration errors can prevent Nginx from starting.
+- Configuration mistakes are a common reason for a web service to fail.
 - Nginx was inactive.
 
-### Evidence Against
+### What Did Not Fit
 
-- `sudo nginx -t` passed.
-- The same configuration worked before the outage.
-- Nginx restarted successfully without configuration changes.
+- `sudo nginx -t` completed successfully.
+- The same configuration had worked before the outage.
+- Nginx restarted without any configuration changes.
 - HTTP 200 responses returned after the restart.
 
-### Next Test
-
-- Run `sudo nginx -t`.
-- Review recent configuration modifications.
-- Restart Nginx without changing the configuration.
-- Retest the application.
-
-### Status
+### Result
 
 **Ruled out as the root cause.**
 
-The existing Nginx configuration was valid.
+The Nginx configuration was valid.
 
 ---
 
-## Hypothesis 8: Nginx Software Crash
+## Hypothesis 8: Nginx Crashed
 
-### Initial Thought
+### Why I Considered It
 
-The Nginx process may have terminated unexpectedly because of a software defect, resource issue, or process failure.
+A software defect, resource problem, or process failure may have caused Nginx to terminate unexpectedly.
 
-### Evidence For
+### What Supported It
 
 - Nginx was inactive.
-- TCP port 80 was no longer listening.
-- Users lost access without advance warning.
+- Port 80 was no longer listening.
 
-### Evidence Against
+### What Did Not Fit
 
-- The systemd journal showed an orderly shutdown sequence.
-- No segmentation fault, crash, or resource-exhaustion message was found.
-- Nginx received a normal service-stop request.
-- The service restarted successfully without repair or reinstallation.
+- The systemd journal showed a clean, orderly shutdown.
+- I found no segmentation fault, crash, or resource-exhaustion message.
+- The service received a normal stop request.
+- Nginx restarted without repairs or software changes.
 
-### Next Test
-
-- Review `journalctl -u nginx`.
-- Search system logs for crash or out-of-memory events.
-- Compare the shutdown time with authentication and sudo activity.
-
-### Status
+### Result
 
 **Ruled out.**
 
-### Reasoning Update
-
-Nginx did not crash. The orderly shutdown indicated that a user or automated process had requested the service stop.
+Nginx did not crash. It was stopped through a normal service-control action.
 
 ---
 
-## Hypothesis 9: Docker Failure
+## Hypothesis 9: Docker Interfered With the Application
 
-### Initial Thought
+### Why I Considered It
 
-Docker workloads on the server may have interfered with the application or taken over a required port.
+Docker was installed on the host, and another workload could have interfered with ports or system resources.
 
-### Evidence For
+### What Supported It
 
-- Docker was installed on the Ubuntu server.
-- Other lab services were running in containers.
-- Container problems can affect web applications.
+- Docker was present on the server.
+- Other lab services were listening on separate ports.
 
-### Evidence Against
+### What Did Not Fit
 
-- Nginx and the Flask backend were host-based systemd services.
+- Nginx and Flask were running directly on the host as systemd services.
 - Docker was not part of the application request path.
-- Docker workloads continued operating on separate ports.
-- No Docker restart or configuration change was required.
-- Restarting Nginx alone restored the application.
+- Docker workloads continued operating independently.
+- Recovery did not require any Docker changes.
 
-### Next Test
-
-- Review listening ports and associated processes.
-- Confirm whether Nginx or the backend runs inside a container.
-- Review active Docker containers and published ports.
-
-### Status
+### Result
 
 **Ruled out.**
 
-Docker was unrelated to the affected application path.
+Docker was unrelated to this outage.
 
 ---
 
-## Hypothesis 10: Kubernetes Failure
+## Hypothesis 10: Kubernetes Caused the Failure
 
-### Initial Thought
+### Why I Considered It
 
-A Kubernetes pod, service, ingress, or cluster failure may have caused the application outage.
+The wider lab environment included Kubernetes, and a cluster, ingress, service, or workload issue can affect web applications.
 
-### Evidence For
+### What Supported It
 
-- Kubernetes was present in the broader lab environment.
-- Kubernetes failures can make applications unavailable.
+- Kubernetes existed elsewhere in the lab environment.
+- Kubernetes failures can disrupt application traffic.
 
-### Evidence Against
+### What Did Not Fit
 
-- The affected application was not deployed in Kubernetes.
-- No pod, service, ingress, or cluster dependency was identified.
-- The application used Nginx and Flask directly on the Ubuntu host.
-- No Kubernetes action was required during recovery.
-- Restarting the host-based Nginx service restored access.
+- This application was not deployed in Kubernetes.
+- No pod, service, ingress, or cluster dependency was involved.
+- The application ran directly on Ubuntu using Nginx and Flask.
+- Recovery did not require any Kubernetes action.
 
-### Next Test
-
-- Confirm the application deployment architecture.
-- Check whether any Kubernetes resources expose the application.
-- Compare the affected ports with Kubernetes services and NodePorts.
-
-### Status
+### Result
 
 **Ruled out.**
 
-Kubernetes was not part of the affected application architecture.
+Kubernetes was not part of this application architecture.
 
 ---
 
-## Hypothesis 11: Administrative Action Stopped Nginx
+## Hypothesis 11: An Administrative Action Stopped Nginx
 
-### Initial Thought
+### Why I Considered It
 
-Because the Nginx journal showed an orderly shutdown, a user or automated process may have executed a service-control command.
+The Nginx journal showed an orderly shutdown rather than a crash. That suggested that a person or automated process may have issued a service-control command.
 
-### Evidence For
+### What Supported It
 
 - Authentication logs showed that `webadmin` logged in through SSH.
-- The SSH connection originated from `192.168.56.111`.
-- A failed sudo authentication event occurred during the session.
-- Sudo records showed that the account executed:
+- The connection came from `192.168.56.111`.
+- A failed sudo authentication event occurred.
+- Sudo records showed the following command:
 
 `/usr/bin/systemctl stop nginx`
 
-- The command timestamp matched the Nginx shutdown timestamp.
-- The `webadmin` session remained active during the investigation.
-- No approved maintenance was known at the time.
+- The command time matched the Nginx shutdown time.
+- The `webadmin` session was still active during the investigation.
 
-### Evidence Against
+### What Did Not Fit
 
-- No evidence contradicted the command and service-log correlation.
-- The logs identify the account but do not prove which person operated it.
+- I found no evidence that contradicted the relationship between the SSH session, sudo command, and Nginx shutdown.
 
-### Next Test
-
-- Review focused SSH and sudo events.
-- Compare the privileged-command timestamp with the Nginx journal.
-- Review login history and active sessions.
-- Correlate the SSH connection with its source IP address.
-
-### Status
+### Result
 
 **Confirmed as the direct technical cause.**
 
-### Reasoning Update
-
-An authenticated privileged session stopped Nginx. This explained why the service shut down normally and why TCP port 80 disappeared while the backend remained healthy.
+An authenticated session with elevated privileges stopped Nginx.
 
 ---
 
-## Hypothesis 12: Confirmed Malicious Compromise
+## Hypothesis 12: The Server or Application Was Maliciously Compromised
 
-### Initial Thought
+### Why I Considered It
 
-The privileged action may indicate that the application, server, or administrative account was compromised.
+A privileged account had interrupted a user-facing service, so I had to consider the possibility of unauthorized access or deliberate disruption.
 
-### Evidence For
+### What Supported It
 
-- A privileged account disrupted a user-facing service.
-- The SSH session originated from `192.168.56.111`.
-- The action was not associated with known maintenance.
-- A failed sudo authentication attempt occurred before the successful command.
+- A privileged account caused an availability impact.
+- The SSH source required further review.
+- The action was not tied to known maintenance.
 
-### Evidence Against
+### What Did Not Fit
 
-- No application files were shown to have been modified.
+- I found no evidence that application files were modified.
 - No malicious backend process was identified.
-- No data theft or data alteration was detected.
-- No persistence mechanism was found.
-- The backend continued operating normally.
-- Logs identify the account used, but not the person controlling it.
-- The technical evidence cannot determine whether the action was accidental or intentional.
+- There was no evidence of data theft or data alteration.
+- I found no persistence mechanism.
+- The logs identified the account used, but not the person operating it.
+- The technical records could not establish whether the action was accidental or intentional.
 
-### Next Test
-
-- Review application and system files for unexpected changes.
-- Review persistence locations and scheduled tasks.
-- Review endpoint telemetry from the source system.
-- Check whether the credentials or SSH keys were shared or exposed.
-- Compare the activity with approved change records.
-
-### Status
+### Result
 
 **Not proven.**
 
-### Reasoning Update
-
-The incident was security-related because privileged activity caused an outage. However, the available evidence did not prove malicious intent, credential theft, server compromise, or backend application compromise.
+The event was security-related because privileged account activity caused the outage. However, the available evidence did not prove malicious intent or a compromise of the Flask backend.
 
 ---
 
 ## Working Conclusion
 
-The immediate outage occurred because Nginx was stopped.
+The application became unavailable because Nginx was stopped.
 
-The direct technical sequence was:
+The evidence supported the following sequence:
 
-`webadmin → SSH session from 192.168.56.111 → sudo systemctl stop nginx`
+`webadmin -> SSH session from 192.168.56.111 -> sudo systemctl stop nginx`
 
-This removed the listener from TCP port 80 and prevented users from reaching the healthy Flask backend.
+Once Nginx stopped, the listener on TCP port 80 disappeared. Users could no longer reach the application even though the Flask backend remained healthy on port 5050.
 
-### Incident Classification
+I classified the event as:
 
-**Security-related availability incident caused by privileged administrative activity.**
-
-### Confidence
-
-- **High confidence** in the direct technical cause
-- **Undetermined** whether the activity was accidental, intentional, or performed by the legitimate account owner
+**A security-related availability incident caused by privileged administrative activity.**
 
 ---
 
 ## Recovery Notes
 
-- Preserved authentication, sudo, session, service, port, and HTTP evidence.
-- Locked the `webadmin` account.
-- Terminated the active SSH session.
-- Validated the Nginx configuration.
-- Restarted Nginx.
-- Confirmed TCP port 80 was listening.
-- Confirmed HTTP 200 through Nginx.
-- Confirmed connectivity from Windows.
-- Confirmed browser access.
-- Confirmed services started automatically after reboot.
-- Confirmed `webadmin` remained locked after reboot.
+Before restoring service, I preserved the available authentication, sudo, session, service, port, and HTTP evidence.
 
-### Recovery Result
+The recovery process included:
 
-Service was restored without changing:
-
-- The Flask backend
-- Application code
-- Docker
-- Kubernetes
-- DNS
-- Firewall rules
-- Network configuration
+- Locking the `webadmin` account
+- Ending the active session
+- Validating the Nginx configuration
+- Restarting Nginx
+- Confirming that TCP port 80 was listening
+- Confirming an HTTP 200 response through Nginx
+- Confirming access from Windows
+- Rebooting the server
+- Confirming both services started after reboot
+- Confirming `webadmin` remained locked after reboot
 
 ---
 
-## Questions Still Open
+## Questions That Remain Open
 
-- Was the legitimate account owner operating the SSH session?
-- Were the credentials shared, stolen, or otherwise misused?
-- Was the service-stop action accidental or intentional?
-- Was there an approved change that was not documented?
-- Was the Kali source system compromised?
-- Do other accounts have excessive sudo permissions?
-- Were any SSH keys or passwords exposed?
-- Was similar privileged activity performed on other systems?
+The collected evidence answered the technical question of how the outage occurred, but it could not answer every identity or intent question.
 
-These questions could not be answered from the available server logs alone.
+The following items remain unresolved:
 
----
+- Was the legitimate account owner using the SSH session?
+- Were the credentials shared?
+- Were the credentials stolen?
+- Was the command entered accidentally or intentionally?
+- Was there an approved change that had not been documented?
+- Was the Kali source system itself compromised?
+- Do other accounts have unnecessary sudo privileges?
 
-## Improvements Identified During Investigation
-
-- Add external HTTP health monitoring.
-- Alert when Nginx becomes inactive.
-- Alert when TCP port 80 stops responding.
-- Alert on privileged service-control commands.
-- Centralize authentication, SSH, sudo, and systemd logs.
-- Require individual administrative accounts.
-- Require multifactor authentication.
-- Restrict sudo permissions using least privilege.
-- Use a controlled bastion or privileged access platform.
-- Record administrative sessions.
-- Establish formal change-control procedures.
-- Review privileged access regularly.
-- Add endpoint monitoring to administrative systems.
-- Create a web-outage investigation runbook.
-- Add reverse-proxy redundancy to remove the single point of failure.
+Additional identity-provider, endpoint, network, change-management, and interview evidence would be needed to answer those questions.
 
 ---
 
-## Habit for Future Investigations
+## Improvements Identified During the Investigation
 
-For each new possibility, record the following while the investigation is still active.
+This incident highlighted several improvements that would reduce detection and recovery time:
+
+- External HTTP health monitoring
+- Alerts when Nginx becomes inactive
+- Alerts for privileged service-control commands
+- Centralized authentication and sudo logs
+- Individual administrator accounts
+- Multifactor authentication
+- More restrictive sudo permissions
+- Formal change control
+- Administrative session recording
+- Reverse-proxy redundancy
+
+---
+
+## Investigation Habit to Carry Forward
+
+For each new possibility, I should record the following information while the investigation is still active.
 
 ### Hypothesis
 
-What might be happening?
-
-### Why It Is Plausible
-
-What observation caused this hypothesis to be considered?
+What may be happening?
 
 ### Evidence For
 
-What facts currently support it?
+Which observations support the possibility?
 
 ### Evidence Against
 
-What facts contradict it?
+Which observations contradict it?
 
 ### Next Test
 
-What command, log, measurement, or experiment will test it?
-
-### Test Result
-
-What happened when the test was performed?
+Which command, log, or measurement would provide the clearest answer?
 
 ### Status
-
-Choose one:
 
 - New
 - Investigating
@@ -564,48 +458,4 @@ Choose one:
 
 ### Reasoning Update
 
-What did the latest evidence change about the investigation?
-
-### Timestamp
-
-When was this entry or update made?
-
----
-
-## Blank Hypothesis Template
-
-### Hypothesis
-
-[Describe the possible cause.]
-
-### Why It Is Plausible
-
-[Explain why this possibility is being considered.]
-
-### Evidence For
-
-- [Supporting evidence]
-
-### Evidence Against
-
-- [Contradicting evidence]
-
-### Next Test
-
-- [Next command, log, or validation step]
-
-### Test Result
-
-[Record the result.]
-
-### Status
-
-**Investigating**
-
-### Reasoning Update
-
-[Explain how the result changed the investigation.]
-
-### Timestamp
-
-[YYYY-MM-DD HH:MM Time Zone]
+How did the latest evidence change the direction of the investigation?
