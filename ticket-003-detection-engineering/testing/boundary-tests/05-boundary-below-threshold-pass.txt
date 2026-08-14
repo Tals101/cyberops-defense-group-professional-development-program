@@ -1,0 +1,1 @@
+PASS: Four failed SSH attempts stayed below the configured threshold of five.
