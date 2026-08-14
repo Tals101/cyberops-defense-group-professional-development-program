@@ -1,0 +1,4 @@
+2026-08-10T17:54:57.592486+00:00 ubuntu-soc-lab sshd[2873]: Accepted password for soc-test from 192.168.56.1 port 18438 ssh2
+2026-08-10T17:54:57.593278+00:00 ubuntu-soc-lab sshd[2873]: pam_unix(sshd:session): session opened for user soc-test(uid=1003) by soc-test(uid=0)
+2026-08-10T17:56:08.878232+00:00 ubuntu-soc-lab sshd[2945]: Disconnected from user soc-test 192.168.56.1 port 18438
+2026-08-10T17:56:08.883242+00:00 ubuntu-soc-lab sshd[2873]: pam_unix(sshd:session): session closed for user soc-test
