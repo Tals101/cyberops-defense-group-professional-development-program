@@ -1,0 +1,10 @@
+{
+  "known_sources": {
+    "soc-test": [
+      "192.168.56.1"
+    ]
+  },
+  "threshold": 5,
+  "window_seconds": 120,
+  "success_context_seconds": 60
+}

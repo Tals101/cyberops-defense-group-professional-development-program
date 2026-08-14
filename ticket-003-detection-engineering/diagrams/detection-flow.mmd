@@ -1,0 +1,19 @@
+flowchart TD
+    A[SSH login event arrives] --> B{Password attempt failed?}
+
+    B -- No --> C[Keep successful-login context]
+    B -- Yes --> D[Capture user, source IP, and time]
+
+    D --> E[Group failures by user and source]
+    E --> F{At least 5 failures in 120 seconds?}
+
+    F -- No --> G[No alert]
+    F -- Yes --> H{Source already expected?}
+
+    H -- No --> I[Raise suspicious authentication alert]
+    H -- Yes --> J{Successful login within 60 seconds?}
+
+    J -- Yes --> K[Do not raise high-priority alert]
+    J -- No --> I
+
+    I --> L[SOC reviews the activity]
