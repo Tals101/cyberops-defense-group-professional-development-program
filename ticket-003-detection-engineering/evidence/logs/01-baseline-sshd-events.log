@@ -1,0 +1,4 @@
+2026-08-10T17:37:00.431559+00:00 ubuntu-soc-lab sshd[2514]: Server listening on 0.0.0.0 port 22.
+2026-08-10T17:37:00.431637+00:00 ubuntu-soc-lab sshd[2514]: Server listening on :: port 22.
+2026-08-10T17:37:02.796154+00:00 ubuntu-soc-lab sshd[2516]: Accepted password for analyst from 192.168.56.1 port 59960 ssh2
+2026-08-10T17:37:02.799412+00:00 ubuntu-soc-lab sshd[2516]: pam_unix(sshd:session): session opened for user analyst(uid=1000) by analyst(uid=0)
