@@ -1,0 +1,13 @@
+2026-08-10T18:57:52.762596+00:00 ubuntu-soc-lab sshd[4027]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.56.1  user=soc-test
+2026-08-10T18:57:54.903247+00:00 ubuntu-soc-lab sshd[4027]: Failed password for soc-test from 192.168.56.1 port 53356 ssh2
+2026-08-10T18:58:00.965705+00:00 ubuntu-soc-lab sshd[4027]: Failed password for soc-test from 192.168.56.1 port 53356 ssh2
+2026-08-10T18:58:05.419406+00:00 ubuntu-soc-lab sshd[4027]: Failed password for soc-test from 192.168.56.1 port 53356 ssh2
+2026-08-10T18:58:07.275729+00:00 ubuntu-soc-lab sshd[4027]: Connection reset by authenticating user soc-test 192.168.56.1 port 53356 [preauth]
+2026-08-10T18:58:07.275969+00:00 ubuntu-soc-lab sshd[4027]: PAM 2 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.56.1  user=soc-test
+2026-08-10T18:58:17.306161+00:00 ubuntu-soc-lab sshd[4041]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.56.1  user=soc-test
+2026-08-10T18:58:19.211533+00:00 ubuntu-soc-lab sshd[4041]: Failed password for soc-test from 192.168.56.1 port 4526 ssh2
+2026-08-10T18:58:23.764284+00:00 ubuntu-soc-lab sshd[4041]: Failed password for soc-test from 192.168.56.1 port 4526 ssh2
+2026-08-10T18:58:29.262715+00:00 ubuntu-soc-lab sshd[4041]: Accepted password for soc-test from 192.168.56.1 port 4526 ssh2
+2026-08-10T18:58:29.265120+00:00 ubuntu-soc-lab sshd[4041]: pam_unix(sshd:session): session opened for user soc-test(uid=1003) by soc-test(uid=0)
+2026-08-10T18:58:51.621433+00:00 ubuntu-soc-lab sshd[4157]: Disconnected from user soc-test 192.168.56.1 port 4526
+2026-08-10T18:58:51.621758+00:00 ubuntu-soc-lab sshd[4041]: pam_unix(sshd:session): session closed for user soc-test

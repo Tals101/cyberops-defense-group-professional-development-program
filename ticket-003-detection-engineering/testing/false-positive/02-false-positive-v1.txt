@@ -1,0 +1,8 @@
+=== SUSPICIOUS SSH AUTHENTICATION DETECTED ===
+User: soc-test
+Source IP: 192.168.56.1
+Failed attempts: 5
+Window: 29 seconds
+Threshold: 5 failures in 120 seconds
+First event: 2026-08-10T18:57:54.903247+00:00
+Last event: 2026-08-10T18:58:23.764284+00:00
