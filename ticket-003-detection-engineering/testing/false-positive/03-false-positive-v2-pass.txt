@@ -1,0 +1,1 @@
+PASS: Version 2 did not raise a high-priority alert for the legitimate retry sequence.
