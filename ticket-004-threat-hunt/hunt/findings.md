@@ -1,170 +1,133 @@
-# Ticket #004 — Hunt Findings
+# Ticket #004 - Hunt Findings
 
 ## Summary
 
-The threat hunt examined whether unauthorized persistence was occurring on the Ubuntu Linux lab system through cron jobs, systemd services, or related scheduled execution mechanisms.
+The hunt found several scheduled execution mechanisms that looked different enough from the normal Ubuntu background jobs to justify a closer look. The most notable was a root-level configuration backup that ran every five minutes and wrote archives to `/var/tmp`.
 
-The hunt identified suspicious-looking scheduled activity, but additional context showed the behavior was most consistent with legitimate administrative and lab activity.
+After correlating cron execution, script contents, sudo records, SSH history, and systemd configuration, the activity was better explained as legitimate lab and administrative work than as unauthorized persistence.
 
-## Key Finding 1 — Recently Created Cron Jobs
+**Disposition:** Close - Benign  
+**Confidence:** Medium
 
-Two recently created cron jobs were identified:
+---
 
-### dev-health-check
+## Finding 1 - Two recent cron jobs deserved attention
 
-- Runs every 15 minutes.
-- Executes as root.
-- Calls `/usr/local/bin/dev-health-check.sh`.
+Two files in `/etc/cron.d` were recent compared with the older system entries.
+
+### `dev-health-check`
+
+- Runs every 15 minutes as root.
+- Executes `/usr/local/bin/dev-health-check.sh`.
 - Records hostname, uptime, and filesystem usage.
 - Writes to `/var/log/dev-health-check.log`.
 
-Assessment:
+The script's purpose and output location were straightforward and consistent with routine monitoring.
 
-The task had a clear administrative monitoring purpose.
+### `config-backup`
 
-### config-backup
-
-- Runs every 5 minutes.
-- Executes as root.
-- Calls `/usr/local/bin/config-backup.sh`.
+- Runs every five minutes as root.
+- Executes `/usr/local/bin/config-backup.sh`.
 - Archives `/etc/hosts` and `/etc/ssh/sshd_config`.
-- Writes timestamped archives to `/var/tmp`.
+- Writes timestamped `.tar.gz` files to `/var/tmp`.
 
-Assessment:
+This job warranted more scrutiny. Its frequency, root privileges, collection of SSH configuration, and temporary-directory destination were all reasonable hunting signals even though none of them proved malicious intent.
 
-The task warranted additional investigation because of its frequency, root execution, collection of SSH configuration, and use of a temporary directory.
+---
 
-## Key Finding 2 — Confirmed Scheduled Execution
+## Finding 2 - The backup job was actively executing
 
-Cron journal telemetry confirmed that `config-backup.sh` executed automatically at the expected schedule.
+Cron journal events confirmed that `config-backup.sh` ran on schedule. The resulting files under `/var/tmp` provided a second source of confirmation that the job was active rather than simply configured and dormant.
 
-Artifacts under `/var/tmp` also confirmed repeated execution.
+That distinction mattered because the hunt was evaluating actual recurring behavior, not just a suspicious-looking file on disk.
 
-This established that the task was active persistence, not merely a dormant cron configuration.
+---
 
-## Key Finding 3 — User and Privilege Correlation
+## Finding 3 - Sudo records tied the recent jobs to the analyst session
 
-Sudo telemetry showed that the `analyst` account:
+Privilege telemetry showed the `analyst` account creating both scripts and both cron entries, changing permissions, and manually running the configuration backup before cron took over.
 
-- Created `dev-health-check.sh`.
-- Created `config-backup.sh`.
-- Created both cron entries.
-- Manually executed the configuration backup script.
-- Set permissions on the scripts and cron files.
+This was a major change in the assessment. Instead of an unexplained background process or unknown account creating persistence, the changes were tied to a visible interactive administrative session.
 
-This weakened the hypothesis that an unknown account created the scheduled tasks.
+---
 
-## Key Finding 4 — Session Origin
+## Finding 4 - The session source matched historical access
 
-The analyst SSH session originated from:
+The active analyst SSH session came from `192.168.56.1`. Login history showed the same source repeatedly associated with prior analyst sessions.
 
-`192.168.56.1`
+That pattern supported a benign explanation, but it was not treated as proof of authorization. A familiar source can still be compromised, and no formal change record was available.
 
-Historical login records showed repeated prior analyst sessions from the same source address.
+---
 
-Assessment:
+## Hunt Pivot - An unexpected root cron task
 
-The session source was consistent with historical access patterns.
-
-This did not independently prove authorization, but it weakened the unauthorized-access explanation.
-
-## Hunt Pivot — Unexpected Root Cron Task
-
-During cron execution review, an additional script was discovered:
-
-`/usr/local/bin/detect-ssh-bruteforce.sh`
-
-The task executed every minute as root.
-
-It was not found in `/etc/cron.d`, which led to a review of the root user's crontab.
+While reviewing cron execution, I noticed `/usr/local/bin/detect-ssh-bruteforce.sh` running every minute as root. It had not appeared in the original `/etc/cron.d` review, so I traced its scheduling source.
 
 The root crontab contained:
 
 `* * * * * /usr/local/bin/detect-ssh-bruteforce.sh`
 
-Script inspection showed that it:
+The script checks recent SSH logs, counts failed-password events by source IP, and writes an `auth.warning` message when five failures occur within five minutes.
 
-- Reviews recent SSH logs.
-- Searches for failed password attempts.
-- Counts attempts by source IP.
-- Uses a threshold of five failures in five minutes.
-- Generates an `auth.warning` alert when the threshold is exceeded.
+This was important because the mechanism itself looked persistent and privileged, but the behavior was consistent with a defensive SSH monitor. The pivot therefore weakened, rather than strengthened, the original unauthorized-persistence hypothesis.
 
-Assessment:
+---
 
-The task was consistent with defensive SSH brute-force monitoring rather than unauthorized persistence.
+## Finding 5 - Systemd did not reveal another unexplained persistence mechanism
 
-This pivot weakened the original hypothesis.
+The systemd timer review showed expected Ubuntu maintenance jobs. The one custom service that stood out was `company-web.service`.
 
-## Key Finding 5 — Systemd Review
+It predated the current hunt, ran as `analyst`, launched `/home/analyst/internal-web-outage-lab/app.py`, and was consistent with an existing Flask lab application. Nothing in the reviewed systemd data pointed to a new hidden persistence mechanism.
 
-Systemd services and timers were reviewed.
+---
 
-No unexplained newly created persistence mechanism was identified.
-
-The only notable custom service was:
-
-`company-web.service`
-
-It:
-
-- Predated the current hunt.
-- Ran as the `analyst` user.
-- Executed an internal Flask application.
-- Used `/home/analyst/internal-web-outage-lab/app.py`.
-- Was consistent with an existing lab application.
-
-## Evidence Classification
+## Fact, Inference, and Assumption
 
 ### Facts
 
-- The analyst account created the two recent cron tasks through sudo.
+- The analyst account used sudo to create the two recent cron tasks.
 - `config-backup.sh` archives `/etc/hosts` and `/etc/ssh/sshd_config`.
-- Cron executed the configuration backup automatically.
-- The analyst session originated from `192.168.56.1`.
-- Historical analyst sessions repeatedly used the same source.
-- The root crontab schedules `detect-ssh-bruteforce.sh` every minute.
-- No unexplained new systemd persistence mechanism was identified.
+- Cron executed the backup job automatically.
+- The active analyst session came from `192.168.56.1`.
+- Historical analyst sessions repeatedly came from that same source.
+- The root crontab runs `detect-ssh-bruteforce.sh` every minute.
+- The systemd review did not uncover another unexplained recent persistence mechanism.
 
 ### Inferences
 
-- `dev-health-check.sh` is legitimate administrative monitoring.
-- `config-backup.sh` is most consistent with authorized lab activity.
-- `detect-ssh-bruteforce.sh` is a defensive monitoring control.
-- `company-web.service` is legitimate application hosting.
+- `dev-health-check.sh` is consistent with routine system monitoring.
+- `config-backup.sh` is most consistent with authorized lab or administrative activity.
+- `detect-ssh-bruteforce.sh` appears to be a defensive monitoring control.
+- `company-web.service` appears to be a legitimate application service.
 
 ### Assumptions
 
 - The analyst session was formally authorized.
-- The configuration changes were formally approved.
-- Historical consistency indicates expected administrative access.
+- The scheduled-task changes were formally approved.
+- Historical consistency reflects expected administrative access.
 
-Formal change-management evidence was not available to independently prove these assumptions.
+Those assumptions could not be independently confirmed because a change ticket or separate administrator approval record was not available.
+
+---
 
 ## Final Disposition
 
-**Close — Benign**
+**Close - Benign**
+
+The evidence consistently tied the unusual scheduled activity to an established analyst session and to scripts with understandable lab or defensive purposes. Nothing collected showed account compromise, malicious code, command-and-control activity, exfiltration, or another basis for incident escalation.
 
 ## Confidence
 
 **Medium**
 
-The strongest evidence supporting this conclusion was the correlation between the analyst SSH session, sudo activity, historical login source, script contents, cron execution, and systemd review.
+The conclusion is supported by several independent sources: cron configuration, cron execution, sudo telemetry, SSH authentication, historical login records, file metadata, script contents, and systemd configuration.
 
-Confidence remains Medium because no independent change-management or administrator approval record was available.
+Confidence remains Medium because the technical evidence shows what happened but does not independently prove that the changes were formally approved.
 
-## Why the Hunt Stopped
+---
 
-The hunt stopped after:
+## Why I Stopped
 
-- The original hypothesis was tested.
-- Cron configuration and execution were reviewed.
-- Suspicious scripts were inspected.
-- File artifacts were analyzed.
-- Authentication and sudo activity were correlated.
-- Session history was reviewed.
-- The required hunt pivot was completed.
-- Root crontab activity was investigated.
-- Systemd persistence was reviewed.
+By the end of the hunt, the original hypothesis and the main benign alternatives had been tested. Cron, root crontab, systemd, scripts, file artifacts, authentication, privilege use, session origin, and historical access had all been reviewed, and the required pivot had been resolved.
 
-At that point, no remaining evidence pointed toward another meaningful lead that was likely to materially change the disposition.
+No remaining finding pointed to a specific next step likely to change the disposition, so continuing to collect data would have added volume without improving the decision.

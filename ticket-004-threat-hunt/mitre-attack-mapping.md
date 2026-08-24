@@ -1,51 +1,22 @@
-﻿# Bonus Challenge — MITRE ATT&CK Mapping
+# Bonus Challenge - MITRE ATT&CK Mapping
 
-## Purpose
+## Approach
 
-This section maps behaviors observed during the threat hunt to relevant MITRE ATT&CK techniques.
-
-An ATT&CK mapping describes how observed system behavior corresponds to a technique that an adversary could abuse. It does not establish that the observed activity was malicious.
-
-The final hunt disposition remains:
-
-**Close — Benign**
-
-**Confidence: Medium**
+The mappings below describe how behavior observed during the hunt aligns with ATT&CK techniques. They are behavioral mappings, not claims that an attacker performed the activity. The hunt's final disposition remains **Close - Benign** with **Medium** confidence.
 
 ---
 
-## T1053.003 — Scheduled Task/Job: Cron
+## T1053.003 - Scheduled Task/Job: Cron
 
-### Observed Behavior
+### Observed behavior
 
-Multiple recurring Linux cron jobs were identified during the hunt.
+The host had several recurring cron jobs. Two recent entries were `/etc/cron.d/dev-health-check` and `/etc/cron.d/config-backup`, running every 15 minutes and every five minutes respectively. The hunt pivot also uncovered `/usr/local/bin/detect-ssh-bruteforce.sh` running every minute from the root user's crontab.
 
-The recently created tasks included:
+### Why the mapping fits
 
-- `/etc/cron.d/dev-health-check`
-- `/etc/cron.d/config-backup`
+T1053.003 covers cron-based scheduled execution on Unix-like systems. Each of these jobs used cron to launch a command repeatedly without an interactive user session. That is the same mechanism an adversary could use for persistence or recurring execution, even though the surrounding evidence in this case supported legitimate administrative or defensive use.
 
-The health-check task executed every 15 minutes as root.
-
-The configuration-backup task executed every 5 minutes as root.
-
-The hunt pivot also identified a root crontab entry that executed:
-
-`/usr/local/bin/detect-ssh-bruteforce.sh`
-
-every minute.
-
-### Why the Technique Applies
-
-MITRE ATT&CK T1053.003 describes the use of cron to schedule recurring execution on Unix-like operating systems.
-
-The observed jobs caused scripts to execute automatically at defined intervals. From a behavioral perspective, this is the same scheduling mechanism an adversary could abuse to establish persistence or recurring execution.
-
-The mapping describes the mechanism being used, not the intent behind it.
-
-### Supporting Evidence
-
-Relevant evidence includes:
+### Supporting evidence
 
 - `evidence/command-output/01-cron-enumeration.txt`
 - `evidence/logs/04-cron-execution.log`
@@ -54,177 +25,84 @@ Relevant evidence includes:
 - `evidence/artifacts/dev-health-check.cron`
 - `evidence/artifacts/root-crontab.txt`
 
-Cron journal telemetry confirmed that the tasks were not merely configured on disk; they were executing according to their schedules.
+The journal confirmed that the jobs were actually executing, not merely present in configuration files.
 
-### Mapping Confidence
+### Mapping confidence
 
-**High**
-
-There is direct evidence of cron configuration and recurring cron execution.
-
-This is High confidence in the ATT&CK technique mapping, not High confidence that the activity was malicious.
-
-The investigation ultimately found evidence supporting legitimate administrative and defensive purposes for the scheduled jobs.
+**High.** The cron configuration and recurring execution are directly observable. High confidence here applies to the technique mapping, not to malicious intent.
 
 ---
 
-## T1560.001 — Archive Collected Data: Archive via Utility
+## T1560.001 - Archive Collected Data: Archive via Utility
 
-### Observed Behavior
+### Observed behavior
 
-The script:
+`/usr/local/bin/config-backup.sh` used standard Linux archiving tools to create timestamped `.tar.gz` files under `/var/tmp`. The archive contained `/etc/hosts` and `/etc/ssh/sshd_config`, and multiple archive files were observed.
 
-`/usr/local/bin/config-backup.sh`
+### Why the mapping fits
 
-created compressed configuration archives under `/var/tmp`.
+T1560.001 describes the use of utilities such as `tar` and `gzip` to package or compress data. The script did exactly that. An attacker could use the same technique to stage collected information before exfiltration, but the hunt found no evidence that these archives left the host or were used for a malicious purpose.
 
-The archive contained:
-
-- `/etc/hosts`
-- `/etc/ssh/sshd_config`
-
-Timestamped files were created in the form:
-
-`/var/tmp/dev-config-TIMESTAMP.tar.gz`
-
-Multiple archives were observed during the hunt.
-
-### Why the Technique Applies
-
-MITRE ATT&CK T1560.001 describes the use of utilities such as `tar`, `gzip`, and similar tools to package or compress collected data.
-
-The configuration-backup script used the standard Linux archive mechanism to package multiple configuration files into a compressed archive.
-
-An adversary could use the same behavior to consolidate collected information before staging or exfiltration.
-
-In this investigation, however, no evidence of exfiltration or malicious staging was identified.
-
-### Supporting Evidence
-
-Relevant evidence includes:
+### Supporting evidence
 
 - `evidence/command-output/02-script-inspection.txt`
 - `evidence/command-output/03-var-tmp-artifacts.txt`
 - `evidence/artifacts/config-backup.sh`
 - `evidence/artifacts/config-backup-archive-contents.txt`
 
-Artifact timestamps also correlated with manual and scheduled execution of the backup script.
+The file timestamps also lined up with manual and scheduled execution of the backup script.
 
-### Mapping Confidence
+### Mapping confidence
 
-**High**
-
-The script contents and resulting `.tar.gz` artifacts directly demonstrate use of an archiving utility.
-
-The technique mapping is therefore strong.
-
-The malicious interpretation is not supported because the broader evidence showed the script was created during the analyst session and no subsequent exfiltration behavior was identified.
+**High.** The script and resulting `.tar.gz` artifacts directly show archive creation through a standard utility. The confidence applies to the behavior-to-technique mapping; the broader evidence still supports a benign explanation.
 
 ---
 
-## T1543.002 — Create or Modify System Process: Systemd Service
+## T1543.002 - Create or Modify System Process: Systemd Service
 
-### Observed Behavior
+### Observed behavior
 
-During the systemd persistence review, the hunt identified the custom service:
+The systemd review identified the custom `company-web.service`. It contained an `ExecStart` directive, ran as `analyst`, launched a Python Flask application from `/home/analyst/internal-web-outage-lab`, and was active on the system.
 
-`company-web.service`
+### Why the mapping fits
 
-The service:
+T1543.002 covers the use of systemd services for persistent or repeatable execution on Linux. A custom unit file gives the operating system a defined way to start and manage a process, which is the same mechanism an adversary could abuse. Here, however, the service predated the hunt and matched an existing internal lab application.
 
-- Was installed as a systemd service
-- Contained an `ExecStart` directive
-- Started a Python Flask application
-- Ran as the `analyst` user
-- Referenced `/home/analyst/internal-web-outage-lab`
-- Was active on the system
-
-### Why the Technique Applies
-
-MITRE ATT&CK T1543.002 describes adversary use of systemd service unit files to provide repeated or persistent execution on Linux systems.
-
-A custom systemd service provides a mechanism through which a process can be automatically managed and executed by the operating system.
-
-The observed service therefore resembles the persistence mechanism described by the ATT&CK technique.
-
-Context was critical in this case.
-
-The service predated the current hunt and was consistent with an existing internal web-application lab. No evidence showed that it had been created or modified as part of malicious persistence.
-
-### Supporting Evidence
-
-Relevant evidence includes:
+### Supporting evidence
 
 - `evidence/command-output/09-systemd-review.txt`
 - `evidence/command-output/10-company-web-review.txt`
 
-The evidence showed both the systemd configuration and the legitimate application associated with the service.
+Those files show both the unit configuration and the application context behind it.
 
-### Mapping Confidence
+### Mapping confidence
 
-**Medium**
-
-The systemd mechanism clearly corresponds to T1543.002.
-
-Confidence is Medium rather than High because the hunt was reviewing an existing service rather than directly observing its creation during the investigation.
-
-The evidence nevertheless strongly supported the conclusion that this particular service was legitimate.
+**Medium.** The systemd mechanism clearly aligns with T1543.002, but the hunt observed an existing service rather than its creation. The available context strongly supported legitimate application hosting.
 
 ---
 
-# Additional Data Source
+## Additional Data Source - Linux auditd
 
-## Linux Audit Framework — auditd
+The single data source that would most improve visibility into all three behaviors is Linux `auditd` telemetry.
 
-One additional data source that would materially improve visibility across these behaviors is **Linux auditd telemetry**.
+With appropriate audit rules, I could see:
 
-Auditd could provide detailed records of:
-
-- Process execution
-- Executing user
-- Effective user and privilege context
-- Parent and child process relationships
-- Command-line arguments
-- File creation
-- File modification
-- Changes to cron configuration
+- Process execution and command-line arguments
+- Executing and effective users
+- Parent-child process relationships
+- Creation or modification of cron files
 - Changes to systemd unit files
-- Execution of archive utilities such as `tar`
+- Execution of `tar` or related archive utilities
+- File creation associated with those commands
 
-For the cron behavior, audit rules could monitor changes to locations such as:
+For cron, audit rules could watch `/etc/crontab`, `/etc/cron.d/`, and user crontab locations. For systemd, they could monitor `/etc/systemd/system/`, `/usr/lib/systemd/system/`, and relevant `systemctl` activity. For archive behavior, `execve` records would show the exact `tar` command, the account that launched it, and its process ancestry.
 
-- `/etc/crontab`
-- `/etc/cron.d/`
-- User crontab locations
-
-For systemd behavior, audit rules could monitor:
-
-- `/etc/systemd/system/`
-- `/usr/lib/systemd/system/`
-- Relevant `systemctl` execution
-
-For archive behavior, process telemetry could show the exact execution of `tar`, its parent process, account context, command-line arguments, and resulting file creation.
-
-MITRE's current cron detection guidance specifically identifies auditd file-modification and `execve` process telemetry as useful for detecting cron creation/modification followed by execution.
-
-This would provide stronger attribution than relying primarily on cron journals, sudo logs, script contents, and file timestamps.
+That would provide stronger attribution than relying mainly on cron journals, sudo logs, script contents, and file timestamps.
 
 ---
 
-# Analytical Conclusion
+## Takeaway
 
-The ATT&CK mappings demonstrate an important threat-hunting principle:
+ATT&CK is useful for naming the behavior, but it does not determine intent. This hunt contained several actions that line up with techniques attackers can use - cron scheduling, archive creation, and systemd-based execution - yet the surrounding account, sudo, historical login, script, and application context supported a benign disposition.
 
-**A behavior can match an adversary technique without being adversary activity.**
-
-The hunt observed mechanisms that attackers could abuse:
-
-- Scheduled execution through cron
-- Data archiving with standard Linux utilities
-- Persistent execution through systemd
-
-However, correlation with authentication, sudo activity, historical session origin, script contents, and application context produced a benign final disposition.
-
-ATT&CK helped classify the behaviors.
-
-The evidence determined the conclusion.
+The technique mapping explains **how** the behavior works. The evidence determines **what it means in this case**.

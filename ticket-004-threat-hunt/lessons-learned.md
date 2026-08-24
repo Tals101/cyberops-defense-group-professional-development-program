@@ -1,94 +1,66 @@
-# Ticket #004 — Lessons Learned
+# Ticket #004 - Lessons Learned
 
-## 1. What was your original hypothesis?
+## 1. What was the original hypothesis?
 
-My original hypothesis was:
-
-If unauthorized persistence through scheduled tasks is occurring on the Linux system, I would expect to observe newly created or modified cron jobs or systemd services associated with unusual commands, users, files, or execution times because scheduled tasks are commonly used by both legitimate administrators and attackers to execute commands persistently.
+I started with the possibility that someone had established unauthorized persistence through Linux scheduling mechanisms. If that were true, I expected to find recent or unexplained cron or systemd changes tied to unusual commands, users, locations, or execution patterns.
 
 ---
 
-## 2. What assumption turned out to be incorrect or incomplete?
+## 2. What assumption turned out to be incomplete?
 
-An early assumption was that a recently created cron job running frequently as root might indicate unauthorized persistence.
+Early in the hunt, a new root-level cron job running every five minutes looked like a strong warning sign. That was useful as a lead, but not as a conclusion.
 
-That assumption was incomplete.
-
-The investigation showed that scheduled execution, root privileges, and unusual file locations can be suspicious indicators, but they are not sufficient by themselves to establish malicious activity.
-
-Additional context from sudo logs, SSH session history, script contents, and historical login patterns was necessary.
+The hunt reinforced that frequency, root privileges, and temporary storage can all appear in legitimate administration. I needed authentication, sudo history, script contents, and historical access patterns before the activity could be interpreted responsibly.
 
 ---
 
-## 3. What evidence caused the most significant change in your thinking?
+## 3. What evidence changed the assessment the most?
 
-The most significant evidence was the correlation between the analyst account, the interactive SSH session from 192.168.56.1, and the sudo commands used to create the scripts and cron entries.
+The biggest shift came from correlating three things: the analyst SSH session from `192.168.56.1`, the sudo commands that created the scripts and cron files, and the repeated history of analyst logins from the same source.
 
-The login source also appeared repeatedly in historical analyst sessions.
-
-This shifted the investigation away from an unexplained persistence scenario and toward legitimate administrative or lab activity.
+That combination turned the configuration backup from an unexplained persistence mechanism into activity with a credible administrative context.
 
 ---
 
-## 4. What was your most valuable hunt pivot?
+## 4. What was the most useful pivot?
 
-The most valuable pivot occurred when cron execution logs revealed:
+The strongest pivot came from `/usr/local/bin/detect-ssh-bruteforce.sh`.
 
-/usr/local/bin/detect-ssh-bruteforce.sh
+Cron logs showed it running every minute as root, but it was not in `/etc/cron.d`. Tracing the job to the root user's crontab and then reading the script showed that it was checking failed SSH logins and generating warnings when a threshold was reached.
 
-This task was running every minute but did not appear in the initial /etc/cron.d review.
-
-Investigating the root crontab showed where the task was scheduled.
-
-Reviewing the script showed that it was designed to detect repeated failed SSH authentication attempts and generate warnings.
-
-This pivot demonstrated that even an unexpected root-level persistence mechanism may have a legitimate defensive purpose.
+The pivot was valuable because it challenged the tendency to equate privileged persistence with malicious persistence.
 
 ---
 
-## 5. What evidence was available but ultimately not useful?
+## 5. What evidence did not materially affect the final decision?
 
-Several systemd timers were available for review, including apt, logrotate, sysstat, fstrim, and other normal Ubuntu maintenance tasks.
+Most of the standard systemd timers - `apt`, `logrotate`, `sysstat`, `fstrim`, and similar Ubuntu maintenance jobs - were expected and did not move the hunt forward.
 
-These did not materially contribute to the final conclusion because their functions were consistent with expected system behavior.
-
-The single sudo authentication failure at 17:50:04 also did not materially support the unauthorized activity hypothesis because it was immediately followed by successful authenticated sudo activity from the same interactive session.
+The isolated sudo authentication failure at 17:50:04 also had little weight. It was followed within seconds by successful sudo activity from the same established session, so it did not meaningfully support an unauthorized-access explanation.
 
 ---
 
-## 6. How did you decide when to stop hunting?
+## 6. How did I decide to stop?
 
-I stopped hunting when:
+I stopped after the main hypothesis and competing explanations had been tested across the available telemetry. By that point I had correlated cron configuration with actual execution, inspected the scripts, reviewed the resulting artifacts, traced the changes through sudo, identified the SSH session source, compared it with historical access, completed the unexpected root-cron pivot, and reviewed systemd for another persistence path.
 
-- The original hypothesis had been tested across the planned telemetry sources.
-- Cron configuration and actual execution had been correlated.
-- The scripts referenced by suspicious tasks had been inspected.
-- Authentication and sudo activity had been correlated with the changes.
-- The source of the analyst session had been identified.
-- Historical login behavior had been reviewed.
-- The required hunt pivot had been completed.
-- Systemd services and timers had been examined for additional persistence.
-- No new evidence pointed toward another meaningful investigative lead.
-
-At that point, additional investigation was unlikely to materially change the disposition.
+There was no remaining lead with a clear chance of changing the disposition. More collection was possible, but it was no longer likely to improve the decision.
 
 ---
 
-## 7. If you repeated this hunt in an enterprise environment, what would you do differently?
+## 7. What would I change in an enterprise environment?
 
-In an enterprise environment, I would improve the hunt by using centralized telemetry and formal authorization records.
+I would rely much more heavily on centralized and authoritative context. In particular, I would:
 
-I would:
+- Search a SIEM across multiple Linux hosts instead of working host by host.
+- Compare cron and systemd changes against an approved baseline.
+- Use EDR or audit telemetry to reconstruct parent-child process relationships.
+- Correlate SSH activity with identity-provider and privileged-access data.
+- Check change-management records before relying on historical behavior as a proxy for authorization.
+- Validate the source address against known administrative workstations.
+- Use file-integrity monitoring for cron, systemd, and administrative script paths.
+- Search enterprise-wide for the same filenames, hashes, commands, and schedules.
+- Review network telemetry for outbound activity related to scheduled jobs.
+- Confirm asset ownership and administrative responsibility through authoritative records.
 
-- Query a SIEM across multiple Linux hosts.
-- Compare scheduled tasks against an established baseline.
-- Review EDR process ancestry for cron and systemd execution.
-- Correlate authentication events with identity-provider telemetry.
-- Check formal change-management records.
-- Compare source addresses against known administrative workstations.
-- Review file integrity monitoring data for cron and systemd changes.
-- Search for the same scripts, filenames, hashes, or behaviors across other systems.
-- Review network telemetry for outbound connections associated with scheduled tasks.
-- Use asset ownership and administrator records to confirm whether activity was authorized.
-
-This would provide stronger evidence for determining authorization and would allow higher-confidence conclusions.
+Those sources would make it easier to distinguish a technically normal action from an actually authorized one and would support a higher-confidence conclusion.
