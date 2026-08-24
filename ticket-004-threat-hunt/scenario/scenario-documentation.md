@@ -1,120 +1,99 @@
-# Ticket #004 — Controlled Scenario Design
+# Ticket #004 - Controlled Scenario Design
 
 ## Purpose
 
-This scenario is being created only after the hunt hypothesis and hunt plan were completed.
+The scenario was created only after the hypothesis and hunt plan were documented. The goal was to generate two believable kinds of Linux scheduled activity: one clearly routine and one suspicious enough to deserve investigation without being obviously malicious.
 
-The purpose is to generate both normal and suspicious-but-ambiguous Linux activity that can later be investigated without relying on an obvious malicious command.
-
-The scenario design is documented separately from the Engineering Notebook so that investigative notes can be written as though the investigator did not already know what occurred.
+The scenario notes are kept separate from the Engineering Notebook so the investigative record can follow the evidence as if the hunter did not already know how the activity was produced.
 
 ---
 
 ## Normal Activity
 
-A legitimate administrative health-check script will be created.
+A routine health-check script was created at:
 
-The script will:
+`/usr/local/bin/dev-health-check.sh`
 
-- Run from /usr/local/bin/dev-health-check.sh
-- Record the hostname, date, uptime, and disk usage
-- Write results to /var/log/dev-health-check.log
-- Execute through cron every 15 minutes
+It records the hostname, date, uptime, and disk usage, writes the results to `/var/log/dev-health-check.log`, and runs every 15 minutes through cron.
 
-### Expected Interpretation
+### Why it should look normal
 
-This represents normal administrative monitoring.
-
-Although it creates a scheduled task, the command location, purpose, output location, and behavior should be consistent with legitimate administration.
+The script has a clear monitoring purpose, lives in a typical administrative location, writes to a conventional log path, and performs no unusual collection or network activity.
 
 ---
 
 ## Suspicious-but-Ambiguous Activity
 
-A second scheduled administrative-looking task will be created.
+A second script was created at:
 
-The task will:
+`/usr/local/bin/config-backup.sh`
 
-- Run from /usr/local/bin/config-backup.sh
-- Create a compressed archive containing selected system configuration files
-- Store the archive under /var/tmp/
-- Execute through cron every 5 minutes
+It creates a compressed archive containing:
 
-The archive will contain copies of:
+- `/etc/hosts`
+- `/etc/ssh/sshd_config`
 
-- /etc/hosts
-- /etc/ssh/sshd_config
+The archive is written under `/var/tmp` and the task runs every five minutes through cron.
 
-No passwords, private SSH keys, credentials, malware, or destructive commands will be used.
+No credentials, private SSH keys, passwords, malware, or destructive commands are involved.
 
-### Why This Activity Is Suspicious
+### Why it should attract attention
 
-The activity may warrant investigation because:
+The job has several characteristics worth investigating:
 
-- The task runs more frequently than a normal configuration backup may require.
-- The archive is written to /var/tmp instead of a dedicated backup directory.
-- SSH configuration is being collected.
-- The task is persistent through cron.
+- Five-minute execution is frequent for a configuration backup.
+- It runs persistently through cron.
+- It collects SSH configuration.
+- It writes the output to `/var/tmp` instead of a dedicated backup directory.
 
-### Why This Activity Is Ambiguous
+### Why it remains ambiguous
 
-The activity is not automatically malicious because:
+The same behavior can still be legitimate. Administrators routinely back up configuration files, the script uses ordinary Linux utilities, the data stays on the host, and there is no exfiltration, logging suppression, or security-control tampering.
 
-- Administrators may legitimately back up configuration files.
-- The script will use ordinary Linux utilities.
-- The destination remains on the local host.
-- No external network connection or data exfiltration occurs.
-- No attempt is made to disable logging or security controls.
-
-Additional context will therefore be required before determining whether the activity is authorized or suspicious.
+The scenario therefore requires context - especially account, sudo, authentication, and execution history - before a disposition can be made.
 
 ---
 
-## Intended Hunt Questions
+## Questions the Hunt Should Answer
 
-During the investigation, the hunter should determine:
-
-1. What scheduled tasks exist?
-2. Which scheduled tasks appear normal?
-3. Which scheduled tasks deserve additional investigation?
-4. What scripts do the tasks execute?
-5. Where do those scripts write data?
-6. Who created or modified the tasks?
-7. Was elevated privilege involved?
-8. Was there relevant authentication activity?
-9. Does the evidence indicate legitimate administration or activity requiring escalation?
+1. What scheduled tasks are present?
+2. Which ones fit normal system or administrative activity?
+3. Which ones deserve a closer look?
+4. What do the referenced scripts actually do?
+5. Where do they write data?
+6. Who created or changed the tasks?
+7. Was privileged access involved?
+8. What authentication activity occurred around the same time?
+9. Does the combined evidence support routine administration, uncertainty, or escalation?
 
 ---
 
-## Planned Hunt Pivot
+## Expected Area for Deeper Review
 
-The unusual destination under /var/tmp is expected to justify expanding the hunt into an area not originally central to the scheduled-task review.
+The `/var/tmp` destination was intentionally chosen to create a reasonable reason to expand the hunt beyond the cron file itself. A deeper review could examine:
 
-The pivot will investigate:
-
-- The archive stored in /var/tmp
-- File ownership
-- File permissions
-- File modification timestamps
+- Archive filenames and timestamps
+- Ownership and permissions
 - Archive contents
-- Correlated sudo or authentication activity
+- Correlated sudo activity
+- Correlated authentication activity
 
-The actual Hunt Pivot will only be documented during the investigation if the collected evidence justifies it.
+Any actual pivot, however, would be documented only if the collected evidence justified it.
 
 ---
 
 ## Safety and Scope
 
-All activity will occur only on the authorized ubuntu-soc-lab system.
+All scenario activity stays on the authorized `ubuntu-soc-lab` host.
 
-The scenario will not:
+The scenario does not:
 
-- Contact external systems.
-- Exfiltrate data.
-- Modify passwords.
-- Create malicious users.
-- Install malware.
-- Disable security controls.
-- Delete logs.
-- Modify SSH keys.
-- Alter firewall rules.
+- Contact external systems
+- Exfiltrate data
+- Change passwords
+- Create malicious users
+- Install malware
+- Disable security controls
+- Delete logs
+- Modify SSH keys
+- Change firewall rules

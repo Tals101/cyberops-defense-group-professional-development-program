@@ -1,314 +1,203 @@
-# Ticket #004 — Threat Hunt Plan
+# Ticket #004 - Threat Hunt Plan
 
-## Hunt Objective
+## Objective
 
-Determine whether evidence exists on the Linux system indicating unauthorized persistence through cron jobs, systemd services, or related scheduled execution mechanisms.
+Test whether the Ubuntu lab host shows evidence of unauthorized persistence through cron, user crontabs, systemd services, systemd timers, or closely related scheduled execution.
 
-The hunt will focus on identifying unusual scheduled activity and determining whether the activity is legitimate, suspicious, or requires further investigation.
-
----
-
-## System to Examine
-
-Primary system:
-
-- Host: ubuntu-soc-lab
-- Operating System: Ubuntu Linux
-- Role: Authorized cybersecurity lab system
-
-The investigation will initially remain limited to this Linux host.
-
-The hunt will expand only if evidence indicates activity involving another system, account, network source, or related resource.
+The hunt will begin with scheduled-task configuration and expand only when a finding creates a specific new question.
 
 ---
 
-## Hunt Timeframe
+## Target System
 
-The initial hunt will examine:
+- **Host:** `ubuntu-soc-lab`
+- **Operating system:** Ubuntu Linux
+- **Role:** Authorized cybersecurity lab system
 
-- Current system state.
-- Recent scheduled-task configuration.
-- Recent authentication and privilege activity.
-- Recent system and service logs.
-- Recent file modifications relevant to scheduled execution.
-
-The exact event timeframe will be refined once suspicious or relevant timestamps are identified.
+The initial scope is this host only. I will widen the hunt if the evidence points to another account, source address, host, process, or persistence mechanism.
 
 ---
 
-## Data Source 1 — Cron Configuration
+## Timeframe
 
-### Locations
+I will start with the current system state and recent activity, then narrow the timeframe around any meaningful timestamps that emerge. The initial review will include:
 
-- /etc/crontab
-- /etc/cron.d/
-- /etc/cron.daily/
-- /etc/cron.hourly/
-- /etc/cron.weekly/
-- /etc/cron.monthly/
+- Recent cron and systemd configuration
+- Authentication activity
+- Sudo and other privileged activity
+- Relevant journal events
+- File metadata
+- Evidence of actual scheduled execution
+
+---
+
+## Data Sources
+
+### Cron Configuration
+
+**Where I will look**
+
+- `/etc/crontab`
+- `/etc/cron.d/`
+- `/etc/cron.daily/`
+- `/etc/cron.hourly/`
+- `/etc/cron.weekly/`
+- `/etc/cron.monthly/`
 - User crontabs
 
-### Why This Data Source Was Selected
+**Why it matters**
 
-Cron is a legitimate Linux scheduling mechanism that can also be used for persistence.
+Cron is widely used for legitimate administration, but it also gives an attacker a simple way to schedule repeat execution. I will look for recent changes, unfamiliar commands, unusual frequencies, unexpected users, and scripts launched from questionable locations.
 
-Examining cron configuration can reveal:
+### Systemd Services and Timers
 
-- Newly created scheduled jobs.
-- Modified scheduled jobs.
-- Commands running at unusual intervals.
-- Scripts executing from unusual locations.
-- Jobs associated with unexpected users.
+**Where I will look**
 
-### What I Am Looking For
+- `/etc/systemd/system/`
+- `/usr/lib/systemd/system/`
+- `/lib/systemd/system/`
+- `systemctl` service and timer listings
+- systemd journal events
 
-- Recently modified cron files.
-- Unfamiliar commands.
-- Jobs running from /tmp, /var/tmp, or hidden directories.
-- Unexpected users.
-- Unusually frequent execution.
-- Scripts with unclear administrative purpose.
+**Why it matters**
 
----
+A service or timer can provide both persistence and recurring execution. I will pay attention to recently modified units, misleading names, unexpected accounts, unusual `ExecStart` values, and scripts outside normal application paths.
 
-## Data Source 2 — Systemd Services and Timers
+### Authentication Telemetry
 
-### Locations
+**Sources**
 
-- /etc/systemd/system/
-- /usr/lib/systemd/system/
-- /lib/systemd/system/
-- systemctl service listings
-- systemctl timer listings
-- systemd journal
-
-### Why This Data Source Was Selected
-
-Systemd services and timers can provide persistent or scheduled execution.
-
-Both administrators and attackers can create services, making context important.
-
-### What I Am Looking For
-
-- Recently created or modified services.
-- Recently created or modified timers.
-- Services running unexpected commands.
-- Executables or scripts in unusual locations.
-- Services with misleading names.
-- Unexpected enabled services.
-
----
-
-## Data Source 3 — Authentication Logs
-
-### Locations
-
-- /var/log/auth.log
+- `/var/log/auth.log`
 - SSH service logs
-- systemd journal authentication events
+- Authentication events in the journal
 
-### Why This Data Source Was Selected
+**Why it matters**
 
-Authentication telemetry can help establish who accessed the system before a suspicious configuration change.
+If a suspicious change followed an interactive login, the source account and source address can help separate expected administration from unexplained access.
 
-This may help determine whether scheduled activity followed:
+### Sudo and Privileged Activity
 
-- A normal administrative login.
-- An unusual remote login.
-- Repeated authentication failures.
-- Access by an unexpected account.
+**Sources**
 
-### What I Am Looking For
-
-- Successful SSH logins.
-- Failed SSH logins.
-- Unexpected source IP addresses.
-- Unexpected accounts.
-- Authentication events occurring near suspicious configuration changes.
-
----
-
-## Data Source 4 — Sudo and Privilege Activity
-
-### Locations
-
-- /var/log/auth.log
+- `/var/log/auth.log`
 - systemd journal
-- available shell history
+- Available shell history when relevant
 
-### Why This Data Source Was Selected
+**Why it matters**
 
-Creating or modifying system-level cron jobs and systemd services often requires elevated privileges.
+System-level cron and systemd changes usually require elevated privileges. I will correlate sudo or root activity with the timestamps of any suspicious configuration changes.
 
-Privilege activity near the creation of a suspicious persistence mechanism could provide important context.
+### File Metadata
 
-### What I Am Looking For
+**Likely locations**
 
-- sudo commands.
-- Root sessions.
-- Privilege escalation near suspicious timestamps.
-- Commands involving cron or systemd configuration.
-- Unexpected users using administrative privileges.
-
----
-
-## Data Source 5 — File Metadata
-
-### Locations
-
-Relevant files discovered during the hunt, particularly:
-
-- /etc/cron*
-- /etc/systemd/system/
-- /tmp/
-- /var/tmp/
+- `/etc/cron*`
+- `/etc/systemd/system/`
+- `/tmp/`
+- `/var/tmp/`
 - User home directories
+- Any paths referenced by scheduled tasks
 
-### Why This Data Source Was Selected
+**Why it matters**
 
-File metadata can help establish when a file was created or modified and whether its timestamp correlates with authentication, privilege, or scheduled execution events.
+Ownership, permissions, timestamps, and file locations can show when an artifact appeared and whether it lines up with login or sudo activity.
 
-### What I Am Looking For
+### Process and Execution Evidence
 
-- Recent modification timestamps.
-- Unexpected ownership.
-- Unusual permissions.
-- Scripts in temporary directories.
-- Hidden files.
-- Files referenced by suspicious scheduled tasks.
+**Sources**
 
----
+- `ps`
+- `journalctl`
+- `systemctl`
+- Other process information available during the hunt
 
-## Data Source 6 — Process and Execution Evidence
+**Why it matters**
 
-### Sources
-
-- ps
-- systemctl
-- journalctl
-- process information available during the hunt
-
-### Why This Data Source Was Selected
-
-A persistence mechanism becomes more significant if there is evidence that the configured command actually executed.
-
-### What I Am Looking For
-
-- Processes matching suspicious scheduled commands.
-- Repeated execution.
-- Unexpected parent-child relationships.
-- Processes launched by cron or systemd.
-- Processes running under unexpected accounts.
+A suspicious configuration is more meaningful if the command actually ran. I will look for repeated execution, cron or systemd parentage, and processes running under unexpected accounts.
 
 ---
 
-## Behaviors Being Hunted
+## Behaviors of Interest
 
-The hunt will focus on:
+I am specifically looking for:
 
-1. Creation or modification of cron jobs.
-2. Creation or modification of systemd services or timers.
-3. Scheduled execution from unusual filesystem locations.
-4. Scheduled execution by unexpected users.
-5. Privilege escalation associated with scheduled-task changes.
-6. Authentication events preceding suspicious changes.
-7. Execution of files related to suspicious scheduled tasks.
-8. Attempts to make persistence appear like normal administrative activity.
-
----
-
-## Evidence Supporting the Hypothesis
-
-The hypothesis will be strengthened if I identify:
-
-- A recently created or modified scheduled task.
-- A task with no clear legitimate purpose.
-- Execution from an unusual location.
-- An unexpected user associated with the activity.
-- Related authentication activity.
-- Related privilege escalation.
-- A correlated file creation or modification.
-- Evidence that the suspicious command actually executed.
-- Multiple related suspicious events within the same timeframe.
+1. New or modified cron jobs.
+2. New or modified systemd services or timers.
+3. Scheduled scripts running from unusual filesystem locations.
+4. Jobs owned by or executed as unexpected users.
+5. Privileged changes associated with scheduled execution.
+6. Authentication events immediately before those changes.
+7. Files or processes that match the schedule.
+8. Attempts to make persistence resemble ordinary administration.
 
 ---
 
-## Evidence Contradicting the Hypothesis
+## What Would Strengthen the Hypothesis
 
-The hypothesis will be weakened if:
+The hypothesis becomes more credible if several of these appear together:
 
-- Scheduled tasks are consistent with normal system configuration.
-- No unexplained scheduled tasks are identified.
-- Changes can be tied to legitimate package installation or administration.
-- Authentication activity is consistent with expected users and sources.
-- No suspicious privilege escalation is identified.
-- Referenced scripts and executables have legitimate purposes.
-- No related suspicious execution occurs.
-
----
-
-## Conditions That Would Cause the Hunt to Expand
-
-The hunt will expand beyond the original plan if evidence identifies:
-
-- An unexpected user account.
-- An unusual SSH source address.
-- A suspicious script or executable.
-- An unexplained systemd service.
-- Evidence of privilege escalation.
-- A suspicious network connection.
-- Additional persistence mechanisms.
-- Evidence involving another host.
-
-Any expansion will be documented as a Hunt Pivot if the new area was not part of the original investigation plan.
+- A recent scheduled task with no clear legitimate purpose.
+- Execution from an unusual directory.
+- An unexpected account or source address.
+- Unexplained sudo or root activity.
+- Correlated file creation or modification.
+- Confirmed repeated execution.
+- Multiple suspicious events in the same timeframe.
 
 ---
 
-## Escalation Threshold
+## What Would Weaken the Hypothesis
 
-Escalation will be considered when multiple correlated findings indicate unauthorized activity.
+I will reduce confidence in unauthorized persistence if:
 
-Examples:
-
-- Suspicious scheduled task plus unusual authentication.
-- Suspicious scheduled task plus unexpected privilege escalation.
-- Suspicious scheduled task plus an unexplained script.
-- Evidence of repeated execution from an unusual directory.
-- Evidence showing an unauthorized account established persistence.
-
-A single unusual artifact without supporting context will not automatically justify escalation.
+- The jobs match expected system or administrative behavior.
+- Legitimate package or application activity explains the changes.
+- Authentication comes from expected accounts and familiar sources.
+- Privilege use is consistent with normal administration.
+- The referenced scripts have clear, benign purposes.
+- No related suspicious execution or file activity appears.
 
 ---
 
-## Hunt Closure Conditions
+## When I Will Pivot
 
-### Close — Benign
+I will expand beyond the original path when a finding raises a concrete new question. Examples include:
 
-Use when the evidence adequately demonstrates legitimate activity.
+- An unfamiliar user account
+- An unusual SSH source
+- A script that does not match the job's apparent purpose
+- An unexpected systemd unit
+- Unexplained privilege escalation
+- Suspicious network activity
+- Another persistence mechanism
+- Evidence involving another host
 
-### Close — Insufficient Evidence
+Any such expansion will be documented as a hunt pivot.
 
-Use when suspicious activity cannot be confirmed and available telemetry is insufficient to establish authorization or malicious intent.
+---
+
+## Disposition Thresholds
+
+### Close - Benign
+
+Use when the evidence gives a credible and adequately supported legitimate explanation.
+
+### Close - Insufficient Evidence
+
+Use when the activity cannot be confidently classified and available telemetry is not enough to resolve authorization or intent.
 
 ### Escalate for Investigation
 
-Use when correlated evidence indicates activity that warrants formal incident response.
+Use when multiple correlated findings indicate potentially unauthorized activity that merits incident-response procedures.
 
 ### Confirmed Security Incident
 
-Use only when available evidence establishes that unauthorized or malicious activity occurred.
+Use only when the evidence establishes unauthorized or malicious activity.
 
 ---
 
-## Initial Stopping Criteria
+## Stopping Criteria
 
-The hunt may stop when:
+I will stop when the original hypothesis and major competing explanations have been tested, relevant findings have been correlated across the available telemetry, required pivots have been completed, and no remaining lead is likely to materially change the disposition.
 
-- The original hypothesis has been adequately tested.
-- Major competing explanations have been evaluated.
-- Significant findings have been correlated across available telemetry.
-- Required pivots have been investigated.
-- Additional available evidence is unlikely to materially change the disposition.
-- The conclusion can be defended using collected evidence.
-
-The hunt will not continue solely because additional logs or systems could theoretically be examined.
+The hunt will not continue simply because more logs or systems could theoretically be examined.

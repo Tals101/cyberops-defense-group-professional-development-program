@@ -1,25 +1,25 @@
 flowchart TD
-    A[Initial Hypothesis<br/>Possible unauthorized scheduled persistence] --> B[Enumerate Cron Jobs]
-    B --> C[dev-health-check<br/>Appears legitimate]
-    B --> D[config-backup<br/>Suspicious but ambiguous]
+    A[Start with unauthorized scheduled persistence hypothesis] --> B[Review cron configuration]
+    B --> C[dev-health-check looks routine]
+    B --> D[config-backup deserves a closer look]
 
-    D --> E[Inspect Scripts and Artifacts]
-    E --> F[Confirm Repeated Cron Execution]
+    D --> E[Read scripts and inspect artifacts]
+    E --> F[Confirm the backup runs on schedule]
 
-    F --> G[Correlate Sudo Activity]
-    G --> H[Analyst Account Created Tasks]
+    F --> G[Correlate sudo activity]
+    G --> H[Tie task creation to analyst session]
 
-    H --> I[Review SSH Session Origin]
-    I --> J[192.168.56.1<br/>Matches Historical Access]
+    H --> I[Check SSH source and login history]
+    I --> J[192.168.56.1 matches prior analyst access]
 
-    F --> K[Hunt Pivot]
-    K --> L[detect-ssh-bruteforce.sh]
-    L --> M[Root Crontab Identified]
-    M --> N[Defensive SSH Monitoring]
+    F --> K[Pivot on unexpected root cron activity]
+    K --> L[Inspect detect-ssh-bruteforce.sh]
+    L --> M[Trace it to root crontab]
+    M --> N[Behavior matches defensive SSH monitoring]
 
-    J --> O[Review Systemd Persistence]
+    J --> O[Review systemd for another persistence path]
     N --> O
-    O --> P[No Unexplained Persistence Found]
+    O --> P[No unexplained systemd persistence found]
 
-    P --> Q[Final Disposition<br/>Close - Benign]
-    Q --> R[Confidence<br/>Medium]
+    P --> Q[Disposition: Close - Benign]
+    Q --> R[Confidence: Medium]

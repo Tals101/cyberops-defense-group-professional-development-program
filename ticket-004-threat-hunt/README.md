@@ -1,189 +1,67 @@
-# Ticket #004 — Hypothesis-Driven Linux Threat Hunt
+# Ticket #004 - Hypothesis-Driven Linux Threat Hunt
 
 ## Overview
 
-This project documents a hypothesis-driven threat hunt conducted against an Ubuntu Linux lab system after unusual activity was observed without a confirmed indicator of compromise.
+This repository documents a Linux threat hunt that began with an open question rather than an alert or known IOC: **was someone using scheduled execution to maintain unauthorized persistence on the host?**
 
-Unlike incident response, this investigation did not begin with a known attacker, IOC, alert, or root cause. The hunt began with a hypothesis, collected evidence that both supported and weakened that hypothesis, followed an unexpected pivot, and stopped when additional investigation was unlikely to materially change the conclusion.
+The investigation started with cron and systemd, then followed the evidence into script behavior, file artifacts, sudo activity, SSH session history, and an unexpected root-level cron job. Several findings looked suspicious when viewed alone, but the combined context supported a benign explanation.
 
-**Final Disposition:** Close — Benign
-
+**Final disposition:** Close - Benign  
 **Confidence:** Medium
 
 ---
 
-## Hunt Objective
+## What I Was Looking For
 
-Determine whether unauthorized persistence was occurring through Linux scheduled execution mechanisms, including:
+The working hypothesis was that unauthorized persistence would likely leave recent or unexplained cron or systemd changes tied to unusual commands, users, file locations, or execution patterns.
 
-- Cron jobs
-- User crontabs
-- Systemd services
-- Systemd timers
+I deliberately kept benign explanations in play from the beginning. Scheduled jobs are common on Linux, and root execution or frequent scheduling can be completely legitimate. The purpose of the hunt was to determine which explanation best fit the evidence, not to make the evidence fit the hypothesis.
 
-The investigation intentionally considered both malicious and benign explanations.
+See [hunt/hypothesis.md](hunt/hypothesis.md) and [hunt/hunt-plan.md](hunt/hunt-plan.md).
 
 ---
 
-## Initial Hypothesis
+## How the Hunt Unfolded
 
-If unauthorized persistence through scheduled tasks is occurring on the Linux system, I would expect to observe newly created or modified cron jobs or systemd services associated with unusual commands, users, files, or execution times because scheduled tasks are commonly used by both legitimate administrators and attackers to execute commands persistently.
+### 1. Two recent cron jobs stood out
 
-Before collecting evidence, the hunt documented:
+The initial `/etc/cron.d` review identified two recent entries.
 
-- Known facts
-- Unknowns
-- Assumptions
-- Competing explanations
-- Supporting evidence criteria
-- Contradicting evidence criteria
-- Escalation criteria
-- Stopping criteria
+`dev-health-check` ran every 15 minutes and collected basic system-health information. Its purpose was easy to explain.
 
-See [hunt/hypothesis.md](hunt/hypothesis.md).
+`config-backup` ran every five minutes as root, archived `/etc/hosts` and `/etc/ssh/sshd_config`, and wrote timestamped `.tar.gz` files under `/var/tmp`.
 
----
+That second job had enough unusual characteristics to justify a closer look, but not enough to label it malicious.
 
-## How the Hunt Developed
+### 2. The backup job was actually running
 
-### Stage 1 — Scheduled Task Enumeration
+Script inspection showed exactly what the job collected, and the files under `/var/tmp` confirmed repeated archive creation. Cron journal events independently showed the job executing on schedule.
 
-The investigation began by reviewing `/etc/cron.d`.
+This moved the investigation from "an unusual cron file exists" to "an unusual scheduled behavior is actively occurring."
 
-Two recently modified tasks stood out.
+### 3. Sudo telemetry changed the context
 
-#### dev-health-check
+The sudo records tied creation of both recent scripts and cron files to the `analyst` account. The same session also manually ran the backup script before cron began executing it.
 
-Runs every 15 minutes as root and executes:
+That was an important shift. The persistence mechanism was no longer unexplained; it was associated with a visible interactive administrative session.
 
-    /usr/local/bin/dev-health-check.sh
+### 4. The SSH source matched prior analyst activity
 
-The script collects:
+The active analyst session originated from `192.168.56.1`. Historical login records showed repeated analyst sessions from the same source on earlier dates.
 
-- Hostname
-- Uptime
-- Disk utilization
-
-Results are written to:
-
-    /var/log/dev-health-check.log
-
-This behavior was readily explainable as legitimate administrative monitoring.
-
-#### config-backup
-
-Runs every five minutes as root and executes:
-
-    /usr/local/bin/config-backup.sh
-
-The script:
-
-- Archives `/etc/hosts`
-- Archives `/etc/ssh/sshd_config`
-- Writes timestamped archives under `/var/tmp`
-
-The frequency, root privileges, SSH configuration collection, and temporary-directory storage made this activity worthy of further investigation.
-
-At this stage, the unauthorized-persistence hypothesis became more plausible, but the evidence did not establish malicious intent.
-
----
-
-### Stage 2 — Script and Artifact Analysis
-
-The scripts referenced by the cron jobs were inspected.
-
-The configuration backup created files such as:
-
-    /var/tmp/dev-config-20260823-175433.tar.gz
-
-Artifact review showed:
-
-- Root ownership
-- Permission mode 600
-- Multiple archive files
-- Timestamps consistent with repeated execution
-
-Journal telemetry independently confirmed that cron automatically executed the configuration backup.
-
-This demonstrated active scheduled execution rather than simply the presence of a dormant cron entry.
-
----
-
-### Stage 3 — Authentication and Privilege Correlation
-
-The next question was:
-
-**Who created the scheduled tasks?**
-
-Sudo telemetry showed that the `analyst` account:
-
-- Created `dev-health-check.sh`
-- Created `config-backup.sh`
-- Created both cron entries
-- Set permissions
-- Manually executed the configuration backup script
-
-This weakened the hypothesis that an unexplained process or unknown account had established persistence.
-
-The investigation then asked where the analyst session originated.
-
----
-
-### Stage 4 — Session Origin
-
-SSH telemetry showed that the analyst session originated from:
-
-    192.168.56.1
-
-Historical login records showed repeated previous analyst sessions from the same source address.
-
-#### Fact
-
-The current session originated from an address repeatedly associated with historical analyst logins.
-
-#### Inference
-
-The session was consistent with the account's normal historical access pattern.
-
-#### Assumption
-
-Historical consistency meant the activity was formally authorized.
-
-That final point could not be independently proven because formal change-management records were not available.
+That pattern supported a benign explanation, although I did not treat it as proof of authorization. A familiar source can still be compromised, and no formal change ticket was available.
 
 ---
 
 ## Hunt Pivot
 
-During cron execution review, an additional scheduled script appeared:
+Cron execution logs revealed another task that had not appeared in the original `/etc/cron.d` review:
 
-    /usr/local/bin/detect-ssh-bruteforce.sh
+`/usr/local/bin/detect-ssh-bruteforce.sh`
 
-It executed every minute as root but had not appeared during the initial `/etc/cron.d` enumeration.
+It ran every minute as root. Tracing the scheduling source led to the root user's crontab, and reading the script showed that it monitored failed SSH logins and generated warnings when a threshold was reached.
 
-This created a new question:
-
-**Was this another unauthorized persistence mechanism?**
-
-The script was inspected and found to:
-
-- Review recent SSH events
-- Search for failed password attempts
-- Count failures by source IP
-- Trigger after five failures within five minutes
-- Generate an `auth.warning` message
-
-The scheduling source was then located in the root user's personal crontab:
-
-    * * * * * /usr/local/bin/detect-ssh-bruteforce.sh
-
-### Pivot Result
-
-The unexpected scheduled task was consistent with defensive SSH brute-force monitoring.
-
-Instead of strengthening the original hypothesis, the pivot weakened it.
-
-This demonstrated why scheduled execution must be evaluated in context rather than classified as malicious based solely on frequency or root privileges.
+The mechanism itself looked like persistence, but its behavior was consistent with a defensive control. This pivot weakened the original hypothesis and reinforced the need to evaluate execution context rather than judge a task by privilege level or frequency alone.
 
 See [hunt/findings.md](hunt/findings.md).
 
@@ -191,266 +69,129 @@ See [hunt/findings.md](hunt/findings.md).
 
 ## Systemd Review
 
-The hunt also reviewed systemd services and timers.
-
-Standard Ubuntu maintenance timers were observed.
-
-One custom service was examined:
-
-    company-web.service
-
-The service:
-
-- Predated the current hunt
-- Ran as the `analyst` user
-- Executed an internal Flask application
-- Referenced an existing lab application directory
-
-No additional unexplained systemd persistence mechanism was identified.
+The systemd review did not reveal another unexplained persistence path. Standard Ubuntu timers looked normal. The custom `company-web.service` predated the hunt, ran as `analyst`, and launched an existing Flask lab application from `/home/analyst/internal-web-outage-lab`.
 
 ---
 
-## Evidence Classification
+## Reasoning Discipline
+
+Throughout the hunt I separated what the evidence directly showed from what I inferred from it.
 
 ### Facts
 
-- The analyst account created the two recent cron tasks through sudo.
-- Cron automatically executed `config-backup.sh`.
-- The backup script archived `/etc/hosts` and `/etc/ssh/sshd_config`.
-- The analyst session originated from `192.168.56.1`.
-- Historical analyst logins repeatedly used the same source.
-- The root crontab scheduled `detect-ssh-bruteforce.sh` every minute.
-- No unexplained new systemd persistence mechanism was identified.
+- The analyst account used sudo to create the two recent cron jobs.
+- `config-backup.sh` archives `/etc/hosts` and `/etc/ssh/sshd_config`.
+- Cron executed the backup automatically.
+- The analyst SSH session came from `192.168.56.1`.
+- Prior analyst logins repeatedly used that same source.
+- The root crontab runs `detect-ssh-bruteforce.sh` every minute.
+- No new unexplained systemd persistence mechanism was found.
 
 ### Inferences
 
-- `dev-health-check.sh` was legitimate administrative monitoring.
-- `detect-ssh-bruteforce.sh` was a defensive security control.
-- The configuration backup activity was most consistent with legitimate lab administration.
-- `company-web.service` was consistent with legitimate application hosting.
+- `dev-health-check.sh` is consistent with routine monitoring.
+- `config-backup.sh` is most consistent with lab or administrative activity.
+- `detect-ssh-bruteforce.sh` appears to be a defensive monitoring control.
+- `company-web.service` appears to be a legitimate application service.
 
 ### Assumptions
 
 - The analyst session was formally authorized.
-- The scheduled configuration changes were formally approved.
+- The changes were formally approved.
 
-Formal change-management evidence was not available to independently verify those assumptions.
+Those assumptions are the main reason confidence stayed at Medium instead of High.
 
 ---
 
 ## Final Assessment
 
-### Disposition
+**Disposition: Close - Benign**
 
-**Close — Benign**
+The evidence did not show account compromise, unauthorized login, malware execution, external command-and-control activity, data exfiltration, hidden malicious systemd persistence, or another condition that would justify incident escalation.
 
-The collected evidence most strongly supported legitimate administrative and lab activity.
+The strongest supporting correlation was between the analyst SSH session, the sudo commands that created the tasks, and the history of the same source address.
 
-The hunt did not identify evidence demonstrating:
-
-- Account compromise
-- Unauthorized login
-- Malware execution
-- External command and control
-- Data exfiltration
-- Unauthorized account creation
-- Hidden malicious systemd persistence
-- Security-control disabling
-
----
-
-## Confidence Assessment
-
-**Confidence: Medium**
-
-Multiple independent sources supported the final conclusion:
-
-- Cron configuration
-- Cron execution telemetry
-- Sudo logs
-- SSH authentication
-- Historical login records
-- Script contents
-- File metadata
-- Systemd configuration
-
-### Strongest Evidence
-
-The strongest evidence was the correlation between:
-
-1. The analyst SSH session
-2. The sudo commands used to create the scheduled tasks
-3. Historical login activity from the same source address
-
-### Missing Evidence
-
-The hunt did not have:
-
-- Formal change-management records
-- Enterprise identity-provider telemetry
-- Centralized SIEM data
-- EDR process telemetry
-- Authoritative asset ownership information
-
-These sources could increase or decrease confidence in the final assessment.
+**Confidence: Medium** because the technical telemetry explained the activity well, but no independent change-management or administrator approval record was available to prove formal authorization.
 
 ---
 
 ## Why the Hunt Stopped
 
-The investigation stopped when:
+By the end of the investigation, the original hypothesis and the main competing explanations had been tested across cron, root crontab, systemd, scripts, file artifacts, authentication, sudo activity, session origin, and historical login behavior. The required pivot had also been resolved.
 
-- The original hypothesis had been tested
-- Competing explanations had been evaluated
-- Cron configuration and execution had been correlated
-- Suspicious scripts had been inspected
-- Authentication and sudo activity had been reviewed
-- Session origin had been established
-- Historical access behavior had been compared
-- The required hunt pivot had been completed
-- Root crontab activity had been investigated
-- Systemd persistence had been reviewed
-- No remaining lead was likely to materially change the disposition
-
-Continuing to collect logs without a specific unanswered question would no longer have been hypothesis-driven.
+There was no remaining evidence-driven lead likely to change the disposition. Continuing to collect logs simply because more data existed would not have improved the decision.
 
 ---
 
 ## Repository Structure
 
     ticket-004-threat-hunt/
-    +-- README.md
-    +-- Threat_Hunt_Report.pdf
-    +-- management-update.md
-    +-- lessons-learned.md
-    +-- engineering-notebook.md
-    +-- technical-timeline.csv
-    +-- interview-preparation.txt
-    ¦
-    +-- hunt/
-    ¦   +-- hypothesis.md
-    ¦   +-- hunt-plan.md
-    ¦   +-- findings.md
-    ¦
-    +-- evidence/
-    ¦   +-- logs/
-    ¦   +-- screenshots/
-    ¦   +-- command-output/
-    ¦   +-- artifacts/
-    ¦
-    +-- scenario/
-    ¦   +-- scenario-documentation.md
-    ¦
-    +-- diagrams/
+    |-- README.md
+    |-- Threat_Hunt_Report.pdf
+    |-- management-update.md
+    |-- lessons-learned.md
+    |-- engineering-notebook.md
+    |-- technical-timeline.csv
+    |-- interview-preparation.txt
+    |-- mitre-attack-mapping.md
+    |
+    |-- hunt/
+    |   |-- hypothesis.md
+    |   |-- hunt-plan.md
+    |   `-- findings.md
+    |
+    |-- evidence/
+    |   |-- logs/
+    |   |-- screenshots/
+    |   |-- command-output/
+    |   `-- artifacts/
+    |
+    |-- scenario/
+    |   `-- scenario-documentation.md
+    |
+    `-- diagrams/
+        `-- hunt-flow.mmd
 
-The additional `evidence/command-output/` directory separates raw investigative command output from operating-system logs.
-
----
-
-## Evidence
-
-### Logs
-
-[evidence/logs/](evidence/logs/)
-
-Includes:
-
-- Cron execution telemetry
-- Authentication and sudo correlation
-- Session-origin evidence
-
-### Command Output
-
-[evidence/command-output/](evidence/command-output/)
-
-Includes:
-
-- Cron enumeration
-- Script inspection
-- `/var/tmp` artifact review
-- Hunt-pivot investigation
-- Root crontab review
-- Systemd review
-- Company web service review
-
-### Screenshots
-
-[evidence/screenshots/](evidence/screenshots/)
-
-Contains screenshots of significant investigative evidence.
-
-### Sanitized Artifacts
-
-[evidence/artifacts/](evidence/artifacts/)
-
-Contains sanitized copies of:
-
-- Cron configurations
-- Investigation scripts
-- Root crontab
-- Archive-content listing
-- SHA-256 hashes
-
-No passwords, credentials, private keys, tokens, or other secrets are intentionally included.
+The `evidence/command-output/` directory is intentionally separate from operating-system logs so collected terminal output is easy to distinguish from native log sources.
 
 ---
 
-## Documentation
+## Evidence and Supporting Material
 
-- [Hunt Hypothesis](hunt/hypothesis.md)
-- [Hunt Plan](hunt/hunt-plan.md)
-- [Hunt Findings](hunt/findings.md)
+- [Raw logs](evidence/logs/)
+- [Command output](evidence/command-output/)
+- [Screenshots](evidence/screenshots/)
+- [Sanitized artifacts](evidence/artifacts/)
 - [Engineering Notebook](engineering-notebook.md)
 - [Technical Timeline](technical-timeline.csv)
 - [Management Update](management-update.md)
 - [Lessons Learned](lessons-learned.md)
 - [Scenario Documentation](scenario/scenario-documentation.md)
 - [Interview Preparation](interview-preparation.txt)
+- [MITRE ATT&CK Mapping](mitre-attack-mapping.md)
+
+The evidence package intentionally excludes passwords, credentials, private keys, tokens, and other secrets.
 
 ---
 
 ## Skills Demonstrated
 
 - Hypothesis-driven threat hunting
-- Linux security investigation
-- Cron persistence analysis
-- Systemd persistence analysis
-- Authentication-log analysis
-- Sudo telemetry analysis
-- Evidence correlation
-- Timeline development
+- Linux cron and systemd analysis
+- Authentication and sudo correlation
+- Evidence classification and timeline building
+- Script and artifact review
 - Hunt pivoting
-- Fact / inference / assumption classification
-- Confirmation-bias avoidance
-- Evidence preservation
-- SHA-256 hashing
-- Incident disposition
-- Confidence assessment
+- Confirmation-bias control
+- Incident disposition and confidence assessment
 - Executive communication
-- Investigative stopping criteria
+- MITRE ATT&CK behavioral mapping
+- Evidence preservation and SHA-256 hashing
 
 ---
 
 ## Key Takeaway
 
-The most suspicious-looking artifact was not automatically the most important evidence.
+The cron job that looked most suspicious at first was not the final answer. The useful conclusion came from correlating **what ran, who created it, where the session came from, how that source compared with history, and whether other evidence supported a malicious explanation**.
 
-The investigation became useful when scheduled-task behavior was correlated with:
-
-- User activity
-- Authentication
-- Privilege use
-- Historical context
-- Script behavior
-- Actual execution
-- Competing explanations
-
-Threat hunting is not about finding the most alarming command.
-
-It is about building the most defensible explanation from the available evidence.
-
-### MITRE ATT&CK Mapping
-
-[`mitre-attack-mapping.md`](mitre-attack-mapping.md)
-
-Maps observed hunt behavior to relevant MITRE ATT&CK techniques, explains the supporting evidence and confidence for each mapping, and identifies `auditd` as an additional telemetry source that would materially improve visibility.
+That is the central lesson from this hunt: suspicious characteristics are leads. Context turns them into findings.

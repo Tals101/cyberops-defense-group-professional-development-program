@@ -1,71 +1,67 @@
-Ticket #004 — Interview Preparation
+Ticket #004 - Interview Preparation
 
 1. What makes threat hunting different from incident response?
 
-Threat hunting begins proactively with a hypothesis and searches for evidence of activity that may not have generated an alert. Incident response begins after a suspected or confirmed incident and focuses on containment, eradication, recovery, and impact.
+Threat hunting starts before there is necessarily an incident. I begin with a hypothesis and look for evidence that may not have triggered an alert. Incident response starts when there is already a suspected or confirmed incident and the focus shifts to scope, containment, eradication, recovery, and impact.
 
 
-2. Why did you choose your hypothesis?
+2. Why did you choose this hypothesis?
 
-Cron and systemd are legitimate Linux administration mechanisms but can also provide persistence. That ambiguity made scheduled-task persistence a good hypothesis because I had to evaluate context rather than simply label a command malicious.
-
-
-3. What evidence would have disproved it?
-
-If all scheduled tasks had established legitimate purposes, expected ownership, normal execution locations, expected authentication sources, and no correlated suspicious activity, the unauthorized-persistence hypothesis would be weakened or disproved.
+Cron and systemd are useful because they sit in a gray area. Administrators use them constantly, but attackers can use the same mechanisms for persistence. That forced me to evaluate context instead of treating the presence of a scheduled task as proof of malicious activity.
 
 
-4. What was your strongest piece of evidence?
+3. What evidence would have weakened or disproved the hypothesis?
 
-The strongest evidence was the correlation between the analyst SSH session from 192.168.56.1, the sudo commands that created the tasks, and historical logins repeatedly coming from the same source.
+I expected the hypothesis to lose support if the scheduled jobs had clear legitimate purposes, normal ownership, expected file locations, familiar authentication sources, and no related suspicious activity. That is largely what the later evidence showed.
+
+
+4. What was your strongest evidence?
+
+The strongest evidence was the correlation between the analyst SSH session from 192.168.56.1, the sudo commands that created the scheduled tasks, and the history of prior analyst logins from the same source. Those three pieces together gave the activity a credible administrative context.
 
 
 5. What was your weakest evidence?
 
-The single failed sudo authentication attempt. By itself it looked potentially interesting, but it was followed seconds later by successful sudo activity from the same established session, so it had little investigative value.
+The single failed sudo authentication attempt. It looked interesting in isolation, but it was followed seconds later by successful sudo activity from the same established session. In context, it carried very little weight.
 
 
-6. Which conclusion was fact and which was inference?
+6. Give an example of a fact versus an inference from the hunt.
 
-Fact: The analyst account used sudo to create the config-backup script and cron entry.
-
-Inference: The activity was legitimate and authorized. The logs show what happened, but formal authorization was not independently proven.
+A fact is that the analyst account used sudo to create the config-backup script and its cron entry. An inference is that the activity was legitimate and authorized. The logs establish what the account did, but they do not independently prove that someone approved the change.
 
 
 7. Why did you pivot?
 
-Cron logs revealed /usr/local/bin/detect-ssh-bruteforce.sh running every minute even though it did not appear in /etc/cron.d. That created a new question about where it was scheduled and whether it represented another persistence mechanism.
+The cron journal showed /usr/local/bin/detect-ssh-bruteforce.sh running every minute even though it was not in /etc/cron.d. That created a new question: where was it scheduled, and was it another persistence mechanism? The answer was in the root crontab, and the script itself turned out to be defensive monitoring.
 
 
-8. Why didn't you investigate everything?
+8. Why didn't you investigate everything on the host?
 
-Threat hunting should remain hypothesis-driven. Once the hypothesis, competing explanations, pivot, authentication activity, cron, systemd, scripts, and historical access had been evaluated, no remaining lead was likely to materially change the conclusion.
+A hunt has to stay tied to a question. Once I had tested the hypothesis, evaluated the benign alternatives, completed the pivot, correlated authentication and sudo activity, and reviewed both cron and systemd, there was no remaining lead that was likely to change the disposition. More data would not automatically mean a better conclusion.
 
 
 9. How did you avoid confirmation bias?
 
-I documented evidence that would both support and contradict my hypothesis before investigating. I also maintained benign competing explanations and separated facts from inferences and assumptions.
+Before collecting evidence, I wrote down what would support the hypothesis and what would weaken it. I also kept benign competing explanations in the plan and separated facts, inferences, and assumptions in the notebook. That made it easier to change direction when the evidence supported a benign explanation.
 
 
-10. What could an attacker have done that your hunt would miss?
+10. What could an attacker have done that this hunt might miss?
 
-An attacker could have used a persistence mechanism outside cron or systemd, deleted or manipulated logs, used stolen credentials from a normal source, executed only in memory, or used techniques not captured by the available telemetry.
-
-
-11. What telemetry did you wish you had?
-
-EDR process telemetry, centralized SIEM logs, file-integrity monitoring, identity-provider data, network telemetry, formal change records, and enterprise asset ownership information.
+An attacker could have used persistence outside cron or systemd, removed or manipulated logs, used stolen credentials from a familiar source, executed only in memory, or used techniques that were not visible in the telemetry available on this lab host.
 
 
-12. Why should I trust your final assessment?
+11. What additional telemetry would you want?
 
-Because it was based on multiple independent data sources rather than a single indicator: cron configuration, execution logs, sudo records, SSH authentication, historical login patterns, file metadata, script contents, and systemd configuration. I also documented the limitations and kept the confidence rating at Medium rather than overstating certainty.
+I would want EDR or auditd process telemetry, centralized SIEM data, file-integrity monitoring, identity-provider records, network telemetry, formal change-management data, and authoritative asset ownership information.
 
 
-13. If I removed your three strongest pieces of evidence, would you reach the same conclusion? Why or why not?
+12. Why should someone trust your final assessment?
 
-Probably not with the same confidence. My three strongest pieces of evidence were the sudo records showing the analyst created the tasks, the SSH session correlation to 192.168.56.1, and the historical login pattern from that same source.
+Because the conclusion did not rest on one indicator. Cron configuration, execution logs, sudo records, SSH authentication, historical login patterns, file metadata, script contents, and systemd configuration all pointed in the same direction. I also documented what I could not prove and kept the confidence rating at Medium rather than overstating certainty.
 
-Without those, I could still describe what the cron jobs did, but I would have much less context about who created them and whether the activity matched normal behavior.
 
-I would likely move from Close — Benign, Medium confidence to Close — Insufficient Evidence rather than assume the activity was malicious.
+13. If your three strongest pieces of evidence disappeared, would you reach the same conclusion?
+
+Not with the same confidence. The three most important pieces were the sudo records showing who created the tasks, the SSH session from 192.168.56.1, and the historical use of that same source by the analyst account.
+
+Without them, I could still describe what the jobs did, but I would have far less context about who created them and whether the activity matched normal behavior. I would probably move from Close - Benign, Medium confidence to Close - Insufficient Evidence rather than assume the activity was malicious.

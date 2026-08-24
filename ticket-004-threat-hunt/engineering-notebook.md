@@ -1,383 +1,322 @@
-# Ticket #004 — Engineering Notebook
+# Ticket #004 - Engineering Notebook
 
 ## Investigation Start
 
 ### Question
 
-What scheduled tasks currently exist on the Linux system, and are any of them unusual enough to require further investigation?
+What scheduled activity exists on the host, and is any of it unusual enough to justify a deeper look?
 
 ### Expected Evidence
 
-If the hunt hypothesis is correct, I may observe:
+If unauthorized scheduled persistence is present, I would expect to find recent cron or systemd changes, unfamiliar scripts, unusual execution intervals, unexpected locations, or jobs that do not fit routine administration.
 
-- Recently created or modified cron jobs.
-- Scheduled execution of unfamiliar scripts.
-- Tasks running at unusual frequencies.
-- Tasks executing from unexpected locations.
-- Scheduled activity requiring additional context.
-
-If the hypothesis is incorrect, I would expect the scheduled tasks to be explainable as normal system or administrative activity.
+If the hypothesis is wrong, the scheduled activity should be explainable by normal system or administrative functions.
 
 ### Observed Evidence
 
-Not yet collected.
+No evidence had been collected yet.
 
 ### Interpretation
 
-Pending evidence collection.
+The hypothesis was still open.
 
 ### Next Step
 
-Enumerate cron configuration and identify scheduled tasks that warrant further analysis.
+Enumerate cron configuration and identify anything recent, unfamiliar, or otherwise worth investigating.
 
 ---
 
-## Investigation Step 1 — Cron Enumeration
+## Investigation Step 1 - Cron Enumeration
 
 ### Question
 
-Are there recently created or modified scheduled tasks that warrant additional investigation?
+Are there recent cron changes that stand out from the normal system jobs?
 
 ### Expected Evidence
 
-If the hypothesis is correct, I would expect to identify one or more recently modified cron entries, unfamiliar scripts, unusual execution frequencies, or tasks requiring additional context.
+I expected a potentially meaningful finding to show up as a recent modification, an unfamiliar command, an unusual frequency, an unexpected user, or a script that needed more context.
 
 ### Observed Evidence
 
-Cron configuration was enumerated at 2026-08-23T17:58:22+00:00.
+Cron configuration was enumerated at `2026-08-23T17:58:22+00:00`.
 
-The following notable entries were identified:
+Two entries were notably recent:
 
-- /etc/cron.d/dev-health-check
+- `/etc/cron.d/dev-health-check`
   - Modified: 2026-08-23 17:51 UTC
   - Owner: root
   - Permissions: 644
-  - Executes /usr/local/bin/dev-health-check.sh every 15 minutes
+  - Runs `/usr/local/bin/dev-health-check.sh` every 15 minutes
 
-- /etc/cron.d/config-backup
+- `/etc/cron.d/config-backup`
   - Modified: 2026-08-23 17:55 UTC
   - Owner: root
   - Permissions: 644
-  - Executes /usr/local/bin/config-backup.sh every 5 minutes
+  - Runs `/usr/local/bin/config-backup.sh` every five minutes
 
-Existing system cron entries such as e2scrub_all and sysstat had older timestamps or recognizable system purposes.
+Older entries such as `e2scrub_all` and `sysstat` had recognizable system purposes and did not stand out in the same way.
 
-Evidence file:
-
-05-evidence/command-output/01-cron-enumeration.txt
+Evidence: `evidence/command-output/01-cron-enumeration.txt`
 
 ### Interpretation
 
-FACT: Two cron files were modified within several minutes of the hunt timeframe.
+**Fact:** Two cron files were modified within minutes of the hunt timeframe.  
+**Fact:** `config-backup` runs every five minutes as root.  
+**Inference:** The backup job deserves more attention because it is recent, frequent, and privileged.  
+**Assumption:** It could represent unauthorized persistence, but authorization and intent are still unknown.
 
-FACT: The config-backup task executes every five minutes as root.
-
-INFERENCE: The config-backup task warrants additional investigation because it is recent, runs frequently, and executes with root privileges.
-
-ASSUMPTION: The config-backup task may represent unauthorized persistence. Authorization and intent have not yet been established.
-
-The evidence supports continuing the hunt but does not establish malicious activity.
+This was enough to continue the hunt, not enough to call the activity malicious.
 
 ### Next Step
 
-Inspect the scripts referenced by the two recent cron jobs to determine what they execute, where they write data, and whether either task has a clear administrative purpose.
+Read both scripts and determine what they do, where they write data, and whether either has an obvious administrative purpose.
 
 ---
 
-## Investigation Step 2 — Script Inspection
+## Investigation Step 2 - Script Inspection
 
 ### Question
 
-What do the scripts referenced by the recently modified cron jobs actually do, and does either script contain behavior that warrants further investigation?
+What do the recent cron jobs actually execute?
 
 ### Expected Evidence
 
-If the hypothesis is correct, I would expect at least one scheduled script to perform activity that is unusual for normal administration, such as accessing system configuration, writing data to an unusual location, or otherwise requiring additional context.
+If the hypothesis is gaining support, I would expect at least one script to perform activity that is difficult to explain as routine administration, such as collecting sensitive configuration, writing to an odd location, or using an unusual execution pattern.
 
 ### Observed Evidence
 
-Script inspection was performed at 2026-08-23T18:01:21+00:00.
+The scripts were inspected at `2026-08-23T18:01:21+00:00`.
 
-The following was observed:
+`/usr/local/bin/dev-health-check.sh`:
 
-- /usr/local/bin/dev-health-check.sh
-  - Owned by root
-  - Executable permissions: 755
-  - Records hostname, timestamp, uptime, and root filesystem usage
-  - Writes results to /var/log/dev-health-check.log
+- Owned by root
+- Mode 755
+- Records hostname, timestamp, uptime, and root filesystem usage
+- Writes to `/var/log/dev-health-check.log`
 
-- /usr/local/bin/config-backup.sh
-  - Owned by root
-  - Executable permissions: 755
-  - Creates timestamped .tar.gz archives
-  - Stores archives under /var/tmp
-  - Archives /etc/hosts
-  - Archives /etc/ssh/sshd_config
-  - Sets archive permissions to 600
+`/usr/local/bin/config-backup.sh`:
 
-Evidence file:
+- Owned by root
+- Mode 755
+- Creates timestamped `.tar.gz` archives
+- Writes them under `/var/tmp`
+- Archives `/etc/hosts`
+- Archives `/etc/ssh/sshd_config`
+- Sets archive permissions to 600
 
-05-evidence/command-output/02-script-inspection.txt
+Evidence: `evidence/command-output/02-script-inspection.txt`
 
 ### Interpretation
 
-FACT: The health-check script collects routine system-health information and writes it to a conventional log location.
+**Fact:** The health-check script collects ordinary system-health information and writes it to a normal log location.  
+**Fact:** The backup script collects host and SSH configuration and stores compressed copies in `/var/tmp`.  
+**Fact:** Both scripts are root-owned and executable.  
+**Inference:** The health-check has a clear administrative purpose.  
+**Inference:** The backup job deserves further review because of its five-minute schedule, SSH configuration collection, and temporary-directory destination.  
+**Assumption:** The backup may be unauthorized, but I still do not know who created it or whether it was approved.
 
-FACT: The config-backup script collects system and SSH configuration files and stores compressed archives under /var/tmp.
-
-FACT: Both scripts are owned by root and have executable permissions.
-
-INFERENCE: The health-check script has a readily apparent administrative purpose.
-
-INFERENCE: The config-backup script warrants further investigation because it collects SSH configuration, executes frequently, and stores archives in a temporary directory.
-
-ASSUMPTION: The config-backup activity may be unauthorized. No evidence collected so far establishes who created it or whether the activity was approved.
-
-The original hypothesis is strengthened because a recently created persistence mechanism is performing unusual scheduled activity, but malicious intent has not been established.
+At this point the hypothesis had more support, but there was still no evidence of malicious intent.
 
 ### Next Step
 
-Examine /var/tmp for artifacts created by the config-backup script and determine whether the scheduled task has actually executed repeatedly.
+Inspect `/var/tmp` for the resulting archives and confirm whether the backup job has actually executed more than once.
 
 ---
 
-## Hunt Pivot — Unexpected SSH Detection Cron Job
+## Hunt Pivot - Unexpected SSH Detection Cron Job
 
-### What I Discovered
+### What I Found
 
-While reviewing cron execution telemetry, I identified an unexpected scheduled script:
+While reviewing cron execution, I noticed another script running every minute as root:
 
-/usr/local/bin/detect-ssh-bruteforce.sh
+`/usr/local/bin/detect-ssh-bruteforce.sh`
 
-The script was executing every minute as root even though it had not appeared in the original /etc/cron.d enumeration.
+It had not appeared in the original `/etc/cron.d` review. Tracing the scheduling source showed the following entry in the root user's crontab:
 
-Further investigation showed that the task was configured in the root user's personal crontab:
+`* * * * * /usr/local/bin/detect-ssh-bruteforce.sh`
 
-* * * * * /usr/local/bin/detect-ssh-bruteforce.sh
-
-The script itself checks recent SSH logs for repeated failed password attempts and generates an auth.warning message when five or more failures from the same source IP occur within five minutes.
+The script reviews recent SSH logs, counts failed-password attempts by source IP, and writes an `auth.warning` message when five or more failures occur within five minutes.
 
 ### Why It Mattered
 
-The task represented an additional persistent scheduled execution mechanism that was not identified during the original /etc/cron.d review.
-
-Because it ran every minute as root, it could not be ignored simply because its filename appeared security-related.
+This was another persistent scheduled execution mechanism, and it ran with root privileges. The security-related filename was not enough reason to trust it, so it needed its own review.
 
 ### New Question
 
-Was this unexpected scheduled task another persistence mechanism, or was it a legitimate defensive monitoring control?
+Was this an additional persistence mechanism, or an expected defensive control?
 
-### Additional Evidence Collected
+### Additional Evidence
 
-- The script is owned by root.
-- The script timestamp is 2026-07-20 19:36.
-- The script searches SSH logs for failed password attempts.
-- It generates alerts using logger when a threshold is exceeded.
-- The root crontab explicitly schedules the script every minute.
-- Journal evidence confirms repeated execution.
+- The script is root-owned.
+- Its timestamp is 2026-07-20 19:36.
+- It searches SSH logs for failed passwords.
+- It uses `logger` to generate an alert when the threshold is met.
+- The root crontab explicitly schedules it every minute.
+- Journal records confirm repeated execution.
 
-Evidence files:
+Evidence:
 
-- 05-evidence/command-output/05-hunt-pivot-ssh-detection.txt
-- 05-evidence/command-output/06-root-crontab.txt
-- 05-evidence/logs/04-cron-execution.log
-
-### Evidence Classification
-
-FACT: The root crontab schedules /usr/local/bin/detect-ssh-bruteforce.sh every minute.
-
-FACT: The script examines SSH authentication failures and generates alerts when a threshold is exceeded.
-
-FACT: The task existed before the current hunt scenario.
-
-INFERENCE: The script is likely a defensive SSH brute-force monitoring control.
-
-ASSUMPTION: The script was intentionally installed by an authorized administrator. Authorization has not yet been independently demonstrated.
-
-### Effect on Original Hypothesis
-
-The pivot weakened the original hypothesis.
-
-Although an additional persistence mechanism was discovered, its behavior is consistent with defensive monitoring rather than unauthorized persistence.
-
-The finding also demonstrated why scheduled execution alone is insufficient to classify activity as malicious.
-
-### Next Step
-
-Return to the recently created config-backup task and correlate its creation with authentication and sudo activity to determine which account created or modified it.
-
----
-
-## Investigation Step 3 — Authentication and Privilege Correlation
-
-### Question
-
-Which account created the recently identified scheduled tasks, and was privileged access involved?
-
-### Expected Evidence
-
-If unauthorized persistence were occurring, I might expect an unexpected account, unusual authentication activity, or unexplained privilege escalation near the creation of the scheduled task.
-
-If the activity were legitimate administration, I would expect the changes to correlate with an identifiable administrative account and normal sudo activity.
-
-### Observed Evidence
-
-Authentication and sudo telemetry from 17:48 through 17:57 UTC was reviewed.
-
-The following events were identified:
-
-- 17:50:04 — one sudo authentication failure occurred for the analyst account.
-- 17:50:09 — analyst used sudo to create /usr/local/bin/dev-health-check.sh.
-- 17:50:14 — analyst used sudo to make the health-check script executable.
-- 17:51:34 — analyst used sudo to create /etc/cron.d/dev-health-check.
-- 17:52:35 — analyst used sudo to create /usr/local/bin/config-backup.sh.
-- 17:52:39 — analyst used sudo to make config-backup.sh executable.
-- 17:54:33 — analyst manually executed config-backup.sh with sudo.
-- 17:55:47 — analyst used sudo to create /etc/cron.d/config-backup.
-- 17:55:50 — analyst set permissions on the config-backup cron file.
-
-The commands originated from TTY pts/0.
-
-No SSH login event was identified within the selected 17:48–17:57 UTC window.
-
-Evidence file:
-
-05-evidence/logs/07-auth-sudo-correlation.log
+- `evidence/command-output/05-hunt-pivot-ssh-detection.txt`
+- `evidence/command-output/06-root-crontab.txt`
+- `evidence/logs/04-cron-execution.log`
 
 ### Interpretation
 
-FACT: The analyst account created both recently identified scripts and cron entries using sudo.
+**Fact:** The root crontab runs `detect-ssh-bruteforce.sh` every minute.  
+**Fact:** The script detects repeated SSH authentication failures and generates warnings.  
+**Fact:** The task existed before the current scenario.  
+**Inference:** Its behavior is consistent with defensive SSH monitoring.  
+**Assumption:** It was intentionally installed by an authorized administrator; that authorization was not independently verified.
 
-FACT: The analyst account manually executed config-backup.sh before the cron entry began executing it automatically.
-
-FACT: One failed sudo authentication occurred before subsequent successful sudo activity.
-
-FACT: The commands were executed from TTY pts/0.
-
-INFERENCE: The creation of the config-backup task is associated with an identifiable interactive administrative session rather than an unexplained background process.
-
-INFERENCE: This evidence weakens the hypothesis that an unknown account established persistence.
-
-ASSUMPTION: The analyst account and its session were authorized. Authorization and the origin of the interactive session have not yet been independently established.
-
-The sudo authentication failure alone is insufficient to indicate malicious activity because it was immediately followed by successful authenticated administrative activity.
+The pivot weakened the original hypothesis. It also reinforced an important point: persistence-like behavior must be interpreted in context.
 
 ### Next Step
 
-Determine how the analyst session originated and whether the account's login activity is consistent with expected access.
+Return to the recent backup task and determine which account created it by correlating its timestamps with authentication and sudo activity.
 
 ---
 
-## Investigation Step 4 — Session Origin and Historical Baseline
+## Investigation Step 3 - Authentication and Privilege Correlation
 
 ### Question
 
-Did the analyst account's privileged activity originate from an unusual or previously unseen login source?
+Who created the recent scripts and cron entries, and how was privilege used?
 
 ### Expected Evidence
 
-If unauthorized access were involved, I might expect an unfamiliar source address, unusual login pattern, unexpected account, or authentication activity inconsistent with prior usage.
-
-If the activity were consistent with normal administration, I would expect the session source and account to match historical access patterns.
+Unauthorized persistence might correlate with an unexpected account, unusual authentication, or unexplained privilege escalation. Legitimate administration should be traceable to an identifiable user and normal sudo activity.
 
 ### Observed Evidence
 
-The current analyst pts/0 session began at approximately 17:36 UTC and originated from 192.168.56.1.
+Authentication and sudo events from 17:48 through 17:57 UTC showed:
+
+- 17:50:04 - one sudo authentication failure for `analyst`
+- 17:50:09 - `analyst` used sudo to create `/usr/local/bin/dev-health-check.sh`
+- 17:50:14 - `analyst` made the health-check script executable
+- 17:51:34 - `analyst` created `/etc/cron.d/dev-health-check`
+- 17:52:35 - `analyst` created `/usr/local/bin/config-backup.sh`
+- 17:52:39 - `analyst` made `config-backup.sh` executable
+- 17:54:33 - `analyst` manually ran `config-backup.sh` with sudo
+- 17:55:47 - `analyst` created `/etc/cron.d/config-backup`
+- 17:55:50 - `analyst` set permissions on the backup cron file
+
+The commands came from TTY `pts/0`. No SSH login event fell inside the narrower 17:48-17:57 window.
+
+Evidence: `evidence/logs/07-auth-sudo-correlation.log`
+
+### Interpretation
+
+**Fact:** The analyst account created both recent scripts and cron entries using sudo.  
+**Fact:** The analyst manually ran the backup script before cron began running it.  
+**Fact:** One failed sudo authentication occurred before successful sudo activity.  
+**Fact:** The commands came from `pts/0`.  
+**Inference:** The changes came from an identifiable interactive session rather than an unexplained background process.  
+**Inference:** This weakens the idea that an unknown account established the persistence.  
+**Assumption:** The analyst account and session were authorized; I still needed to establish where that session came from.
+
+The isolated sudo failure had little weight because successful authenticated sudo activity followed within seconds.
+
+### Next Step
+
+Identify the source of the analyst session and compare it with prior login behavior.
+
+---
+
+## Investigation Step 4 - Session Origin and Historical Baseline
+
+### Question
+
+Did the privileged changes come from an unusual or previously unseen source?
+
+### Expected Evidence
+
+If the account were being used unexpectedly, I might see a new source address or a login pattern that did not match prior activity. A familiar source would support, but not prove, a benign explanation.
+
+### Observed Evidence
+
+The active analyst `pts/0` session began around 17:36 UTC and originated from `192.168.56.1`.
 
 SSH telemetry showed:
 
-- 17:35:59 — Accepted password for analyst from 192.168.56.1.
-- An SSH session was opened for analyst immediately afterward.
+- 17:35:59 - Accepted password for `analyst` from `192.168.56.1`
+- The SSH session opened immediately afterward
 
-Login history showed repeated prior analyst sessions from 192.168.56.1 on multiple dates, including August 12, August 11, August 10, July 30, July 29, July 28, July 27, July 22, July 21, and July 20.
+Login history showed prior analyst sessions from `192.168.56.1` on August 12, August 11, August 10, July 30, July 29, July 28, July 27, July 22, July 21, and July 20.
 
-Evidence file:
-
-05-evidence/logs/08-session-origin.log
+Evidence: `evidence/logs/08-session-origin.log`
 
 ### Interpretation
 
-FACT: The analyst account authenticated successfully through SSH from 192.168.56.1 immediately before the hunt scenario activity.
+**Fact:** The analyst authenticated from `192.168.56.1` immediately before the scenario activity.  
+**Fact:** The same source appears repeatedly in earlier analyst login records.  
+**Fact:** The privileged commands were issued from the `pts/0` session associated with that login.  
+**Inference:** The source matches the analyst account's established access pattern.  
+**Inference:** This further weakens the idea that an unknown external account created the recent jobs.  
+**Assumption:** A historically familiar source means the activity was authorized. That remains an assumption because historical consistency is not the same as formal approval.
 
-FACT: The same source address appears repeatedly in historical analyst login records.
-
-FACT: The privileged commands that created the scheduled tasks were executed from the pts/0 session associated with that login.
-
-INFERENCE: The session origin is consistent with the analyst account's historical access pattern.
-
-INFERENCE: The evidence further weakens the hypothesis that an unknown external account established the recently identified persistence.
-
-ASSUMPTION: Historical consistency means the activity was authorized. Historical consistency alone cannot prove authorization or intent.
-
-No evidence collected so far demonstrates account compromise or an anomalous login source.
+Nothing collected at this point showed account compromise or an anomalous login source.
 
 ### Next Step
 
-Complete the originally planned persistence review by examining recently modified systemd services and timers for additional unexplained persistence mechanisms.
+Finish the planned persistence review by examining systemd services and timers for another unexplained mechanism.
 
 ---
 
-## Investigation Step 5 — Systemd Persistence Review
+## Investigation Step 5 - Systemd Review
 
 ### Question
 
-Are there additional recently modified systemd services or timers that could represent unexplained persistence?
+Is there another recent systemd service or timer that could represent unexplained persistence?
 
 ### Expected Evidence
 
-If the original hypothesis were correct beyond the identified cron activity, I might expect to find recently created or modified systemd services or timers executing unusual commands, using unexpected accounts, or referencing suspicious filesystem locations.
+If the original hypothesis extends beyond cron, I would expect to find a recent service or timer with an unusual command, unexpected user, or questionable filesystem path.
 
 ### Observed Evidence
 
-Systemd timers were reviewed and appeared consistent with normal Ubuntu maintenance functions, including:
+The timer review showed expected Ubuntu maintenance activity, including:
 
-- apt-daily
-- apt-daily-upgrade
-- logrotate
-- fstrim
-- sysstat
-- dpkg-db-backup
-- systemd-tmpfiles-clean
-- fwupd-refresh
+- `apt-daily`
+- `apt-daily-upgrade`
+- `logrotate`
+- `fstrim`
+- `sysstat`
+- `dpkg-db-backup`
+- `systemd-tmpfiles-clean`
+- `fwupd-refresh`
 
-One recently modified service was identified:
+One custom service stood out:
 
-/etc/systemd/system/company-web.service
+`/etc/systemd/system/company-web.service`
 
 The service:
 
-- Was modified on 2026-07-27.
-- Is named Internal Company Web Application.
-- Runs as the analyst user.
-- Executes /usr/bin/python3 /home/analyst/internal-web-outage-lab/app.py.
-- Is enabled and active.
-- Listens locally through the application at 127.0.0.1:5050.
-- Shows normal Flask application startup messages.
+- Was modified on 2026-07-27
+- Is described as `Internal Company Web Application`
+- Runs as `analyst`
+- Executes `/usr/bin/python3 /home/analyst/internal-web-outage-lab/app.py`
+- Is enabled and active
+- Serves locally at `127.0.0.1:5050`
+- Shows normal Flask startup messages
 
-Evidence files:
+Evidence:
 
-- 05-evidence/command-output/09-systemd-review.txt
-- 05-evidence/command-output/10-company-web-review.txt
+- `evidence/command-output/09-systemd-review.txt`
+- `evidence/command-output/10-company-web-review.txt`
 
 ### Interpretation
 
-FACT: No newly created systemd timer related to the current hunt timeframe was identified.
+**Fact:** No new systemd timer tied to the current hunt timeframe was identified.  
+**Fact:** `company-web.service` predates the current hunt and runs an identifiable internal application as `analyst`.  
+**Inference:** The service is consistent with legitimate application hosting rather than unexplained persistence.  
+**Inference:** The systemd review further weakens the unauthorized-persistence hypothesis.  
+**Assumption:** The application was formally authorized; the service configuration itself cannot prove that.
 
-FACT: company-web.service predates the current hunt and runs an identifiable internal web application from the analyst user's home directory.
-
-FACT: The service runs as analyst rather than root.
-
-INFERENCE: The company-web service is consistent with legitimate application hosting rather than unauthorized persistence.
-
-INFERENCE: The systemd review weakens the original unauthorized-persistence hypothesis.
-
-ASSUMPTION: The company-web application is authorized. The service configuration alone cannot independently prove authorization.
-
-No additional unexplained systemd persistence mechanism was identified.
+No additional unexplained systemd persistence mechanism was found.
 
 ### Next Step
 
-Assess whether the collected evidence is sufficient to determine disposition and whether additional investigation is likely to materially change the conclusion.
+Decide whether the collected evidence is sufficient for a disposition and whether any remaining lead is likely to change it.
 
 ---
 
@@ -385,93 +324,51 @@ Assess whether the collected evidence is sufficient to determine disposition and
 
 ### Question
 
-Has sufficient evidence been collected to determine a defensible disposition, or would additional investigation materially change the conclusion?
+Do I have enough evidence for a defensible disposition, or is there a specific unanswered question that would materially change the result?
 
 ### Evidence Considered
 
-The hunt established the following:
+By this point the hunt had established that:
 
-- Two recently created cron tasks were identified.
-- Both tasks were created through sudo by the analyst account.
-- The config-backup task executed repeatedly as configured.
-- The config-backup script collected configuration files but did not communicate externally or perform destructive activity.
-- The analyst session originated from 192.168.56.1.
-- Historical login records showed repeated prior analyst access from the same source address.
-- No anomalous SSH source associated with the activity was identified.
-- The hunt pivot identified an additional root cron task running every minute.
-- The pivoted task was determined to perform SSH brute-force detection.
-- No additional unexplained systemd persistence mechanism was identified.
-- The company-web service predates the hunt and has an identifiable application purpose.
+- Two recent cron tasks existed.
+- The analyst account created both through sudo.
+- The backup script ran manually and then repeatedly through cron.
+- It collected configuration files but showed no external communication or destructive behavior.
+- The analyst SSH session came from `192.168.56.1`.
+- Historical analyst logins repeatedly used the same source.
+- The root-crontab pivot led to a defensive SSH brute-force monitor.
+- No additional unexplained systemd persistence was found.
+- `company-web.service` predated the hunt and had a recognizable application purpose.
 
 ### Interpretation
 
-FACT: Scheduled persistence mechanisms exist on the system.
-
-FACT: The recently identified cron tasks were created through an interactive analyst session using sudo.
-
-FACT: The analyst session originated from a source address repeatedly observed in historical login records.
-
-FACT: No additional unexplained persistence mechanism was identified during the systemd review.
-
-INFERENCE: The activity is most consistent with legitimate administrative or lab activity rather than unauthorized persistence.
-
-ASSUMPTION: The analyst activity was formally authorized. No external change ticket or administrator approval record was available to independently verify authorization.
+**Fact:** Scheduled persistence mechanisms exist on the host.  
+**Fact:** The recent cron tasks were created from an interactive analyst session using sudo.  
+**Fact:** The analyst session came from a source repeatedly seen in historical logins.  
+**Fact:** The systemd review did not reveal another unexplained persistence mechanism.  
+**Inference:** The activity is most consistent with legitimate administrative or lab work.  
+**Assumption:** The changes were formally authorized; no independent change record was available to confirm that.
 
 ### Disposition
 
-**Close — Benign**
+**Close - Benign**
 
-The available evidence provides a reasonable explanation for the unusual scheduled activity and does not indicate account compromise, unauthorized persistence, malware execution, external command-and-control activity, or another condition requiring incident response.
+The unusual activity had a coherent administrative explanation, and the hunt found no evidence of account compromise, malicious persistence, malware execution, external command-and-control activity, or another condition requiring incident response.
 
-The original hypothesis was therefore not supported strongly enough to justify escalation.
+### Confidence
 
-### Confidence Assessment
+**Medium**
 
-**Confidence: Medium**
+Several independent sources support the same conclusion: cron configuration, execution logs, sudo telemetry, SSH authentication, historical login records, file metadata, script contents, and systemd configuration.
 
-Medium confidence was selected because multiple independent telemetry sources support the same explanation:
+The strongest correlation is between the analyst SSH session, the sudo commands that created the jobs, and the history of the same source address.
 
-- Cron configuration
-- Cron execution logs
-- Sudo telemetry
-- SSH authentication telemetry
-- Historical login records
-- File metadata
-- Script contents
-- Systemd configuration
-
-The strongest evidence was the correlation between the analyst SSH session, the sudo commands that created the scheduled tasks, and the historical use of the same source address.
-
-The primary missing evidence is independent confirmation that the administrative changes were formally approved.
-
-Confidence could increase to High if a change ticket, administrator confirmation, or other authoritative record confirmed that the analyst activity was authorized.
-
-Confidence would decrease if additional evidence showed account compromise, an anomalous source address, unauthorized credential use, or hidden persistence not identified during the hunt.
+The primary limitation is that no change ticket, administrator confirmation, or other authoritative record independently proves formal approval. Confidence could rise to High with that confirmation and would fall if new evidence showed compromised credentials, an anomalous source, hidden persistence, or related malicious activity.
 
 ---
 
-## How Did I Know When to Stop Investigating?
+## Why I Stopped Investigating
 
-The hunt stopped when the original hypothesis had been tested using the major telemetry sources identified in the hunt plan and the most significant alternative explanations had been evaluated.
+The hunt had covered the major telemetry sources in the plan and resolved the most important alternative explanations. I had reviewed cron configuration and execution, the referenced scripts, file artifacts, authentication, privilege use, session origin, historical login behavior, the root crontab pivot, systemd services, and systemd timers.
 
-The investigation examined:
-
-- Cron configuration
-- Cron execution
-- Referenced scripts
-- File artifacts
-- Authentication
-- Privilege escalation
-- Session origin
-- Historical login behavior
-- Root user cron
-- Systemd services
-- Systemd timers
-
-The required hunt pivot was also completed and did not identify additional suspicious activity.
-
-Additional logs or systems could always be examined, but no current evidence pointed to another meaningful lead.
-
-Further investigation was therefore unlikely to materially change the disposition.
-
-Continuing solely to collect more data would not have been a proportionate use of investigative effort.
+More data was available in theory, but there was no remaining evidence-driven lead. Continuing solely to collect additional logs would have been unlikely to change the disposition and would no longer have been a proportionate, hypothesis-driven use of time.

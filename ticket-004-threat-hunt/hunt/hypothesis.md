@@ -1,183 +1,154 @@
-# Ticket #004 — Threat Hunt Hypothesis
+# Ticket #004 - Threat Hunt Hypothesis
 
-## Hunt Hypothesis
+## Working Hypothesis
 
-If unauthorized persistence through scheduled tasks is occurring on the Linux system, I would expect to observe newly created or modified cron jobs or systemd services associated with unusual commands, users, files, or execution times because scheduled tasks are commonly used by both legitimate administrators and attackers to execute commands persistently.
+If someone has established unauthorized persistence through Linux scheduling mechanisms, I should find recent or unexplained cron or systemd changes that launch unusual commands or scripts, involve unexpected users or file locations, or run on a pattern that does not fit normal administration.
 
----
-
-## Known Facts
-
-- A security analyst observed activity in the development environment that appeared unusual.
-- The activity did not trigger a high-confidence security alert.
-- No confirmed security incident has been declared.
-- There is no known indicator of compromise (IOC).
-- The analyst could not determine whether the activity was normal administrative behavior, a configuration change, unauthorized activity, persistence, or another type of activity.
-- The SOC Manager requested a proactive, hypothesis-driven threat hunt.
-- The hunt will be performed against a Linux system in an authorized cyber lab.
-- The investigation must begin with a hypothesis rather than with simulated suspicious activity.
-- The final conclusion must be based on evidence rather than assumptions.
+The goal is not to prove the hypothesis. It is to test it against the available evidence and be willing to reject it if a better explanation emerges.
 
 ---
 
-## Unknowns
+## What I Knew at the Start
 
-- What specific activity caused the analyst's concern.
-- Which user account performed the activity.
-- Whether the activity was authorized.
-- Whether any scheduled tasks were recently created or modified.
-- Whether cron, systemd, or another persistence mechanism was involved.
-- Whether the observed activity was performed manually or automatically.
-- Whether unusual processes or scripts are currently executing.
-- Whether files associated with scheduled tasks were recently modified.
-- Whether authentication activity occurred before the suspicious behavior.
-- Whether privilege escalation occurred.
-- Whether the activity originated locally or through a remote connection.
-- Whether additional systems are affected.
-- Whether the activity is part of routine administrative maintenance.
-- Whether sufficient historical telemetry exists to establish a reliable baseline.
+- An analyst noticed activity in the development environment that seemed unusual.
+- No high-confidence alert had fired.
+- No incident had been confirmed.
+- There was no starting IOC.
+- The activity had not yet been tied to a specific account, process, or persistence method.
+- The SOC Manager requested a proactive, hypothesis-driven hunt.
+- The work would take place on an authorized Ubuntu lab host.
+- The scenario would be created only after the hypothesis and plan were documented.
+- Any final disposition would need to be supported by evidence rather than by the appearance of a command or file.
 
 ---
 
-## Assumptions
+## What I Did Not Know
 
-- The Linux system is functioning normally enough to provide usable telemetry.
-- Relevant system logs have not been deleted or significantly altered.
-- Cron and systemd logs are available for the selected timeframe.
-- Legitimate administrative activity may occur on the system.
-- Scheduled tasks may be used by legitimate administrators.
-- A scheduled task that appears unusual is not automatically malicious.
-- Changes to scheduled tasks should leave evidence in configuration files, timestamps, logs, process activity, or command history.
-- The analyst's observation may be related to persistence, but other explanations remain possible.
-- The current user accounts and system configuration represent an approximately normal baseline unless evidence indicates otherwise.
+At the outset, several basic questions were still open:
 
-These assumptions will be reevaluated as evidence is collected.
+- What behavior originally raised concern?
+- Which account performed it?
+- Was the activity approved?
+- Had any cron jobs, crontabs, systemd services, or timers changed recently?
+- Was the activity manual or scheduled?
+- Were unusual scripts or processes involved?
+- Did authentication or sudo activity occur before the changes?
+- Did the activity originate locally or over SSH?
+- Was this limited to one host?
+- Could normal maintenance, monitoring, backups, or application automation explain it?
+- Was enough historical telemetry available to establish a useful baseline?
+
+---
+
+## Assumptions to Test
+
+I began with several assumptions, but treated them as provisional:
+
+- The host was healthy enough to provide usable logs and configuration data.
+- Relevant logs had not been intentionally deleted or materially altered.
+- Cron and systemd activity would leave enough evidence to reconstruct recent changes.
+- Legitimate administrators may create scheduled tasks that look suspicious when viewed without context.
+- A recent or frequent root-level job is not automatically malicious.
+- Changes to scheduled execution should leave traces in files, metadata, logs, process activity, or command history.
+- Persistence was only one possible explanation for the original concern.
+- Current account and system behavior could be treated as an approximate baseline unless evidence showed otherwise.
+
+These assumptions would be revisited as the hunt progressed.
 
 ---
 
 ## Competing Explanations
 
-### Explanation 1 — Legitimate Administrative Activity
+### 1. Routine Administration
 
-A system administrator may have created or modified a cron job or systemd service as part of normal maintenance, automation, backups, monitoring, software updates, or application management.
+An administrator may have added or changed a scheduled job for monitoring, maintenance, backups, updates, or automation.
 
-This is a benign explanation.
+Evidence that would support this explanation includes a known administrative account, a recognizable script, expected file locations, normal privilege use, and no related suspicious access.
 
-Evidence supporting this explanation could include:
+### 2. Legitimate Change With Weak Documentation
 
-- A known administrative account performing the change.
-- A scheduled task executing a legitimate system or maintenance script.
-- Configuration consistent with other approved administrative tasks.
-- Activity occurring during a normal maintenance period.
-- No additional suspicious authentication, privilege escalation, or file activity.
+A developer or administrator may have made a valid change without recording it through a formal change process.
 
-### Explanation 2 — Legitimate Configuration Change With Poor Documentation
+I would expect to see activity that makes technical sense, uses normal tools and directories, and lacks signs of concealment or unauthorized access, even if a change ticket is missing.
 
-A developer or administrator may have changed a scheduled task for a legitimate purpose without properly documenting the change.
+### 3. Unauthorized Persistence
 
-Evidence supporting this explanation could include:
+An unauthorized user may have created or modified a cron job or systemd unit so a command continues to run after the original session ends.
 
-- A recently modified cron or systemd configuration.
-- Commands associated with development, testing, monitoring, or automation.
-- Files located in expected application or administrative directories.
-- No evidence of suspicious access or attempts to conceal the activity.
+That explanation would become more plausible if I found an unexplained scheduled task, scripts in temporary or hidden locations, unexpected users, unusual privilege activity, suspicious authentication, or attempts to disguise the mechanism.
 
-### Explanation 3 — Unauthorized Persistence
+### 4. Application or Package Automation
 
-An unauthorized user may have created or modified a cron job or systemd service so that a command or script continues executing after the original access session ends.
+Installed software, monitoring tools, package updates, or application components may have created scheduled execution automatically.
 
-Evidence supporting this explanation could include:
-
-- A newly created or modified scheduled task with no clear administrative purpose.
-- Execution from unusual locations such as /tmp, /var/tmp, or a user's hidden directory.
-- A script or executable associated with an unexpected user.
-- Scheduled execution at unusual or frequent intervals.
-- Authentication or privilege escalation events shortly before the task was created.
-- File modifications that correlate with the scheduled task.
-- Attempts to disguise the task as a legitimate service.
-
-### Explanation 4 — Application or Software Automation
-
-An installed application, package, monitoring tool, or update process may have automatically created or modified a scheduled task.
-
-Evidence supporting this explanation could include:
-
-- Package installation or upgrade activity occurring near the same time.
-- A scheduled task associated with a recognized package or application.
-- Files owned by a legitimate package.
-- Similar configuration documented by the installed software.
+Package history, recognized ownership, expected commands, and documented application behavior would support this explanation.
 
 ---
 
 ## Initial Hunt Focus
 
-The hunt will initially focus on determining whether cron jobs or systemd services exist that are unusual when compared with expected administrative activity.
+I planned to start with cron and systemd because they are common Linux scheduling and persistence mechanisms. From there, I would follow the evidence into authentication, sudo activity, file metadata, process execution, or other areas as needed.
 
-The investigation will not assume that an unusual scheduled task is malicious.
+The first questions were:
 
-The objective will be to determine:
-
-1. Whether scheduled persistence mechanisms are present.
-2. Whether any were recently created or modified.
-3. Which user or process is associated with them.
-4. What commands or scripts they execute.
-5. Whether related authentication, privilege escalation, process, or file activity provides additional context.
-6. Whether the available evidence supports a benign explanation or warrants escalation.
-
----
-
-## Evidence That Would Support the Hypothesis
-
-- A recently created or modified cron job or systemd service.
-- A scheduled task whose purpose cannot be explained by normal system administration.
-- A scheduled task executing a script from an unusual location.
-- A scheduled task associated with an unexpected or low-privileged user.
-- Authentication activity shortly before the task was created.
-- Use of sudo or another privilege escalation mechanism before the change.
-- File creation or modification that correlates with the scheduled task.
-- Repeated process execution matching the schedule.
-- Attempts to hide or disguise the scheduled task.
-- Multiple related suspicious behaviors occurring within the same timeframe.
+1. What scheduled execution mechanisms are present?
+2. Which ones are recent or unusual?
+3. Who created or modified them?
+4. What do they execute?
+5. Do the commands actually run?
+6. What authentication, privilege, file, or process evidence provides context?
+7. Does the evidence support a benign explanation, an inconclusive result, or escalation?
 
 ---
 
-## Evidence That Would Weaken or Disprove the Hypothesis
+## Evidence That Would Strengthen the Hypothesis
 
-- All scheduled tasks can be linked to legitimate system or administrative functions.
-- No recent cron or systemd changes are identified.
-- Configuration files match known system defaults.
-- Scheduled commands execute recognized applications from expected locations.
-- Package installation or update records explain the configuration changes.
-- Authentication and privilege activity are consistent with legitimate administrators.
-- No related suspicious processes, files, or account activity are identified.
-- The analyst's observation is better explained by another source of activity.
+The unauthorized-persistence hypothesis would become stronger if I found:
 
----
-
-## Initial Escalation Criteria
-
-The hunt may be escalated for formal investigation if multiple pieces of evidence indicate unauthorized persistence or related unauthorized activity.
-
-Examples include:
-
-- An unexplained persistence mechanism combined with suspicious authentication activity.
-- A scheduled task executing an unknown script from an unusual directory.
-- Evidence that an unexpected account created or modified the task.
-- Privilege escalation associated with creation of the persistence mechanism.
-- Evidence of concealment, unauthorized modification, or additional suspicious activity.
-
-A single unusual cron job or systemd service will not automatically be treated as a confirmed incident.
+- A recently created or modified cron job or systemd service with no clear business or administrative purpose.
+- Scheduled execution from `/tmp`, `/var/tmp`, a hidden directory, or another unexpected location.
+- An unexpected account associated with the change.
+- Suspicious SSH activity shortly before the change.
+- Sudo or root activity that could not be explained.
+- File creation or modification that matched the schedule.
+- Repeated execution consistent with the persistence mechanism.
+- Attempts to conceal or disguise the task.
+- Several related suspicious behaviors occurring in the same timeframe.
 
 ---
 
-## Initial Closure Criteria
+## Evidence That Would Weaken the Hypothesis
 
-The hunt may be closed as benign if available evidence demonstrates that the observed activity was legitimate and adequately explained.
+The hypothesis would lose support if:
 
-The hunt may be closed as insufficient evidence if:
+- Scheduled jobs mapped cleanly to known system or administrative functions.
+- No recent unexplained changes were present.
+- Package or application activity explained the configuration.
+- Authentication and sudo activity matched expected users and sources.
+- Referenced scripts had understandable purposes and normal file locations.
+- No related suspicious process, file, account, or network behavior appeared.
+- Another explanation fit the evidence better.
 
-- Suspicious activity cannot be confirmed.
-- Available telemetry does not provide enough evidence to determine authorization or intent.
-- Additional investigation is unlikely to materially change the conclusion.
+---
 
-The final disposition will be determined only after the hunt is completed.
+## Escalation Criteria
+
+I would consider formal incident escalation if multiple findings pointed in the same direction, for example:
+
+- An unexplained scheduled task plus suspicious authentication.
+- A task executing an unknown script from an unusual directory.
+- An unexpected account creating or modifying persistence.
+- Privilege escalation closely tied to the change.
+- Evidence of concealment, unauthorized modification, network activity, or additional persistence.
+
+One odd-looking cron job or service by itself would not be enough to declare an incident.
+
+---
+
+## Closure Criteria
+
+The hunt could close as **Benign** if the activity was adequately explained by the evidence.
+
+It could close as **Insufficient Evidence** if the available telemetry could not establish authorization or malicious intent and further collection was unlikely to change that.
+
+It would move to formal investigation only if correlated evidence supported unauthorized or malicious activity.
