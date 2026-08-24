@@ -1,0 +1,25 @@
+flowchart TD
+    A[Initial Hypothesis<br/>Possible unauthorized scheduled persistence] --> B[Enumerate Cron Jobs]
+    B --> C[dev-health-check<br/>Appears legitimate]
+    B --> D[config-backup<br/>Suspicious but ambiguous]
+
+    D --> E[Inspect Scripts and Artifacts]
+    E --> F[Confirm Repeated Cron Execution]
+
+    F --> G[Correlate Sudo Activity]
+    G --> H[Analyst Account Created Tasks]
+
+    H --> I[Review SSH Session Origin]
+    I --> J[192.168.56.1<br/>Matches Historical Access]
+
+    F --> K[Hunt Pivot]
+    K --> L[detect-ssh-bruteforce.sh]
+    L --> M[Root Crontab Identified]
+    M --> N[Defensive SSH Monitoring]
+
+    J --> O[Review Systemd Persistence]
+    N --> O
+    O --> P[No Unexplained Persistence Found]
+
+    P --> Q[Final Disposition<br/>Close - Benign]
+    Q --> R[Confidence<br/>Medium]
