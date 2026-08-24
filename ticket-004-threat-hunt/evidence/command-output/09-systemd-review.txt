@@ -1,0 +1,27 @@
+=== Systemd Persistence Review ===
+Collection time: 2026-08-23T18:19:14+00:00
+
+=== Enabled Timers ===
+NEXT                            LEFT LAST                           PASSED UNIT                           ACTIVATES
+Sun 2026-08-23 18:20:00 UTC      45s Sun 2026-08-23 18:10:24 UTC  8min ago sysstat-collect.timer          sysstat-collect.service
+Sun 2026-08-23 18:23:44 UTC 4min 29s Tue 2026-08-11 18:07:26 UTC         - apt-daily-upgrade.timer        apt-daily-upgrade.service
+Sun 2026-08-23 18:43:35 UTC    24min Tue 2026-08-11 19:33:44 UTC         - motd-news.timer                motd-news.service
+Sun 2026-08-23 19:12:47 UTC    53min Sun 2026-08-23 18:03:45 UTC 15min ago fwupd-refresh.timer            fwupd-refresh.service
+Sun 2026-08-23 22:18:58 UTC 3h 59min Mon 2026-07-27 20:04:34 UTC         - man-db.timer                   man-db.service
+Mon 2026-08-24 00:00:00 UTC 5h 40min Sun 2026-08-23 17:34:43 UTC 44min ago dpkg-db-backup.timer           dpkg-db-backup.service
+Mon 2026-08-24 00:00:00 UTC 5h 40min Sun 2026-08-23 17:34:43 UTC 44min ago logrotate.timer                logrotate.service
+Mon 2026-08-24 00:07:00 UTC 5h 47min -                                   - sysstat-summary.timer          sysstat-summary.service
+Mon 2026-08-24 00:31:07 UTC       6h Sun 2026-08-23 17:58:22 UTC 20min ago fstrim.timer                   fstrim.service
+Mon 2026-08-24 10:54:27 UTC      16h Sun 2026-08-23 18:10:45 UTC  8min ago apt-daily.timer                apt-daily.service
+Mon 2026-08-24 17:39:45 UTC      23h Sun 2026-08-23 17:39:45 UTC 39min ago update-notifier-download.timer update-notifier-download.service
+Mon 2026-08-24 17:49:44 UTC      23h Sun 2026-08-23 17:49:44 UTC 29min ago systemd-tmpfiles-clean.timer   systemd-tmpfiles-clean.service
+Sat 2026-08-29 23:40:40 UTC   6 days Tue 2026-06-30 15:51:32 UTC         - update-notifier-motd.timer     update-notifier-motd.service
+Sun 2026-08-30 03:10:21 UTC   6 days Sun 2026-08-23 17:35:45 UTC 43min ago e2scrub_all.timer              e2scrub_all.service
+-                                  - -                                   - apport-autoreport.timer        apport-autoreport.service
+-                                  - -                                   - snapd.snap-repair.timer        snapd.snap-repair.service
+-                                  - -                                   - ua-timer.timer                 ua-timer.service
+
+17 timers listed.
+
+=== Recently Modified /etc/systemd/system Files ===
+2026-07-27 20:21:06.8345896060 | root:root | 644 | /etc/systemd/system/company-web.service

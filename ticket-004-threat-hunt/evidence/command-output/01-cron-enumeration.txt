@@ -1,0 +1,18 @@
+=== Cron Enumeration ===
+Collection time: 2026-08-23T17:58:22+00:00
+
+=== Files and Modification Times ===
+2024-04-08 14:38:40.0000000000 | root:root | 644 | /etc/cron.d/e2scrub_all
+2026-02-10 00:34:44.0000000000 | root:root | 644 | /etc/cron.d/.placeholder
+2026-02-10 00:34:44.0000000000 | root:root | 644 | /etc/cron.d/sysstat
+2026-08-23 17:51:34.5843354850 | root:root | 644 | /etc/cron.d/dev-health-check
+2026-08-23 17:55:47.8733362650 | root:root | 644 | /etc/cron.d/config-backup
+
+=== Active Cron Entries ===
+/etc/cron.d/e2scrub_all:30 3 * * 0 root test -e /run/systemd/system || SERVICE_MODE=1 /usr/lib/x86_64-linux-gnu/e2fsprogs/e2scrub_all_cron
+/etc/cron.d/e2scrub_all:10 3 * * * root test -e /run/systemd/system || SERVICE_MODE=1 /sbin/e2scrub_all -A -r
+/etc/cron.d/dev-health-check:*/15 * * * * root /usr/local/bin/dev-health-check.sh
+/etc/cron.d/sysstat:PATH=/usr/lib/sysstat:/usr/sbin:/usr/sbin:/usr/bin:/sbin:/bin
+/etc/cron.d/sysstat:5-55/10 * * * * root command -v debian-sa1 > /dev/null && debian-sa1 1 1
+/etc/cron.d/sysstat:59 23 * * * root command -v debian-sa1 > /dev/null && debian-sa1 60 2
+/etc/cron.d/config-backup:*/5 * * * * root /usr/local/bin/config-backup.sh

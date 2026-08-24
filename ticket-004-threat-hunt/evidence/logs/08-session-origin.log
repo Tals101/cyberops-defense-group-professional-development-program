@@ -1,0 +1,32 @@
+=== Analyst Session Origin ===
+Collection time: 2026-08-23T18:16:31+00:00
+
+=== Current Sessions ===
+analyst  tty1         2026-08-23 17:35 00:41        2435
+analyst  pts/0        2026-08-23 17:36   .          2488 (192.168.56.1)
+
+=== Login History ===
+analyst  pts/0        Sun Aug 23 17:36:00 2026   still logged in                       192.168.56.1
+analyst  pts/0        Wed Aug 12 19:07:20 2026 - crash                    (10+22:27)   192.168.56.1
+analyst  pts/0        Tue Aug 11 18:11:19 2026 - crash                    (1+00:55)    192.168.56.1
+analyst  pts/0        Mon Aug 10 17:37:03 2026 - Mon Aug 10 19:40:05 2026  (02:03)     192.168.56.1
+analyst  pts/0        Thu Jul 30 16:38:48 2026 - crash                     (03:07)     192.168.56.1
+analyst  pts/0        Wed Jul 29 16:45:00 2026 - crash                     (23:52)     192.168.56.1
+analyst  pts/0        Tue Jul 28 19:26:50 2026 - crash                     (21:13)     192.168.56.1
+analyst  pts/0        Mon Jul 27 19:20:35 2026 - Mon Jul 27 21:01:00 2026  (01:40)     192.168.56.1
+analyst  pts/0        Wed Jul 22 18:44:47 2026 - Wed Jul 22 19:17:31 2026  (00:32)     192.168.56.1
+analyst  pts/0        Tue Jul 21 18:27:49 2026 - crash                    (1+00:16)    192.168.56.1
+analyst  pts/0        Mon Jul 20 18:19:18 2026 - Mon Jul 20 19:49:06 2026  (01:29)     192.168.56.1
+analyst  pts/0        Thu Jul 16 17:11:32 2026 - Thu Jul 16 17:59:42 2026  (00:48)     192.168.56.1
+analyst  pts/1        Thu Jul 16 16:47:05 2026 - Thu Jul 16 17:06:55 2026  (00:19)     192.168.56.1
+analyst  pts/0        Thu Jul 16 16:46:59 2026 - Thu Jul 16 17:08:14 2026  (00:21)     192.168.56.1
+analyst  pts/1        Thu Jul 16 15:26:16 2026 - Thu Jul 16 16:46:06 2026  (01:19)     192.168.56.1
+analyst  pts/1        Thu Jul 16 15:07:11 2026 - Thu Jul 16 15:12:20 2026  (00:05)     192.168.56.1
+analyst  pts/0        Thu Jul 16 14:23:08 2026 - Thu Jul 16 16:46:06 2026  (02:22)     192.168.56.1
+analyst  pts/0        Wed Jul 15 14:01:10 2026 - crash                    (1+00:20)    192.168.56.1
+analyst  pts/0        Tue Jul 14 16:16:44 2026 - Wed Jul 15 03:54:43 2026  (11:37)     192.168.56.1
+analyst  pts/0        Sun Jul  5 14:17:11 2026 - crash                    (9+01:54)    192.168.56.1
+
+=== SSH Authentication Events ===
+Aug 23 17:35:59 ubuntu-soc-lab sshd[2488]: Accepted password for analyst from 192.168.56.1 port 15796 ssh2
+Aug 23 17:35:59 ubuntu-soc-lab sshd[2488]: pam_unix(sshd:session): session opened for user analyst(uid=1000) by analyst(uid=0)

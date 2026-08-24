@@ -1,0 +1,2 @@
+# Development configuration backup
+*/5 * * * * root /usr/local/bin/config-backup.sh
