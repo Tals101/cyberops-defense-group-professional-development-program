@@ -1,0 +1,2 @@
+# Legitimate development environment health check
+*/15 * * * * root /usr/local/bin/dev-health-check.sh

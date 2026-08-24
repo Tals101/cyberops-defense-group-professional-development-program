@@ -1,0 +1,40 @@
+=== company-web.service Review ===
+Collection time: 2026-08-23T18:21:15+00:00
+
+=== Metadata ===
+-rw-r--r-- 1 root root 320 2026-07-27 20:21 /etc/systemd/system/company-web.service
+
+=== Service File ===
+[Unit]
+Description=Internal Company Web Application
+After=network.target
+
+[Service]
+Type=simple
+User=analyst
+Group=analyst
+WorkingDirectory=/home/analyst/internal-web-outage-lab
+ExecStart=/usr/bin/python3 /home/analyst/internal-web-outage-lab/app.py
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+
+=== Service Status ===
+● company-web.service - Internal Company Web Application
+     Loaded: loaded (/etc/systemd/system/company-web.service; enabled; preset: enabled)
+     Active: active (running) since Sun 2026-08-23 17:34:43 UTC; 46min ago
+   Main PID: 682 (python3)
+      Tasks: 1 (limit: 4600)
+     Memory: 31.3M (peak: 31.6M)
+        CPU: 624ms
+     CGroup: /system.slice/company-web.service
+             └─682 /usr/bin/python3 /home/analyst/internal-web-outage-lab/app.py
+
+Aug 23 17:34:43 ubuntu-soc-lab systemd[1]: Started company-web.service - Internal Company Web Application.
+Aug 23 17:34:46 ubuntu-soc-lab python3[682]:  * Serving Flask app 'app'
+Aug 23 17:34:46 ubuntu-soc-lab python3[682]:  * Debug mode: off
+Aug 23 17:34:46 ubuntu-soc-lab python3[682]: WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+Aug 23 17:34:46 ubuntu-soc-lab python3[682]:  * Running on http://127.0.0.1:5050
+Aug 23 17:34:46 ubuntu-soc-lab python3[682]: Press CTRL+C to quit

@@ -1,0 +1,71 @@
+Ticket #004 — Interview Preparation
+
+1. What makes threat hunting different from incident response?
+
+Threat hunting begins proactively with a hypothesis and searches for evidence of activity that may not have generated an alert. Incident response begins after a suspected or confirmed incident and focuses on containment, eradication, recovery, and impact.
+
+
+2. Why did you choose your hypothesis?
+
+Cron and systemd are legitimate Linux administration mechanisms but can also provide persistence. That ambiguity made scheduled-task persistence a good hypothesis because I had to evaluate context rather than simply label a command malicious.
+
+
+3. What evidence would have disproved it?
+
+If all scheduled tasks had established legitimate purposes, expected ownership, normal execution locations, expected authentication sources, and no correlated suspicious activity, the unauthorized-persistence hypothesis would be weakened or disproved.
+
+
+4. What was your strongest piece of evidence?
+
+The strongest evidence was the correlation between the analyst SSH session from 192.168.56.1, the sudo commands that created the tasks, and historical logins repeatedly coming from the same source.
+
+
+5. What was your weakest evidence?
+
+The single failed sudo authentication attempt. By itself it looked potentially interesting, but it was followed seconds later by successful sudo activity from the same established session, so it had little investigative value.
+
+
+6. Which conclusion was fact and which was inference?
+
+Fact: The analyst account used sudo to create the config-backup script and cron entry.
+
+Inference: The activity was legitimate and authorized. The logs show what happened, but formal authorization was not independently proven.
+
+
+7. Why did you pivot?
+
+Cron logs revealed /usr/local/bin/detect-ssh-bruteforce.sh running every minute even though it did not appear in /etc/cron.d. That created a new question about where it was scheduled and whether it represented another persistence mechanism.
+
+
+8. Why didn't you investigate everything?
+
+Threat hunting should remain hypothesis-driven. Once the hypothesis, competing explanations, pivot, authentication activity, cron, systemd, scripts, and historical access had been evaluated, no remaining lead was likely to materially change the conclusion.
+
+
+9. How did you avoid confirmation bias?
+
+I documented evidence that would both support and contradict my hypothesis before investigating. I also maintained benign competing explanations and separated facts from inferences and assumptions.
+
+
+10. What could an attacker have done that your hunt would miss?
+
+An attacker could have used a persistence mechanism outside cron or systemd, deleted or manipulated logs, used stolen credentials from a normal source, executed only in memory, or used techniques not captured by the available telemetry.
+
+
+11. What telemetry did you wish you had?
+
+EDR process telemetry, centralized SIEM logs, file-integrity monitoring, identity-provider data, network telemetry, formal change records, and enterprise asset ownership information.
+
+
+12. Why should I trust your final assessment?
+
+Because it was based on multiple independent data sources rather than a single indicator: cron configuration, execution logs, sudo records, SSH authentication, historical login patterns, file metadata, script contents, and systemd configuration. I also documented the limitations and kept the confidence rating at Medium rather than overstating certainty.
+
+
+13. If I removed your three strongest pieces of evidence, would you reach the same conclusion? Why or why not?
+
+Probably not with the same confidence. My three strongest pieces of evidence were the sudo records showing the analyst created the tasks, the SSH session correlation to 192.168.56.1, and the historical login pattern from that same source.
+
+Without those, I could still describe what the cron jobs did, but I would have much less context about who created them and whether the activity matched normal behavior.
+
+I would likely move from Close — Benign, Medium confidence to Close — Insufficient Evidence rather than assume the activity was malicious.

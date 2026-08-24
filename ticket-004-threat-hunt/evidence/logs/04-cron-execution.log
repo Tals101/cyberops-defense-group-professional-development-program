@@ -1,0 +1,103 @@
+=== Cron Execution Evidence ===
+Collection time: 2026-08-23T18:05:20+00:00
+
+Aug 23 17:45:01 ubuntu-soc-lab CRON[2657]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+Aug 23 17:45:01 ubuntu-soc-lab CRON[2658]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+Aug 23 17:45:01 ubuntu-soc-lab CRON[2659]: (root) CMD (/usr/local/bin/detect-ssh-bruteforce.sh)
+Aug 23 17:45:01 ubuntu-soc-lab CRON[2660]: (root) CMD (command -v debian-sa1 > /dev/null && debian-sa1 1 1)
+Aug 23 17:45:01 ubuntu-soc-lab CRON[2657]: pam_unix(cron:session): session closed for user root
+Aug 23 17:45:01 ubuntu-soc-lab CRON[2658]: pam_unix(cron:session): session closed for user root
+Aug 23 17:46:01 ubuntu-soc-lab CRON[2669]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+Aug 23 17:46:01 ubuntu-soc-lab CRON[2670]: (root) CMD (/usr/local/bin/detect-ssh-bruteforce.sh)
+Aug 23 17:46:01 ubuntu-soc-lab CRON[2669]: pam_unix(cron:session): session closed for user root
+Aug 23 17:47:01 ubuntu-soc-lab CRON[2692]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+Aug 23 17:47:01 ubuntu-soc-lab CRON[2693]: (root) CMD (/usr/local/bin/detect-ssh-bruteforce.sh)
+Aug 23 17:47:01 ubuntu-soc-lab CRON[2692]: pam_unix(cron:session): session closed for user root
+Aug 23 17:48:01 ubuntu-soc-lab CRON[2704]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+Aug 23 17:48:01 ubuntu-soc-lab CRON[2705]: (root) CMD (/usr/local/bin/detect-ssh-bruteforce.sh)
+Aug 23 17:48:01 ubuntu-soc-lab CRON[2704]: pam_unix(cron:session): session closed for user root
+Aug 23 17:49:01 ubuntu-soc-lab CRON[2715]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+Aug 23 17:49:01 ubuntu-soc-lab CRON[2716]: (root) CMD (/usr/local/bin/detect-ssh-bruteforce.sh)
+Aug 23 17:49:01 ubuntu-soc-lab CRON[2715]: pam_unix(cron:session): session closed for user root
+Aug 23 17:50:01 ubuntu-soc-lab CRON[2731]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+Aug 23 17:50:01 ubuntu-soc-lab CRON[2732]: (root) CMD (/usr/local/bin/detect-ssh-bruteforce.sh)
+Aug 23 17:50:01 ubuntu-soc-lab CRON[2731]: pam_unix(cron:session): session closed for user root
+Aug 23 17:50:09 ubuntu-soc-lab sudo[2728]:  analyst : TTY=pts/0 ; PWD=/home/analyst/ticket-004-threat-hunt ; USER=root ; COMMAND=/usr/bin/tee /usr/local/bin/dev-health-check.sh
+Aug 23 17:50:14 ubuntu-soc-lab sudo[2745]:  analyst : TTY=pts/0 ; PWD=/home/analyst/ticket-004-threat-hunt ; USER=root ; COMMAND=/usr/bin/chmod 755 /usr/local/bin/dev-health-check.sh
+Aug 23 17:51:01 ubuntu-soc-lab CRON[2749]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+Aug 23 17:51:01 ubuntu-soc-lab CRON[2750]: (root) CMD (/usr/local/bin/detect-ssh-bruteforce.sh)
+Aug 23 17:51:01 ubuntu-soc-lab CRON[2749]: pam_unix(cron:session): session closed for user root
+Aug 23 17:51:11 ubuntu-soc-lab sudo[2758]:  analyst : TTY=pts/0 ; PWD=/home/analyst/ticket-004-threat-hunt ; USER=root ; COMMAND=/usr/local/bin/dev-health-check.sh
+Aug 23 17:51:16 ubuntu-soc-lab sudo[2765]:  analyst : TTY=pts/0 ; PWD=/home/analyst/ticket-004-threat-hunt ; USER=root ; COMMAND=/usr/bin/cat /var/log/dev-health-check.log
+Aug 23 17:51:34 ubuntu-soc-lab sudo[2768]:  analyst : TTY=pts/0 ; PWD=/home/analyst/ticket-004-threat-hunt ; USER=root ; COMMAND=/usr/bin/tee /etc/cron.d/dev-health-check
+Aug 23 17:51:37 ubuntu-soc-lab sudo[2771]:  analyst : TTY=pts/0 ; PWD=/home/analyst/ticket-004-threat-hunt ; USER=root ; COMMAND=/usr/bin/chmod 644 /etc/cron.d/dev-health-check
+Aug 23 17:51:40 ubuntu-soc-lab sudo[2774]:  analyst : TTY=pts/0 ; PWD=/home/analyst/ticket-004-threat-hunt ; USER=root ; COMMAND=/usr/bin/cat /etc/cron.d/dev-health-check
+Aug 23 17:52:01 ubuntu-soc-lab CRON[2777]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+Aug 23 17:52:01 ubuntu-soc-lab CRON[2778]: (root) CMD (/usr/local/bin/detect-ssh-bruteforce.sh)
+Aug 23 17:52:01 ubuntu-soc-lab CRON[2777]: pam_unix(cron:session): session closed for user root
+Aug 23 17:52:35 ubuntu-soc-lab sudo[2786]:  analyst : TTY=pts/0 ; PWD=/home/analyst/ticket-004-threat-hunt ; USER=root ; COMMAND=/usr/bin/tee /usr/local/bin/config-backup.sh
+Aug 23 17:52:39 ubuntu-soc-lab sudo[2789]:  analyst : TTY=pts/0 ; PWD=/home/analyst/ticket-004-threat-hunt ; USER=root ; COMMAND=/usr/bin/chmod 755 /usr/local/bin/config-backup.sh
+Aug 23 17:53:01 ubuntu-soc-lab CRON[2803]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+Aug 23 17:53:01 ubuntu-soc-lab CRON[2804]: (root) CMD (/usr/local/bin/detect-ssh-bruteforce.sh)
+Aug 23 17:53:01 ubuntu-soc-lab CRON[2803]: pam_unix(cron:session): session closed for user root
+Aug 23 17:54:01 ubuntu-soc-lab CRON[2813]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+Aug 23 17:54:01 ubuntu-soc-lab CRON[2814]: (root) CMD (/usr/local/bin/detect-ssh-bruteforce.sh)
+Aug 23 17:54:01 ubuntu-soc-lab CRON[2813]: pam_unix(cron:session): session closed for user root
+Aug 23 17:54:33 ubuntu-soc-lab sudo[2822]:  analyst : TTY=pts/0 ; PWD=/home/analyst/ticket-004-threat-hunt ; USER=root ; COMMAND=/usr/local/bin/config-backup.sh
+Aug 23 17:55:01 ubuntu-soc-lab CRON[2843]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+Aug 23 17:55:01 ubuntu-soc-lab CRON[2844]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+Aug 23 17:55:01 ubuntu-soc-lab CRON[2846]: (root) CMD (/usr/local/bin/detect-ssh-bruteforce.sh)
+Aug 23 17:55:01 ubuntu-soc-lab CRON[2845]: (root) CMD (command -v debian-sa1 > /dev/null && debian-sa1 1 1)
+Aug 23 17:55:01 ubuntu-soc-lab CRON[2843]: pam_unix(cron:session): session closed for user root
+Aug 23 17:55:01 ubuntu-soc-lab CRON[2844]: pam_unix(cron:session): session closed for user root
+Aug 23 17:55:47 ubuntu-soc-lab sudo[2855]:  analyst : TTY=pts/0 ; PWD=/home/analyst/ticket-004-threat-hunt ; USER=root ; COMMAND=/usr/bin/tee /etc/cron.d/config-backup
+Aug 23 17:55:50 ubuntu-soc-lab sudo[2858]:  analyst : TTY=pts/0 ; PWD=/home/analyst/ticket-004-threat-hunt ; USER=root ; COMMAND=/usr/bin/chmod 644 /etc/cron.d/config-backup
+Aug 23 17:55:54 ubuntu-soc-lab sudo[2861]:  analyst : TTY=pts/0 ; PWD=/home/analyst/ticket-004-threat-hunt ; USER=root ; COMMAND=/usr/bin/cat /etc/cron.d/config-backup
+Aug 23 17:56:01 ubuntu-soc-lab CRON[2864]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+Aug 23 17:56:01 ubuntu-soc-lab CRON[2865]: (root) CMD (/usr/local/bin/detect-ssh-bruteforce.sh)
+Aug 23 17:56:01 ubuntu-soc-lab CRON[2864]: pam_unix(cron:session): session closed for user root
+Aug 23 17:57:01 ubuntu-soc-lab CRON[2873]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+Aug 23 17:57:01 ubuntu-soc-lab CRON[2874]: (root) CMD (/usr/local/bin/detect-ssh-bruteforce.sh)
+Aug 23 17:57:01 ubuntu-soc-lab CRON[2873]: pam_unix(cron:session): session closed for user root
+Aug 23 17:58:01 ubuntu-soc-lab CRON[2885]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+Aug 23 17:58:01 ubuntu-soc-lab CRON[2886]: (root) CMD (/usr/local/bin/detect-ssh-bruteforce.sh)
+Aug 23 17:58:01 ubuntu-soc-lab CRON[2885]: pam_unix(cron:session): session closed for user root
+Aug 23 17:58:22 ubuntu-soc-lab sudo[2898]:  analyst : TTY=pts/0 ; PWD=/home/analyst/ticket-004-threat-hunt ; USER=root ; COMMAND=/usr/bin/find /etc/cron.d -maxdepth 1 -type f -printf '%TY-%Tm-%Td %TH:%TM:%TS | %u:%g | %m | %p\\n'
+Aug 23 17:58:22 ubuntu-soc-lab sudo[2903]:  analyst : TTY=pts/0 ; PWD=/home/analyst/ticket-004-threat-hunt ; USER=root ; COMMAND=/usr/bin/grep -R -H -vE ^[[:space:]]*(#|$) /etc/cron.d
+Aug 23 17:59:01 ubuntu-soc-lab CRON[2919]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+Aug 23 17:59:01 ubuntu-soc-lab CRON[2920]: (root) CMD (/usr/local/bin/detect-ssh-bruteforce.sh)
+Aug 23 17:59:01 ubuntu-soc-lab CRON[2919]: pam_unix(cron:session): session closed for user root
+Aug 23 18:00:01 ubuntu-soc-lab CRON[2930]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+Aug 23 18:00:01 ubuntu-soc-lab CRON[2933]: (root) CMD (/usr/local/bin/dev-health-check.sh)
+Aug 23 18:00:01 ubuntu-soc-lab CRON[2931]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+Aug 23 18:00:01 ubuntu-soc-lab CRON[2932]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+Aug 23 18:00:01 ubuntu-soc-lab CRON[2934]: (root) CMD (/usr/local/bin/config-backup.sh)
+Aug 23 18:00:01 ubuntu-soc-lab CRON[2936]: (root) CMD (/usr/local/bin/detect-ssh-bruteforce.sh)
+Aug 23 18:00:01 ubuntu-soc-lab CRON[2930]: pam_unix(cron:session): session closed for user root
+Aug 23 18:00:01 ubuntu-soc-lab CRON[2932]: pam_unix(cron:session): session closed for user root
+Aug 23 18:00:01 ubuntu-soc-lab CRON[2931]: pam_unix(cron:session): session closed for user root
+Aug 23 18:01:01 ubuntu-soc-lab CRON[2958]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+Aug 23 18:01:01 ubuntu-soc-lab CRON[2959]: (root) CMD (/usr/local/bin/detect-ssh-bruteforce.sh)
+Aug 23 18:01:01 ubuntu-soc-lab CRON[2958]: pam_unix(cron:session): session closed for user root
+Aug 23 18:01:21 ubuntu-soc-lab sudo[2970]:  analyst : TTY=pts/0 ; PWD=/home/analyst/ticket-004-threat-hunt ; USER=root ; COMMAND=/usr/bin/ls -l --time-style=long-iso /usr/local/bin/dev-health-check.sh
+Aug 23 18:01:21 ubuntu-soc-lab sudo[2973]:  analyst : TTY=pts/0 ; PWD=/home/analyst/ticket-004-threat-hunt ; USER=root ; COMMAND=/usr/bin/cat /usr/local/bin/dev-health-check.sh
+Aug 23 18:01:21 ubuntu-soc-lab sudo[2976]:  analyst : TTY=pts/0 ; PWD=/home/analyst/ticket-004-threat-hunt ; USER=root ; COMMAND=/usr/bin/ls -l --time-style=long-iso /usr/local/bin/config-backup.sh
+Aug 23 18:01:21 ubuntu-soc-lab sudo[2979]:  analyst : TTY=pts/0 ; PWD=/home/analyst/ticket-004-threat-hunt ; USER=root ; COMMAND=/usr/bin/cat /usr/local/bin/config-backup.sh
+Aug 23 18:02:02 ubuntu-soc-lab CRON[2982]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+Aug 23 18:02:02 ubuntu-soc-lab CRON[2983]: (root) CMD (/usr/local/bin/detect-ssh-bruteforce.sh)
+Aug 23 18:02:02 ubuntu-soc-lab CRON[2982]: pam_unix(cron:session): session closed for user root
+Aug 23 18:03:02 ubuntu-soc-lab CRON[2991]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+Aug 23 18:03:02 ubuntu-soc-lab CRON[2992]: (root) CMD (/usr/local/bin/detect-ssh-bruteforce.sh)
+Aug 23 18:03:02 ubuntu-soc-lab CRON[2991]: pam_unix(cron:session): session closed for user root
+Aug 23 18:04:01 ubuntu-soc-lab CRON[3025]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+Aug 23 18:04:01 ubuntu-soc-lab CRON[3026]: (root) CMD (/usr/local/bin/detect-ssh-bruteforce.sh)
+Aug 23 18:04:01 ubuntu-soc-lab CRON[3025]: pam_unix(cron:session): session closed for user root
+Aug 23 18:05:01 ubuntu-soc-lab CRON[3057]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+Aug 23 18:05:01 ubuntu-soc-lab CRON[3056]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+Aug 23 18:05:01 ubuntu-soc-lab CRON[3059]: (root) CMD (command -v debian-sa1 > /dev/null && debian-sa1 1 1)
+Aug 23 18:05:01 ubuntu-soc-lab CRON[3056]: pam_unix(cron:session): session closed for user root
+Aug 23 18:05:01 ubuntu-soc-lab CRON[3060]: (root) CMD (/usr/local/bin/config-backup.sh)
+Aug 23 18:05:01 ubuntu-soc-lab CRON[3058]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+Aug 23 18:05:01 ubuntu-soc-lab CRON[3064]: (root) CMD (/usr/local/bin/detect-ssh-bruteforce.sh)
+Aug 23 18:05:01 ubuntu-soc-lab CRON[3057]: pam_unix(cron:session): session closed for user root
+Aug 23 18:05:01 ubuntu-soc-lab CRON[3058]: pam_unix(cron:session): session closed for user root

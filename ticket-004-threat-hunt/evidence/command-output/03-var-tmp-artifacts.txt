@@ -1,0 +1,8 @@
+=== /var/tmp Config Backup Artifacts ===
+Collection time: 2026-08-23T18:04:52+00:00
+
+2026-08-23 17:54:33.7649189030 | root:root | 600 | 1857 bytes | /var/tmp/dev-config-20260823-175433.tar.gz
+2026-08-23 18:00:01.8123438430 | root:root | 600 | 1857 bytes | /var/tmp/dev-config-20260823-180001.tar.gz
+
+=== Artifact Count ===
+2

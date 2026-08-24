@@ -1,0 +1,69 @@
+=== Authentication and Sudo Correlation ===
+Collection time: 2026-08-23T18:12:48+00:00
+
+Aug 23 17:48:01 ubuntu-soc-lab CRON[2704]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+Aug 23 17:48:01 ubuntu-soc-lab CRON[2704]: pam_unix(cron:session): session closed for user root
+Aug 23 17:49:01 ubuntu-soc-lab CRON[2715]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+Aug 23 17:49:01 ubuntu-soc-lab CRON[2715]: pam_unix(cron:session): session closed for user root
+Aug 23 17:50:01 ubuntu-soc-lab CRON[2731]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+Aug 23 17:50:01 ubuntu-soc-lab CRON[2731]: pam_unix(cron:session): session closed for user root
+Aug 23 17:50:04 ubuntu-soc-lab sudo[2728]: pam_unix(sudo:auth): authentication failure; logname=analyst uid=1000 euid=0 tty=/dev/pts/0 ruser=analyst rhost=  user=analyst
+Aug 23 17:50:09 ubuntu-soc-lab sudo[2728]:  analyst : TTY=pts/0 ; PWD=/home/analyst/ticket-004-threat-hunt ; USER=root ; COMMAND=/usr/bin/tee /usr/local/bin/dev-health-check.sh
+Aug 23 17:50:09 ubuntu-soc-lab sudo[2728]: pam_unix(sudo:session): session opened for user root(uid=0) by analyst(uid=1000)
+Aug 23 17:50:09 ubuntu-soc-lab sudo[2728]: pam_unix(sudo:session): session closed for user root
+Aug 23 17:50:14 ubuntu-soc-lab sudo[2745]:  analyst : TTY=pts/0 ; PWD=/home/analyst/ticket-004-threat-hunt ; USER=root ; COMMAND=/usr/bin/chmod 755 /usr/local/bin/dev-health-check.sh
+Aug 23 17:50:14 ubuntu-soc-lab sudo[2745]: pam_unix(sudo:session): session opened for user root(uid=0) by analyst(uid=1000)
+Aug 23 17:50:14 ubuntu-soc-lab sudo[2745]: pam_unix(sudo:session): session closed for user root
+Aug 23 17:51:01 ubuntu-soc-lab CRON[2749]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+Aug 23 17:51:01 ubuntu-soc-lab CRON[2749]: pam_unix(cron:session): session closed for user root
+Aug 23 17:51:11 ubuntu-soc-lab sudo[2758]:  analyst : TTY=pts/0 ; PWD=/home/analyst/ticket-004-threat-hunt ; USER=root ; COMMAND=/usr/local/bin/dev-health-check.sh
+Aug 23 17:51:11 ubuntu-soc-lab sudo[2758]: pam_unix(sudo:session): session opened for user root(uid=0) by analyst(uid=1000)
+Aug 23 17:51:11 ubuntu-soc-lab sudo[2758]: pam_unix(sudo:session): session closed for user root
+Aug 23 17:51:16 ubuntu-soc-lab sudo[2765]:  analyst : TTY=pts/0 ; PWD=/home/analyst/ticket-004-threat-hunt ; USER=root ; COMMAND=/usr/bin/cat /var/log/dev-health-check.log
+Aug 23 17:51:16 ubuntu-soc-lab sudo[2765]: pam_unix(sudo:session): session opened for user root(uid=0) by analyst(uid=1000)
+Aug 23 17:51:16 ubuntu-soc-lab sudo[2765]: pam_unix(sudo:session): session closed for user root
+Aug 23 17:51:34 ubuntu-soc-lab sudo[2768]:  analyst : TTY=pts/0 ; PWD=/home/analyst/ticket-004-threat-hunt ; USER=root ; COMMAND=/usr/bin/tee /etc/cron.d/dev-health-check
+Aug 23 17:51:34 ubuntu-soc-lab sudo[2768]: pam_unix(sudo:session): session opened for user root(uid=0) by analyst(uid=1000)
+Aug 23 17:51:34 ubuntu-soc-lab sudo[2768]: pam_unix(sudo:session): session closed for user root
+Aug 23 17:51:37 ubuntu-soc-lab sudo[2771]:  analyst : TTY=pts/0 ; PWD=/home/analyst/ticket-004-threat-hunt ; USER=root ; COMMAND=/usr/bin/chmod 644 /etc/cron.d/dev-health-check
+Aug 23 17:51:37 ubuntu-soc-lab sudo[2771]: pam_unix(sudo:session): session opened for user root(uid=0) by analyst(uid=1000)
+Aug 23 17:51:37 ubuntu-soc-lab sudo[2771]: pam_unix(sudo:session): session closed for user root
+Aug 23 17:51:40 ubuntu-soc-lab sudo[2774]:  analyst : TTY=pts/0 ; PWD=/home/analyst/ticket-004-threat-hunt ; USER=root ; COMMAND=/usr/bin/cat /etc/cron.d/dev-health-check
+Aug 23 17:51:40 ubuntu-soc-lab sudo[2774]: pam_unix(sudo:session): session opened for user root(uid=0) by analyst(uid=1000)
+Aug 23 17:51:40 ubuntu-soc-lab sudo[2774]: pam_unix(sudo:session): session closed for user root
+Aug 23 17:52:01 ubuntu-soc-lab CRON[2777]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+Aug 23 17:52:01 ubuntu-soc-lab CRON[2777]: pam_unix(cron:session): session closed for user root
+Aug 23 17:52:35 ubuntu-soc-lab sudo[2786]:  analyst : TTY=pts/0 ; PWD=/home/analyst/ticket-004-threat-hunt ; USER=root ; COMMAND=/usr/bin/tee /usr/local/bin/config-backup.sh
+Aug 23 17:52:35 ubuntu-soc-lab sudo[2786]: pam_unix(sudo:session): session opened for user root(uid=0) by analyst(uid=1000)
+Aug 23 17:52:35 ubuntu-soc-lab sudo[2786]: pam_unix(sudo:session): session closed for user root
+Aug 23 17:52:39 ubuntu-soc-lab sudo[2789]:  analyst : TTY=pts/0 ; PWD=/home/analyst/ticket-004-threat-hunt ; USER=root ; COMMAND=/usr/bin/chmod 755 /usr/local/bin/config-backup.sh
+Aug 23 17:52:39 ubuntu-soc-lab sudo[2789]: pam_unix(sudo:session): session opened for user root(uid=0) by analyst(uid=1000)
+Aug 23 17:52:39 ubuntu-soc-lab sudo[2789]: pam_unix(sudo:session): session closed for user root
+Aug 23 17:53:01 ubuntu-soc-lab CRON[2803]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+Aug 23 17:53:01 ubuntu-soc-lab CRON[2803]: pam_unix(cron:session): session closed for user root
+Aug 23 17:54:01 ubuntu-soc-lab CRON[2813]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+Aug 23 17:54:01 ubuntu-soc-lab CRON[2813]: pam_unix(cron:session): session closed for user root
+Aug 23 17:54:33 ubuntu-soc-lab sudo[2822]:  analyst : TTY=pts/0 ; PWD=/home/analyst/ticket-004-threat-hunt ; USER=root ; COMMAND=/usr/local/bin/config-backup.sh
+Aug 23 17:54:33 ubuntu-soc-lab sudo[2822]: pam_unix(sudo:session): session opened for user root(uid=0) by analyst(uid=1000)
+Aug 23 17:54:33 ubuntu-soc-lab sudo[2822]: pam_unix(sudo:session): session closed for user root
+Aug 23 17:54:37 ubuntu-soc-lab sudo[2830]:  analyst : TTY=pts/0 ; PWD=/home/analyst/ticket-004-threat-hunt ; USER=root ; COMMAND=/usr/bin/ls -lh /var/tmp/dev-config-20260823-175433.tar.gz
+Aug 23 17:54:37 ubuntu-soc-lab sudo[2830]: pam_unix(sudo:session): session opened for user root(uid=0) by analyst(uid=1000)
+Aug 23 17:54:37 ubuntu-soc-lab sudo[2830]: pam_unix(sudo:session): session closed for user root
+Aug 23 17:54:43 ubuntu-soc-lab sudo[2836]:  analyst : TTY=pts/0 ; PWD=/home/analyst/ticket-004-threat-hunt ; USER=root ; COMMAND=/usr/bin/tar -tzf /var/tmp/dev-config-20260823-175433.tar.gz
+Aug 23 17:54:43 ubuntu-soc-lab sudo[2836]: pam_unix(sudo:session): session opened for user root(uid=0) by analyst(uid=1000)
+Aug 23 17:54:43 ubuntu-soc-lab sudo[2836]: pam_unix(sudo:session): session closed for user root
+Aug 23 17:55:01 ubuntu-soc-lab CRON[2843]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+Aug 23 17:55:01 ubuntu-soc-lab CRON[2844]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+Aug 23 17:55:01 ubuntu-soc-lab CRON[2843]: pam_unix(cron:session): session closed for user root
+Aug 23 17:55:01 ubuntu-soc-lab CRON[2844]: pam_unix(cron:session): session closed for user root
+Aug 23 17:55:47 ubuntu-soc-lab sudo[2855]:  analyst : TTY=pts/0 ; PWD=/home/analyst/ticket-004-threat-hunt ; USER=root ; COMMAND=/usr/bin/tee /etc/cron.d/config-backup
+Aug 23 17:55:47 ubuntu-soc-lab sudo[2855]: pam_unix(sudo:session): session opened for user root(uid=0) by analyst(uid=1000)
+Aug 23 17:55:47 ubuntu-soc-lab sudo[2855]: pam_unix(sudo:session): session closed for user root
+Aug 23 17:55:50 ubuntu-soc-lab sudo[2858]:  analyst : TTY=pts/0 ; PWD=/home/analyst/ticket-004-threat-hunt ; USER=root ; COMMAND=/usr/bin/chmod 644 /etc/cron.d/config-backup
+Aug 23 17:55:50 ubuntu-soc-lab sudo[2858]: pam_unix(sudo:session): session opened for user root(uid=0) by analyst(uid=1000)
+Aug 23 17:55:50 ubuntu-soc-lab sudo[2858]: pam_unix(sudo:session): session closed for user root
+Aug 23 17:55:54 ubuntu-soc-lab sudo[2861]:  analyst : TTY=pts/0 ; PWD=/home/analyst/ticket-004-threat-hunt ; USER=root ; COMMAND=/usr/bin/cat /etc/cron.d/config-backup
+Aug 23 17:55:54 ubuntu-soc-lab sudo[2861]: pam_unix(sudo:session): session opened for user root(uid=0) by analyst(uid=1000)
+Aug 23 17:55:54 ubuntu-soc-lab sudo[2861]: pam_unix(sudo:session): session closed for user root
+Aug 23 17:56:01 ubuntu-soc-lab CRON[2864]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+Aug 23 17:56:01 ubuntu-soc-lab CRON[2864]: pam_unix(cron:session): session closed for user root
