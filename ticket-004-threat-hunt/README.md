@@ -448,3 +448,9 @@ The investigation became useful when scheduled-task behavior was correlated with
 Threat hunting is not about finding the most alarming command.
 
 It is about building the most defensible explanation from the available evidence.
+
+### MITRE ATT&CK Mapping
+
+[`mitre-attack-mapping.md`](mitre-attack-mapping.md)
+
+Maps observed hunt behavior to relevant MITRE ATT&CK techniques, explains the supporting evidence and confidence for each mapping, and identifies `auditd` as an additional telemetry source that would materially improve visibility.
