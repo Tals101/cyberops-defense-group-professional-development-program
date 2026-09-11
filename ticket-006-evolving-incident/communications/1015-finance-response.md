@@ -1,0 +1,3 @@
+# Communication #2 — 10:15 Finance Manager
+
+Thanks for flagging the timing. We confirmed that Mark’s computer sent two Finance files to an external cloud service through a process that is not listed as the normal Finance workflow. The service itself is used by legitimate organizations, so we have not concluded that Mark’s computer is fully compromised or that Mark caused the activity. We are restricting the suspicious transfer path and increasing monitoring rather than disconnecting the computer. Mark can continue working for now. If we see another unauthorized file transfer, signs of a broader problem, or cannot reliably block the suspicious activity, we will isolate the computer immediately and coordinate with you.
