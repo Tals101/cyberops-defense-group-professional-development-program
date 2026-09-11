@@ -1,0 +1,31 @@
+Event Time,Investigator Learned,Event / Evidence,Classification
+"Earlier morning, exact time unknown",11:40,Employee received an email represented as coming from a known Finance vendor with a link to a data-conversion utility.,User activity / software acquisition
+"Earlier morning, exact time unknown",11:40,Employee downloaded and installed the utility. IT did not deploy it and Security did not approve it.,Software installation
+09:12,09:17,SOC detection reports first observed unusual outbound HTTPS activity from FIN-WS17 to an external destination.,Network / security alert
+09:17,09:17,"High-severity SOC alert generated for FIN-WS17, user mreynolds, Finance. Compromise not confirmed.",Security alert
+09:17–09:30,During initial triage,"Security documents known facts, unknowns, hypotheses, immediate security risk, and operational risk before deeper investigation.",Investigation action
+09:30,09:30,Communication #1 issued. Security reports elevated but unconfirmed risk and does not recommend disrupting Finance at that time.,Communication
+Lab timestamp 18:16:34,"Initial investigation, before 10:05",Preserved evidence shows finance_sync.sh initiating an HTTPS POST of daily_summary.txt to /api/report.,Process / network activity
+Lab timestamp 18:17:21,"Initial investigation, before 10:05","Preserved evidence shows document_cache.sh creating an archive containing Q3_budget.csv and vendor_payments.csv, transmitting it to /api/cache, and deleting the temporary archive.",Process / data transfer
+Same initial-investigation period,"Initial investigation, before 10:05","External-server evidence confirms receipt of the Finance archive, and later hash comparison confirms the received Finance files match the originals.",Evidence correlation
+10:05,10:05,Security learns the destination infrastructure is widely used legitimately but has also been abused by threat actors. FIN-WS17 continues communicating; no antivirus alert or user-reported issue exists.,New information / reassessment
+10:05,10:05,Security reassesses destination reputation as less probative but keeps unauthorized data transfer as a strong concern.,Investigation action
+10:15,10:15,Finance Manager asks Security not to disconnect Mark unless there is stronger evidence because of reporting requirements.,Business pressure
+10:15,10:15,Decision Point #1: targeted containment and increased monitoring are selected instead of full workstation isolation.,Containment decision
+10:15,10:15,Communication #2 issued to Finance. Mark is allowed to continue working under increased monitoring and targeted restrictions.,Communication
+11:00,11:00,"Security learns that outbound communications occur at regular intervals, the same recently introduced non-standard process is responsible, and the user account had an interactive session during the relevant timeframe. Endpoint tooling still does not classify the file as malicious.",New evidence
+11:00,11:00,Decision Point #2: cumulative evidence raises the assessed risk from High to Critical. Security recommends network isolation of FIN-WS17 while keeping the system powered on for investigation.,Containment decision
+11:10,11:10,"Communication #3 issued to the CISO. Security describes the matter as a security incident, explains remaining uncertainty, reports the containment decision, and notes expected Finance impact.",Executive communication
+"Earlier morning, exact time unknown",11:40,Security learns that mreynolds intentionally downloaded and installed the utility after receiving an email represented as coming from a known Finance vendor.,User activity / acquisition
+"Earlier morning, exact time unknown",11:40,"Security learns that IT did not deploy the utility, Security did not approve it, and the software is unsigned.",Authorization evidence
+11:40 onward,11:40 onward,"Investigation pivots from determining who executed the software to validating its provenance, represented purpose, behavior, vendor authenticity, and possible phishing or supply-chain explanations.",Investigation pivot
+Artifact created earlier; exact scenario time unknown,During 11:40 pivot,SHA-256 confirms the live document_cache.sh and preserved investigation copy are identical: 1ee17971ce3cfb330457383ed019631b12ef9a8d738c560b1aad795329ee0c1c.,Evidence preservation
+Artifact created earlier; examined after 11:40,During 11:40 pivot,"Static analysis shows document_cache.sh archives two Finance files, POSTs the archive externally, and deletes the temporary archive. No data-conversion logic is present.",Static analysis
+Relevant lab interval 17:30–18:30,During 11:40 pivot,Search of the user's home directory identifies no apparent converted Finance-data output file during the investigated interval.,Filesystem analysis
+Certificate valid beginning Sep 6 17:26:23 GMT,During 11:40 pivot,"Preserved TLS certificate is found to be self-signed for finance-sync.local. The client script uses curl -k, disabling normal certificate verification.",Service-identity analysis
+Server activity occurred during preserved lab run,During 11:40 pivot,Review of the external server code shows uploaded data is stored in received-data.bin and no conversion function or converted response is provided.,Server analysis
+12:30,12:30,Finance reports that the converted files are required within two hours or the day's reporting deadline may be missed.,Business pressure
+12:30,12:30,Decision Point #3: Security recommends keeping FIN-WS17 isolated and powered on while moving legitimate Finance work to a clean trusted workstation using verified business files and an approved conversion method.,Containment / business continuity
+12:30 onward,12:30 onward,Security recommends recovering only required business data through a controlled process and independently contacting the known vendor using previously established contact information.,Recovery / business continuity
+13:30,13:30,Final technical investigation concludes that the utility's represented conversion purpose is unsupported by its observed client and server behavior.,Final investigation
+13:30,13:30,Final classification: Confirmed Security Incident — unauthorized external transmission of Finance data through unapproved and unverified software; malware status and ultimate root cause remain unresolved.,Final classification
