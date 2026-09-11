@@ -1,0 +1,3 @@
+# Communication #1 — 09:30 Initial Situation Report
+
+At 09:17, the SOC received a high-severity alert for unusual outbound HTTPS activity from FIN-WS17, assigned to Finance user mreynolds, first observed at 09:12. We do not yet know the destination, initiating process, data volume, data transferred, or whether the activity is malicious. Current risk is elevated but unconfirmed because both legitimate business activity and compromise remain plausible. I am preserving and correlating host, process, user, and network evidence. I do not recommend disrupting Finance operations at this time; targeted containment remains available if evidence indicates an urgent threat.
