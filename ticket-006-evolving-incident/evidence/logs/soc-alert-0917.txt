@@ -1,0 +1,21 @@
+SOC NETWORK SECURITY ALERT
+
+Alert ID: TICKET006-0917
+Time Generated: 09:17
+First Observed: 09:12
+Severity: High
+
+Asset: FIN-WS17
+User: mreynolds
+Department: Finance
+
+Detection:
+Unusual outbound network activity detected from workstation FIN-WS17.
+
+Destination IP: 198.51.100.77
+Protocol: TCP
+Destination Port: 443
+Application: HTTPS
+
+Disposition: Untriaged
+Compromise Status: Not Confirmed
