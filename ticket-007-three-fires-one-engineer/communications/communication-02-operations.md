@@ -1,0 +1,3 @@
+﻿# Communication #2 — Operations
+
+Security has confirmed intermittent HTTP 500 errors and unusual web requests, but current evidence does not show that the unusual traffic is causing the failures. A recent configuration change remains a credible cause. Security recommends proceeding with the known-good rollback; our investigation does not need to delay restoration. Before rollback, preserve current web, application, and configuration logs, including timestamps and representative unusual requests. Security will continue reviewing the unusual traffic and will reassess immediately if exploitation evidence appears or if rollback does not restore service. We do not yet know whether the unusual requests are malicious or merely unrelated scanning.
