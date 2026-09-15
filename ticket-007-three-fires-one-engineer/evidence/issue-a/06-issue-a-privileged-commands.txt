@@ -1,0 +1,15 @@
+Sep 15 22:38:47 ubuntu-soc-lab sudo[3101]: pam_unix(sudo:auth): authentication failure; logname=sysadmin uid=1005 euid=0 tty=/dev/pts/1 ruser=sysadmin rhost=  user=sysadmin
+Sep 15 22:38:53 ubuntu-soc-lab sudo[3101]: sysadmin : TTY=pts/1 ; PWD=/home/sysadmin ; USER=root ; COMMAND=/usr/bin/whoami
+Sep 15 22:38:53 ubuntu-soc-lab sudo[3101]: pam_unix(sudo:session): session opened for user root(uid=0) by sysadmin(uid=1005)
+Sep 15 22:38:53 ubuntu-soc-lab sudo[3101]: pam_unix(sudo:session): session closed for user root
+Sep 15 22:40:05 ubuntu-soc-lab sudo[3133]: sysadmin : TTY=pts/1 ; PWD=/home/sysadmin ; USER=root ; COMMAND=/usr/bin/touch /tmp/ticket007-privileged-marker
+Sep 15 22:40:05 ubuntu-soc-lab sudo[3133]: pam_unix(sudo:session): session opened for user root(uid=0) by sysadmin(uid=1005)
+Sep 15 22:40:05 ubuntu-soc-lab sudo[3133]: pam_unix(sudo:session): session closed for user root
+Sep 15 22:40:58 ubuntu-soc-lab sudo[3140]: sysadmin : TTY=pts/1 ; PWD=/home/sysadmin ; USER=root ; COMMAND=/usr/bin/ls -ld /root
+Sep 15 22:40:58 ubuntu-soc-lab sudo[3140]: pam_unix(sudo:session): session opened for user root(uid=0) by sysadmin(uid=1005)
+Sep 15 22:40:58 ubuntu-soc-lab sudo[3140]: pam_unix(sudo:session): session closed for user root
+Sep 15 22:41:50 ubuntu-soc-lab sudo[3154]:  analyst : TTY=pts/0 ; PWD=/home/analyst ; USER=root ; COMMAND=/usr/bin/journalctl _COMM=sudo --since '15 minutes ago' --no-pager
+Sep 15 22:41:50 ubuntu-soc-lab sudo[3154]: pam_unix(sudo:session): session opened for user root(uid=0) by analyst(uid=1000)
+Sep 15 22:41:50 ubuntu-soc-lab sudo[3154]: pam_unix(sudo:session): session closed for user root
+Sep 15 22:42:13 ubuntu-soc-lab sudo[3166]:  analyst : TTY=pts/0 ; PWD=/home/analyst ; USER=root ; COMMAND=/usr/bin/journalctl _COMM=sudo --since '15 minutes ago' --no-pager
+Sep 15 22:42:13 ubuntu-soc-lab sudo[3166]: pam_unix(sudo:session): session opened for user root(uid=0) by analyst(uid=1000)
