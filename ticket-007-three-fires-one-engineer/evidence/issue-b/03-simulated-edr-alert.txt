@@ -1,0 +1,32 @@
+﻿
+
+TimeGenerated : 9/14/2026 1:24:59 PM
+EntryType     : Error
+EventID       : 7001
+Source        : Ticket007-EDR
+Message       : TICKET #007 — SIMULATED EDR ALERT
+                
+                Severity: HIGH
+                Host: HR-LT-44
+                User Department: Human Resources
+                
+                Detection:
+                Microsoft Word launched PowerShell with an encoded command.
+                
+                Process Chain:
+                WINWORD.EXE -> powershell.exe -> EncodedCommand
+                
+                EDR Action:
+                Child process execution PREVENTED.
+                
+                Endpoint Status:
+                ONLINE
+                
+                Investigation Status:
+                Not yet reviewed.
+                
+                LAB NOTICE:
+                This is a simulated alert created for the Ticket #007 security exercise.
+
+
+
