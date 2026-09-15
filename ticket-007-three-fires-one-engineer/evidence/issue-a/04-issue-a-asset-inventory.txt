@@ -1,0 +1,8 @@
+IP Address: 192.168.56.111
+Hostname: ADMIN-JUMP-01
+Owner: Infrastructure Operations
+Purpose: Administrative jump host
+Authorized Access: APP-PROD-02
+Status: Active
+
+LAB NOTICE: Simulated asset inventory record for Ticket #007.

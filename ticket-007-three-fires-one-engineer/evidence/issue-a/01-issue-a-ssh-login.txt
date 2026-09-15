@@ -1,0 +1,4 @@
+Sep 14 16:49:58 ubuntu-soc-lab sshd[3243]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.56.111  user=sysadmin
+Sep 14 16:50:00 ubuntu-soc-lab sshd[3243]: Failed password for sysadmin from 192.168.56.111 port 38734 ssh2
+Sep 14 16:50:04 ubuntu-soc-lab sshd[3243]: Accepted password for sysadmin from 192.168.56.111 port 38734 ssh2
+Sep 14 16:50:04 ubuntu-soc-lab sshd[3243]: pam_unix(sshd:session): session opened for user sysadmin(uid=1005) by sysadmin(uid=0)

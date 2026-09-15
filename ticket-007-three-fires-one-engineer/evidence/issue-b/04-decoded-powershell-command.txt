@@ -1,0 +1,1 @@
+﻿Set-Content -Path "C:\ticket-007-lab\issue-b\hr-lt-44-marker.txt" -Value "Ticket 007 benign encoded PowerShell simulation"

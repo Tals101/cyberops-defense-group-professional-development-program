@@ -1,0 +1,12 @@
+Ticket #007 — Simulated Operations Change Record
+
+Service: portal.cyberops.example
+Change: Portal configuration deployment
+Status: Completed
+Observed Result: Intermittent HTTP 500 errors began after deployment
+Operations Assessment: Recent configuration change may be responsible
+Rollback: Available
+Security Review: Requested because unusual web requests were also observed
+
+LAB NOTICE:
+This record is simulated for the Ticket #007 exercise.
