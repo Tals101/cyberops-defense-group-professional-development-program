@@ -125,3 +125,35 @@ Yes. Issue C now requires an immediate operational decision because customers ar
 
 ### Next Step
 Recommend that Operations preserve relevant logs and perform the known-good rollback while Security continues reviewing the unusual traffic.
+
+---
+
+## Issue B — 09:40 Escalation
+
+### Question
+Does the new email-attachment evidence justify containing HR-LT-44?
+
+### Why does this question matter now?
+The workstation remains online after a user opened an email attachment that caused Word to launch encoded PowerShell. PowerShell executed before EDR blocked a child process.
+
+### Evidence Needed
+- Email attachment origin
+- Actual sender address and headers
+- Word-to-PowerShell telemetry
+- EDR prevention details
+- Network activity from HR-LT-44
+
+### Observed Evidence
+The triggering Word document came from an email attachment received about ten minutes before the EDR alert. The display name appears to be a company executive, but the actual sending address is not yet validated. PowerShell executed before EDR blocked one child process. The workstation remains network-connected.
+
+### Interpretation
+The email-origin evidence increases concern for phishing or malicious-document activity. The earlier benign decoded command lowers concern about the specific command reviewed, but it does not establish that the entire email/document activity was benign.
+
+### Confidence
+Moderate.
+
+### Decision Impact
+Yes. Issue B should move back to the highest Security investigation priority and containment is now justified because the endpoint remains online and the execution originated from a suspicious email attachment.
+
+### Next Step
+Preserve email and endpoint evidence and isolate HR-LT-44 from the network using the least disruptive available containment method.
