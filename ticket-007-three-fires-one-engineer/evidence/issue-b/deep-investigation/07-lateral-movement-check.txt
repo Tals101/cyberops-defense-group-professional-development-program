@@ -1,0 +1,23 @@
+﻿Lateral Movement Check — Ticket #007 Issue B
+
+Indicators Queried:
+psexec
+wmic
+winrs
+mstsc
+ssh.exe
+net.exe use
+Enter-PSSession
+Invoke-Command
+
+Observed Result:
+No matching process-creation events were returned for the relevant time window.
+
+Interpretation:
+There is currently no evidence supporting lateral movement from HR-LT-44.
+
+Limitation:
+The selected Security log query returned no matching events, so absence of evidence is not proof that lateral movement did not occur.
+
+Confidence:
+Low to moderate.

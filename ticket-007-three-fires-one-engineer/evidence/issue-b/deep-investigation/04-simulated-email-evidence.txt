@@ -1,0 +1,17 @@
+﻿Ticket #007 — Simulated Email Evidence
+
+Recipient: HR-LT-44 user
+Received: Approximately 10 minutes before EDR alert
+Display Name: Company Executive
+Actual Sender: executive-update@external-example.test
+Subject: Updated Employee Compensation Review
+Attachment: Compensation_Review.docm
+
+Observed Relationship:
+The attachment was opened before WINWORD.EXE launched encoded PowerShell.
+
+Assessment:
+The display name suggests an internal executive, but the sending address is external and does not match an established CyberOps Defense Group sender.
+
+LAB NOTICE:
+This artifact is simulated evidence created for Ticket #007.

@@ -1,0 +1,12 @@
+﻿Ticket #007 — Issue B Endpoint Context
+
+Scenario Asset: HR-LT-44
+Lab Host: CYBERHUB
+Logged-On Lab User: [REDACTED-ACCOUNT]
+Scenario Department: Human Resources
+
+Lab Mapping:
+The Windows host CyberHub represents HR-LT-44 for this exercise.
+
+Investigation Relevance:
+The suspicious document and PowerShell activity occurred in the context of the simulated HR workstation/user.
