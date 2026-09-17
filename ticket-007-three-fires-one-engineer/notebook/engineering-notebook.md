@@ -157,3 +157,132 @@ Yes. Issue B should move back to the highest Security investigation priority and
 
 ### Next Step
 Preserve email and endpoint evidence and isolate HR-LT-44 from the network using the least disruptive available containment method.
+
+---
+
+## Issue B — Network Activity
+
+### Question
+Did HR-LT-44 successfully communicate with the external destination after PowerShell execution?
+
+### Why does this question matter now?
+A successful connection after suspicious document execution could indicate command-and-control, payload retrieval, or data transfer.
+
+### Evidence Needed
+External-server connection records and endpoint timing.
+
+### Observed Evidence
+The controlled external server at 192.168.56.150:8088 recorded a successful HTTP GET for /status.txt and returned HTTP 200.
+
+The lab server recorded the source as 192.168.56.1 because of the VirtualBox host-network path.
+
+### Interpretation
+Successful outbound communication to the controlled destination is confirmed. The content observed in this lab request was benign, but the connection itself supports the scenario's network-activity finding.
+
+### Confidence
+High that the connection succeeded. Low regarding the purpose of the scenario's original unknown communication.
+
+### Decision Impact
+Yes. Successful external communication following suspicious execution supports keeping Issue B at Priority 1 and strengthens the containment decision.
+
+### Next Step
+Evaluate persistence, credential-access indicators, data access, and whether activity extends beyond HR-LT-44.
+
+---
+
+## Issue B — Data Access
+
+### Question
+Is there evidence that PowerShell could access HR data on the workstation?
+
+### Why does this question matter now?
+If suspicious execution accessed HR files, potential confidentiality impact increases and HR/Privacy involvement may become necessary.
+
+### Evidence Needed
+Process telemetry showing PowerShell accessing a representative HR file.
+
+### Observed Evidence
+In the controlled lab, PowerShell successfully read HR_Compensation_Sample.csv. Windows Security Event ID 4688 recorded the PowerShell command used to access the file.
+
+The observed test process was PowerShell launched from PowerShell, not the original Word-launched process.
+
+### Interpretation
+The lab demonstrates that the executing user context had access to HR data. It does not prove that the original suspicious Word/PowerShell activity accessed that data.
+
+### Confidence
+High that the lab PowerShell process could access the sample HR file. Low that the original suspicious activity accessed HR data.
+
+### Decision Impact
+Potential data exposure remains an important incident question, but current evidence does not establish data theft.
+
+### Next Step
+Check for evidence of lateral movement and then determine whether investigation scope should remain one workstation or expand to the environment.
+
+---
+
+## Issue B — Scope Question
+
+### Am I investigating one workstation, or am I investigating an environment?
+
+At this point, I am investigating one primary workstation: HR-LT-44.
+
+The confirmed suspicious execution, outbound communication, and available endpoint evidence are tied to HR-LT-44. No current evidence establishes lateral movement, credential reuse, or related execution on another system.
+
+### What Would Cause the Scope to Expand?
+
+I would expand the investigation from one workstation to the broader environment if evidence shows:
+
+- Another endpoint communicating with the same suspicious destination
+- The same attachment, sender, hash, or process chain on another host
+- Shared credential use across systems
+- Lateral-movement activity
+- Related authentication anomalies
+- Similar persistence mechanisms
+- Additional users receiving or opening the same email
+- Evidence that HR-LT-44 accessed or modified remote systems
+
+### Current Scope Decision
+
+Maintain HR-LT-44 as the primary incident system while conducting targeted environment-wide searches for related indicators.
+
+### Confidence
+
+Moderate.
+
+### Decision Impact
+
+The investigation remains focused enough to avoid unnecessary disruption, but the threshold for expanding scope is low because successful external communication has already been confirmed.
+
+---
+
+## Issue B — HR-LT-51 Scope Follow-Up
+
+### Question
+Does HR-LT-51 represent a second compromised workstation within the same incident?
+
+### Why does this question matter now?
+A second compromised host would materially expand incident scope, increase containment requirements, and raise the possibility of a broader campaign.
+
+### Evidence Needed
+HR-LT-51 process activity, network context, EDR findings, persistence, credential-access indicators, and authentication activity.
+
+### Observed Evidence
+HR-LT-51 contacted the same external destination as HR-LT-44, but rapid triage found:
+- No Word-to-PowerShell execution chain
+- No EDR High Severity alert
+- No persistence indicators
+- No credential-access indicators
+- No suspicious authentication activity
+- A user-initiated web request consistent with the observed connection
+
+### Interpretation
+The shared destination justified investigation but does not establish a shared root cause. Current evidence does not support classifying HR-LT-51 as compromised.
+
+### Confidence
+Moderate to high.
+
+### Decision Impact
+Yes. Do not contain HR-LT-51 solely because of the shared destination. HR-LT-44 remains the confirmed primary incident system.
+
+### Next Step
+Continue targeted environment-wide IOC searching while shifting into incident coordination for confirmed Issue B activity on HR-LT-44.
