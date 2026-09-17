@@ -1,0 +1,10 @@
+﻿Time,Issue,Action,Why This Deserved Attention Now,What Was Deferred
+"09:00","B","Began investigation of Word-launched encoded PowerShell","Strongest combination of suspicious behavior, urgency, and reversible containment","Deeper review of A and C"
+"09:05","B","Decoded PowerShell command and checked for child processes","High decision value for determining whether B required immediate containment","Extended endpoint review"
+"09:18","A","Switched from B to active privileged session","New privileged commands were occurring on a production server while the session remained active","Further B investigation"
+"09:25","C","Assessed portal errors and rollback decision","Customers were actively affected and Operations needed an immediate decision","Deeper A and B analysis"
+"09:40","B","Returned B to highest security priority","Email attachment origin, incomplete EDR prevention, and continued connectivity increased compromise likelihood","Routine A monitoring and C traffic review"
+"10:05","B","Began deeper investigation and reduced A/C focus","External communication materially strengthened the Issue B incident hypothesis","Issue A closed to follow-up; C moved to lower-priority monitoring"
+"10:50","B","Expanded scope after HR-LT-51 contacted same destination","Possible second affected endpoint could materially change incident scope","Nonessential HR-LT-44 artifact collection"
+"After 10:50","B","Delegated bounded HR-LT-51 triage","Parallel work reduced delay without surrendering incident ownership","Engineer did not take over HR-LT-44 investigation"
+"Incident Coordination","B","Shifted from investigation to containment, scope, stakeholder, and remediation planning","Sufficient evidence existed to manage B as a confirmed incident","Further low-value artifact collection"
