@@ -1,66 +1,25 @@
-﻿# Ticket #007 — Priority Decision #3
+# Ticket #007 — Priority Decision #3
 
-## 1 — Issue B: Suspicious Email / PowerShell
+*09:40 reassessment after the HR-LT-44 email details arrive.*
 
-**Current Priority:** 1
+## 1. Issue B — Contain and investigate
 
-**What Changed:** The Word document came from an email attachment using an executive display name. The actual sender is unvalidated. PowerShell executed before EDR blocked a child process, and HR-LT-44 remains online.
+The Word file was received as an email attachment under an executive display name, but the real sender is not authenticated. PowerShell ran before EDR blocked a child process, and HR-LT-44 remains online. The earlier decoded command was harmless; that finding does not explain away the delivery method or the prevention gap.
 
-**Current Risk:** Possible phishing or malicious-document execution with potential continued network access.
+**My decision:** Move B back to first priority and recommend network containment of HR-LT-44. Preserve the email, endpoint telemetry, and network records before remediation. The SOC analyst can handle sender validation and the supporting collection while I coordinate containment.
 
-**Immediate Owner:** Security.
+**Cost of waiting:** More execution or network activity, possible credential abuse, or lateral movement. These are potential outcomes, not observed ones.
 
-**Next Action:** Contain HR-LT-44, preserve endpoint and email evidence, validate the sender, and review network activity.
+**Cost of containment:** One HR employee temporarily loses workstation connectivity and may need IT support.
 
-**When I Will Reassess:** After containment and initial email/network review.
+**Most useful next evidence:** Full headers and sender, attachment hash and metadata, EDR process tree, connection history, and checks for persistence or credential access.
 
-### Does This Justify Containment?
-Yes. The combination of suspicious email origin, Word launching encoded PowerShell, incomplete prevention, and continued network connectivity justifies endpoint containment.
+**Reassess:** After containment and the first round of email and network findings.
 
-### Cost of Waiting
-Possible additional command execution, credential theft, network communication, or lateral movement.
+## 2. Issue C — Let Operations restore service
 
-### Cost of Containment
-Temporary loss of network access and productivity for one HR user.
+The portal still matters to customers, but Security has already advised that rollback can proceed. Operations owns restoration; I will keep a separate watch on the unusual traffic. A failed rollback or proof of exploitation would bring C back for immediate review.
 
-### High-Decision-Value Evidence
-- Full email headers and actual sender address
-- Attachment hash and metadata
-- EDR process tree
-- Network connections from HR-LT-44
-- Evidence of persistence or credential access
+## 3. Issue A — Monitor rather than disrupt
 
-### Delegation
-The SOC analyst can preserve the email, validate sender information, and collect EDR/network telemetry while I manage containment and triage.
-
----
-
-## 2 — Issue C: Internet-Facing Portal
-
-**Current Priority:** 2
-
-**What Changed:** Customer-facing errors remain important, but Security has already advised that rollback should not be delayed.
-
-**Current Risk:** Availability impact plus unresolved unusual traffic.
-
-**Immediate Owner:** IT Operations for rollback; Security for traffic review.
-
-**Next Action:** Operations proceeds with rollback and reports whether service stabilizes.
-
-**When I Will Reassess:** Immediately if rollback fails or exploitation evidence appears.
-
----
-
-## 3 — Issue A: Privileged Authentication
-
-**Current Priority:** 3
-
-**What Changed:** The session remains concerning, but the source maps to an authorized administrative host and observed privileged commands were non-destructive.
-
-**Current Risk:** Residual possibility of unauthorized or harmful privileged activity.
-
-**Immediate Owner:** Security monitoring.
-
-**Next Action:** Preserve logs and monitor for destructive commands, persistence, or unauthorized changes.
-
-**When I Will Reassess:** Immediately if harmful privileged activity appears.
+The SSH source is an authorized administrative host and the privileged commands seen so far are non-destructive. I will retain the logs and watch for harmful activity while authorization is completed. Evidence of persistence, destructive change, or unauthorized use would change this call.

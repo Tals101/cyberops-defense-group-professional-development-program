@@ -1,4 +1,4 @@
-﻿Ticket #007 — Issue B Endpoint Context
+Ticket #007 — Issue B Endpoint Context
 
 Scenario Asset: HR-LT-44
 Lab Host: CYBERHUB

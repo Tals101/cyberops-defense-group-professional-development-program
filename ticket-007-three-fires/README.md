@@ -1,105 +1,54 @@
-﻿# Ticket #007 — Three Fires, One Engineer
+# Ticket #007 — Three Fires, One Engineer
 
-## Overview
+## Project overview
 
-Ticket #007 is a cybersecurity incident-response exercise focused on triage, prioritization, context switching, delegation, containment, scope management, and executive communication while multiple incidents compete for limited engineering attention.
+Three alerts reached the queue within minutes of one another. I had one set of hands, incomplete information, and several teams waiting for direction. The exercise was less about running every possible command than deciding where my attention would make the most difference, documenting why I changed course, and leaving the next person a usable record.
 
-Three simultaneous issues were investigated:
+The three workstreams were:
 
-- **Issue A:** Unusual privileged SSH access to APP-PROD-02
-- **Issue B:** Microsoft Word launching encoded PowerShell on HR-LT-44
-- **Issue C:** Customer-facing portal degradation with unusual web requests
+- **Issue A:** An unfamiliar source established a privileged SSH session on APP-PROD-02.
+- **Issue B:** Microsoft Word launched encoded PowerShell on HR-LT-44, triggering a High Severity EDR alert.
+- **Issue C:** A customer portal began returning errors while unusual HTTP requests were appearing in its logs.
 
-The exercise demonstrates how priorities changed as new evidence became available and how security severity, business impact, reversibility, uncertainty, and available resources influenced each decision.
+I worked through the alerts using Linux and Windows telemetry, controlled lab network traffic, and clearly identified scenario records for enterprise systems not present in my home lab.
 
-## Final Dispositions
+## How the decisions unfolded
 
-### Issue A
-**Likely Benign / Operational Process Failure**
+| Scenario time | Order of attention | Reason for the decision |
+|---|---|---|
+| 09:00 | B → A → C | The endpoint was still connected after Word launched encoded PowerShell. |
+| 09:25 | C → A → B | Operations needed a rollback decision while customers were seeing portal errors. |
+| 09:40 | B → C → A | The email origin and incomplete EDR prevention changed the endpoint risk. |
+| 10:05 | B → C → A | The HR workstation had successfully contacted an external destination. |
+| 10:50 | B → C → A | A second HR workstation warranted a broader search, not an automatic second compromise finding. |
 
-The sysadmin login was confirmed as authorized maintenance from a newly provisioned administrator workstation. No malicious commands were identified. The remaining issue was a maintenance-notification gap.
+The decision files preserve what was known **at the time of each choice**. Later information appears in later records rather than being folded into the earlier assessments.
 
-### Issue B
-**Confirmed Security Incident**
+## Where the investigations landed
 
-HR-LT-44 opened a suspicious email attachment that resulted in Microsoft Word launching encoded PowerShell. PowerShell executed before EDR blocked a child process, and the workstation subsequently communicated with an external destination with no established business relationship.
+**Issue A — Likely Benign / Operational Process Failure.** The account owner confirmed the SSH activity, the source was an authorized administrator workstation, and the observed commands fit routine maintenance. The outstanding action is to address why the SOC had no maintenance notice.
 
-No persistence, credential theft, lateral movement, or sensitive-data theft was confirmed.
+**Issue B — Confirmed Security Incident in the exercise scenario.** An email attachment preceded the Word-to-PowerShell process chain. PowerShell ran before EDR blocked a child process, and HR-LT-44 subsequently reached an external destination without an established business purpose. The controlled command used to reproduce this behavior was benign; it is not evidence of a real malicious payload. Persistence, credential theft, lateral movement, and HR data exfiltration were not confirmed.
 
-### Issue C
-**Operational Issue with Security Follow-Up**
+**Issue C — Operational Issue with Security Follow-Up.** Error rates improved following rollback of a recent configuration change. Unusual requests remained worth reviewing, but their timing did not establish that they caused the outage or that exploitation succeeded.
 
-Portal errors improved rapidly after rollback of a recent configuration change. Unusual web requests continued, but available evidence did not establish them as the cause of the outage or demonstrate successful exploitation.
+HR-LT-51 contacted the same destination as HR-LT-44. A separate review found no matching Word-to-PowerShell activity or other supporting compromise indicators. I kept the broader indicator search open without treating the second workstation as compromised solely because of a shared destination.
 
-## Priority History
+## Where to start
 
-The investigation deliberately preserved each priority decision rather than rewriting earlier decisions after new evidence appeared.
+- `Final_Incident_Report.pdf` — consolidated findings, limitations, response, and dispositions.
+- `engineering-notebook.md` — the investigative questions, observations, and decisions in sequence.
+- `triage/` — initial assessment, rapid findings, priority history, and attention log.
+- `decisions/` — the original priority calls, interruptions, reassessments, and scope change.
+- `communications/` — manager, Operations, and executive updates.
+- `coordination/` — delegated work, stakeholder involvement, and incident actions.
+- `dispositions/` — one final outcome for each of the three issues.
+- `evidence/` — source artifacts, controlled test results, and a file-by-file index.
 
-1. **09:00 — B > A > C**
-2. **09:25 — C > A > B**
-3. **09:40 — B > C > A**
-4. **10:05 — B > C > A**
-5. **10:50 — B > C > A**
+## Evidence boundaries
 
-This history demonstrates evidence-driven reprioritization rather than hindsight-based reconstruction.
+This repository is a **training investigation**. Windows process and Linux authentication events were generated in the lab; enterprise mail, asset inventory, and EDR records were represented by labeled scenario artifacts. The controlled external server returned a harmless test response. I have kept those distinctions visible because a demonstrated capability is not the same thing as proof that a threat actor used it.
 
-## Repository Structure
+## What I would carry into a real incident
 
-    ticket-007-three-fires/
-    ├── README.md
-    ├── Final_Incident_Report.pdf
-    ├── engineering-notebook.md
-    ├── lessons-learned.md
-    ├── triage/
-    ├── decisions/
-    ├── communications/
-    ├── coordination/
-    ├── evidence/
-    └── dispositions/
-
-## Key Skills Demonstrated
-
-- Multi-incident triage
-- Risk-based prioritization
-- Windows process investigation
-- Linux authentication investigation
-- Network evidence analysis
-- Incident containment decisions
-- Scope determination
-- Delegation and resource management
-- Stakeholder coordination
-- Executive communication
-- Evidence preservation
-- Business-impact analysis
-- Incident documentation
-- Lessons-learned analysis
-
-## Evidence Handling
-
-This lab combines real operating-system telemetry with clearly labeled simulated enterprise evidence.
-
-Simulated records were used where enterprise systems such as corporate EDR, email telemetry, or asset-management platforms were not available in the home lab.
-
-Investigation conclusions distinguish observed evidence, simulated scenario evidence, and limitations.
-
-## Primary Incident
-
-The primary confirmed incident involved **HR-LT-44**.
-
-A second HR workstation, **HR-LT-51**, contacted the same destination and was investigated. Additional triage did not identify the same Word-to-PowerShell execution chain or other supporting compromise indicators, demonstrating that shared infrastructure alone does not establish a shared root cause.
-
-## Key Lesson
-
-The highest-severity alert is not automatically the highest-priority task.
-
-Effective incident response requires continuously reassessing:
-
-- Security impact
-- Business impact
-- Time sensitivity
-- Evidence quality
-- Reversibility
-- Cost of waiting
-- Cost of interruption
-- Available resources
-- Value of the next investigative action
+The question is not simply which alert sounds worst. I need to weigh the impact of waiting against the cost of acting, find the next piece of evidence that could change a decision, and hand off bounded work without losing ownership of the incident as a whole.

@@ -1,88 +1,62 @@
-﻿# Ticket #007 — Initial Triage Assessment
+# Ticket #007 — Initial Triage Assessment
 
-## Issue A — Privileged SSH Login
+*Assessment made before rapid triage and later escalations.*
 
-**Known Facts:** Successful sysadmin SSH login to APP-PROD-02 from an unfamiliar internal IP. No failed-login burst, maintenance, or related alerts.
+## Issue A — Privileged SSH access
 
-**Unknowns:** Who owns the source IP, whether the login was authorized, whether the session is active, and what actions occurred.
+**What I know:** A `sysadmin` login succeeded on APP-PROD-02 from an unfamiliar internal address. The alert did not come with a failed-login burst, a maintenance notice, or related detections.
 
-**Security Impact:** Possible privileged compromise, persistence, lateral movement, or data access.
+**What I still need:** The source host and its owner, authorization for the session, whether the user is still connected, and a reliable account of the commands run.
 
-**Business Impact:** APP-PROD-02 supports an internal business application; containment could disrupt operations.
+**Security exposure:** If unauthorized, this is privileged access to a production server; persistence, lateral movement, and access to application data are plausible consequences, not established findings.
 
-**Time Sensitivity:** High if the login is malicious.
+**Operational exposure:** APP-PROD-02 serves an internal application. Disabling the account or terminating the session could interrupt legitimate administration or service.
 
-**Reversibility:** Account/session containment is reversible but could affect production.
+**Urgency and reversibility:** High urgency if the session is hostile. A session or account restriction can be reversed, but production impact must be considered.
 
-**Confidence:** Low to moderate.
+**Confidence at intake:** Low to moderate; the event is real, but intent and authorization are unknown.
 
----
+## Issue B — Word launching PowerShell
 
-## Issue B — Suspicious PowerShell
+**What I know:** Word started encoded PowerShell on HR-LT-44. EDR reported that it blocked a child process, while the workstation remained online.
 
-**Known Facts:** Word launched encoded PowerShell on HR-LT-44. EDR blocked one child process. The workstation remains online.
+**What I still need:** The decoded command, the document that triggered it, the blocked process, other execution, network activity, and signs of persistence.
 
-**Unknowns:** Command contents, originating document, blocked process, network activity, persistence, and whether other actions succeeded.
+**Security exposure:** The process chain could represent malicious document execution, with possible follow-on credential access or lateral movement. None of that is confirmed yet.
 
-**Security Impact:** Possible malware execution, credential theft, persistence, or lateral movement.
+**Operational exposure:** Network isolation would mainly interrupt one HR user's work, rather than an entire production application.
 
-**Business Impact:** Immediate containment mainly affects one HR user.
+**Urgency and reversibility:** High while the endpoint remains connected. Isolation is comparatively easy to undo if the evidence changes.
 
-**Time Sensitivity:** High because the workstation remains online.
+**Confidence at intake:** Moderate to high that rapid investigation is warranted; low confidence about the command's purpose.
 
-**Reversibility:** Endpoint isolation is easy to reverse.
+## Issue C — Portal errors
 
-**Confidence:** Moderate to high that immediate investigation is warranted.
+**What I know:** Customers are encountering increased errors following a configuration change. Unusual web requests have also appeared.
 
----
+**What I still need:** An error timeline, a traffic sample, the precise change window, and the portal's response to rollback.
 
-## Issue C — Internet Portal Errors
+**Security exposure:** Scanning or attempted exploitation is possible, but there is no proof the requests caused the failures.
 
-**Known Facts:** Customer errors increased after a recent configuration change. Unusual web requests also increased.
+**Operational exposure:** Customer-facing service is already degraded.
 
-**Unknowns:** Whether traffic is malicious, whether the change caused the errors, and whether rollback restores service.
+**Urgency and reversibility:** The availability issue needs attention now. Operations is engaged, and a known-good configuration can be restored if the change is at fault.
 
-**Security Impact:** Possible exploitation, scanning, or denial-of-service activity.
+**Confidence at intake:** Low that the outage is a security incident.
 
-**Business Impact:** Active customer-facing service degradation.
+## Initial order: B → A → C
 
-**Time Sensitivity:** High operationally, but Operations is already engaged.
+I will start with B because it combines an unusual execution chain with a still-connected endpoint and a relatively contained response option. A follows because privileged production access has a high potential cost, even though the evidence is ambiguous. C is third **for my direct investigative time**, not third in business importance: Operations can work the service-restoration decision in parallel.
 
-**Reversibility:** Configuration rollback should be relatively reversible.
+## Work assigned immediately
 
-**Confidence:** Low that this is currently a security incident.
+- **SOC analyst, Issue A:** Identify the source, confirm ownership and expected access, and look for other alerts tied to the session.
+- **IT Operations, Issue C:** Save the relevant logs, compare the deployment with the error increase, review representative requests, and have rollback ready.
 
----
+## First five minutes
 
-# Priority Decision
-
-1. **Issue B — Investigate first**
-2. **Issue A — Investigate second**
-3. **Issue C — Investigate third**
-
-Issue B comes first because it contains multiple suspicious behaviors and the endpoint remains online.
-
-Issue A is second because privileged production access could be serious, but the current evidence is more ambiguous.
-
-Issue C is third for my direct investigation because Operations is already responding and a recent configuration change provides a credible explanation.
-
----
-
-# Delegation
-
-**Issue A:** Ask the SOC analyst to identify the source IP owner, verify whether the login was expected, and check for related alerts.
-
-**Issue C:** Ask IT Operations to preserve logs, compare deployment timing with the errors, review unusual requests, and prepare rollback.
-
----
-
-# Five-Minute Rule
-
-**Issue B:** Review the EDR process tree and decode the PowerShell command.  
-**Value:** Determines whether immediate isolation is justified.
-
-**Issue A:** Identify the source IP and verify authorization.  
-**Value:** Quickly separates legitimate administration from possible compromise.
-
-**Issue C:** Compare deployment timing with the error spike and sample unusual requests.  
-**Value:** Helps distinguish operational failure from malicious activity.
+| Issue | First question | Why it is worth asking |
+|---|---|---|
+| B | What does the encoded command actually execute, and what spawned from it? | The answer could change the containment decision immediately. |
+| A | Who owns the source address, and was access approved? | This distinguishes an administrative session from a potentially unauthorized one. |
+| C | Did errors follow the change or the unusual requests? | Timing helps decide whether Security should affect the rollback decision. |

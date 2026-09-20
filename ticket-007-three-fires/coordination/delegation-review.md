@@ -1,61 +1,23 @@
-﻿# Ticket #007 — Delegation Review
+# Ticket #007 — Delegation Review
 
-## Issue A — SOC Analyst Rapid Verification
+## Source and authorization check — Issue A
 
-**Objective Clear:** Yes. Identify the unfamiliar source IP, verify whether the sysadmin login was expected, and check for related alerts.
+I gave the SOC analyst a specific question: identify the unfamiliar source, check whether the `sysadmin` login was expected, and look for associated alerts. Read-only asset and SOC access was enough to answer it. That work ran while I investigated B, so it did not duplicate my endpoint review. The source was linked to an admin workstation, and later confirmation established that the activity was maintenance.
 
-**Sufficient Authority:** Yes. The work required read-only SOC and asset information.
+The timing was appropriate: I delegated at initial triage and returned to A when the active session and privileged commands were reported. In retrospect, Infrastructure Operations could have been asked for the administrator's maintenance confirmation earlier; doing so may have shortened the period of uncertainty.
 
-**Useful Information Returned:** Yes. The source was ultimately tied to an administrator workstation and later confirmed as authorized maintenance.
+## Portal validation and restoration — Issue C
 
-**Unnecessary Duplication:** No. The delegation allowed Issue A to progress while I investigated Issue B.
+Operations was already responding when the portal alert arrived. I asked them to preserve the logs, line up the change with the errors, keep a rollback ready, and report service behavior afterward. They had the authority to restore their own service. Security retained responsibility for the unusual-request question rather than repeating Operations' health checks.
 
-**Delegated Too Late:** No. It was delegated during initial triage.
+The rollback result was useful: errors moved back toward baseline. I followed up by leaving traffic review open. A formal post-rollback health summary would have made the handoff even clearer, and I would request one earlier next time.
 
-**Should I Have Delegated More:** The administrator-maintenance confirmation could also have been assigned earlier to Infrastructure Operations.
+## Second workstation — HR-LT-51
 
-**Follow-Up Appropriate:** Yes. I reassessed Issue A when the analyst reported the active session and privileged commands.
+When the second destination match appeared, I requested an additional engineer to test whether HR-LT-51 had the same or related execution. The brief limited the work to that host and relevant connection evidence. Read-only collection was authorized, while isolation and other disruptive steps remained approval-dependent.
 
----
+The engineer found the shared destination but not the Word-to-PowerShell chain, EDR High alert, persistence indicators, credential-access indicators, or suspicious authentication. That was decision-changing information: I could keep HR-LT-44 as the primary incident system without isolating HR-LT-51 on correlation alone. It also saved me a context switch while I managed the main response.
 
-## Issue C — IT Operations Validation and Rollback
+## What I would adjust
 
-**Objective Clear:** Yes. Preserve logs, correlate the configuration change with the errors, prepare rollback, and report whether service recovered.
-
-**Sufficient Authority:** Yes. Operations owned the configuration and service restoration.
-
-**Useful Information Returned:** Yes. Rollback caused portal error rates to return toward baseline.
-
-**Unnecessary Duplication:** No. Security focused on malicious-traffic questions while Operations handled restoration.
-
-**Delegated Too Late:** No. Operations was already engaged when Issue C arrived.
-
-**Should I Have Delegated More:** Security could have requested a more formal post-rollback health summary earlier.
-
-**Follow-Up Appropriate:** Yes. Security retained unusual-request review after rollback.
-
----
-
-## HR-LT-51 — Additional Engineer
-
-**Objective Clear:** Yes. Determine whether HR-LT-51 showed evidence of the same or related malicious activity as HR-LT-44.
-
-**Sufficient Authority:** Yes. The engineer could collect evidence and perform read-only investigation but required approval for disruptive containment.
-
-**Useful Information Returned:** Yes. HR-LT-51 contacted the same destination but did not show the Word-to-PowerShell chain, persistence, credential-access indicators, or suspicious authentication activity.
-
-**Unnecessary Duplication:** No. The assignment allowed parallel scope validation while I retained ownership of HR-LT-44 and incident coordination.
-
-**Delegated Too Late:** No. The additional engineer was requested when the second-host alert materially expanded possible scope.
-
-**Did I Retain Something I Should Have Delegated:** Environment-wide destination searching could also have been assigned to Network Engineering earlier.
-
-**Follow-Up Appropriate:** Yes. The returned findings were incorporated into the scope decision and prevented unnecessary containment of HR-LT-51.
-
----
-
-## Overall Delegation Assessment
-
-Delegation was most effective when assignments were narrow, evidence-driven, and paired with clear escalation conditions.
-
-I retained responsibility for prioritization, containment decisions, incident scope, and coordination while delegating bounded evidence collection and operational tasks.
+I kept the cross-workstream decisions, containment approval, and incident scope with me. Those required integrating evidence from several owners. I could have delegated the environment-wide destination search to Network Engineering sooner, alongside the HR-LT-51 review. The strongest handoffs in this exercise had a narrow question, clear authority, a useful return product, and explicit reasons to escalate.

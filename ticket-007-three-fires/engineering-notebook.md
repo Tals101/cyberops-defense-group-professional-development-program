@@ -1,288 +1,169 @@
-﻿# Ticket #007 — Engineering Notebook
+# Ticket #007 — Engineering Notebook
 
-## Phase 2 — Issue B Investigation
-
-### Question
-What exactly did the encoded PowerShell command do?
-
-### Why does this question matter now?
-If the command performed malicious actions, Issue B may still require immediate containment. If it was benign, attention may need to shift elsewhere.
-
-### Evidence Needed
-- Word-to-PowerShell process evidence
-- Encoded command
-- Safely decoded command
-- Resulting files or actions
-
-### Observed Evidence
-Windows Event ID 4688 confirms WINWORD.EXE launched powershell.exe with an encoded command.
-
-The decoded command was:
-
-Set-Content -Path "C:\ticket-007-lab\issue-b\hr-lt-44-marker.txt" -Value "Ticket 007 benign encoded PowerShell simulation"
-
-The resulting marker file contains the expected benign text.
-
-### Interpretation
-The encoded command only created a local text file. No malicious behavior is shown by this command.
-
-### Confidence
-High.
-
-### Decision Impact
-This lowers the urgency of Issue B. Based on this evidence alone, Issue B does not currently justify consuming all available investigation time.
-
-### Next Step
-Check whether there is evidence of additional PowerShell activity, network connections, persistence, or other child processes associated with the event.
+These entries follow the investigation as I worked it. Each decision reflects the evidence available at that stage; later discoveries are recorded in later entries rather than used to rewrite earlier judgments.
 
 ---
 
-## Issue B — Child Process Check
+## Issue B — Decode the Word-launched command
 
-### Question
-Did the encoded PowerShell process launch additional processes?
+**Question I needed to answer:** What did the encoded PowerShell actually run, and would its behavior justify isolating HR-LT-44 right away?
 
-### Why does this question matter now?
-Additional child processes could indicate that EDR blocked only part of a larger execution chain.
+**Why it mattered:** Encoding is a useful alerting signal, but the command contents have to be examined before I can describe what happened. I needed the Word/PowerShell process event, encoded text, decoded text, and resulting artifact.
 
-### Evidence Needed
-Windows Security Event ID 4688 records showing process ID 0x311c as the creator process.
+**What I observed:** Windows Security Event ID 4688 tied `WINWORD.EXE` to `powershell.exe` with an encoded command. Decoding the lab payload produced:
 
-### Observed Evidence
-No matching process-creation events were found during the relevant time window.
+    Set-Content -Path "C:\ticket-007-lab\issue-b\hr-lt-44-marker.txt" -Value "Ticket 007 benign encoded PowerShell simulation"
 
-### Interpretation
-There is currently no evidence that the encoded PowerShell process launched additional child processes.
+The resulting marker contained that expected harmless text.
 
-### Confidence
-Moderate.
+**Interpretation:** This command wrote a local text file. Its encoding alone did not make the specific lab payload malicious. That answer narrowed one concern; it did not validate the document, sender, or every action on the workstation.
 
-### Decision Impact
-This further lowers Issue B's immediate urgency and makes switching attention to a higher-risk interruption more defensible.
+**Confidence:** High about what this decoded command did.
 
-### Next Step
-Reassess priority if new information arrives about another issue.
+**Decision effect:** I reduced B's immediate urgency rather than spend all available time on this one event.
+
+**Next:** Look for other child processes or related activity.
 
 ---
 
-## Issue A — Active Privileged Session
+## Issue B — Did PowerShell spawn anything else?
 
-### Question
-What are the privileged commands being executed by sysadmin?
+**Question:** Does the process tree extend beyond the encoded PowerShell event?
 
-### Why does this question matter now?
-The session is active on a production server. The nature of the commands determines whether immediate containment is justified.
+**Evidence sought:** Security Event ID 4688 records in the relevant window with creator process ID `0x311c`.
 
-### Evidence Needed
-Sudo activity associated with the sysadmin session.
+**What I found:** The search did not return matching process-creation events.
 
-### Observed Evidence
-The session executed:
-- sudo whoami
-- sudo touch /tmp/ticket007-privileged-marker
-- sudo ls -ld /root
+**Interpretation:** I had no evidence of an additional child process in the records checked. The result is limited by the time window and available logging; it is not proof that no other activity occurred.
 
-### Interpretation
-The commands confirm active root-level activity, but none of the observed commands is destructive or establishes persistence.
+**Confidence:** Moderate.
 
-### Confidence
-High regarding the commands observed. Low regarding whether additional activity occurred outside this evidence.
+**Decision effect:** The absence of a corroborated child process made an interruption for a more time-sensitive issue defensible.
 
-### Decision Impact
-Issue A deserved the priority switch because privileged activity was actively occurring. However, the commands observed so far do not justify emergency containment by themselves.
-
-### Next Step
-Keep the session under review and reassess all three issues when the 09:25 Operations escalation arrives.
+**Next:** Revisit B if another alert or new endpoint context changes the picture.
 
 ---
 
-## Issue C — 09:25 Operations Escalation
+## Issue A — Examine the live privileged session
 
-### Question
-Does Security have evidence that malicious traffic is causing the portal errors?
+**Question:** What was `sysadmin` doing with privileged access on APP-PROD-02?
 
-### Why does this question matter now?
-Customers are affected and Operations needs a rollback decision. Security should not delay restoration without evidence that rollback would create security risk or destroy critical evidence.
+**Why now:** The session was still live. If it was unauthorized, waiting could allow production changes before we understood the activity.
 
-### Evidence Needed
-Current HTTP error sample, unusual-request timing, and configuration-change information.
+**Evidence reviewed:** Sudo events and the active SSH session. The observed commands were:
 
-### Observed Evidence
-A current sample of 20 normal portal requests produced 16 HTTP 200 responses and 4 HTTP 500 responses.
+    sudo whoami
+    sudo touch /tmp/ticket007-privileged-marker
+    sudo ls -ld /root
 
-Earlier evidence showed a 500 error before the observed unusual requests.
+**Interpretation:** Root-level activity was confirmed, but these particular commands were not destructive and did not create persistence. I could not infer authorization from command harmlessness alone.
 
-Operations has a recent configuration change and a rollback is available.
+**Confidence:** High in the commands captured; low about anything outside the available record.
 
-### Interpretation
-The portal has a real availability problem, but current evidence does not show that the unusual traffic is causing the failures. The configuration change remains a credible operational explanation.
+**Decision effect:** Switching from B to the live session was justified, but the commands alone did not warrant emergency account or server containment.
 
-### Confidence
-Moderate.
-
-### Decision Impact
-Yes. Issue C now requires an immediate operational decision because customers are affected. Security does not currently have evidence that justifies delaying rollback.
-
-### Next Step
-Recommend that Operations preserve relevant logs and perform the known-good rollback while Security continues reviewing the unusual traffic.
+**Next:** Keep A under review and reassess when Operations raises the portal decision at 09:25.
 
 ---
 
-## Issue B — 09:40 Escalation
+## Issue C — 09:25 rollback question
 
-### Question
-Does the new email-attachment evidence justify containing HR-LT-44?
+**Question:** Do we have a security reason to prevent Operations from restoring the previous portal configuration?
 
-### Why does this question matter now?
-The workstation remains online after a user opened an email attachment that caused Word to launch encoded PowerShell. PowerShell executed before EDR blocked a child process.
+**Why now:** Customers were experiencing errors and the service team needed a decision, not an indefinite security hold.
 
-### Evidence Needed
-- Email attachment origin
-- Actual sender address and headers
-- Word-to-PowerShell telemetry
-- EDR prevention details
-- Network activity from HR-LT-44
+**What I checked:** A 20-request portal sample returned **16 HTTP 200** responses and **4 HTTP 500** responses. In the earlier access log, an HTTP 500 preceded the unusual requests in the captured sample. Operations had a recent configuration change and a rollback path.
 
-### Observed Evidence
-The triggering Word document came from an email attachment received about ten minutes before the EDR alert. The display name appears to be a company executive, but the actual sending address is not yet validated. PowerShell executed before EDR blocked one child process. The workstation remains network-connected.
+**Interpretation:** The availability issue was real. I did not have evidence that the unusual requests produced the failures; a change-related regression remained plausible.
 
-### Interpretation
-The email-origin evidence increases concern for phishing or malicious-document activity. The earlier benign decoded command lowers concern about the specific command reviewed, but it does not establish that the entire email/document activity was benign.
+**Confidence:** Moderate at this point, before observing rollback results.
 
-### Confidence
-Moderate.
+**Decision effect:** I treated C as the most urgent *operational decision* and advised Operations to preserve the evidence and proceed with known-good rollback. Security would continue the request review in parallel.
 
-### Decision Impact
-Yes. Issue B should move back to the highest Security investigation priority and containment is now justified because the endpoint remains online and the execution originated from a suspicious email attachment.
-
-### Next Step
-Preserve email and endpoint evidence and isolate HR-LT-44 from the network using the least disruptive available containment method.
+**Next:** Compare error rates after restoration and reopen the security question if exploitation evidence emerges.
 
 ---
 
-## Issue B — Network Activity
+## Issue B — 09:40 email escalation
 
-### Question
-Did HR-LT-44 successfully communicate with the external destination after PowerShell execution?
+**Question:** Does the attachment and EDR context change the containment call for HR-LT-44?
 
-### Why does this question matter now?
-A successful connection after suspicious document execution could indicate command-and-control, payload retrieval, or data transfer.
+**Why now:** An HR employee opened a document delivered by email, Word launched encoded PowerShell, and the endpoint had stayed connected despite a blocked child process.
 
-### Evidence Needed
-External-server connection records and endpoint timing.
+**Evidence available:** The scenario placed the email roughly ten minutes ahead of the alert. It used an executive display name; the sender address had not yet been authenticated. PowerShell ran before EDR's child-process block. The workstation remained online.
 
-### Observed Evidence
-The controlled external server at 192.168.56.150:8088 recorded a successful HTTP GET for /status.txt and returned HTTP 200.
+**Interpretation:** The delivery context was consistent with a phishing-style document, even though the specific command I decoded earlier was a benign lab marker. That command did not establish that the whole event was authorized or safe.
 
-The lab server recorded the source as 192.168.56.1 because of the VirtualBox host-network path.
+**Confidence:** Moderate about the suspected email-driven incident at 09:40.
 
-### Interpretation
-Successful outbound communication to the controlled destination is confirmed. The content observed in this lab request was benign, but the connection itself supports the scenario's network-activity finding.
+**Decision effect:** B moved back to my highest security priority. I recommended HR-LT-44 network containment and preservation of the email and endpoint evidence.
 
-### Confidence
-High that the connection succeeded. Low regarding the purpose of the scenario's original unknown communication.
-
-### Decision Impact
-Yes. Successful external communication following suspicious execution supports keeping Issue B at Priority 1 and strengthens the containment decision.
-
-### Next Step
-Evaluate persistence, credential-access indicators, data access, and whether activity extends beyond HR-LT-44.
+**Next:** Preserve records, isolate using the least disruptive available method, and validate the sender and network activity.
 
 ---
 
-## Issue B — Data Access
+## Issue B — Check the external connection
 
-### Question
-Is there evidence that PowerShell could access HR data on the workstation?
+**Question:** Did the HR-LT-44 lab host successfully reach the destination under review?
 
-### Why does this question matter now?
-If suspicious execution accessed HR files, potential confidentiality impact increases and HR/Privacy involvement may become necessary.
+**Why now:** A successful outbound connection after suspicious document execution could indicate follow-on activity, but the connection's contents and owning process must be understood before describing its purpose.
 
-### Evidence Needed
-Process telemetry showing PowerShell accessing a representative HR file.
+**Evidence:** The controlled server at `192.168.56.150:8088` logged an HTTP `GET /status.txt` and returned `200`. Because of the VirtualBox host-network path, it showed the Windows source as `192.168.56.1` rather than the scenario workstation name.
 
-### Observed Evidence
-In the controlled lab, PowerShell successfully read HR_Compensation_Sample.csv. Windows Security Event ID 4688 recorded the PowerShell command used to access the file.
+**Interpretation:** The lab connection succeeded and the response was harmless. This validates the connectivity component of the scenario; it does not prove that the original unknown communication carried a payload, commands, or HR data.
 
-The observed test process was PowerShell launched from PowerShell, not the original Word-launched process.
+**Confidence:** High for a successful controlled connection; low about the purpose of the scenario's original traffic.
 
-### Interpretation
-The lab demonstrates that the executing user context had access to HR data. It does not prove that the original suspicious Word/PowerShell activity accessed that data.
+**Decision effect:** The external-communication finding strengthened the rationale for maintaining B at Priority 1 and pursuing the wider endpoint questions.
 
-### Confidence
-High that the lab PowerShell process could access the sample HR file. Low that the original suspicious activity accessed HR data.
-
-### Decision Impact
-Potential data exposure remains an important incident question, but current evidence does not establish data theft.
-
-### Next Step
-Check for evidence of lateral movement and then determine whether investigation scope should remain one workstation or expand to the environment.
+**Next:** Examine persistence, credential-access indicators, data access, and possible additional hosts.
 
 ---
 
-## Issue B — Scope Question
+## Issue B — Could PowerShell read HR files?
 
-### Am I investigating one workstation, or am I investigating an environment?
+**Question:** What information was accessible in the user context represented by HR-LT-44?
 
-At this point, I am investigating one primary workstation: HR-LT-44.
+**Why now:** HR data access would materially change the confidentiality and stakeholder implications if the suspicious process had actually used that access.
 
-The confirmed suspicious execution, outbound communication, and available endpoint evidence are tied to HR-LT-44. No current evidence establishes lateral movement, credential reuse, or related execution on another system.
+**Evidence:** In a separate controlled test, PowerShell read `HR_Compensation_Sample.csv`. Windows Security Event ID 4688 captured the command. The test PowerShell was launched from another PowerShell session, **not** from the original Word event.
 
-### What Would Cause the Scope to Expand?
+**Interpretation:** The test demonstrated access to a representative HR file in that lab context. It did not link the original Word-to-PowerShell activity to that file and did not establish exfiltration.
 
-I would expand the investigation from one workstation to the broader environment if evidence shows:
+**Confidence:** High about the test's file access; low that the original suspicious process accessed HR data.
 
-- Another endpoint communicating with the same suspicious destination
-- The same attachment, sender, hash, or process chain on another host
-- Shared credential use across systems
-- Lateral-movement activity
-- Related authentication anomalies
-- Similar persistence mechanisms
-- Additional users receiving or opening the same email
-- Evidence that HR-LT-44 accessed or modified remote systems
+**Decision effect:** Data exposure stayed on the incident action list as an unresolved question rather than becoming a reported finding.
 
-### Current Scope Decision
-
-Maintain HR-LT-44 as the primary incident system while conducting targeted environment-wide searches for related indicators.
-
-### Confidence
-
-Moderate.
-
-### Decision Impact
-
-The investigation remains focused enough to avoid unnecessary disruption, but the threshold for expanding scope is low because successful external communication has already been confirmed.
+**Next:** Review lateral-movement indicators, then make an explicit scope decision.
 
 ---
 
-## Issue B — HR-LT-51 Scope Follow-Up
+## Issue B — One workstation or broader environment?
 
-### Question
-Does HR-LT-51 represent a second compromised workstation within the same incident?
+At this point, HR-LT-44 is the one **confirmed primary incident system in the scenario**. The suspicious process chain and successful controlled connection relate to it. I have not established another host with matching execution, credential reuse, or lateral movement.
 
-### Why does this question matter now?
-A second compromised host would materially expand incident scope, increase containment requirements, and raise the possibility of a broader campaign.
+**What would widen the search:** Another system contacting the destination; the same sender, attachment, hash, or process chain; related logons; shared account misuse; suspicious remote execution; matching persistence; more recipients opening the message; or signs of HR-LT-44 reaching other systems.
 
-### Evidence Needed
-HR-LT-51 process activity, network context, EDR findings, persistence, credential-access indicators, and authentication activity.
+**Scope decision:** Keep the main investigation on HR-LT-44 while running focused environment-wide checks for related indicators. An indicator hit should prompt validation, not automatic containment.
 
-### Observed Evidence
-HR-LT-51 contacted the same external destination as HR-LT-44, but rapid triage found:
-- No Word-to-PowerShell execution chain
-- No EDR High Severity alert
-- No persistence indicators
-- No credential-access indicators
-- No suspicious authentication activity
-- A user-initiated web request consistent with the observed connection
+**Confidence:** Moderate because endpoint and enterprise visibility remain incomplete.
 
-### Interpretation
-The shared destination justified investigation but does not establish a shared root cause. Current evidence does not support classifying HR-LT-51 as compromised.
+**Decision effect:** This approach protects investigative focus without treating a one-host hypothesis as a certainty.
 
-### Confidence
-Moderate to high.
+---
 
-### Decision Impact
-Yes. Do not contain HR-LT-51 solely because of the shared destination. HR-LT-44 remains the confirmed primary incident system.
+## Issue B — HR-LT-51 changes the scope question
 
-### Next Step
-Continue targeted environment-wide IOC searching while shifting into incident coordination for confirmed Issue B activity on HR-LT-44.
+**Question:** Is the second HR workstation compromised through the same activity, or is the destination match unrelated?
+
+**Why now:** A second affected endpoint would widen containment and could indicate a broader campaign. Failing to validate it would be as problematic as assuming it was compromised.
+
+**Evidence returned by delegated triage:** HR-LT-51 contacted the destination, but the engineer found no matching Word-to-PowerShell chain, no High Severity EDR alert, no persistence or credential-access indicators, and no suspicious authentication. The observed connection was consistent with a user-initiated web request during controlled testing.
+
+**Interpretation:** The common destination was a reason to investigate HR-LT-51, not enough to attribute the same root cause. Available findings do not support classifying that workstation as compromised.
+
+**Confidence:** Moderate to high for the second-host disposition within the checks performed.
+
+**Decision effect:** I did not recommend isolating HR-LT-51 solely for the shared destination. HR-LT-44 stayed the primary incident system.
+
+**Next:** Continue targeted environment searches and move the confirmed scenario incident into coordinated containment, impact review, and remediation planning.

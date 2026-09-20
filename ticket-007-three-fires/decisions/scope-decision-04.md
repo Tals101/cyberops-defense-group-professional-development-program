@@ -1,40 +1,21 @@
-﻿# Ticket #007 — Priority / Scope Decision #4
+# Ticket #007 — Scope Decision #4
 
-## Does HR-LT-51 Become Part of Issue B?
+*Decision at the 10:50 second-workstation alert, before delegated triage returned.*
 
-Yes. HR-LT-51 becomes part of the same incident investigation because it communicated with the same external destination associated with HR-LT-44.
+## Why HR-LT-51 enters the investigation
 
-This does not prove the two systems share the same root cause, but it creates enough correlation to investigate them together initially.
+HR-LT-51 contacted the destination already under review for HR-LT-44. That is enough to ask whether another HR endpoint is involved, but it is not enough to conclude that both users experienced the same attack.
 
-## Does Incident Scope Expand?
+**Scope for now:** Keep HR-LT-44 as the primary incident workstation, add HR-LT-51 for focused triage, and search relevant environment telemetry for the destination and related indicators. The possible investigation scope has widened; the number of **confirmed compromised** hosts has not automatically doubled.
 
-Yes.
+## Containment call
 
-The scope expands from one primary workstation to at least two HR workstations and a targeted environment-wide search for the shared destination and related indicators.
+Maintain the HR-LT-44 containment decision. Do not isolate HR-LT-51 just for a destination match when it has no reported High Severity EDR alert or matching execution chain. Move to containment promptly if its review shows suspicious execution, persistence, credential access, repeated malicious communication, or other credible compromise evidence.
 
-## Does the Containment Recommendation Change?
+## Help requested
 
-HR-LT-44 should remain contained.
+I will ask for one additional engineer with a bounded HR-LT-51 assignment and retain the HR-LT-44 investigation and overall incident decisions. Notify the SOC Manager, SOC analyst, and HR IT/support; bring in Network Engineering for destination-wide searching or any proposed block.
 
-HR-LT-51 should receive rapid triage before automatic containment because no EDR High Severity alert or suspicious process chain has yet been identified on that workstation.
+## Assumption to avoid
 
-Contain HR-LT-51 immediately if evidence shows suspicious execution, persistence, credential access, repeated communication, or other malicious activity.
-
-## Do I Need Additional Help?
-
-Yes. I would request one additional engineer to perform a bounded investigation of HR-LT-51 while I retain incident coordination and HR-LT-44 investigation ownership.
-
-## Who Should Be Notified?
-
-- SOC Manager
-- SOC analyst
-- HR IT/support contact
-- Network Engineering if destination-wide searches or blocking are required
-
-## Danger of Assuming the Same Root Cause
-
-Two systems contacting the same destination may have different explanations.
-
-The destination could host legitimate shared infrastructure, advertising, content delivery, compromised services, or unrelated applications. Assuming identical root cause could cause unnecessary containment, miss a different compromise path, or distort incident scope.
-
-The shared destination is a strong correlation indicator, not proof of shared causation.
+A common IP or hostname can serve unrelated applications, shared infrastructure, or a compromised legitimate service. If I assume a common root cause before checking the processes and user activity, I risk isolating an innocent workstation and overlooking the actual mechanism on either host. Correlation is the reason to investigate, not the conclusion.

@@ -1,37 +1,39 @@
-﻿# Ticket #007 — Incident Action Plan
+# Ticket #007 — Incident Action Plan
 
-## Immediate Actions
+This plan assigns the work that follows the HR-LT-44 incident decision. Deadlines are relative to the exercise's response timeline, not evidence that each task has already been completed.
 
-| Action | Owner | Deadline | Dependency | Escalation Condition |
+## Now — contain, preserve, find related activity
+
+| Action | Lead | Target | Needs | Escalate if |
 |---|---|---|---|---|
-| Keep HR-LT-44 contained from the network | Security / Endpoint Team | Immediate | Endpoint containment capability | Containment fails or host reconnects |
-| Preserve EDR, Windows, email, and network evidence | SOC | Immediate | Log and EDR access | Evidence is unavailable or at risk of loss |
-| Validate and preserve the suspicious email and attachment | SOC Analyst | Immediate | Mail telemetry | Same message found in additional mailboxes |
-| Search environment for the external destination and related indicators | SOC / Network Engineering | Immediate | Network telemetry | Additional suspicious endpoints identified |
+| Keep HR-LT-44 isolated from the network | Security / Endpoint Support | Immediate | Endpoint containment access | The host reconnects or isolation fails |
+| Save Windows, EDR, email, and network records | SOC | Immediate | Telemetry and retention access | Records are missing or could be overwritten |
+| Preserve the email, attachment, and sender details | SOC analyst | Immediate | Mail search access | Other employees received the message |
+| Search for the destination and related indicators | SOC / Network Engineering | Immediate | Network visibility | Another endpoint shows related suspicious activity |
 
-## Within One Hour
+## First hour — determine reach and potential impact
 
-| Action | Owner | Deadline | Dependency | Escalation Condition |
+| Action | Lead | Target | Needs | Escalate if |
 |---|---|---|---|---|
-| Determine whether other users received the same email | SOC / Email Admin | 1 hour | Mail search capability | Multiple recipients opened attachment |
-| Review HR-LT-44 for persistence and credential-access indicators | Security | 1 hour | Endpoint telemetry | Persistence or credential theft identified |
-| Review identity activity for the HR user | IAM | 1 hour | Identity logs | Unusual logins or token use identified |
-| Evaluate whether destination blocking is appropriate | Network Engineering + Security | 1 hour | Destination validation | Additional malicious communication observed |
+| Identify all recipients and openers of the message | Email Administration / SOC | Within 1 hour | Message-trace and mailbox search | Other recipients opened the attachment |
+| Check HR-LT-44 for persistence and credential access | Security | Within 1 hour | Endpoint evidence | A persistence or credential-access indicator is found |
+| Review HR user's sign-ins and sessions | IAM | Within 1 hour | Identity telemetry | Unexpected sign-ins or token use appears |
+| Decide whether destination blocking is safe and warranted | Network Engineering / Security | Within 1 hour | Destination and collateral-impact review | Further malicious communication is observed |
 
-## Later Today
+## Same day — remediate without losing evidence
 
-| Action | Owner | Deadline | Dependency | Escalation Condition |
+| Action | Lead | Target | Needs | Escalate if |
 |---|---|---|---|---|
-| Determine remediation or reimage requirements for HR-LT-44 | Endpoint Team / Security | Today | Investigation findings | System integrity cannot be established |
-| Review whether sensitive HR data was accessed | Security + HR | Today | File and endpoint evidence | Confirmed sensitive-data access |
-| Document Issue A maintenance-process failure | Infrastructure Operations | Today | Administrator confirmation | Repeated undocumented maintenance identified |
-| Continue lower-priority review of unusual portal traffic | SOC | Today | Web logs | Exploitation evidence appears |
+| Decide whether HR-LT-44 needs reimaging | Endpoint Support / Security | Today | Investigation and preservation complete | System integrity cannot be verified |
+| Determine whether sensitive HR data was accessed | Security / HR | Today | File and endpoint review | Exposure becomes credible or confirmed |
+| Assign the undocumented maintenance process gap | Infrastructure Operations | Today | Admin confirmation | Unrecorded changes are recurring |
+| Continue portal traffic review separately | SOC | Today | Preserved web logs | Evidence of exploitation emerges |
 
-## After Containment
+## After containment — validate and close
 
-| Action | Owner | Deadline | Dependency | Escalation Condition |
+| Action | Lead | Timing | Needs | Escalate if |
 |---|---|---|---|---|
-| Remove malicious artifacts if confirmed | Endpoint Team | After evidence preservation | Forensic preservation complete | Removal risks destroying evidence |
-| Restore HR-LT-44 to service only after validation | Endpoint Team / Security | After remediation | Clean-state validation | Suspicious activity remains |
-| Complete incident timeline and final report | Security | Before closure | All workstreams report back | Significant new evidence changes scope |
-| Conduct lessons learned and control improvements | SOC Manager / Security | After incident stabilization | Incident facts finalized | Systemic control gaps identified |
+| Remove identified malicious artifacts, if any | Endpoint Support | After preservation | Security approval | Cleanup could destroy evidence |
+| Validate a clean state before returning HR-LT-44 | Endpoint Support / Security | After remediation | Endpoint checks | Suspicious behavior continues |
+| Consolidate the timeline and incident record | Security | Before closure | All workstream findings | New evidence changes impact or scope |
+| Review the incident and improve controls | SOC Manager / Security | After stabilization | Findings and follow-up owners | A systemic control gap is identified |

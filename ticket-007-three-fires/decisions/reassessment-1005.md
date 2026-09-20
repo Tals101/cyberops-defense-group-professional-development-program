@@ -1,71 +1,29 @@
-﻿# Ticket #007 — 10:05 Reassessment
+# Ticket #007 — 10:05 Reassessment
 
-## Issue B — Likely Incident
+## B — Likely Incident; Priority 1
 
-**Current Priority:** 1
+**New evidence:** HR-LT-44 successfully connected to an external destination shortly after the suspicious Word-to-PowerShell activity. No established business relationship explains that destination.
 
-**What Changed:** HR-LT-44 successfully connected to an external destination shortly after the suspicious Word-to-PowerShell execution. The destination has no established business relationship with CyberOps Defense Group.
+**What it changes:** I now have a chain that crosses email delivery, process execution, incomplete prevention, and external communication. Possible purposes include command-and-control, payload retrieval, or data transfer, but the connection alone does not establish which occurred.
 
-**Current Risk:** Possible phishing-driven execution followed by command-and-control, payload retrieval, or data transfer.
+**Next move:** Start a deeper HR-LT-44 investigation with network/process correlation, then work through persistence, identity, data-access, and scope questions.
 
-**Why Priority Remains #1:** Issue B now has evidence across multiple stages: suspicious email attachment, Word launching encoded PowerShell, incomplete EDR prevention, and successful external communication.
+## C — Operational Issue with Security Follow-Up; Priority 2
 
-**Next Action:** Conduct the deep investigation of HR-LT-44, beginning with network activity and process correlation.
+Operations reverted the configuration change and the portal's error rate quickly moved toward baseline. The unusual requests did not stop. That split is important: service recovery supports the change as the likely outage cause but does not make every incoming request benign.
 
----
+I am moving C out of the primary investigation. IT Operations owns stability; Security will keep reviewing the web traffic and reopen the issue if exploitation evidence or renewed service impact appears. **Confidence:** Moderate to high that the service degradation was operational.
 
-## Issue C — Operational Issue with Security Follow-Up
+## A — Likely Benign; Priority 3
 
-**Current Priority:** 2
+The unfamiliar address is a newly provisioned administrator workstation. The `sysadmin` account owner has confirmed the login, and the reviewed commands fit routine maintenance. I have no current finding that justifies further primary investigative time.
 
-**What Changed:** Operations rolled back the configuration change and portal errors rapidly returned toward baseline. Unusual web requests continue.
+The missing SOC-calendar entry still needs correction by Infrastructure Operations. That visibility problem should not be confused with proof of an attack. **Confidence:** High in the likely-benign assessment.
 
-**Current Risk:** Continued internet scanning or potentially malicious requests require review, but current evidence does not show they caused the service degradation.
+## Order and reasoning
 
-**Disposition:** Remove from primary investigative focus. Security will continue lower-priority web-traffic review.
+The order remains **B → C → A** from Decision #3, but my confidence has shifted: the external connection strengthens B; successful rollback reduces C's immediate service risk; and owner confirmation resolves A's main authorization question.
 
-**Confidence:** Moderate to high that the service degradation was operational.
+## The stop decision
 
-**Owner:** IT Operations for service stability; Security for follow-up traffic review.
-
----
-
-## Issue A — Likely Benign
-
-**Current Priority:** 3
-
-**What Changed:** The source IP belongs to a newly provisioned administrator workstation. The sysadmin account owner confirmed the login, and available command history is consistent with routine maintenance.
-
-**Current Risk:** No current evidence of malicious activity. The undocumented maintenance created an alert and visibility gap.
-
-**Disposition:** Deprioritize and stop spending primary investigative time on Issue A.
-
-**Confidence:** High.
-
-**Follow-Up:** Ensure the missed maintenance entry is addressed through the operational change/SOC notification process.
-
-**Owner:** Infrastructure Operations / system administrator.
-
----
-
-# Current Ranking
-
-1. Issue B — Likely Incident
-2. Issue C — Operational Issue with Security Follow-Up
-3. Issue A — Likely Benign
-
-## Why the Ranking Changed — or Did Not
-
-The numerical order remains B → C → A from Priority Decision #3, but confidence has changed substantially.
-
-Issue B became more concerning because successful outbound communication followed the suspicious execution chain.
-
-Issue C became less urgent because rollback rapidly improved the customer-facing errors, supporting the configuration change as the likely cause.
-
-Issue A became substantially less urgent because the administrator confirmed the login and the observed commands are consistent with routine maintenance.
-
-## Closure Trap Decision
-
-Issue A has enough evidence to leave primary investigation.
-
-Continuing to investigate it simply because time has already been spent on it would waste limited investigative capacity. Follow-up remains necessary for the undocumented maintenance process, but that is an operational control issue rather than the highest-priority security investigation.
+I am stopping the primary security investigation of A rather than continuing because I have already spent time on it. The correct follow-up is a maintenance-notification improvement, not more low-value hunting absent new evidence.

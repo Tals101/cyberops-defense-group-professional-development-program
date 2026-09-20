@@ -1,3 +1,5 @@
-﻿# Communication #2 — Operations
+# Response to Operations — Portal Rollback
 
-Security has confirmed intermittent HTTP 500 errors and unusual web requests, but current evidence does not show that the unusual traffic is causing the failures. A recent configuration change remains a credible cause. Security recommends proceeding with the known-good rollback; our investigation does not need to delay restoration. Before rollback, preserve current web, application, and configuration logs, including timestamps and representative unusual requests. Security will continue reviewing the unusual traffic and will reassess immediately if exploitation evidence appears or if rollback does not restore service. We do not yet know whether the unusual requests are malicious or merely unrelated scanning.
+I can confirm intermittent HTTP 500 responses and unusual requests in the portal evidence, but I cannot link those requests to the failures. The recent configuration deployment is still a plausible explanation. Please preserve the web, application, and configuration logs, with timestamps and examples of the unusual requests, then proceed with the known-good rollback. Security does not need to hold up restoration on the evidence we have.
+
+I will continue reviewing the traffic separately. Let me know the portal's response after rollback; we should reassess immediately if errors persist or a successful exploit becomes visible. At this stage, the unusual requests may be unrelated scanning rather than the cause of the outage.

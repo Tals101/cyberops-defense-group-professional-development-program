@@ -1,57 +1,25 @@
-﻿# Ticket #007 — Priority Decision #2
+# Ticket #007 — Priority Decision #2
 
-## 1 — Issue C: Internet-Facing Portal
+*09:25 reassessment following the Operations escalation.*
 
-**Current Priority:** 1
+## 1. Issue C — Make the rollback call
 
-**What Changed:** Customer impact continues and Operations needs an immediate rollback decision. Current testing still shows intermittent HTTP 500 errors.
+Customers are still receiving portal errors, including intermittent HTTP 500 responses in the current sample. Operations needs an answer now. I do not have evidence that the unusual requests caused the failures, so Security should not prevent restoration.
 
-**Current Risk:** Active availability impact. Malicious traffic has not been established as the cause.
+**Lead:** IT Operations owns the rollback; Security retains the traffic question. **Action:** Preserve the relevant logs, proceed with the known-good configuration, and report whether errors fall. **Reassess:** If rollback fails or evidence of successful exploitation appears.
 
-**Immediate Owner:** IT Operations for rollback; Security continues traffic review.
+## 2. Issue A — Keep reviewing privileged activity
 
-**Next Action:** Preserve logs and allow Operations to perform the known-good rollback.
+The `sysadmin` session remains active and has run privileged commands. That warrants continued review on APP-PROD-02, although the commands observed so far are not destructive.
 
-**When I Will Reassess:** Immediately after rollback results are known or if exploitation evidence appears.
+**Lead:** Security. **Action:** Examine activity for unauthorized changes, persistence, data access, or harm. **Reassess:** Immediately on a concerning command or new evidence about authorization.
 
----
+## 3. Issue B — Pause deeper endpoint work
 
-## 2 — Issue A: Privileged Authentication
+The encoded command resolved to a harmless marker-file operation, and I did not find additional child-process events in the window checked. That reduces urgency without establishing that the entire document event was safe.
 
-**Current Priority:** 2
+**Lead:** Security, deferred. **Action:** Preserve the results and return once the immediate Operations decision and active privileged-session review are under control. **Reassess:** If new endpoint, email, EDR, or network evidence arrives.
 
-**What Changed:** The sysadmin session remains active and privileged commands were executed.
+## Risk I am choosing to carry
 
-**Current Risk:** Potential misuse of privileged access on a production server.
-
-**Immediate Owner:** Security.
-
-**Next Action:** Continue monitoring and review privileged commands for harmful activity.
-
-**When I Will Reassess:** Immediately if destructive commands, persistence, data access, or unauthorized changes appear.
-
----
-
-## 3 — Issue B: Suspicious PowerShell
-
-**Current Priority:** 3
-
-**What Changed:** The encoded command was decoded and found to create only a benign marker file. No additional child-process activity was observed.
-
-**Current Risk:** Residual risk that other unreviewed endpoint activity exists.
-
-**Immediate Owner:** Security, deferred.
-
-**Next Action:** Preserve current findings and resume endpoint review after higher-priority issues stabilize.
-
-**When I Will Reassess:** After Issue C is stabilized and Issue A no longer shows concerning activity.
-
----
-
-## What Am I Deliberately NOT Investigating Right Now?
-
-I am deliberately not performing deeper endpoint investigation on Issue B.
-
-## What Risk Am I Accepting?
-
-I am accepting the possibility that additional unreviewed activity occurred on HR-LT-44. Current evidence lowers that risk because the encoded command was benign and no additional child-process creation was observed.
+I am **not** conducting a full HR-LT-44 investigation during this interruption. Unexamined activity could still exist. I am accepting that uncertainty temporarily because the findings so far lower B's immediate concern, and the customer-facing rollback decision cannot wait for exhaustive endpoint analysis.

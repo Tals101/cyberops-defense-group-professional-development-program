@@ -1,52 +1,24 @@
-﻿# Ticket #007 — Delegation Brief
+# Ticket #007 — HR-LT-51 Delegation Brief
 
-## Objective
+## Assignment
 
-Determine whether HR-LT-51 shows evidence of the same or related malicious activity observed on HR-LT-44.
+Please determine whether HR-LT-51's contact with the external destination is related to the suspicious activity on HR-LT-44, or whether a different explanation better fits the evidence. This is a **bounded triage assignment**, not a request to take over the incident.
 
-## Scope
+## Limits of the review
 
-HR-LT-51 only, plus evidence directly related to its communication with the shared external destination.
+Focus on HR-LT-51 and the events directly surrounding its connection. Collect the EDR/process tree, the process that made the network request, any preceding email or document activity, relevant authentication records, common persistence and credential-access indicators, and other contacts with that destination. Preserve hashes and suspicious files if they are identified; do not execute samples to see what they do.
 
-## Evidence to Collect
+## You may proceed with
 
-- EDR process tree around the connection time
-- Processes responsible for the network connection
-- Email or document activity preceding the connection
-- Persistence indicators
-- Credential-access indicators
-- Relevant authentication activity
-- Additional connections to the same destination
-- File hashes or suspicious artifacts if identified
+- Read-only Windows, EDR, and IOC review.
+- Preservation of endpoint and network artifacts.
+- Verification of the connection's owning process.
+- A concise report stating what is observed, what is still unknown, and your confidence.
 
-## Actions Authorized
+## Coordinate before disruptive action
 
-- Collect and preserve endpoint telemetry
-- Review EDR and Windows logs
-- Validate the process responsible for the connection
-- Preserve suspicious files without executing them
-- Perform read-only IOC searches
-- Report findings and confidence
+Obtain my approval before isolating HR-LT-51, disabling accounts, deleting files, reimaging, or blocking shared infrastructure. If clearly active malicious activity makes immediate isolation necessary, escalate at once under the applicable response procedure.
 
-## Actions Requiring My Approval
+## Reporting and escalation
 
-- Network isolation of HR-LT-51 unless active malicious activity is clearly occurring
-- Account disabling
-- File deletion
-- Remediation or reimaging
-- Blocking infrastructure that could affect other systems
-
-## When to Report Back
-
-Report initial findings after rapid triage and immediately if evidence supports active compromise.
-
-## Escalation Conditions
-
-Escalate immediately if you identify:
-- Suspicious execution linked to the destination
-- Credential theft
-- Persistence
-- Lateral movement
-- Sensitive-data access
-- Repeated or continuing suspicious network activity
-- Evidence that additional systems are involved
+Send an initial assessment after rapid triage. Contact me immediately if you find execution linked to the destination, persistence, credential access, lateral movement, sensitive-data access, repeated suspicious connections, or signs that more machines are affected.

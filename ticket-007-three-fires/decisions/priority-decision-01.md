@@ -1,48 +1,25 @@
-﻿# Ticket #007 — Priority Decision #1
+# Ticket #007 — Priority Decision #1
 
-## Scenario Time
-09:00
+**Scenario time: 09:00**
 
-## Ranking
+## My initial order
 
-1. Issue B — HR-LT-44 suspicious Word-to-PowerShell activity
-2. Issue A — APP-PROD-02 unusual privileged SSH login
-3. Issue C — Internet-facing portal errors and unusual requests
+1. **B — HR-LT-44 Word-to-PowerShell activity**
+2. **A — APP-PROD-02 privileged SSH login**
+3. **C — Portal errors and unusual web requests**
 
-## Decision
+## Why B receives my first investigation slot
 
-Begin with Issue B.
+Word launching encoded PowerShell is unusual enough to require quick context. EDR reported a High Severity event and a blocked child process, but HR-LT-44 remained connected and I did not know what the command did. I could obtain a high-value answer quickly by decoding it and checking the process tree. If isolation became necessary, the immediate disruption would be concentrated on one workstation.
 
-## Rationale
+A could have more serious consequences if the login proves unauthorized, because APP-PROD-02 is a production system. For now, though, I only have an unfamiliar source and a successful login, not proof of misuse. C already has customer impact, but Operations can investigate the recent configuration change and prepare restoration alongside my security work.
 
-Issue B presented the strongest combination of security concern, time sensitivity, and reversible response options.
+## First actions
 
-Known evidence included:
+- Decode B's command and look for follow-on process activity.
+- Have the SOC analyst identify A's source and verify expected administration.
+- Ask Operations to retain C's logs, correlate the change window, and be ready to roll back.
 
-- Microsoft Word launched encoded PowerShell.
-- EDR generated a High Severity alert.
-- A child process was reportedly blocked.
-- The endpoint remained online.
-- The purpose of the encoded command was not yet known.
+**Confidence:** Moderate. This is the best use of attention with the information available at 09:00, not a final incident classification.
 
-Issue A involved successful privileged authentication from an unusual internal source, but authorization had not yet been established.
-
-Issue C had customer-facing impact, but a recent configuration change provided a credible operational explanation and Operations could continue parallel validation.
-
-## Immediate Actions
-
-- Rapidly decode and assess the PowerShell command.
-- Determine whether additional child processes executed.
-- Delegate source-IP and authorization validation for Issue A.
-- Have Operations preserve portal logs, correlate the recent change, and prepare rollback if necessary.
-
-## Confidence
-Moderate.
-
-## Reassessment Trigger
-
-Re-rank immediately if:
-
-- Issue A shows active or malicious privileged activity.
-- Issue B shows additional execution, persistence, network activity, or stronger benign evidence.
-- Issue C service impact materially worsens or requires an immediate operational decision.
+**Reasons to reassess immediately:** A becomes actively harmful or unauthorized; B reveals new execution, network activity, persistence, or convincing benign context; or C needs an urgent service-restoration decision.

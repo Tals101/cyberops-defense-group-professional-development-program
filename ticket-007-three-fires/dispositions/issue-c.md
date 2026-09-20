@@ -1,32 +1,19 @@
-﻿# Issue C — Internet-Facing Portal
+# Issue C — Customer Portal Error Spike
 
-## Final Classification
-Operational Issue with Security Follow-Up
+**Disposition: Operational Issue with Security Follow-Up**
 
-## Evidence
-- Portal experienced intermittent HTTP 500 errors.
-- Operations had recently deployed a configuration change.
-- Errors returned toward baseline after rollback.
-- Unusual web requests continued after service recovery.
-- Available timing evidence did not show that the unusual requests caused the degradation.
+## Basis for the decision
 
-## Confidence
-Moderate to high that the service degradation was caused by the configuration change.
+The portal returned intermittent HTTP 500 responses after a configuration deployment. Unusual requests were also present, but a recorded error preceded the suspicious requests in the sample. After Operations restored the prior configuration, errors moved quickly toward baseline even though the unusual requests continued.
 
-## Security Impact
-No confirmed portal compromise. Continued unusual internet traffic requires routine security review.
+That sequence supports a configuration-related availability problem more strongly than a traffic-driven outage. It does not prove that every unusual request was harmless or that no attempted exploit occurred.
 
-## Business Impact
-Temporary customer-facing service degradation and increased support activity.
+**Confidence:** Moderate to high that the service errors were primarily operational; no successful portal compromise was confirmed.
 
-## Actions Taken
-Preserved relevant logs, compared unusual traffic with errors, advised Operations not to delay rollback, and continued lower-priority security review.
+## Impact and follow-through
 
-## Remaining Actions
-Monitor unusual requests and investigate further if exploit indicators or abnormal application behavior appear.
+The immediate business impact was degraded customer access and likely additional support demand. Security preserved the relevant logs, reviewed request/error timing, and advised Operations to proceed with restoration rather than wait for a completed security investigation.
 
-## Owner
-IT Operations for service stability; SOC for security monitoring.
+IT Operations owns stable service. The SOC should continue reviewing the unusual traffic and escalate if it finds exploit evidence or abnormal application behavior.
 
-## Closure Criteria
-Portal remains stable after rollback and ongoing traffic review shows no evidence of successful exploitation.
+**Closure condition:** The portal remains stable after rollback, and the follow-up traffic review identifies no successful exploitation requiring further action.

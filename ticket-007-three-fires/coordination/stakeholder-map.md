@@ -1,56 +1,19 @@
-﻿# Ticket #007 — Stakeholder Map
+# Ticket #007 — Stakeholder Map
 
-## SOC
-**Involved:** Yes
+The goal is to involve people who can answer a specific question or carry out a response action, without making every team part of every alert.
 
-**Why:** Owns alert triage, evidence collection, environment-wide IOC searching, and ongoing monitoring.
+| Team | Involvement | Reason |
+|---|---|---|
+| SOC | Active | Own triage, evidence, IOC searches, and monitoring across the three issues. |
+| Endpoint / Desktop Support | Active | Maintain HR-LT-44 containment and restore a validated workstation when cleared. |
+| Email / Messaging Administration | Active | Preserve the message and headers, identify recipients, and support removal if needed. |
+| Identity / IAM | Active | Check the HR user's sign-ins and sessions for evidence of account misuse. |
+| Network Engineering | Active | Review destination-wide traffic and evaluate blocking with Security. |
+| HR | Active | Coordinate the affected employee's work and establish the sensitivity of any relevant HR information. |
+| IT Operations | Active | Own portal restoration and the Issue A maintenance-notification follow-up. |
+| Management | Active | Receive scope and impact updates, support resources, and make escalated business decisions. |
+| Legal / Privacy | Conditional | Engage if unauthorized access to sensitive employee or regulated data becomes credible. |
+| Communications | Not currently needed | No confirmed public disclosure or other external communication trigger has been identified. |
+| Vendor Management | Not currently needed | No supplier has been implicated or asked to take part in the response. |
 
-## IT Operations
-**Involved:** Yes
-
-**Why:** Supports endpoint restoration, operational coordination, and follow-up for Issue C. Also owns the maintenance-process correction for Issue A.
-
-## HR
-**Involved:** Yes
-
-**Why:** HR-LT-44 is assigned to an HR employee and may contain sensitive employee information. HR should coordinate user impact and help determine data sensitivity.
-
-## Management
-**Involved:** Yes
-
-**Why:** Management needs incident status, business impact, scope, resource needs, and escalation decisions.
-
-## Identity / IAM
-**Involved:** Yes
-
-**Why:** Review the HR user's authentication activity and determine whether credentials or tokens may have been misused.
-
-## Network Engineering
-**Involved:** Yes
-
-**Why:** Search for additional communication with the external destination and implement blocking if Security determines it is appropriate.
-
-## Legal / Privacy
-**Involved:** Conditional
-
-**Why:** Involve if investigation confirms or reasonably indicates unauthorized access to sensitive employee or regulated data.
-
-## Communications
-**Involved:** Not currently.
-
-**Why:** There is no confirmed external disclosure or public-facing security impact requiring communications support at this time.
-
-## Vendor Management
-**Involved:** Not currently.
-
-**Why:** No vendor has been identified as contributing to or requiring action for the confirmed incident.
-
-## Email / Messaging Administration
-**Involved:** Yes
-
-**Why:** Search for the suspicious message across mailboxes, preserve headers and attachment evidence, identify additional recipients, and support message removal if required.
-
-## Endpoint / Desktop Support
-**Involved:** Yes
-
-**Why:** Maintain HR-LT-44 containment and perform remediation or reimaging after Security completes evidence preservation.
+I will revisit the conditional teams if the data-access review, sender investigation, or external-destination assessment changes what we know.

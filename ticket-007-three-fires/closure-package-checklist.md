@@ -1,67 +1,37 @@
-﻿# Ticket #007 — Closure Package Checklist
+# Ticket #007 — Submission Inventory
 
-## Required Deliverables
+This checklist identifies the files included in the ticket package. Completion of the **exercise documentation** does not mean every operational remediation item in the Incident Action Plan has been performed.
 
-- [x] Initial Triage Assessment
-- [x] Rapid Triage Findings
-- [x] Engineering Notebook
-- [x] Interruption Decision — 09:18
-- [x] Priority Decision #2
-- [x] Priority Decision #3
-- [x] Priority / Scope Decision #4
-- [x] Delegation Brief
-- [x] Operational Triage Communication
-- [x] Operations Communication
-- [x] Manager Brief
-- [x] Incident Action Plan
-- [x] Stakeholder Map
-- [x] Executive Update
-- [x] Final Dispositions — Issues A, B, and C
-- [x] Priority History
-- [x] Attention Log
-- [x] Delegation Review
-- [x] Lessons Learned
-- [x] Final Investigation / Incident Report
-- [x] Technical Evidence Package
-- [x] Technical Evidence Index
+## Triage and decision records
 
-## Supporting Evidence
+- [x] Initial triage assessment and five-minute findings
+- [x] Engineering notebook
+- [x] 09:18 interruption decision
+- [x] Priority decisions 01, 02, and 03
+- [x] 10:05 reassessment and scope decision 04
+- [x] Priority history and attention log
 
-### Issue A
-- SSH authentication evidence
-- Asset inventory validation
-- Active-session evidence
-- Privileged-command evidence
+## Communication and coordination
 
-### Issue B
-- Encoded PowerShell process evidence
-- Word-to-PowerShell evidence
-- Simulated EDR alert
-- Decoded command
-- External communication evidence
-- Persistence review
-- Credential-access review
-- Simulated email evidence
-- Endpoint/user context
-- Data-access test
-- Lateral-movement review
-- Two-host destination evidence
-- HR-LT-51 delegated findings
+- [x] 09:00 manager update, Operations response, and 09:45 manager brief
+- [x] Executive update
+- [x] Delegation brief and review
+- [x] Incident Action Plan and stakeholder map
 
-### Issue C
-- Portal access logs
-- Configuration-change record
-- Error/request timing analysis
-- Current error-rate sample
+## Outcomes and evidence
 
-## Final Package Status
+- [x] Final dispositions for A, B, and C
+- [x] Lessons learned
+- [x] Final incident report PDF
+- [x] Supporting technical evidence and evidence index
+- [x] Repository README
 
-Documentation: Complete
+## Evidence available for review
 
-Evidence Package: Complete
+**A:** SSH authentication, asset record, active-session observation, and privileged-command output.
 
-Final Incident Dispositions: Complete
+**B:** Windows process events, simulated EDR/email records, the decoded harmless command, controlled network logs, persistence and credential checks, user-context/data-access testing, lateral-movement review, and HR-LT-51 findings.
 
-GitHub Push: Not yet performed
+**C:** Portal access log, change record, error/request timing comparison, and HTTP response sample.
 
-Final repository validation and local Git commit remain before Ticket #007 is pushed.
+The ticket's remaining **response actions** and the investigation's evidentiary limits are described in the Incident Action Plan and final report.

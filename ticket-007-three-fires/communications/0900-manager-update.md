@@ -1,3 +1,5 @@
-﻿# Communication #1 — Operational Triage Update
+# 09:00 — Manager Update
 
-Priority is B → A → C. I am investigating HR-LT-44 first because Word launched encoded PowerShell and EDR blocked a child process. Issue A is second; the SOC analyst will identify the unusual source IP, verify whether the sysadmin login was expected, and check for related alerts. Issue C is third for my direct investigation; Operations will preserve logs, compare the configuration change with the error spike, and prepare rollback. No compromise is confirmed. I will escalate immediately if evidence shows active malware, unauthorized privileged access, or exploitation of the portal. The largest uncertainty is whether Issue B represents active malware and whether Issue A's privileged login was authorized.
+My initial order is **B → A → C**. I am starting with HR-LT-44 because Word launched encoded PowerShell, EDR blocked a child process, and the workstation is still online. I have asked the SOC analyst to identify the source of the APP-PROD-02 `sysadmin` login and establish whether that access was expected. Operations is handling the portal's error spike in parallel: they will preserve logs, compare it with the configuration change, and prepare rollback.
+
+I have not confirmed compromise in any of the three issues. I will change priorities promptly if we see ongoing malicious execution, unauthorized privileged activity, or evidence of successful portal exploitation. The immediate unknowns are what PowerShell actually did and who authorized the SSH session.
