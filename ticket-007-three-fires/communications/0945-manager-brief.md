@@ -1,7 +1,7 @@
-﻿# Communication #3 — Manager Brief
+# 09:45 — Manager Brief
 
-Issue B is now my top security priority. We learned the Word document came from an email attachment using an executive display name; the real sender is unvalidated, PowerShell executed before EDR blocked a child process, and HR-LT-44 remains online. I recommend immediate endpoint containment while preserving the email, EDR telemetry, and network evidence. The SOC analyst can validate the sender and collect supporting telemetry.
+I have moved **Issue B back to the top**. The Word file came through email under an executive display name, but the actual sender has not been authenticated. PowerShell ran before EDR stopped a child process, and HR-LT-44 is still connected. I recommend isolating that workstation now, while preserving the message, endpoint telemetry, and network records. The SOC analyst can take the sender and evidence checks while I coordinate containment.
 
-Issue C remains customer-impacting, but Security has already told Operations not to delay rollback; they own restoration while we continue traffic review. Issue A remains monitored: privileged commands occurred, but the source maps to an authorized admin host and observed commands were non-destructive.
+Operations has been told to proceed with the known-good portal rollback rather than wait for Security; we will keep reviewing unusual requests. On APP-PROD-02, the source maps to an authorized admin host and the commands observed so far are non-destructive, so A remains under monitoring.
 
-I need your support for immediate HR-LT-44 containment and cross-team coordination. In the next 30 minutes, Issue B could progress to credential theft, additional execution, or lateral movement if the endpoint stays connected.
+I need support for the HR-LT-44 containment decision and cross-team response. Leaving the endpoint online could permit further execution or account and network misuse. Those are credible risks, not confirmed activity.

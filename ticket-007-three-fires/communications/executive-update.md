@@ -1,70 +1,34 @@
-﻿# Ticket #007 — Executive Update
+# Ticket #007 — Executive Update
 
-## What Happened
+## Situation
 
-Security investigated three simultaneous issues involving privileged server access, suspicious endpoint execution, and customer portal degradation.
+We investigated three issues at the same time: an unexpected privileged login, suspicious activity on an HR workstation, and a customer portal outage. The HR workstation, **HR-LT-44**, is the primary security incident in this exercise.
 
-The primary security incident is now associated with HR-LT-44. An HR user opened an email attachment that caused Microsoft Word to launch encoded PowerShell. PowerShell executed before EDR blocked a child process, and the workstation subsequently communicated successfully with an external destination that has no established business relationship with CyberOps Defense Group.
+An HR employee opened an email attachment. Word then launched encoded PowerShell; PowerShell ran before EDR blocked a child process. The workstation later made a successful connection to a destination for which we have no established business purpose. The lab reproduced the sequence with harmless commands and a controlled server; the scenario's original external communication remains unexplained.
 
-## What Is Confirmed
+## What the evidence supports
 
-- HR-LT-44 opened a suspicious email attachment.
-- Word launched encoded PowerShell.
-- PowerShell executed.
-- EDR blocked one child process.
-- HR-LT-44 successfully communicated with the external destination.
-- HR-LT-44 is the primary confirmed incident system.
-- No persistence, credential theft, or lateral movement has been confirmed.
-- HR-LT-51 contacted the same destination, but current evidence does not support compromise of that workstation.
+- Suspicious email-driven execution occurred on HR-LT-44, followed by an external connection.
+- EDR blocked a child process, but that block did not prevent the initial PowerShell execution.
+- HR-LT-51 also contacted the destination. Its rapid review did **not** find the matching process chain or other evidence supporting compromise.
+- We have not established persistence, credential theft, lateral movement, or the loss of employee information.
 
-## What Remains Unknown
+## Remaining questions
 
-- Purpose and content of the original external communication.
-- Whether sensitive HR information was accessed or transferred.
-- Whether credentials were exposed.
-- Whether additional recipients received or opened the suspicious attachment.
-- Whether additional systems have related indicators.
+We still need to determine the purpose of the original outbound traffic, whether sensitive files or credentials were affected, whether the attachment reached other employees, and whether additional endpoints have related indicators.
 
-## Current Scope
+## Business impact
 
-Confirmed scope currently includes HR-LT-44.
+One HR workstation needs containment and remediation, with some disruption to that employee's work. There is no confirmed sensitive-data loss at this point. Separately, the portal's errors improved after Operations reverted a configuration change. Security is continuing a lower-priority review of the unusual web traffic.
 
-HR-LT-51 was investigated because of the shared destination but is not currently classified as compromised.
+## Response in progress
 
-Targeted environment-wide searches remain underway.
+Security is coordinating endpoint containment, preservation of email/Windows/EDR/network evidence, searches for related activity, an identity review, and the HR data-access assessment. Network Engineering and Email Administration support the searches; HR and Endpoint Support are involved for user impact and restoration.
 
-## Business Impact
+## Management support and escalation
 
-One HR workstation requires containment and remediation.
+Please support the cross-team response and any broader containment decision if additional compromised hosts emerge. Legal/Privacy should be brought in if the evidence gives us a reasonable basis to suspect sensitive employee data exposure.
 
-No confirmed loss of sensitive employee information has been established.
+## Confidence and next update
 
-The earlier portal degradation was substantially resolved after Operations rolled back its configuration change and is being handled separately as an operational issue with security follow-up.
-
-## Actions Underway
-
-- HR-LT-44 containment
-- Evidence preservation
-- Email and sender validation
-- Environment-wide indicator searches
-- Network destination review
-- Identity review
-- Assessment of potential HR data exposure
-
-## Decisions Required
-
-Management support is required for continued cross-team incident response and any broader containment if additional affected systems are identified.
-
-Legal/Privacy involvement will be triggered if sensitive-data exposure is established or reasonably suspected.
-
-## Current Confidence
-
-High confidence that HR-LT-44 experienced suspicious execution and external communication.
-
-Moderate confidence that the incident remains limited to HR-LT-44.
-
-Low confidence regarding whether sensitive data or credentials were accessed.
-
-## Next Update
-
-Provide the next executive update after environment-wide searches, identity review, and HR-LT-44 data-access assessment materially change the known scope or impact.
+I have high confidence in the suspicious execution and successful connection on HR-LT-44; moderate confidence that it is the only confirmed affected workstation; and low confidence about whether sensitive data or credentials were accessed. I will update management when the identity, email, data-access, or environment searches materially change the scope or impact.

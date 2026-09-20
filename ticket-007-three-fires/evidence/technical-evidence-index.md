@@ -1,91 +1,49 @@
-﻿# Ticket #007 — Technical Evidence Package Index
+# Ticket #007 — Evidence Index
 
-## Issue A — Privileged Authentication
+This index explains why each artifact is in the package. The source files themselves have been retained as collected; descriptions here are not substitutes for the logs or event records.
 
-### 01-issue-a-ssh-login.txt
-SSH authentication evidence showing the sysadmin login and source address.
+## Issue A — Privileged access
 
-### 04-issue-a-asset-inventory.txt
-Asset information used to identify the source as an authorized administrative system.
+| File | What I used it for |
+|---|---|
+| `01-issue-a-ssh-login.txt` | Identify the `sysadmin` authentication event and recorded source. |
+| `04-issue-a-asset-inventory.txt` | Check the administrative host's documented role and access. |
+| `06-issue-a-privileged-commands.txt` | Review the commands visible during the active session. |
+| `08-issue-a-active-session.txt` | Confirm that the session was still connected when I revisited A. |
 
-### 06-issue-a-privileged-commands.txt
-Sudo evidence showing the privileged commands executed during the active sysadmin session.
+## Issue B — Initial endpoint assessment
 
-### 08-issue-a-active-session.txt
-Evidence confirming the sysadmin session remained active during investigation.
+| File | What I used it for |
+|---|---|
+| `01-encoded-powershell-event.txt` | Record PowerShell execution in Windows Security Event ID 4688. |
+| `02-word-encoded-powershell-event.txt` | Establish Word as the parent of the encoded PowerShell process. |
+| `03-simulated-edr-alert.txt` | Preserve the labeled High Severity scenario alert and reported block. |
+| `04-decoded-powershell-command.txt` | Check the decoded command rather than judging it by encoding alone. |
+| `hr-lt-44-marker.txt` | Confirm the benign marker produced by the controlled command. |
 
----
+## Issue B — Deeper checks
 
-## Issue B — Suspicious Endpoint Activity
+| File | What I used it for |
+|---|---|
+| `deep-investigation/01-hr-lt-44-external-connection.log` | Verify successful contact with the controlled server. |
+| `deep-investigation/02-persistence-check.txt` | Document the scheduled-task and Run-key checks performed. |
+| `deep-investigation/03-credential-access-check.txt` | Record the query and its visibility limitations; a negative match is not proof of absence. |
+| `deep-investigation/04-simulated-email-evidence.txt` | Represent the scenario's sender, attachment, and arrival timing. |
+| `deep-investigation/05-endpoint-user-context.txt` | Explain how CyberHub stands in for HR-LT-44 in the lab. |
+| `deep-investigation/06-data-access-event.txt` | Show that a separate controlled PowerShell process could read sample HR data. |
+| `deep-investigation/07-lateral-movement-check.txt` | Record the limited review for common lateral-movement indicators. |
+| `deep-investigation/08-two-host-same-destination.log` | Show two lab systems contacting the same endpoint; not a shared-root-cause finding. |
+| `deep-investigation/09-hr-lt-51-delegated-findings.txt` | Capture the separate HR-LT-51 assessment and limits of that correlation. |
 
-### 01-encoded-powershell-event.txt
-Windows Security Event ID 4688 evidence showing encoded PowerShell execution.
+## Issue C — Portal availability and request timing
 
-### 02-word-encoded-powershell-event.txt
-Windows process-creation evidence confirming WINWORD.EXE launched encoded PowerShell.
+| File | What I used it for |
+|---|---|
+| `02-issue-c-portal-access.log` | Review HTTP 200/500 responses alongside unusual paths. |
+| `03-issue-c-config-change-record.txt` | Establish the scenario's deployment and rollback context. |
+| `05-issue-c-error-vs-unusual-requests.txt` | Compare when errors began with the suspicious requests observed. |
+| `07-issue-c-current-error-sample.txt` | Preserve the 20-request pre-rollback response sample. |
 
-### 03-simulated-edr-alert.txt
-Clearly labeled simulated High Severity EDR alert representing the Ticket #007 scenario.
+## Reading the evidence correctly
 
-### 04-decoded-powershell-command.txt
-Safely decoded PowerShell command used during rapid triage.
-
-### hr-lt-44-marker.txt
-Benign marker created by the decoded PowerShell command.
-
----
-
-# Issue B — Deep Investigation
-
-### 01-hr-lt-44-external-connection.log
-Controlled external-server evidence confirming successful outbound communication.
-
-### 02-persistence-check.txt
-Scheduled-task and Run-key persistence review.
-
-### 03-credential-access-check.txt
-Credential-access indicator review and logging limitations.
-
-### 04-simulated-email-evidence.txt
-Clearly labeled simulated email evidence representing the triggering attachment and suspicious sender context.
-
-### 05-endpoint-user-context.txt
-Mapping of the CyberHub lab host to scenario asset HR-LT-44 and HR user context.
-
-### 06-data-access-event.txt
-Controlled evidence showing PowerShell access to representative HR data.
-
-### 07-lateral-movement-check.txt
-Review for common lateral-movement indicators.
-
-### 08-two-host-same-destination.log
-External-server log showing two systems communicating with the same destination.
-
-### 09-hr-lt-51-delegated-findings.txt
-Delegated engineer findings showing that HR-LT-51 did not demonstrate the same suspicious execution chain.
-
----
-
-## Issue C — Internet-Facing Portal
-
-### 02-issue-c-portal-access.log
-Portal access log showing normal responses, intermittent HTTP 500 errors, and unusual web requests.
-
-### 03-issue-c-config-change-record.txt
-Simulated Operations record documenting the recent portal configuration change.
-
-### 05-issue-c-error-vs-unusual-requests.txt
-Timing comparison between service errors and unusual requests.
-
-### 07-issue-c-current-error-sample.txt
-Twenty-request sample showing intermittent HTTP 500 responses before rollback.
-
----
-
-## Evidence Handling Notes
-
-The Ticket #007 lab combines real operating-system telemetry with clearly labeled simulated scenario records.
-
-Simulated records are used only where the exercise references enterprise systems not available in the home lab, such as enterprise EDR, corporate email telemetry, and asset-management records.
-
-Conclusions distinguish between observed lab evidence, simulated scenario evidence, and investigation limitations.
+Windows and Linux events came from the controlled lab. Enterprise EDR, mail, asset, and change-management details are labeled scenario records where such services were unavailable. The controlled network tests used harmless content. I have not treated a negative search as conclusive absence or a demonstration of file access as proof that the suspicious process took data.

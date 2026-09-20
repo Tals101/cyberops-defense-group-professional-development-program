@@ -1,36 +1,23 @@
-﻿# Issue B — HR-LT-44 Suspicious Execution
+# Issue B — HR-LT-44 Word-to-PowerShell Activity
 
-## Final Classification
-Confirmed Security Incident
+**Disposition: Confirmed Security Incident in the exercise scenario**
 
-## Evidence
-- Suspicious email attachment preceded the alert.
-- Executive display name did not establish sender authenticity.
-- Microsoft Word launched encoded PowerShell.
-- PowerShell executed before EDR blocked a child process.
-- HR-LT-44 successfully communicated with an external destination with no established business relationship.
-- No confirmed persistence, credential theft, or lateral movement was identified.
-- HR-LT-51 contacted the same destination but did not show the same suspicious execution chain.
+## Why it remains an incident
 
-## Confidence
-High that a security incident occurred on HR-LT-44.
+The email attachment preceded Word starting encoded PowerShell. An executive-looking display name did not authenticate the sender. PowerShell executed before EDR blocked a child process, and HR-LT-44 subsequently reached an external destination with no established business purpose.
 
-Moderate confidence that confirmed scope is limited to HR-LT-44.
+In the controlled lab, the encoded command wrote a harmless marker and the destination returned a harmless response. Those test details do not establish a malicious payload or exfiltration; the scenario's unexplained email-driven behavior and successful outbound communication support the incident decision.
 
-## Security Impact
-Potential unauthorized code execution and external communication. Sensitive-data or credential exposure was not confirmed.
+HR-LT-51 later contacted the same destination. Its rapid review did not find the same process chain or other supporting compromise indicators, so I did not classify it as a second compromised workstation on the destination match alone.
 
-## Business Impact
-HR-LT-44 requires containment, investigation, and remediation, disrupting one HR user's workstation availability.
+## Confidence and impact
 
-## Actions Taken
-Containment recommended, evidence preserved, endpoint and network activity investigated, environment scope reviewed, and additional engineering support delegated.
+I have high confidence in the scenario incident classification for HR-LT-44 and moderate confidence that it is the only **confirmed** affected host. Persistence, credential theft, lateral movement, and sensitive-data transfer were not demonstrated. The immediate business cost is containment and restoration of one HR employee's workstation; potential confidentiality impact remains under review.
 
-## Remaining Actions
-Complete identity review, mail search, remediation, clean-state validation, and environment-wide IOC review.
+## Response and ownership
 
-## Owner
-Security Incident Response with Endpoint, SOC, IAM, and Email Administration support.
+Security Incident Response leads, with SOC, Endpoint Support, IAM, Email Administration, Network Engineering, and HR supporting their assigned questions. I recommended containment, preserved the available evidence, investigated the execution and connection, and delegated the second-host check.
 
-## Closure Criteria
-HR-LT-44 is remediated, environment searches are complete, identity activity is cleared or addressed, no additional compromised systems are identified, and incident evidence is preserved.
+Identity and mail reviews, environment-wide indicator searching, data-impact assessment, endpoint remediation, and clean-state validation remain to be completed or verified by their owners.
+
+**Closure condition:** HR-LT-44 has been remediated and validated; the identity, mail, and environment checks are resolved; any additional affected hosts have been addressed; and the evidence is retained.

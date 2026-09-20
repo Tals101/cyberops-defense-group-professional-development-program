@@ -1,17 +1,17 @@
-﻿# Ticket #007 — 09:18 Interruption Decision
+# Ticket #007 — 09:18 Interruption Decision
 
-**Current Task:** Investigating Issue B — Word-launched encoded PowerShell on HR-LT-44.
+**Where I was:** I was working Issue B on HR-LT-44. The decoded command created a harmless marker, and I had not found additional child-process events in the window examined.
 
-**New Information:** The sysadmin session on APP-PROD-02 remains active and several privileged commands are now being executed. Their purpose is unknown.
+**What interrupted me:** APP-PROD-02 still had an active `sysadmin` session, and privileged commands were being issued. I did not yet know whether the commands were authorized.
 
-**Priority Changed:** Yes. Issue A now becomes the immediate investigation priority.
+**My call:** Switch immediate investigative attention to **Issue A**. I am not closing B; I am pausing it with the current evidence documented.
 
-**Why:** Issue B evidence currently shows a benign decoded command and no observed child-process activity. Issue A now involves active privileged activity on a production server with unknown intent.
+**Why I switched:** A live privileged session can change a production system while I am looking elsewhere. B's specific decoded lab command was benign and its child-process check had not produced another alert. That made a brief, focused pivot to A worth the cost.
 
-**Cost of Switching:** Issue B investigation pauses before all possible host activity is reviewed.
+**What the switch costs:** B will wait longer for a complete endpoint review. I may need to reload its process and EDR context when I return.
 
-**Cost of Not Switching:** Potentially malicious privileged commands could continue changing a production system, establishing persistence, accessing data, or disrupting service.
+**What waiting on A could cost:** If the activity is malicious, a privileged user could change configuration, install persistence, reach data, or interrupt service before I understand what happened.
 
-**Immediate Action:** Pause Issue B, preserve its current findings, and investigate the active privileged session on APP-PROD-02.
+**Immediate next move:** Save B's current position and inspect the active SSH session and sudo commands on APP-PROD-02.
 
-**Evidence That Would Justify Abandoning Issue B Completely:** Strong evidence that Issue B was authorized or fully benign, combined with corroborated malicious or damaging activity on another higher-impact system.
+**What would let me stop working B entirely:** Corroborated evidence that the whole Word/PowerShell event was authorized or benign, not just the decoded command, alongside a separate issue whose harmful activity is actually established.

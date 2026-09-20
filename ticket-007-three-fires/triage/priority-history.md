@@ -1,18 +1,20 @@
-﻿# Ticket #007 — Priority History
+# Ticket #007 — How My Priorities Changed
 
-| Scenario Time | Priority 1 | Priority 2 | Priority 3 | Why Ranking Changed |
+The order below records what needed my attention at each point in the **scenario timeline**, not a retrospective severity rating.
+
+| Time | First | Second | Third | Reason at that moment |
 |---|---|---|---|---|
-| 09:00 | Issue B | Issue A | Issue C | Word launched encoded PowerShell, EDR blocked a child process, and the endpoint remained online. Issue A was serious but more ambiguous. Issue C had a credible configuration-change explanation. |
-| 09:25 | Issue C | Issue A | Issue B | Customer-facing errors required an immediate rollback decision. Issue B evidence had become less urgent after the encoded command decoded as benign. Issue A remained under review for active privileged activity. |
-| 09:40 | Issue B | Issue C | Issue A | The suspicious Word document was confirmed to come from an email attachment, PowerShell executed before the EDR block, and HR-LT-44 remained online. |
-| 10:05 | Issue B | Issue C | Issue A | HR-LT-44 successfully communicated with an external destination. Portal errors improved after rollback. Issue A was confirmed as authorized maintenance. |
-| 10:50 | Issue B | Issue C | Issue A | A second workstation contacted the same destination, expanding Issue B scope for targeted investigation, while no evidence raised A or C above it. |
-| Final | Issue B | Issue C | Issue A | Issue B was confirmed as a security incident on HR-LT-44. Issue C was operational with security follow-up. Issue A was likely benign with an operational process failure. |
+| 09:00 | B | A | C | The Word-to-PowerShell alert involved a connected endpoint; A had unresolved authorization, while Operations could work C in parallel. |
+| 09:25 | C | A | B | Customers still faced portal failures and Operations needed a rollback answer. B's decoded lab command appeared harmless, and A's session remained under review. |
+| 09:40 | B | C | A | The Word document came from email, PowerShell had run before a child-process block, and HR-LT-44 remained connected. |
+| 10:05 | B | C | A | Successful outbound communication strengthened the B incident hypothesis. Rollback improved C, and A was confirmed as maintenance. |
+| 10:50 | B | C | A | HR-LT-51 contacted the same destination, requiring targeted scope work without proving a second compromise. |
+| Final | B | C | A | HR-LT-44 remains the primary incident system; C is operational with a security follow-up; A is likely benign with a process gap. |
 
-## Which Priority Decision Was Hardest?
+## Hardest call
 
-The 09:25 decision was the hardest because Issue C had active customer impact while Issue A involved privileged production activity and Issue B was still unresolved. The decision required separating business urgency from security severity and allowing Operations to restore service without waiting for Security to complete every investigation.
+The 09:25 switch to C required the most careful distinction between **security severity** and **the need for a decision right now**. A privileged session was still unresolved and B had not received a complete endpoint review, but Operations could not leave customers experiencing errors while waiting for Security to finish both investigations.
 
-## Which Decision Could Have Produced the Greatest Harm If Wrong?
+## Decision with the greatest downside if mistaken
 
-The 09:40 decision to return Issue B to Priority 1 had the greatest potential consequence. If the suspicious email-driven execution and continued network connectivity had been underestimated, additional execution, credential theft, lateral movement, or data exposure could have occurred while attention remained elsewhere.
+The 09:40 return to B mattered most for possible security impact. Underestimating the email-to-execution chain while HR-LT-44 was still online could have left time for additional execution, credential abuse, or network movement. Those outcomes were risks I was trying to prevent, not findings the investigation established.

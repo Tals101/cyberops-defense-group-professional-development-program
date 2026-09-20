@@ -6,7 +6,7 @@ Message     : A new process has been created.
               Creator Subject:
                   Security ID:        [REDACTED-SID]
                   Account Name:        [REDACTED-ACCOUNT]
-                  Account Domain: [REDACTED-DOMAIN]
+                  Account Domain:        [REDACTED-DOMAIN]
                   Logon ID:        0xAA0244
 
               Target Subject:

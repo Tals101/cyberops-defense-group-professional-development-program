@@ -1,32 +1,17 @@
-﻿# Issue A — Privileged Authentication
+# Issue A — Privileged SSH Access
 
-## Final Classification
-Likely Benign / Operational Process Failure
+**Disposition: Likely Benign / Operational Process Failure**
 
-## Evidence
-- Source IP mapped to a newly provisioned administrator workstation.
-- The sysadmin account owner confirmed the login.
-- Observed privileged commands were consistent with routine maintenance.
-- No malicious commands were identified.
-- Maintenance was not entered on the SOC calendar.
+## Basis for the decision
 
-## Confidence
-High.
+The source was traced to a newly provisioned administrator workstation, and the `sysadmin` account owner confirmed the session. The privileged commands available for review matched routine maintenance; none of the observed commands was malicious. The maintenance activity had not been entered on the SOC calendar, which explains why an otherwise authorized login required extra validation.
 
-## Security Impact
-No confirmed security compromise.
+**Confidence:** High for the likely-benign conclusion based on the source, owner confirmation, and reviewed activity.
 
-## Business Impact
-Minimal direct impact. The undocumented maintenance created unnecessary SOC escalation and uncertainty.
+## Impact and follow-through
 
-## Actions Taken
-Validated the source, reviewed privileged activity, preserved logs, and confirmed administrator ownership.
+I found no confirmed compromise or direct business disruption from this access. The meaningful issue is lost SOC visibility into legitimate production work: an undocumented change can consume analyst time and complicate the response to a genuine alert.
 
-## Remaining Actions
-Correct the maintenance notification/change-management gap.
+I checked the source and privileged activity and preserved the relevant records. Infrastructure Operations should own the missed maintenance notification and verify that future administrative work reaches the SOC through the expected change process.
 
-## Owner
-Infrastructure Operations.
-
-## Closure Criteria
-Administrator activity remains consistent with authorized maintenance and the process gap is assigned for remediation.
+**Closure condition:** The observed session continues to fit authorized maintenance, and responsibility for fixing the notification gap is assigned.
