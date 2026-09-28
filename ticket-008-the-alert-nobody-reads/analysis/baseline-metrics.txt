@@ -1,0 +1,31 @@
+Ticket #008 - Baseline Detection Metrics
+
+Total authentication events: 1000
+Total alerts: 597
+Unique alerted events: 308
+Unique users alerted: 36
+Unique sources alerted: 30
+
+Benign alerts: 248
+Suspicious alerts: 349
+Alert-level benign share: 41.5%
+
+Redundant/additional alerts: 289
+Redundancy rate: 48.4%
+
+Benign events alerted: 165
+Benign event alert rate: 19.3%
+
+Suspicious events alerted: 143
+Suspicious events missed: 2
+Suspicious event detection rate: 98.6%
+
+Suspicious scenarios detected: 6 of 6
+Suspicious scenarios completely missed: 0
+
+Workload assumption: 5 minutes per alert
+Estimated baseline analyst workload: 49.75 hours
+
+Important:
+Scenario-level detection does not mean every important event or attack transition was detected.
+A scenario may be counted as detected when at least one event from that scenario generated an alert.
