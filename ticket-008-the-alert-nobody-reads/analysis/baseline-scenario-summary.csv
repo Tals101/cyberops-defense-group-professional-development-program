@@ -1,0 +1,12 @@
+scenario_id,classification,scenario_name,total_events,alerted_events,missed_events,total_alerts
+LEG-01,benign,Normal Business Authentication,600,20,580,20
+LEG-02,benign,Ordinary Password Mistakes,90,60,30,60
+LEG-03,benign,Stale Service Credentials,72,72,0,142
+LEG-04,benign,Benign Unfamiliar Source,48,8,40,16
+LEG-05,benign,Legitimate Privileged Administration,45,5,40,10
+SUS-01,suspicious,Concentrated Brute-Force Activity,35,35,0,103
+SUS-02,suspicious,Failures Followed by Privileged Success,9,8,1,30
+SUS-03,suspicious,Distributed Password Spray,60,60,0,120
+SUS-04,suspicious,Low-and-Slow Authentication Attack,18,18,0,54
+SUS-05,suspicious,Compromised Familiar Source,13,12,1,22
+SUS-06,suspicious,Distributed Attack Against One Account,10,10,0,20
