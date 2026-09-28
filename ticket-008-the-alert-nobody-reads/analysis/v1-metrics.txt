@@ -1,0 +1,39 @@
+Ticket #008 - V1 Detection Metrics
+
+Dataset events: 1000
+Baseline alerts: 597
+V1 alerts: 15
+Alert reduction: 582
+Alert reduction percent: 97.5%
+
+Suspicious-only V1 alerts: 14
+Benign-only V1 alerts: 1
+Mixed V1 alerts: 0
+V1 benign-only alert share: 6.7%
+V1 alerts containing suspicious activity: 14
+V1 alerts containing any benign activity: 1
+
+Suspicious events represented in V1 alerts: 64 of 145
+Benign events represented in V1 alerts: 3 of 855
+
+Suspicious scenarios detected: 6 of 6
+Suspicious scenario retention: 100.0%
+Suspicious scenarios completely missed: 0
+
+Suspicious successful-authentication events: 2
+Explicitly detected by V1-02: 2
+
+Baseline workload estimate: 49.75 hours
+V1 workload estimate: 1.25 hours
+
+Rule Counts:
+V1-01: 3
+V1-02: 2
+V1-03: 6
+V1-04: 1
+V1-05: 2
+V1-06: 1
+
+Important:
+V1 alerts are investigation units, so event-level coverage is not directly equivalent to the baseline per-event alert rate.
+Scenario retention and explicit high-risk transition coverage are required before V1 can be considered better rather than merely quieter.
