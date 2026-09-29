@@ -1,0 +1,42 @@
+Ticket #008 - V2 Detection Metrics
+
+Dataset events: 1000
+Baseline alerts: 597
+V1 alerts: 15
+V2 cases: 7
+V1 to V2 investigation reduction: 8
+V1 to V2 reduction percent: 53.3%
+
+Suspicious-only V2 cases: 6
+Benign-only V2 cases: 1
+Mixed V2 cases: 0
+V2 benign-only case share: 14.3%
+V2 cases containing suspicious activity: 6
+V2 cases containing any benign activity: 1
+
+Suspicious events represented in V2 cases: 64 of 145
+Benign events represented in V2 cases: 3 of 855
+
+Suspicious scenarios detected: 6 of 6
+Suspicious scenario retention: 100.0%
+Suspicious scenarios completely missed: 0
+
+Suspicious successful-authentication events: 2
+Explicitly represented after V2 correlation: 2
+
+Suspicious V2 cases containing familiar-source context: 1
+Password-spray campaign cases: 1
+
+Baseline workload estimate: 49.75 hours
+V1 workload estimate: 1.25 hours
+V2 workload estimate: 0.58 hours
+
+Rule Counts:
+V2-01: 4
+V2-02: 1
+V2-03: 1
+V2-04: 1
+
+Important:
+V2 cases are correlated investigation units. Lower case count alone does not establish improved detection quality.
+Scenario retention, suspicious success coverage, familiar-source visibility, and residual event coverage must also be reviewed.
