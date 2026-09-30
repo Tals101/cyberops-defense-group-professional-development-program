@@ -1,0 +1,2 @@
+case_id,case_type,case_name,first_observed,last_observed,primary_user,primary_source,related_users,related_sources,v1_rule_ids,member_alert_ids,related_event_ids,failure_count,successful_authentication,any_privileged
+ADV-V2C-0001,V2-01,Authentication Attack Sequence,2026-10-01T12:00:00,2026-10-01T13:30:00,sec.admin,203.0.113.88,sec.admin,203.0.113.88,V1-05,ADV-V1-0001,AT-0022;AT-0023;AT-0024;AT-0025,4,false,true
