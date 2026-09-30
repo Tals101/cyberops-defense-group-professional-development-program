@@ -191,7 +191,7 @@ Identifies the principal source associated with the suspicious activity.
 
 Example:
 
-`Unfamiliar`
+`Unfamiliar — based on available authentication history`
 
 Possible values:
 
@@ -203,6 +203,16 @@ Possible values:
 Purpose:
 
 Provides context without treating familiarity as proof of legitimacy.
+
+Where possible, the alert should state the historical basis used to determine familiarity.
+
+Example:
+
+`Unfamiliar — no successful authentication from this source for this account during the available lookback period.`
+
+If a precise lookback period is unavailable, state:
+
+`Unfamiliar — based on available authentication history.`
 
 ---
 
@@ -391,6 +401,14 @@ Where available, the alert may include:
 
 These fields should improve investigation speed rather than simply add more data.
 
+When available in telemetry, the following should be promoted into the main analyst-facing context:
+
+- destination system;
+- authentication application or service;
+- identity provider.
+
+If the telemetry does not provide these values, do not invent them.
+
 ---
 
 # Recommended Initial Checks
@@ -490,7 +508,7 @@ Too much information recreates the analyst-attention problem the tuning effort w
 ## Authentication Attack Sequence
 
 **Case ID:** V2C-0006  
-**Severity:** High  
+**Severity:** Critical  
 **First Observed:** 2026-09-30 10:14:00  
 **Last Observed:** 2026-09-30 10:22:00  
 **Duration:** 8 minutes  
@@ -498,7 +516,7 @@ Too much information recreates the analyst-attention problem the tuning effort w
 **Primary User:** admin.backup  
 **Account Context:** Privileged  
 **Primary Source:** 198.51.100.77  
-**Source Familiarity:** Unfamiliar  
+**Source Familiarity:** Unfamiliar — based on available authentication history  
 
 **Related Users:** admin.backup  
 **Related Sources:** 198.51.100.77  
@@ -507,15 +525,15 @@ Too much information recreates the analyst-attention problem the tuning effort w
 **Success Account:** admin.backup  
 **Success Time:** 2026-09-30 10:22:00  
 
-**Detection Signals:** V1-01, V1-02, V1-05
-
 ### Why This Alert Fired
 
 Eight failed authentication attempts against privileged account admin.backup from unfamiliar source 198.51.100.77 were followed by a successful authentication within the same attack sequence.
 
+**Detection Signals:** V1-01, V1-02, V1-05
+
 ### Analyst Summary
 
-High-severity authentication attack sequence involving a privileged account. Repeated failures from an unfamiliar source were followed by a successful login. Investigate the successful session and associated endpoint activity immediately.
+Critical authentication attack sequence involving a privileged account. Repeated failures from an unfamiliar source were followed by a successful login. Investigate the successful session and associated endpoint activity immediately.
 
 ### Recommended Initial Checks
 
@@ -550,3 +568,4 @@ The analyst should not need to reconstruct the detection from raw logs before be
 Final analyst-facing alert structure defined.
 
 The next step is an analyst usability test to identify confusion, missing context, or unnecessary information before the design is considered final.
+
