@@ -1,0 +1,26 @@
+event_id,test_id,classification,variation_name
+AT-0001,AT-01,suspicious,Threshold Skimming
+AT-0002,AT-01,suspicious,Threshold Skimming
+AT-0003,AT-01,suspicious,Threshold Skimming
+AT-0004,AT-01,suspicious,Threshold Skimming
+AT-0005,AT-02,suspicious,Distributed Many-to-Many Campaign
+AT-0006,AT-02,suspicious,Distributed Many-to-Many Campaign
+AT-0007,AT-02,suspicious,Distributed Many-to-Many Campaign
+AT-0008,AT-02,suspicious,Distributed Many-to-Many Campaign
+AT-0009,AT-02,suspicious,Distributed Many-to-Many Campaign
+AT-0010,AT-02,suspicious,Distributed Many-to-Many Campaign
+AT-0011,AT-02,suspicious,Distributed Many-to-Many Campaign
+AT-0012,AT-02,suspicious,Distributed Many-to-Many Campaign
+AT-0013,AT-02,suspicious,Distributed Many-to-Many Campaign
+AT-0014,AT-02,suspicious,Distributed Many-to-Many Campaign
+AT-0015,AT-02,suspicious,Distributed Many-to-Many Campaign
+AT-0016,AT-02,suspicious,Distributed Many-to-Many Campaign
+AT-0017,AT-03,suspicious,Familiar-Source Failures Followed by Success
+AT-0018,AT-03,suspicious,Familiar-Source Failures Followed by Success
+AT-0019,AT-03,suspicious,Familiar-Source Failures Followed by Success
+AT-0020,AT-03,suspicious,Familiar-Source Failures Followed by Success
+AT-0021,AT-03,suspicious,Familiar-Source Failures Followed by Success
+AT-0022,AT-04,suspicious,Privileged Low-and-Slow Control Case
+AT-0023,AT-04,suspicious,Privileged Low-and-Slow Control Case
+AT-0024,AT-04,suspicious,Privileged Low-and-Slow Control Case
+AT-0025,AT-04,suspicious,Privileged Low-and-Slow Control Case
