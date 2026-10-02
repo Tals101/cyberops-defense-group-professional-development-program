@@ -4,13 +4,13 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 
-EVENTS_FILE = ROOT / "dataset" / "authentication-events.csv"
-TRUTH_FILE = ROOT / "dataset" / "authentication-ground-truth.csv"
-ALERTS_FILE = ROOT / "analysis" / "baseline-alerts.csv"
+EVENTS_FILE = ROOT / "data" / "authentication-events.csv"
+TRUTH_FILE = ROOT / "data" / "authentication-ground-truth.csv"
+ALERTS_FILE = ROOT / "baseline" / "baseline-results" / "baseline-alerts.csv"
 
-SCORED_FILE = ROOT / "analysis" / "baseline-scored-alerts.csv"
-SCENARIO_FILE = ROOT / "analysis" / "baseline-scenario-summary.csv"
-METRICS_FILE = ROOT / "analysis" / "baseline-metrics.txt"
+SCORED_FILE = ROOT / "baseline" / "baseline-results" / "baseline-scored-alerts.csv"
+SCENARIO_FILE = ROOT / "baseline" / "baseline-results" / "baseline-scenario-summary.csv"
+METRICS_FILE = ROOT / "baseline" / "baseline-results" / "baseline-metrics.txt"
 
 # Lab workload assumption only.
 MINUTES_PER_ALERT = 5

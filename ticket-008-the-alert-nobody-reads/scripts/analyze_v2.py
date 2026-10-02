@@ -4,15 +4,15 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 
-EVENTS_FILE = ROOT / "dataset" / "authentication-events.csv"
-TRUTH_FILE = ROOT / "dataset" / "authentication-ground-truth.csv"
-BASELINE_FILE = ROOT / "analysis" / "baseline-alerts.csv"
-V1_FILE = ROOT / "analysis" / "v1-alerts.csv"
-V2_FILE = ROOT / "analysis" / "v2-cases.csv"
+EVENTS_FILE = ROOT / "data" / "authentication-events.csv"
+TRUTH_FILE = ROOT / "data" / "authentication-ground-truth.csv"
+BASELINE_FILE = ROOT / "baseline" / "baseline-results" / "baseline-alerts.csv"
+V1_FILE = ROOT / "tuning" / "v1-results" / "v1-alerts.csv"
+V2_FILE = ROOT / "tuning" / "v2-results" / "v2-cases.csv"
 
-SCORED_FILE = ROOT / "analysis" / "v2-scored-cases.csv"
-SCENARIO_FILE = ROOT / "analysis" / "v2-scenario-summary.csv"
-METRICS_FILE = ROOT / "analysis" / "v2-metrics.txt"
+SCORED_FILE = ROOT / "tuning" / "v2-results" / "v2-scored-cases.csv"
+SCENARIO_FILE = ROOT / "tuning" / "v2-results" / "v2-scenario-summary.csv"
+METRICS_FILE = ROOT / "tuning" / "v2-results" / "v2-metrics.txt"
 
 MINUTES_PER_INVESTIGATION = 5
 
