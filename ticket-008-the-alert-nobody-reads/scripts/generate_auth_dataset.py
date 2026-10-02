@@ -7,7 +7,7 @@ SEED = 8008
 random.seed(SEED)
 
 ROOT = Path(__file__).resolve().parents[1]
-DATASET_DIR = ROOT / "dataset"
+DATASET_DIR = ROOT / "data"
 DATASET_DIR.mkdir(parents=True, exist_ok=True)
 
 TELEMETRY_FILE = DATASET_DIR / "authentication-events.csv"

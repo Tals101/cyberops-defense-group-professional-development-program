@@ -1,13 +1,13 @@
-﻿import csv
+import csv
 from collections import defaultdict
 from datetime import datetime, timedelta
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 
-V1_FILE = ROOT / "analysis" / "v1-alerts.csv"
-EVENTS_FILE = ROOT / "dataset" / "authentication-events.csv"
-OUTPUT_FILE = ROOT / "analysis" / "v2-cases.csv"
+V1_FILE = ROOT / "tuning" / "v1-results" / "v1-alerts.csv"
+EVENTS_FILE = ROOT / "data" / "authentication-events.csv"
+OUTPUT_FILE = ROOT / "tuning" / "v2-results" / "v2-cases.csv"
 
 CORRELATION_GAP = timedelta(minutes=120)
 

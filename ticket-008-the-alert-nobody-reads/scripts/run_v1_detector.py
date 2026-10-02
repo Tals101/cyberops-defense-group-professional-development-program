@@ -5,8 +5,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 
-INPUT_FILE = ROOT / "dataset" / "authentication-events.csv"
-OUTPUT_FILE = ROOT / "analysis" / "v1-alerts.csv"
+INPUT_FILE = ROOT / "data" / "authentication-events.csv"
+OUTPUT_FILE = ROOT / "tuning" / "v1-results" / "v1-alerts.csv"
 
 events = []
 
