@@ -1,11 +1,11 @@
-﻿import csv
+import csv
 from datetime import datetime, timedelta
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 
-INPUT_FILE = ROOT / "tests" / "adversarial-v1-alerts.csv"
-OUTPUT_FILE = ROOT / "tests" / "adversarial-v2-cases.csv"
+INPUT_FILE = ROOT / "evidence" / "adversarial-v1-alerts.csv"
+OUTPUT_FILE = ROOT / "evidence" / "adversarial-v2-cases.csv"
 
 alerts = []
 

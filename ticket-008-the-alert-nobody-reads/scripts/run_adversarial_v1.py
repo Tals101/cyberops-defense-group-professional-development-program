@@ -1,12 +1,12 @@
-﻿import csv
+import csv
 from collections import defaultdict
 from datetime import datetime, timedelta
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 
-INPUT_FILE = ROOT / "tests" / "adversarial-auth-events.csv"
-OUTPUT_FILE = ROOT / "tests" / "adversarial-v1-alerts.csv"
+INPUT_FILE = ROOT / "data" / "adversarial-auth-events.csv"
+OUTPUT_FILE = ROOT / "evidence" / "adversarial-v1-alerts.csv"
 
 events = []
 
