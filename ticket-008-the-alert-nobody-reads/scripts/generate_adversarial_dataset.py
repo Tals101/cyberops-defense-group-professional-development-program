@@ -1,11 +1,11 @@
-﻿import csv
+import csv
 from datetime import datetime, timedelta
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 
-EVENTS_FILE = ROOT / "tests" / "adversarial-auth-events.csv"
-TRUTH_FILE = ROOT / "tests" / "adversarial-ground-truth.csv"
+EVENTS_FILE = ROOT / "data" / "adversarial-auth-events.csv"
+TRUTH_FILE = ROOT / "data" / "adversarial-ground-truth.csv"
 
 events = []
 truth = []
