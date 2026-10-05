@@ -1,4 +1,4 @@
-﻿# Ticket #008 — Supporting Evidence Index
+# Ticket #008 — Supporting Evidence Index
 
 ## Purpose
 
@@ -14,7 +14,7 @@ This index references the actual files currently present in the Ticket #008 repo
 
 File:
 
-`assessment/detection-health-assessment.md`
+`baseline/detection-health-assessment.md`
 
 Purpose:
 
@@ -26,7 +26,7 @@ Documents the initial authentication-alert problem, engineering concerns, known 
 
 File:
 
-`assessment/authentication-scenario-design.md`
+`baseline/dataset-design.md`
 
 Purpose:
 
@@ -40,7 +40,7 @@ Documents the benign and suspicious scenarios used to evaluate Original, V1, and
 
 File:
 
-`dataset/authentication-events.csv`
+`data/authentication-events.csv`
 
 Purpose:
 
@@ -57,7 +57,7 @@ Dataset composition:
 
 File:
 
-`dataset/authentication-ground-truth.csv`
+`data/authentication-ground-truth.csv`
 
 Purpose:
 
@@ -91,7 +91,7 @@ Random seed:
 
 File:
 
-`detections/original-detector.md`
+`baseline/original-detection/original-detector.md`
 
 Purpose:
 
@@ -115,7 +115,7 @@ Executes the Original detector against the frozen authentication dataset.
 
 File:
 
-`analysis/baseline-alerts.csv`
+`baseline/baseline-results/baseline-alerts.csv`
 
 Purpose:
 
@@ -141,7 +141,7 @@ Scores Original detector output against ground truth and calculates baseline met
 
 File:
 
-`analysis/baseline-scored-alerts.csv`
+`baseline/baseline-results/baseline-scored-alerts.csv`
 
 Purpose:
 
@@ -153,7 +153,7 @@ Maps baseline alerts to benign and suspicious ground-truth classifications.
 
 File:
 
-`analysis/baseline-scenario-summary.csv`
+`baseline/baseline-results/baseline-scenario-summary.csv`
 
 Purpose:
 
@@ -165,7 +165,7 @@ Summarizes alert behavior by designed authentication scenario.
 
 File:
 
-`analysis/baseline-metrics.txt`
+`baseline/baseline-results/baseline-metrics.txt`
 
 Purpose:
 
@@ -177,7 +177,7 @@ Preserves calculated baseline alert volume, coverage, redundancy, and workload m
 
 File:
 
-`reports/baseline-detection-report.md`
+`baseline/baseline-results/baseline-detection-report.md`
 
 Purpose:
 
@@ -191,7 +191,7 @@ Documents the Original detector's measured performance and operational weaknesse
 
 File:
 
-`analysis/noise-analysis.md`
+`baseline/noise-analysis.md`
 
 Purpose:
 
@@ -207,7 +207,7 @@ The stale service credential scenario generated substantial benign alert volume.
 
 File:
 
-`analysis/analyst-alert-review.md`
+`analyst-experience/original-alert.md`
 
 Purpose:
 
@@ -221,7 +221,7 @@ Examines the Original alert stream from the analyst perspective, including fragm
 
 File:
 
-`decisions/tuning-proposal-v1.md`
+`tuning/v1-proposal.md`
 
 Purpose:
 
@@ -233,7 +233,7 @@ Documents the proposed behavioral tuning strategy before implementation.
 
 File:
 
-`detections/v1-detector.md`
+`tuning/v1/v1-detector.md`
 
 Purpose:
 
@@ -259,7 +259,7 @@ Executes the V1 behavioral detector against the frozen authentication dataset.
 
 File:
 
-`analysis/v1-alerts.csv`
+`tuning/v1-results/v1-alerts.csv`
 
 Purpose:
 
@@ -283,7 +283,7 @@ Scores V1 alerts against the preserved ground truth.
 
 File:
 
-`analysis/v1-scored-alerts.csv`
+`tuning/v1-results/v1-scored-alerts.csv`
 
 Purpose:
 
@@ -295,7 +295,7 @@ Preserves ground-truth classification of V1 alerts.
 
 File:
 
-`analysis/v1-scenario-summary.csv`
+`tuning/v1-results/v1-scenario-summary.csv`
 
 Purpose:
 
@@ -307,7 +307,7 @@ Summarizes V1 coverage by authentication scenario.
 
 File:
 
-`analysis/v1-metrics.txt`
+`tuning/v1-results/v1-metrics.txt`
 
 Purpose:
 
@@ -319,7 +319,7 @@ Preserves calculated V1 volume, workload, benign representation, suspicious repr
 
 File:
 
-`reports/original-v1-comparison.md`
+`tuning/v1-results/original-v1-comparison.md`
 
 Purpose:
 
@@ -331,7 +331,7 @@ Compares the Original detector with V1 and documents the coverage/workload trade
 
 File:
 
-`reports/v1-evaluation-report.md`
+`tuning/v1-results/v1-evaluation-report.md`
 
 Purpose:
 
@@ -345,7 +345,7 @@ Provides the formal engineering evaluation of V1.
 
 File:
 
-`decisions/soc-manager-recommendation-01.md`
+`tuning/manager-suppression-response.md`
 
 Purpose:
 
@@ -363,7 +363,7 @@ Key principle:
 
 File:
 
-`decisions/tuning-proposal-v2.md`
+`tuning/v2-design.md`
 
 Purpose:
 
@@ -375,7 +375,7 @@ Documents the proposal to correlate V1 alerts into analyst-facing cases.
 
 File:
 
-`detections/v2-detector.md`
+`tuning/v2/v2-detector.md`
 
 Purpose:
 
@@ -401,7 +401,7 @@ Consumes preserved V1 alert output and creates correlated V2 cases.
 
 File:
 
-`analysis/v2-cases.csv`
+`tuning/v2-results/v2-cases.csv`
 
 Purpose:
 
@@ -425,7 +425,7 @@ Evaluates V2 cases against ground truth and preserved V1 evidence.
 
 File:
 
-`analysis/v2-scored-cases.csv`
+`tuning/v2-results/v2-scored-cases.csv`
 
 Purpose:
 
@@ -437,7 +437,7 @@ Preserves ground-truth classification of V2 cases.
 
 File:
 
-`analysis/v2-scenario-summary.csv`
+`tuning/v2-results/v2-scenario-summary.csv`
 
 Purpose:
 
@@ -449,7 +449,7 @@ Summarizes V2 representation by authentication scenario.
 
 File:
 
-`analysis/v2-metrics.txt`
+`tuning/v2-results/v2-metrics.txt`
 
 Purpose:
 
@@ -461,7 +461,7 @@ Preserves calculated case count, workload, coverage, and correlation measurement
 
 File:
 
-`reports/v2-evaluation-report.md`
+`tuning/v2-results/v2-evaluation-report.md`
 
 Purpose:
 
@@ -473,7 +473,7 @@ Documents formal V2 evaluation results and architectural limitations.
 
 File:
 
-`reports/detection-comparison-original-v1-v2.md`
+`testing/comparison.md`
 
 Purpose:
 
@@ -487,7 +487,7 @@ Provides consolidated comparison of all three detection stages.
 
 File:
 
-`analysis/purple-team-blind-spot-analysis.md`
+`testing/purple-team-analysis.md`
 
 Purpose:
 
@@ -505,7 +505,7 @@ Detection architecture / analytical perspective gap.
 
 File:
 
-`tests/adversarial-test-plan.md`
+`testing/adversarial-test-plan.md`
 
 Purpose:
 
@@ -524,7 +524,7 @@ Tests:
 
 File:
 
-`tests/generate_adversarial_dataset.py`
+`scripts/generate_adversarial_dataset.py`
 
 Purpose:
 
@@ -536,7 +536,7 @@ Generates the separate 25-event adversarial dataset without changing the origina
 
 File:
 
-`tests/adversarial-auth-events.csv`
+`data/adversarial-auth-events.csv`
 
 Purpose:
 
@@ -548,7 +548,7 @@ Contains the 25 raw authentication events used for adversarial testing.
 
 File:
 
-`tests/adversarial-ground-truth.csv`
+`data/adversarial-ground-truth.csv`
 
 Purpose:
 
@@ -562,7 +562,7 @@ Contains the expected truth classification for the adversarial scenarios.
 
 File:
 
-`tests/run_adversarial_v1.py`
+`scripts/run_adversarial_v1.py`
 
 Purpose:
 
@@ -574,7 +574,7 @@ Executes V1 against the adversarial dataset.
 
 File:
 
-`tests/adversarial-v1-alerts.csv`
+`evidence/adversarial-v1-alerts.csv`
 
 Purpose:
 
@@ -592,7 +592,7 @@ Only AT-04 produced a V1 alert.
 
 File:
 
-`tests/run_adversarial_v2.py`
+`scripts/run_adversarial_v2.py`
 
 Purpose:
 
@@ -604,7 +604,7 @@ Executes V2 correlation against the preserved adversarial V1 output.
 
 File:
 
-`tests/adversarial-v2-cases.csv`
+`evidence/adversarial-v2-cases.csv`
 
 Purpose:
 
@@ -620,7 +620,7 @@ Only the AT-04 signal produced a V2 case.
 
 File:
 
-`reports/adversarial-testing-report.md`
+`testing/adversarial-testing.md`
 
 Purpose:
 
@@ -634,7 +634,7 @@ Documents the complete adversarial testing process, observed misses, detected co
 
 File:
 
-`reports/final-alert-design.md`
+`analyst-experience/final-alert.md`
 
 Purpose:
 
@@ -661,7 +661,7 @@ Includes:
 
 File:
 
-`reports/analyst-usability-test.md`
+`analyst-experience/analyst-test.md`
 
 Purpose:
 
@@ -679,7 +679,7 @@ Result:
 
 File:
 
-`reports/detection-operations-plan.md`
+`operations/detection-operations-plan.md`
 
 Purpose:
 
@@ -702,7 +702,7 @@ Defines the operational lifecycle for the detector, including:
 
 File:
 
-`reports/detection-drift-analysis.md`
+`operations/detection-drift.md`
 
 Purpose:
 
@@ -716,7 +716,7 @@ Documents environmental and attacker changes that could cause the detector to be
 
 File:
 
-`reports/detection-engineering-decision-brief.md`
+`management/decision-brief.md`
 
 Purpose:
 
@@ -728,7 +728,7 @@ Provides the management-level decision summary and production-readiness recommen
 
 File:
 
-`reports/before-after-analyst-experience.md`
+`analyst-experience/before-after.md`
 
 Purpose:
 
@@ -740,7 +740,7 @@ Documents the change from fragmented event-level alerts to correlated analyst ca
 
 File:
 
-`reports/false-negative-register.md`
+`testing/false-negative-register.md`
 
 Purpose:
 
@@ -752,7 +752,7 @@ Preserves known detection misses, risk, compensating controls, and current dispo
 
 File:
 
-`reports/detection-change-record.md`
+`operations/detection-change-record.md`
 
 Purpose:
 
@@ -764,7 +764,7 @@ Documents Original → V1 → V2 logic changes, reasons, observed effects, cover
 
 File:
 
-`reports/measurement-summary.md`
+`management/measurement-summary.md`
 
 Purpose:
 
@@ -776,7 +776,7 @@ Consolidates the quantitative Original, V1, V2, and adversarial test measurement
 
 File:
 
-`reports/engineering-notebook.md`
+`engineering-notebook.md`
 
 Purpose:
 
@@ -788,7 +788,7 @@ Provides the chronological technical record of Ticket #008.
 
 File:
 
-`reports/lessons-learned.md`
+`lessons-learned.md`
 
 Purpose:
 
@@ -800,7 +800,7 @@ Provides 20 question-and-answer lessons from the detection-engineering work.
 
 File:
 
-`reports/final-detection-engineering-report.md`
+`evidence/final-detection-engineering-report-source.md`
 
 Purpose:
 
@@ -833,10 +833,6 @@ The working directory currently contains Python bytecode cache files under:
 
 `scripts/__pycache__/`
 
-and:
-
-`tests/__pycache__/`
-
 These are runtime-generated local artifacts.
 
 They are not evidence deliverables and should not be treated as part of the formal Ticket #008 closure package.
@@ -847,16 +843,16 @@ They are not evidence deliverables and should not be treated as part of the form
 
 ## Source Data
 
-- `dataset/authentication-events.csv`
-- `dataset/authentication-ground-truth.csv`
-- `tests/adversarial-auth-events.csv`
-- `tests/adversarial-ground-truth.csv`
+- `data/authentication-events.csv`
+- `data/authentication-ground-truth.csv`
+- `data/adversarial-auth-events.csv`
+- `data/adversarial-ground-truth.csv`
 
 ## Detection Specifications
 
-- `detections/original-detector.md`
-- `detections/v1-detector.md`
-- `detections/v2-detector.md`
+- `baseline/original-detection/original-detector.md`
+- `tuning/v1/v1-detector.md`
+- `tuning/v2/v2-detector.md`
 
 ## Detection Implementations
 
@@ -872,56 +868,56 @@ They are not evidence deliverables and should not be treated as part of the form
 
 ## Test Implementations
 
-- `tests/generate_adversarial_dataset.py`
-- `tests/run_adversarial_v1.py`
-- `tests/run_adversarial_v2.py`
+- `scripts/generate_adversarial_dataset.py`
+- `scripts/run_adversarial_v1.py`
+- `scripts/run_adversarial_v2.py`
 
 ## Raw / Scored Evidence
 
-- `analysis/baseline-alerts.csv`
-- `analysis/baseline-scored-alerts.csv`
-- `analysis/baseline-scenario-summary.csv`
-- `analysis/baseline-metrics.txt`
-- `analysis/v1-alerts.csv`
-- `analysis/v1-scored-alerts.csv`
-- `analysis/v1-scenario-summary.csv`
-- `analysis/v1-metrics.txt`
-- `analysis/v2-cases.csv`
-- `analysis/v2-scored-cases.csv`
-- `analysis/v2-scenario-summary.csv`
-- `analysis/v2-metrics.txt`
-- `tests/adversarial-v1-alerts.csv`
-- `tests/adversarial-v2-cases.csv`
+- `baseline/baseline-results/baseline-alerts.csv`
+- `baseline/baseline-results/baseline-scored-alerts.csv`
+- `baseline/baseline-results/baseline-scenario-summary.csv`
+- `baseline/baseline-results/baseline-metrics.txt`
+- `tuning/v1-results/v1-alerts.csv`
+- `tuning/v1-results/v1-scored-alerts.csv`
+- `tuning/v1-results/v1-scenario-summary.csv`
+- `tuning/v1-results/v1-metrics.txt`
+- `tuning/v2-results/v2-cases.csv`
+- `tuning/v2-results/v2-scored-cases.csv`
+- `tuning/v2-results/v2-scenario-summary.csv`
+- `tuning/v2-results/v2-metrics.txt`
+- `evidence/adversarial-v1-alerts.csv`
+- `evidence/adversarial-v2-cases.csv`
 
 ## Analysis / Decision Evidence
 
-- `analysis/noise-analysis.md`
-- `analysis/analyst-alert-review.md`
-- `analysis/purple-team-blind-spot-analysis.md`
-- `decisions/tuning-proposal-v1.md`
-- `decisions/tuning-proposal-v2.md`
-- `decisions/soc-manager-recommendation-01.md`
+- `baseline/noise-analysis.md`
+- `analyst-experience/original-alert.md`
+- `testing/purple-team-analysis.md`
+- `tuning/v1-proposal.md`
+- `tuning/v2-design.md`
+- `tuning/manager-suppression-response.md`
 
 ## Closure Reports
 
-- `reports/baseline-detection-report.md`
-- `reports/original-v1-comparison.md`
-- `reports/v1-evaluation-report.md`
-- `reports/v2-evaluation-report.md`
-- `reports/detection-comparison-original-v1-v2.md`
-- `reports/adversarial-testing-report.md`
-- `reports/final-alert-design.md`
-- `reports/analyst-usability-test.md`
-- `reports/detection-operations-plan.md`
-- `reports/detection-drift-analysis.md`
-- `reports/detection-engineering-decision-brief.md`
-- `reports/before-after-analyst-experience.md`
-- `reports/false-negative-register.md`
-- `reports/detection-change-record.md`
-- `reports/measurement-summary.md`
-- `reports/engineering-notebook.md`
-- `reports/lessons-learned.md`
-- `reports/final-detection-engineering-report.md`
+- `baseline/baseline-results/baseline-detection-report.md`
+- `tuning/v1-results/original-v1-comparison.md`
+- `tuning/v1-results/v1-evaluation-report.md`
+- `tuning/v2-results/v2-evaluation-report.md`
+- `testing/comparison.md`
+- `testing/adversarial-testing.md`
+- `analyst-experience/final-alert.md`
+- `analyst-experience/analyst-test.md`
+- `operations/detection-operations-plan.md`
+- `operations/detection-drift.md`
+- `management/decision-brief.md`
+- `analyst-experience/before-after.md`
+- `testing/false-negative-register.md`
+- `operations/detection-change-record.md`
+- `management/measurement-summary.md`
+- `engineering-notebook.md`
+- `lessons-learned.md`
+- `evidence/final-detection-engineering-report-source.md`
 
 ---
 
@@ -936,9 +932,9 @@ The primary Ticket #008 evidence can be reproduced conceptually in this sequence
 5. Score V1 using `scripts/analyze_v1.py`.
 6. Run V2 correlation using `scripts/run_v2_detector.py`.
 7. Score V2 using `scripts/analyze_v2.py`.
-8. Generate the adversarial dataset with `tests/generate_adversarial_dataset.py`.
-9. Test V1 with `tests/run_adversarial_v1.py`.
-10. Test V2 with `tests/run_adversarial_v2.py`.
+8. Generate the adversarial dataset with `scripts/generate_adversarial_dataset.py`.
+9. Test V1 with `scripts/run_adversarial_v1.py`.
+10. Test V2 with `scripts/run_adversarial_v2.py`.
 11. Compare the preserved outputs with the corresponding reports and decision records.
 
 ---

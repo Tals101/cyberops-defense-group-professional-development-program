@@ -1,4 +1,4 @@
-﻿# Ticket #008 — Engineering Notebook
+# Ticket #008 — Engineering Notebook
 
 ## Ticket
 
@@ -74,11 +74,11 @@ Operational telemetry was stored separately from ground truth.
 
 Operational dataset:
 
-`dataset/authentication-events.csv`
+`data/authentication-events.csv`
 
 Ground truth:
 
-`dataset/authentication-ground-truth.csv`
+`data/authentication-ground-truth.csv`
 
 This prevented detector logic from using scenario labels during detection.
 

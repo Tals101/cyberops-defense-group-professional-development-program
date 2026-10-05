@@ -1,8 +1,8 @@
-# Ticket #008 — V2 Detector Specification
+# Ticket #008 ï¿½ V2 Detector Specification
 
 ## Version
 
-V2 — Case-Level Correlation
+V2 ï¿½ Case-Level Correlation
 
 ## Purpose
 
@@ -25,19 +25,19 @@ Ground truth is used only later during evaluation.
 
 Primary signal input:
 
-analysis/v1-alerts.csv
+tuning/v1-results/v1-alerts.csv
 
 Telemetry enrichment input:
 
-dataset/authentication-events.csv
+data/authentication-events.csv
 
 V2 must not read:
 
-dataset/authentication-ground-truth.csv
+data/authentication-ground-truth.csv
 
 ---
 
-# V2-01 — Authentication Attack Sequence
+# V2-01 ï¿½ Authentication Attack Sequence
 
 Eligible V1 signals:
 
@@ -60,11 +60,11 @@ A familiar source does not prevent case creation.
 
 ---
 
-# V2-02 — Password Spray Campaign
+# V2-02 ï¿½ Password Spray Campaign
 
 Eligible V1 signals:
 
-- V1-03 Password Spray — One Source, Many Users
+- V1-03 Password Spray ï¿½ One Source, Many Users
 
 Source-specific spray alerts are merged into one campaign when their alert time ranges:
 
@@ -89,11 +89,11 @@ No source is excluded because it is familiar or internal.
 
 ---
 
-# V2-03 — Distributed Targeting Case
+# V2-03 ï¿½ Distributed Targeting Case
 
 Eligible V1 signal:
 
-- V1-04 Distributed Targeting — Many Sources, One User
+- V1-04 Distributed Targeting ï¿½ Many Sources, One User
 
 Each qualifying targeted user remains represented as a distributed-targeting investigation case.
 
@@ -103,7 +103,7 @@ If more than one V1-04 signal exists for the same user and the signals overlap o
 
 ---
 
-# V2-04 — Persistent Service Authentication Case
+# V2-04 ï¿½ Persistent Service Authentication Case
 
 Eligible V1 signal:
 

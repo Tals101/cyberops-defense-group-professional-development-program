@@ -1,4 +1,4 @@
-﻿# Ticket #008 — Final Detection Engineering Report
+# Ticket #008 — Final Detection Engineering Report
 
 ## The Alert Nobody Reads
 
@@ -178,11 +178,11 @@ Operational data and ground truth were stored separately.
 
 Operational dataset:
 
-`dataset/authentication-events.csv`
+`data/authentication-events.csv`
 
 Ground truth:
 
-`dataset/authentication-ground-truth.csv`
+`data/authentication-ground-truth.csv`
 
 This prevented the detector from using truth labels during detection.
 
