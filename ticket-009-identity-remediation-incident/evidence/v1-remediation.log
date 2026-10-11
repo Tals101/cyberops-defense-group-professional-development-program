@@ -1,0 +1,13 @@
+2026-10-11T19:15:17.608143+00:00 V1 remediation started
+2026-10-11T19:15:17.608155+00:00 Rule: disable enabled accounts with days_since_interactive_login >= 90
+2026-10-11T19:15:17.608164+00:00 username=emma.reed interactive_age=1 decision=KEEP_ENABLED result=NO_CHANGE before_enabled=True after_enabled=True
+2026-10-11T19:15:17.608176+00:00 username=samir.patel interactive_age=12 decision=KEEP_ENABLED result=NO_CHANGE before_enabled=True after_enabled=True
+2026-10-11T19:15:17.608180+00:00 username=nora.hayes interactive_age=135 decision=DISABLE result=SUCCESS before_enabled=True after_enabled=False
+2026-10-11T19:15:17.608183+00:00 username=kevin.brooks interactive_age=18 decision=KEEP_ENABLED result=NO_CHANGE before_enabled=True after_enabled=True
+2026-10-11T19:15:17.608186+00:00 username=admin.ops interactive_age=3 decision=KEEP_ENABLED result=NO_CHANGE before_enabled=True after_enabled=True
+2026-10-11T19:15:17.608189+00:00 username=svc_finance_batch interactive_age=240 decision=DISABLE result=SUCCESS before_enabled=True after_enabled=False
+2026-10-11T19:15:17.608193+00:00 username=svc_records_archive interactive_age=400 decision=DISABLE result=SUCCESS before_enabled=True after_enabled=False
+2026-10-11T19:15:17.608196+00:00 username=contractor.mills interactive_age=160 decision=DISABLE result=SUCCESS before_enabled=True after_enabled=False
+2026-10-11T19:15:17.608201+00:00 username=analytics.temp interactive_age=105 decision=DISABLE result=SUCCESS before_enabled=True after_enabled=False
+2026-10-11T19:15:17.608204+00:00 username=ingest.bridge interactive_age=None decision=KEEP_ENABLED result=NO_CHANGE before_enabled=True after_enabled=True
+2026-10-11T19:15:17.608206+00:00 V1 remediation completed
