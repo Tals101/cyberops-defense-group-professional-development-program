@@ -14,6 +14,7 @@ OUTPUT_FILE = BASE_DIR / "simulation" / "identities-v2-after.json"
 ENFORCEMENT_LOG = BASE_DIR / "evidence" / "v2-enforcement.log"
 RESULTS_FILE = BASE_DIR / "evidence" / "v2-enforcement-results.csv"
 DEFERRED_LEDGER = BASE_DIR / "evidence" / "v2-deferred-actions.json"
+EMERGENCY_STOP_FILE = BASE_DIR / "evidence" / "v2-emergency-stop.flag"
 
 
 def timestamp():
@@ -22,6 +23,9 @@ def timestamp():
 
 if not SNAPSHOT_FILE.exists():
     raise SystemExit("FAIL: required pre-change snapshot is missing.")
+
+if EMERGENCY_STOP_FILE.exists():
+    raise SystemExit("FAIL: emergency stop is active.")
 
 
 with CONFIG_FILE.open("r", encoding="utf-8-sig") as f:
@@ -116,6 +120,16 @@ with ENFORCEMENT_LOG.open("w", encoding="utf-8") as log:
                     f"result=DEFERRED_REVIEW_REQUIRED\n"
                 )
 
+            elif EMERGENCY_STOP_FILE.exists():
+                action = "STAGE_ONLY"
+                result = "EMERGENCY_STOP_ACTIVE"
+
+                log.write(
+                    f"{timestamp()} username={username} "
+                    f"action=STAGE_ONLY "
+                    f"result=EMERGENCY_STOP_ACTIVE\n"
+                )
+
             elif changes_made >= max_changes:
                 action = "STAGE_ONLY"
                 result = "RUN_LIMIT_REACHED"
@@ -206,3 +220,4 @@ print(f"Output: {OUTPUT_FILE}")
 print(f"Results: {RESULTS_FILE}")
 print(f"Deferred ledger: {DEFERRED_LEDGER}")
 print(f"Log: {ENFORCEMENT_LOG}")
+

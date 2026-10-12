@@ -316,7 +316,7 @@ Activate the stop mechanism during or before a simulated remediation run.
 - no subsequent identity writes;
 - completed evidence remains preserved.
 
-**Status:** PENDING / NOT YET IMPLEMENTED
+**Status:** PASS
 
 ---
 
@@ -338,10 +338,11 @@ Tests currently passed:
 - T12
 - T13
 - T14
+- T15
 
 Tests still requiring validation:
 
-- T15
+None.
 ---
 
 # Testing Principle
@@ -363,7 +364,8 @@ The redesign must also demonstrate that:
 
 **Core V2 safety controls validated.**
 
-**Negative/failure-mode testing remains in progress.**
+**All planned V2 safety tests are complete.**
+
 
 
 
