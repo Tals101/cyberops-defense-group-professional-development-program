@@ -1,0 +1,11 @@
+username,identity_type,workforce_status,days_since_interactive_login,days_since_noninteractive_auth,confidence,authority,recommendation,reason
+emma.reed,employee,active,1,,HIGH,AUTO_REMEDIATE,NO_ACTION,No remediation condition matched.
+samir.patel,employee,active,12,,HIGH,AUTO_REMEDIATE,NO_ACTION,No remediation condition matched.
+nora.hayes,employee,inactive,135,,HIGH,AUTO_REMEDIATE,DISABLE,Inactive lifecycle state with interactive login age 135 days.
+kevin.brooks,employee,terminated,18,,HIGH,AUTO_REMEDIATE,DISABLE,Workforce status is terminated.
+admin.ops,privileged,not_applicable,3,,HIGH,REQUIRE_APPROVAL,REVIEW,Privileged identity requires approval for remediation.
+svc_finance_batch,service_account,not_applicable,240,0,HIGH,REQUIRE_APPROVAL,KEEP_ENABLED,"Interactive login is stale, but recent non-interactive authentication indicates active service use."
+svc_records_archive,service_account,not_applicable,400,76,HIGH,REQUIRE_APPROVAL,REVIEW,Service account appears stale and requires owner and dependency review before remediation.
+contractor.mills,contractor,contractor_expired,160,,HIGH,AUTO_REMEDIATE,DISABLE,Workforce status is contractor_expired.
+analytics.temp,unknown,unknown,105,2,LOW,DO_NOT_AUTOMATE,REVIEW,Identity type is unknown or unsupported. Confidence=LOW; unattended remediation not permitted.
+ingest.bridge,unknown,not_applicable,,,INSUFFICIENT,DO_NOT_AUTOMATE,REVIEW,Identity type is unknown or unsupported. Confidence=INSUFFICIENT; unattended remediation not permitted.

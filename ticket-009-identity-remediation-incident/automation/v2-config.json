@@ -1,0 +1,49 @@
+﻿{
+  "mode": "dry_run",
+  "stale_interactive_days": 90,
+  "max_state_changes_per_run": 2,
+  "require_audit_logging": true,
+  "require_prechange_snapshot": true,
+  "require_postchange_validation": true,
+  "halt_on_validation_failure": true,
+  "rollback_on_validation_failure": true,
+
+  "auto_remediate": {
+    "allowed_identity_types": [
+      "employee",
+      "contractor"
+    ],
+    "allowed_privilege_levels": [
+      "standard"
+    ],
+    "require_complete_evidence": true,
+    "require_current_data": true,
+    "require_no_service_dependencies": true,
+    "required_confidence": "HIGH"
+  },
+
+  "require_approval": {
+    "identity_types": [
+      "service_account",
+      "privileged"
+    ],
+    "conditions": [
+      "has_service_dependencies",
+      "conflicting_evidence",
+      "incomplete_ownership",
+      "moderate_or_high_impact"
+    ]
+  },
+
+  "do_not_automate": {
+    "conditions": [
+      "unknown_identity_type",
+      "critical_evidence_missing",
+      "logging_unavailable",
+      "rollback_unavailable_for_high_impact_change",
+      "break_glass_identity",
+      "core_iam_identity",
+      "recovery_identity"
+    ]
+  }
+}
