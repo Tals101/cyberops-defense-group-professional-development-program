@@ -299,7 +299,7 @@ Simulate inability to establish the required audit log before state changes begi
 - enforcement stops;
 - no identity is modified.
 
-**Status:** PENDING
+**Status:** PASS
 
 ---
 
@@ -337,10 +337,10 @@ Tests currently passed:
 - T11
 - T12
 - T13
+- T14
 
 Tests still requiring validation:
 
-- T14
 - T15
 ---
 
@@ -364,5 +364,6 @@ The redesign must also demonstrate that:
 **Core V2 safety controls validated.**
 
 **Negative/failure-mode testing remains in progress.**
+
 
 
