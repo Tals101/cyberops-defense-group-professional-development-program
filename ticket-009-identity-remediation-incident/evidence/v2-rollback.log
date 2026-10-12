@@ -1,0 +1,3 @@
+2026-10-12T20:53:49.251055+00:00 V2 rollback started
+2026-10-12T20:53:49.251073+00:00 restoring username=svc_finance_batch enabled_before=False enabled_restore=True
+2026-10-12T20:53:49.251603+00:00 rollback completed accounts_restored=1

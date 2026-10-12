@@ -1,0 +1,4 @@
+2026-10-12T20:48:22.834649+00:00 V2 post-change health validation started
+2026-10-12T20:48:22.834660+00:00 dependency=Finance LedgerBridge
+2026-10-12T20:48:22.834664+00:00 dependency_account=svc_finance_batch enabled=True
+2026-10-12T20:48:22.834669+00:00 APPLICATION_STATUS=HEALTHY

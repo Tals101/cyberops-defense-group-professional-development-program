@@ -1,0 +1,4 @@
+2026-10-12T20:55:25.890339+00:00 Rollback recovery validation started
+2026-10-12T20:55:25.890350+00:00 dependency=Finance LedgerBridge
+2026-10-12T20:55:25.890354+00:00 dependency_account=svc_finance_batch enabled=True
+2026-10-12T20:55:25.890360+00:00 APPLICATION_STATUS=HEALTHY
