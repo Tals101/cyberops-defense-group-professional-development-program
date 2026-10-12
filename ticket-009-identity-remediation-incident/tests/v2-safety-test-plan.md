@@ -242,7 +242,7 @@ Temporarily make the required snapshot unavailable and attempt enforcement in an
 - enforcement refuses to start;
 - no identity state changes.
 
-**Status:** PENDING
+**Status:** PASS
 
 ---
 
@@ -260,7 +260,7 @@ Execute the same approved state-changing workflow against an already-remediated 
 - no unexpected additional changes occur;
 - run-level limits remain effective.
 
-**Status:** PENDING
+**Status:** PASS AFTER CORRECTIVE CONTROL
 
 ---
 
@@ -334,15 +334,14 @@ Tests currently passed:
 - T08
 - T09
 - T10
+- T11
+- T12
 - T13
 
 Tests still requiring validation:
 
-- T11
-- T12
 - T14
 - T15
-
 ---
 
 # Testing Principle
@@ -365,3 +364,5 @@ The redesign must also demonstrate that:
 **Core V2 safety controls validated.**
 
 **Negative/failure-mode testing remains in progress.**
+
+
