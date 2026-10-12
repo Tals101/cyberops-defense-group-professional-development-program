@@ -1,0 +1,5 @@
+2026-10-12T20:46:20.773122+00:00 V2 enforcement started
+2026-10-12T20:46:20.773132+00:00 max_state_changes_per_run=2
+2026-10-12T20:46:20.773141+00:00 username=nora.hayes before_enabled=True after_enabled=False action=DISABLE result=SUCCESS change_number=1
+2026-10-12T20:46:20.773149+00:00 username=kevin.brooks before_enabled=True after_enabled=False action=DISABLE result=SUCCESS change_number=2
+2026-10-12T20:46:20.773155+00:00 V2 enforcement completed changes_made=2
