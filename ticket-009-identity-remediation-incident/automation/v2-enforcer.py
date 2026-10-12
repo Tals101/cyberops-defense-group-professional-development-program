@@ -13,6 +13,7 @@ SNAPSHOT_FILE = BASE_DIR / "evidence" / "v2-prechange-snapshot.json"
 OUTPUT_FILE = BASE_DIR / "simulation" / "identities-v2-after.json"
 ENFORCEMENT_LOG = BASE_DIR / "evidence" / "v2-enforcement.log"
 RESULTS_FILE = BASE_DIR / "evidence" / "v2-enforcement-results.csv"
+DEFERRED_LEDGER = BASE_DIR / "evidence" / "v2-deferred-actions.json"
 
 
 def timestamp():
@@ -21,6 +22,7 @@ def timestamp():
 
 if not SNAPSHOT_FILE.exists():
     raise SystemExit("FAIL: required pre-change snapshot is missing.")
+
 
 with CONFIG_FILE.open("r", encoding="utf-8-sig") as f:
     config = json.load(f)
@@ -31,6 +33,20 @@ with STATE_FILE.open("r", encoding="utf-8-sig") as f:
 with DECISIONS_FILE.open("r", encoding="utf-8-sig") as f:
     decisions = list(csv.DictReader(f))
 
+
+if DEFERRED_LEDGER.exists():
+    with DEFERRED_LEDGER.open("r", encoding="utf-8-sig") as f:
+        deferred_data = json.load(f)
+else:
+    deferred_data = {
+        "description": (
+            "Persistent V2 identities deferred by a safety boundary. "
+            "Deferred identities require explicit review before later enforcement."
+        ),
+        "deferred": []
+    }
+
+
 max_changes = int(config["max_state_changes_per_run"])
 
 decision_map = {
@@ -38,12 +54,22 @@ decision_map = {
     for row in decisions
 }
 
+deferred_usernames = {
+    item["username"]
+    for item in deferred_data["deferred"]
+}
+
 changes_made = 0
 results = []
+
 
 with ENFORCEMENT_LOG.open("w", encoding="utf-8") as log:
     log.write(f"{timestamp()} V2 enforcement started\n")
     log.write(f"{timestamp()} max_state_changes_per_run={max_changes}\n")
+    log.write(
+        f"{timestamp()} deferred_identities_loaded="
+        f"{len(deferred_usernames)}\n"
+    )
 
     for account in state["accounts"]:
         username = account["username"]
@@ -57,6 +83,7 @@ with ENFORCEMENT_LOG.open("w", encoding="utf-8") as log:
                 "action": "NO_ACTION",
                 "result": "NO_DECISION_RECORD"
             })
+
             log.write(
                 f"{timestamp()} username={username} "
                 f"result=NO_DECISION_RECORD\n"
@@ -69,15 +96,47 @@ with ENFORCEMENT_LOG.open("w", encoding="utf-8") as log:
         action = "NO_ACTION"
         result = "NOT_ELIGIBLE"
 
-        if authority == "AUTO_REMEDIATE" and recommendation == "DISABLE":
+        if recommendation in ("KEEP_ENABLED", "NO_ACTION"):
+            action = "NO_ACTION"
+            result = "RECOMMENDATION_NO_CHANGE"
 
-            if changes_made >= max_changes:
+        elif authority == "AUTO_REMEDIATE" and recommendation == "DISABLE":
+
+            if not account.get("enabled", False):
+                action = "NO_ACTION"
+                result = "ALREADY_DISABLED"
+
+            elif username in deferred_usernames:
+                action = "STAGE_ONLY"
+                result = "DEFERRED_REVIEW_REQUIRED"
+
+                log.write(
+                    f"{timestamp()} username={username} "
+                    f"action=STAGE_ONLY "
+                    f"result=DEFERRED_REVIEW_REQUIRED\n"
+                )
+
+            elif changes_made >= max_changes:
                 action = "STAGE_ONLY"
                 result = "RUN_LIMIT_REACHED"
 
-            elif not account.get("enabled", False):
-                action = "NO_ACTION"
-                result = "ALREADY_DISABLED"
+                deferred_data["deferred"].append({
+                    "username": username,
+                    "deferred_at_utc": timestamp(),
+                    "reason": "RUN_LIMIT_REACHED",
+                    "authority": authority,
+                    "recommendation": recommendation,
+                    "release_required": True
+                })
+
+                deferred_usernames.add(username)
+
+                log.write(
+                    f"{timestamp()} username={username} "
+                    f"action=STAGE_ONLY "
+                    f"result=RUN_LIMIT_REACHED "
+                    f"deferred_persisted=True\n"
+                )
 
             else:
                 before_enabled = account["enabled"]
@@ -94,10 +153,6 @@ with ENFORCEMENT_LOG.open("w", encoding="utf-8") as log:
                     f"action=DISABLE result=SUCCESS "
                     f"change_number={changes_made}\n"
                 )
-
-        elif recommendation in ("KEEP_ENABLED", "NO_ACTION"):
-            action = "NO_ACTION"
-            result = "RECOMMENDATION_NO_CHANGE"
 
         elif authority == "REQUIRE_APPROVAL":
             action = "STAGE_ONLY"
@@ -125,6 +180,10 @@ with OUTPUT_FILE.open("w", encoding="utf-8") as f:
     json.dump(state, f, indent=2)
 
 
+with DEFERRED_LEDGER.open("w", encoding="utf-8") as f:
+    json.dump(deferred_data, f, indent=2)
+
+
 fieldnames = [
     "username",
     "authority",
@@ -142,7 +201,8 @@ with RESULTS_FILE.open("w", newline="", encoding="utf-8") as f:
 print("V2 enforcement complete.")
 print(f"Changes made: {changes_made}")
 print(f"Maximum allowed: {max_changes}")
+print(f"Deferred identities: {len(deferred_data['deferred'])}")
 print(f"Output: {OUTPUT_FILE}")
 print(f"Results: {RESULTS_FILE}")
+print(f"Deferred ledger: {DEFERRED_LEDGER}")
 print(f"Log: {ENFORCEMENT_LOG}")
-
