@@ -1,0 +1,10 @@
+﻿{
+  "accounts": [
+    {
+      "username": "malformed.test",
+      "identity_type": "employee",
+      "enabled": true
+    }
+  ]
+  THIS_IS_NOT_VALID_JSON
+}
