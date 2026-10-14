@@ -1,4 +1,4 @@
-﻿import csv
+import csv
 import json
 from datetime import datetime, timezone
 from pathlib import Path
@@ -38,7 +38,33 @@ def list_value(value):
     return [value]
 
 
+def missing_required_primary_fields(account):
+    required_fields = [
+        "identity_type",
+        "workforce_status",
+        "owner",
+        "business_purpose",
+        "lifecycle_state",
+        "data_freshness",
+        "evidence_completeness",
+    ]
+
+    missing = []
+
+    for field in required_fields:
+        value = lower(account.get(field))
+        if value in {"", "unknown", "none", "null"}:
+            missing.append(field)
+
+    return missing
+
+
 def primary_confidence(account):
+    missing = missing_required_primary_fields(account)
+
+    if missing:
+        return "INSUFFICIENT"
+
     completeness = lower(account.get("evidence_completeness"))
     freshness = lower(account.get("data_freshness"))
 
@@ -103,6 +129,7 @@ def canonical_primary_lifecycle(account):
 
 def evidence_trust(account, secondary):
     reasons = []
+    missing = missing_required_primary_fields(account)
 
     if secondary is None:
         return "INCOMPLETE", ["No secondary corroborating record exists."]
@@ -162,7 +189,18 @@ def evidence_trust(account, secondary):
         )
 
     if reasons:
+        if missing:
+            reasons.insert(
+                0,
+                "Missing required primary fields: " + ", ".join(missing) + "."
+            )
         return "CONFLICTING", reasons
+
+    if missing:
+        return (
+            "INCOMPLETE",
+            ["Missing required primary fields: " + ", ".join(missing) + "."],
+        )
 
     return "TRUSTED", ["Required primary and secondary evidence is sufficiently corroborated."]
 
