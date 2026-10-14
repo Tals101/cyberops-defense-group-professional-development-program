@@ -38,6 +38,42 @@ def list_value(value):
     return [value]
 
 
+def load_json_source(path, source_name):
+    try:
+        with path.open("r", encoding="utf-8-sig") as handle:
+            return json.load(handle)
+
+    except (json.JSONDecodeError, OSError) as exc:
+        failure_time = datetime.now(timezone.utc).isoformat()
+
+        log_lines = [
+            f"started_utc={failure_time}",
+            "mode=DRY_RUN",
+            "status=FAIL_CLOSED",
+            "failure_type=INPUT_READ_OR_PARSE_FAILURE",
+            f"source={source_name}",
+            f"path={path}",
+            f"error_type={type(exc).__name__}",
+            f"error={str(exc)}",
+            "decision_records=0",
+            "remediation_performed=False",
+            "safe_to_retry_after_input_correction=True",
+        ]
+
+        LOG_FILE.write_text(
+            "\n".join(log_lines) + "\n",
+            encoding="utf-8",
+        )
+
+        print(
+            f"FAIL: {source_name} input could not be read or parsed. "
+            "No decisions or remediation occurred."
+        )
+        print(f"Failure log: {LOG_FILE}")
+
+        raise SystemExit(1)
+
+
 def missing_required_primary_fields(account):
     required_fields = [
         "identity_type",
@@ -237,11 +273,15 @@ def authority(account, secondary, confidence, trust):
 
 
 def main():
-    with PRIMARY_FILE.open("r", encoding="utf-8-sig") as handle:
-        primary_data = json.load(handle)
+    primary_data = load_json_source(
+        PRIMARY_FILE,
+        "PRIMARY_IDENTITY_SOURCE",
+    )
 
-    with SECONDARY_FILE.open("r", encoding="utf-8-sig") as handle:
-        secondary_data = json.load(handle)
+    secondary_data = load_json_source(
+        SECONDARY_FILE,
+        "SECONDARY_CONTEXT_SOURCE",
+    )
 
     accounts = primary_data["accounts"]
 
