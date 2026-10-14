@@ -1,0 +1,17 @@
+started_utc=2026-10-14T14:24:43.240674+00:00
+mode=DRY_RUN
+primary_records=11
+secondary_records=11
+username=emma.reed | confidence=HIGH | trust=TRUSTED | recommendation=NO_ACTION | authority=AUTO_REMEDIATE | action=NO_ACTION_DRY_RUN
+username=samir.patel | confidence=HIGH | trust=TRUSTED | recommendation=NO_ACTION | authority=AUTO_REMEDIATE | action=NO_ACTION_DRY_RUN
+username=nora.hayes | confidence=INSUFFICIENT | trust=INCOMPLETE | recommendation=DISABLE | authority=REQUIRE_APPROVAL | action=NO_ACTION_DRY_RUN
+username=kevin.brooks | confidence=HIGH | trust=TRUSTED | recommendation=DISABLE | authority=AUTO_REMEDIATE | action=NO_ACTION_DRY_RUN
+username=admin.ops | confidence=HIGH | trust=TRUSTED | recommendation=REVIEW | authority=REQUIRE_APPROVAL | action=NO_ACTION_DRY_RUN
+username=svc_finance_batch | confidence=HIGH | trust=TRUSTED | recommendation=KEEP_ENABLED | authority=REQUIRE_APPROVAL | action=NO_ACTION_DRY_RUN
+username=svc_records_archive | confidence=HIGH | trust=TRUSTED | recommendation=REVIEW | authority=REQUIRE_APPROVAL | action=NO_ACTION_DRY_RUN
+username=contractor.mills | confidence=HIGH | trust=TRUSTED | recommendation=DISABLE | authority=AUTO_REMEDIATE | action=NO_ACTION_DRY_RUN
+username=analytics.temp | confidence=INSUFFICIENT | trust=INCOMPLETE | recommendation=REVIEW | authority=DO_NOT_AUTOMATE | action=NO_ACTION_DRY_RUN
+username=ingest.bridge | confidence=INSUFFICIENT | trust=INCOMPLETE | recommendation=REVIEW | authority=DO_NOT_AUTOMATE | action=NO_ACTION_DRY_RUN
+username=payroll.emergency | confidence=INSUFFICIENT | trust=CONFLICTING | recommendation=DISABLE | authority=REQUIRE_APPROVAL | action=NO_ACTION_DRY_RUN
+completed_utc=2026-10-14T14:24:43.241190+00:00
+decision_records=11
