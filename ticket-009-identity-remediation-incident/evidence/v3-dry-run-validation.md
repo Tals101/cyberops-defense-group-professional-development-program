@@ -1,4 +1,4 @@
-﻿# Ticket #009 — V3 Dry-Run Validation
+# Ticket #009 — V3 Dry-Run Validation
 
 ## Objective
 
@@ -60,7 +60,7 @@ Primary lifecycle state:
 
 Primary business purpose:
 
-`unknown`
+`standard payroll operations workforce access`
 
 Primary dependencies:
 
@@ -156,7 +156,7 @@ The test demonstrates that V3 does not assume that a logically correct policy de
 
 V3 separately evaluates whether the evidence supporting that decision is trustworthy.
 
-The emergency payroll account would have satisfied the primary remediation rule, but conflicting independent evidence prevented unattended destructive authority.
+The emergency payroll account had a complete-looking, plausible IAM record and would have satisfied the primary remediation rule, but conflicting independent evidence prevented unattended destructive authority.
 
 This directly addresses the bad-data failure discovered after V2.
 
