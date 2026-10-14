@@ -38,6 +38,33 @@ def list_value(value):
     return [value]
 
 
+def audit_log_preflight():
+    try:
+        if not LOG_FILE.parent.exists():
+            raise OSError(
+                f"Audit-log parent directory does not exist: {LOG_FILE.parent}"
+            )
+
+        if LOG_FILE.exists() and LOG_FILE.is_dir():
+            raise IsADirectoryError(
+                f"Audit-log path is a directory: {LOG_FILE}"
+            )
+
+        with LOG_FILE.open("a", encoding="utf-8") as handle:
+            handle.write(
+                "audit_preflight=PASS | "
+                + datetime.now(timezone.utc).isoformat()
+                + "\n"
+            )
+
+    except OSError as exc:
+        print("FAIL: required audit logging is unavailable.")
+        print(f"Audit path: {LOG_FILE}")
+        print(f"Error: {type(exc).__name__}: {exc}")
+        print("No decisions or remediation occurred.")
+        raise SystemExit(1)
+
+
 def load_json_source(path, source_name):
     try:
         with path.open("r", encoding="utf-8-sig") as handle:
@@ -273,6 +300,8 @@ def authority(account, secondary, confidence, trust):
 
 
 def main():
+    audit_log_preflight()
+
     primary_data = load_json_source(
         PRIMARY_FILE,
         "PRIMARY_IDENTITY_SOURCE",
