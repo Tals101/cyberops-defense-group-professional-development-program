@@ -188,7 +188,7 @@
                          "identity_type":  "employee",
                          "workforce_status":  "active",
                          "owner":  "Payroll Operations",
-                         "business_purpose":  "unknown",
+                         "business_purpose":  "standard payroll operations workforce access",
                          "days_since_interactive_login":  180,
                          "days_since_noninteractive_auth":  null,
                          "privilege":  "standard",
