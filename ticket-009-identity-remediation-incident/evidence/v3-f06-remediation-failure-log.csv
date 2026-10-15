@@ -1,0 +1,2 @@
+timestamp_utc,username,approval_status,enabled_before,attempted_action,result,error_type,error,enabled_after,state_change_committed
+2026-10-15T19:18:15.601054+00:00,nora.hayes,APPROVED,True,DISABLE,FAILED_REMEDIATION,OSError,Simulated remediation write failure before atomic replace.,True,False
