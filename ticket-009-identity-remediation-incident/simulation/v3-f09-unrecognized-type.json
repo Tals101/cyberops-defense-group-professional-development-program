@@ -1,0 +1,205 @@
+﻿{
+    "simulation_only":  true,
+    "description":  "Synthetic identity dataset for Ticket #009. Contains no real users, credentials, or company data.",
+    "accounts":  [
+                     {
+                         "username":  "emma.reed",
+                         "identity_type":  "employee",
+                         "workforce_status":  "active",
+                         "owner":  "Emma Reed",
+                         "business_purpose":  "standard workforce access",
+                         "days_since_interactive_login":  1,
+                         "days_since_noninteractive_auth":  null,
+                         "privilege":  "standard",
+                         "service_dependencies":  [
+
+                                                  ],
+                         "approval_status":  "not_required",
+                         "lifecycle_state":  "active",
+                         "data_freshness":  "current",
+                         "evidence_completeness":  "complete",
+                         "enabled":  true
+                     },
+                     {
+                         "username":  "samir.patel",
+                         "identity_type":  "employee",
+                         "workforce_status":  "active",
+                         "owner":  "Samir Patel",
+                         "business_purpose":  "finance analyst workforce access",
+                         "days_since_interactive_login":  12,
+                         "days_since_noninteractive_auth":  null,
+                         "privilege":  "standard",
+                         "service_dependencies":  [
+
+                                                  ],
+                         "approval_status":  "not_required",
+                         "lifecycle_state":  "active",
+                         "data_freshness":  "current",
+                         "evidence_completeness":  "complete",
+                         "enabled":  true
+                     },
+                     {
+                         "username":  "nora.hayes",
+                         "identity_type":  "robot_account",
+                         "workforce_status":  "inactive",
+                         "owner":  "Nora Hayes",
+                         "business_purpose":  "former operations role pending lifecycle review",
+                         "days_since_interactive_login":  135,
+                         "days_since_noninteractive_auth":  null,
+                         "privilege":  "standard",
+                         "service_dependencies":  [
+
+                                                  ],
+                         "approval_status":  "not_required",
+                         "lifecycle_state":  "inactive",
+                         "data_freshness":  "current",
+                         "evidence_completeness":  "complete",
+                         "enabled":  true
+                     },
+                     {
+                         "username":  "kevin.brooks",
+                         "identity_type":  "employee",
+                         "workforce_status":  "terminated",
+                         "owner":  "Kevin Brooks",
+                         "business_purpose":  "former workforce account",
+                         "days_since_interactive_login":  18,
+                         "days_since_noninteractive_auth":  null,
+                         "privilege":  "standard",
+                         "service_dependencies":  [
+
+                                                  ],
+                         "approval_status":  "expired",
+                         "lifecycle_state":  "pending_disable",
+                         "data_freshness":  "current",
+                         "evidence_completeness":  "complete",
+                         "enabled":  true
+                     },
+                     {
+                         "username":  "admin.ops",
+                         "identity_type":  "privileged",
+                         "workforce_status":  "not_applicable",
+                         "owner":  "Infrastructure Operations",
+                         "business_purpose":  "authorized infrastructure administration",
+                         "days_since_interactive_login":  3,
+                         "days_since_noninteractive_auth":  null,
+                         "privilege":  "administrator",
+                         "service_dependencies":  [
+                                                      "Infrastructure Management"
+                                                  ],
+                         "approval_status":  "approved",
+                         "lifecycle_state":  "active",
+                         "data_freshness":  "current",
+                         "evidence_completeness":  "complete",
+                         "enabled":  true
+                     },
+                     {
+                         "username":  "svc_finance_batch",
+                         "identity_type":  "service_account",
+                         "workforce_status":  "not_applicable",
+                         "owner":  "Finance Applications Team",
+                         "business_purpose":  "Finance posting and settlement integration",
+                         "days_since_interactive_login":  240,
+                         "days_since_noninteractive_auth":  0,
+                         "privilege":  "application",
+                         "service_dependencies":  [
+                                                      "Finance LedgerBridge",
+                                                      "Finance Settlement Processor"
+                                                  ],
+                         "approval_status":  "approved",
+                         "lifecycle_state":  "active",
+                         "data_freshness":  "current",
+                         "evidence_completeness":  "complete",
+                         "enabled":  true
+                     },
+                     {
+                         "username":  "svc_records_archive",
+                         "identity_type":  "service_account",
+                         "workforce_status":  "not_applicable",
+                         "owner":  "Records Management",
+                         "business_purpose":  "quarterly records archival process",
+                         "days_since_interactive_login":  400,
+                         "days_since_noninteractive_auth":  76,
+                         "privilege":  "application",
+                         "service_dependencies":  [
+                                                      "Records Archive Job"
+                                                  ],
+                         "approval_status":  "approved",
+                         "lifecycle_state":  "active",
+                         "data_freshness":  "current",
+                         "evidence_completeness":  "complete",
+                         "enabled":  true
+                     },
+                     {
+                         "username":  "contractor.mills",
+                         "identity_type":  "contractor",
+                         "workforce_status":  "contractor_expired",
+                         "owner":  "Marketing Operations",
+                         "business_purpose":  "expired campaign support engagement",
+                         "days_since_interactive_login":  160,
+                         "days_since_noninteractive_auth":  null,
+                         "privilege":  "standard",
+                         "service_dependencies":  [
+
+                                                  ],
+                         "approval_status":  "expired",
+                         "lifecycle_state":  "active",
+                         "data_freshness":  "current",
+                         "evidence_completeness":  "complete",
+                         "enabled":  true
+                     },
+                     {
+                         "username":  "analytics.temp",
+                         "identity_type":  "unknown",
+                         "workforce_status":  "unknown",
+                         "owner":  "unknown",
+                         "business_purpose":  "analytics processing - ownership unresolved",
+                         "days_since_interactive_login":  105,
+                         "days_since_noninteractive_auth":  2,
+                         "privilege":  "standard",
+                         "service_dependencies":  [
+                                                      "Analytics Processing"
+                                                  ],
+                         "approval_status":  "pending_review",
+                         "lifecycle_state":  "active",
+                         "data_freshness":  "mixed",
+                         "evidence_completeness":  "conflicting",
+                         "enabled":  true
+                     },
+                     {
+                         "username":  "ingest.bridge",
+                         "identity_type":  "unknown",
+                         "workforce_status":  "not_applicable",
+                         "owner":  "Data Engineering",
+                         "business_purpose":  "legacy integration - purpose requires validation",
+                         "days_since_interactive_login":  null,
+                         "days_since_noninteractive_auth":  null,
+                         "privilege":  "elevated",
+                         "service_dependencies":  [
+                                                      "Data Ingestion Pipeline"
+                                                  ],
+                         "approval_status":  "unknown",
+                         "lifecycle_state":  "active",
+                         "data_freshness":  "stale",
+                         "evidence_completeness":  "incomplete",
+                         "enabled":  true
+                     },
+                     {
+                         "username":  "payroll.emergency",
+                         "identity_type":  "employee",
+                         "workforce_status":  "active",
+                         "owner":  "Payroll Operations",
+                         "business_purpose":  "standard payroll operations workforce access",
+                         "days_since_interactive_login":  180,
+                         "days_since_noninteractive_auth":  null,
+                         "privilege":  "standard",
+                         "service_dependencies":  [
+
+                                                  ],
+                         "approval_status":  "approved",
+                         "lifecycle_state":  "inactive",
+                         "data_freshness":  "current",
+                         "evidence_completeness":  "complete",
+                         "enabled":  true
+                     }
+                 ]
+}
