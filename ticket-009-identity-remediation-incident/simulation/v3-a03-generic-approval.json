@@ -1,0 +1,5 @@
+﻿{
+  "approval_status": "APPROVED",
+  "approval_reference": "GENERIC-APPROVAL-A03",
+  "note": "Adversarial test artifact intentionally lacks identity, action, approver, timestamps, expiration, and replay protection."
+}
