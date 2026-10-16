@@ -1,9 +1,9 @@
 ﻿{
-  "secondary_identity_context": {
-    "canonical_file": "simulation/v3-secondary-context.json",
-    "algorithm": "SHA256",
-    "expected_hash": "A2413FFEC3AE18A8573205588EC4E2EBDF692E7B6C7563C588B31808FDC21E24",
-    "integrity_required": true,
-    "production_storage_requirement": "Store integrity baseline outside the automation write boundary."
-  }
+    "secondary_identity_context":  {
+                                       "canonical_file":  "simulation/v3-secondary-context.json",
+                                       "algorithm":  "SHA256",
+                                       "expected_hash":  "BD39FB3852FCB091A9AD17A60124D30672C5D49F48B23A8AA59605D45D3F0D4A",
+                                       "integrity_required":  true,
+                                       "production_storage_requirement":  "Store integrity baseline outside the automation write boundary."
+                                   }
 }
