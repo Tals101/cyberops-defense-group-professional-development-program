@@ -14,7 +14,8 @@
                         "expected_authentication_pattern":  "interactive",
                         "lifecycle_status":  "active",
                         "source_freshness":  "current",
-                        "source_confidence":  "high"
+                        "source_confidence":  "high",
+                        "observed_at_utc":  "2026-10-16T15:00:00Z"
                     },
                     {
                         "username":  "samir.patel",
@@ -27,7 +28,8 @@
                         "expected_authentication_pattern":  "interactive",
                         "lifecycle_status":  "active",
                         "source_freshness":  "current",
-                        "source_confidence":  "high"
+                        "source_confidence":  "high",
+                        "observed_at_utc":  "2026-10-16T15:00:00Z"
                     },
                     {
                         "username":  "nora.hayes",
@@ -40,7 +42,8 @@
                         "expected_authentication_pattern":  "interactive",
                         "lifecycle_status":  "inactive",
                         "source_freshness":  "current",
-                        "source_confidence":  "high"
+                        "source_confidence":  "high",
+                        "observed_at_utc":  "2026-10-16T15:00:00Z"
                     },
                     {
                         "username":  "kevin.brooks",
@@ -53,7 +56,8 @@
                         "expected_authentication_pattern":  "interactive",
                         "lifecycle_status":  "terminated",
                         "source_freshness":  "current",
-                        "source_confidence":  "high"
+                        "source_confidence":  "high",
+                        "observed_at_utc":  "2026-10-16T15:00:00Z"
                     },
                     {
                         "username":  "admin.ops",
@@ -66,7 +70,8 @@
                         "expected_authentication_pattern":  "interactive",
                         "lifecycle_status":  "active",
                         "source_freshness":  "current",
-                        "source_confidence":  "high"
+                        "source_confidence":  "high",
+                        "observed_at_utc":  "2026-10-16T15:00:00Z"
                     },
                     {
                         "username":  "svc_finance_batch",
@@ -80,7 +85,8 @@
                         "expected_authentication_pattern":  "noninteractive",
                         "lifecycle_status":  "active",
                         "source_freshness":  "current",
-                        "source_confidence":  "high"
+                        "source_confidence":  "high",
+                        "observed_at_utc":  "2026-10-16T15:00:00Z"
                     },
                     {
                         "username":  "svc_records_archive",
@@ -93,7 +99,8 @@
                         "expected_authentication_pattern":  "noninteractive",
                         "lifecycle_status":  "active",
                         "source_freshness":  "current",
-                        "source_confidence":  "high"
+                        "source_confidence":  "high",
+                        "observed_at_utc":  "2026-10-16T15:00:00Z"
                     },
                     {
                         "username":  "contractor.mills",
@@ -106,7 +113,8 @@
                         "expected_authentication_pattern":  "interactive",
                         "lifecycle_status":  "contractor_expired",
                         "source_freshness":  "current",
-                        "source_confidence":  "high"
+                        "source_confidence":  "high",
+                        "observed_at_utc":  "2026-10-16T15:00:00Z"
                     },
                     {
                         "username":  "analytics.temp",
@@ -119,7 +127,8 @@
                         "expected_authentication_pattern":  "unknown",
                         "lifecycle_status":  "unknown",
                         "source_freshness":  "current",
-                        "source_confidence":  "low"
+                        "source_confidence":  "low",
+                        "observed_at_utc":  "2026-10-16T15:00:00Z"
                     },
                     {
                         "username":  "ingest.bridge",
@@ -132,7 +141,8 @@
                         "expected_authentication_pattern":  "noninteractive",
                         "lifecycle_status":  "active",
                         "source_freshness":  "stale",
-                        "source_confidence":  "low"
+                        "source_confidence":  "low",
+                        "observed_at_utc":  "2026-01-01T00:00:00Z"
                     },
                     {
                         "username":  "payroll.emergency",
@@ -145,7 +155,8 @@
                         "expected_authentication_pattern":  "noninteractive",
                         "lifecycle_status":  "active",
                         "source_freshness":  "current",
-                        "source_confidence":  "high"
+                        "source_confidence":  "high",
+                        "observed_at_utc":  "2026-10-16T15:00:00Z"
                     }
                 ]
 }

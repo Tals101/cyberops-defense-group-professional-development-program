@@ -13,6 +13,7 @@ DECISIONS_FILE = BASE / "evidence" / "v3-dry-run-decisions.csv"
 LOG_FILE = BASE / "evidence" / "v3-dry-run.log"
 
 STALE_INTERACTIVE_DAYS = 90
+MAX_SECONDARY_EVIDENCE_AGE_HOURS = 24
 
 SUPPORTED_TYPES = {
     "employee",
@@ -258,6 +259,55 @@ def canonical_primary_lifecycle(account):
     return lifecycle_state
 
 
+
+def validate_secondary_observation_freshness(secondary):
+    observed_raw = text(secondary.get("observed_at_utc"))
+
+    if not observed_raw:
+        return (
+            "UNKNOWN",
+            "Secondary evidence observation timestamp is missing.",
+        )
+
+    try:
+        observed = datetime.fromisoformat(
+            observed_raw.replace("Z", "+00:00")
+        )
+
+        if observed.tzinfo is None:
+            observed = observed.replace(tzinfo=timezone.utc)
+
+        observed = observed.astimezone(timezone.utc)
+        now = datetime.now(timezone.utc)
+
+        age_seconds = (now - observed).total_seconds()
+        age_hours = age_seconds / 3600
+
+        if age_seconds < 0:
+            return (
+                "UNKNOWN",
+                "Secondary evidence observation timestamp is in the future.",
+            )
+
+        if age_hours > MAX_SECONDARY_EVIDENCE_AGE_HOURS:
+            return (
+                "STALE",
+                "Secondary evidence observation is "
+                f"{age_hours:.1f} hours old; maximum allowed age is "
+                f"{MAX_SECONDARY_EVIDENCE_AGE_HOURS} hours.",
+            )
+
+        return (
+            "CURRENT",
+            f"Secondary evidence observation age is {age_hours:.1f} hours.",
+        )
+
+    except ValueError:
+        return (
+            "UNKNOWN",
+            "Secondary evidence observation timestamp is invalid.",
+        )
+
 def evidence_trust(account, secondary):
     reasons = []
     missing = missing_required_primary_fields(account)
@@ -273,6 +323,16 @@ def evidence_trust(account, secondary):
 
     if lower(secondary.get("source_freshness")) != "current":
         return "STALE", ["Secondary evidence is stale."]
+
+    timestamp_status, timestamp_reason = (
+        validate_secondary_observation_freshness(secondary)
+    )
+
+    if timestamp_status == "STALE":
+        return "STALE", [timestamp_reason]
+
+    if timestamp_status == "UNKNOWN":
+        return "UNKNOWN", [timestamp_reason]
 
     secondary_confidence = lower(secondary.get("source_confidence"))
     if secondary_confidence not in {"high", "medium"}:
