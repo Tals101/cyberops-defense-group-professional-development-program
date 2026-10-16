@@ -1,0 +1,9 @@
+﻿{
+  "secondary_identity_context": {
+    "canonical_file": "simulation/v3-a02-forged-freshness-secondary.json",
+    "algorithm": "SHA256",
+    "expected_hash": "CDFF6A1DE8D2D825613A9AA2A21ABD3400746C4A0056610F40AB48B32BA60251",
+    "integrity_required": true,
+    "test_purpose": "A02 freshness metadata forgery adversarial test"
+  }
+}
