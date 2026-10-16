@@ -1,4 +1,4 @@
-started_utc=2026-10-14T19:35:04.155800+00:00
+started_utc=2026-10-16T15:19:18.921843+00:00
 mode=DRY_RUN
 primary_records=11
 secondary_records=11
@@ -13,5 +13,5 @@ username=contractor.mills | confidence=HIGH | trust=TRUSTED | recommendation=DIS
 username=analytics.temp | confidence=INSUFFICIENT | trust=INCOMPLETE | recommendation=REVIEW | authority=DO_NOT_AUTOMATE | action=NO_ACTION_DRY_RUN
 username=ingest.bridge | confidence=INSUFFICIENT | trust=INCOMPLETE | recommendation=REVIEW | authority=DO_NOT_AUTOMATE | action=NO_ACTION_DRY_RUN
 username=payroll.emergency | confidence=HIGH | trust=CONFLICTING | recommendation=DISABLE | authority=REQUIRE_APPROVAL | action=NO_ACTION_DRY_RUN
-completed_utc=2026-10-14T19:35:04.156200+00:00
+completed_utc=2026-10-16T15:19:18.922405+00:00
 decision_records=11

@@ -1,4 +1,5 @@
 import csv
+import hashlib
 import json
 from datetime import datetime, timezone
 from pathlib import Path
@@ -7,6 +8,7 @@ BASE = Path(__file__).resolve().parents[1]
 
 PRIMARY_FILE = BASE / "simulation" / "v3-identities.json"
 SECONDARY_FILE = BASE / "simulation" / "v3-secondary-context.json"
+INTEGRITY_BASELINE_FILE = BASE / "automation" / "v3-source-integrity-baseline.json"
 DECISIONS_FILE = BASE / "evidence" / "v3-dry-run-decisions.csv"
 LOG_FILE = BASE / "evidence" / "v3-dry-run.log"
 
@@ -64,6 +66,72 @@ def audit_log_preflight():
         print("No decisions or remediation occurred.")
         raise SystemExit(1)
 
+
+
+def verify_secondary_source_integrity():
+    try:
+        with INTEGRITY_BASELINE_FILE.open("r", encoding="utf-8-sig") as handle:
+            baseline = json.load(handle)
+
+        config = baseline["secondary_identity_context"]
+
+        if lower(config.get("algorithm")) != "sha256":
+            raise ValueError(
+                "Unsupported integrity algorithm: "
+                + text(config.get("algorithm"))
+            )
+
+        expected_hash = text(config.get("expected_hash")).upper()
+
+        if not expected_hash:
+            raise ValueError("Expected secondary-source hash is missing.")
+
+        digest = hashlib.sha256()
+
+        with SECONDARY_FILE.open("rb") as handle:
+            for chunk in iter(lambda: handle.read(65536), b""):
+                digest.update(chunk)
+
+        actual_hash = digest.hexdigest().upper()
+
+        if actual_hash != expected_hash:
+            raise ValueError(
+                "Secondary-source integrity mismatch. "
+                f"expected={expected_hash} actual={actual_hash}"
+            )
+
+        return {
+            "status": "PASS",
+            "algorithm": "SHA256",
+            "expected_hash": expected_hash,
+            "actual_hash": actual_hash,
+        }
+
+    except (OSError, json.JSONDecodeError, KeyError, ValueError) as exc:
+        failure_lines = [
+            "mode=DRY_RUN",
+            "status=FAIL_CLOSED",
+            "failure_type=SECONDARY_SOURCE_INTEGRITY_FAILURE",
+            f"source={SECONDARY_FILE}",
+            f"baseline={INTEGRITY_BASELINE_FILE}",
+            f"error_type={type(exc).__name__}",
+            f"error={exc}",
+            "decision_records=0",
+            "remediation_performed=False",
+            "required_operator_action=INVESTIGATE_SOURCE_INTEGRITY",
+        ]
+
+        LOG_FILE.write_text(
+            "\n".join(failure_lines) + "\n",
+            encoding="utf-8",
+        )
+
+        print("FAIL: secondary evidence source integrity could not be validated.")
+        print(f"Source: {SECONDARY_FILE}")
+        print(f"Error: {type(exc).__name__}: {exc}")
+        print("No decisions or remediation occurred.")
+        print("Required action: INVESTIGATE_SOURCE_INTEGRITY")
+        raise SystemExit(1)
 
 def load_json_source(path, source_name):
     try:
@@ -301,6 +369,7 @@ def authority(account, secondary, confidence, trust):
 
 def main():
     audit_log_preflight()
+    verify_secondary_source_integrity()
 
     primary_data = load_json_source(
         PRIMARY_FILE,

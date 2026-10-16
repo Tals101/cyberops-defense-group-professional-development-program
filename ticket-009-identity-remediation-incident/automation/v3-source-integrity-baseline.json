@@ -1,0 +1,9 @@
+﻿{
+  "secondary_identity_context": {
+    "canonical_file": "simulation/v3-secondary-context.json",
+    "algorithm": "SHA256",
+    "expected_hash": "A2413FFEC3AE18A8573205588EC4E2EBDF692E7B6C7563C588B31808FDC21E24",
+    "integrity_required": true,
+    "production_storage_requirement": "Store integrity baseline outside the automation write boundary."
+  }
+}
