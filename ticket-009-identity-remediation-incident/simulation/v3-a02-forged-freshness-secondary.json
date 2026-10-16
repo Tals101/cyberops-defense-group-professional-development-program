@@ -1,0 +1,152 @@
+﻿{
+    "simulation_only":  true,
+    "description":  "Synthetic secondary identity context for Ticket #009 V3 evidence corroboration.",
+    "source_name":  "Synthetic CMDB / Application Ownership Registry",
+    "records":  [
+                    {
+                        "username":  "emma.reed",
+                        "authoritative_identity_role":  "employee",
+                        "application_dependency":  [
+
+                                                   ],
+                        "business_criticality":  "low",
+                        "registered_owner":  "Emma Reed",
+                        "expected_authentication_pattern":  "interactive",
+                        "lifecycle_status":  "active",
+                        "source_freshness":  "current",
+                        "source_confidence":  "high"
+                    },
+                    {
+                        "username":  "samir.patel",
+                        "authoritative_identity_role":  "employee",
+                        "application_dependency":  [
+
+                                                   ],
+                        "business_criticality":  "low",
+                        "registered_owner":  "Samir Patel",
+                        "expected_authentication_pattern":  "interactive",
+                        "lifecycle_status":  "active",
+                        "source_freshness":  "current",
+                        "source_confidence":  "high"
+                    },
+                    {
+                        "username":  "nora.hayes",
+                        "authoritative_identity_role":  "employee",
+                        "application_dependency":  [
+
+                                                   ],
+                        "business_criticality":  "low",
+                        "registered_owner":  "Nora Hayes",
+                        "expected_authentication_pattern":  "interactive",
+                        "lifecycle_status":  "inactive",
+                        "source_freshness":  "current",
+                        "source_confidence":  "high",
+                        "observed_at_utc":  "2025-01-01T00:00:00Z"
+                    },
+                    {
+                        "username":  "kevin.brooks",
+                        "authoritative_identity_role":  "employee",
+                        "application_dependency":  [
+
+                                                   ],
+                        "business_criticality":  "low",
+                        "registered_owner":  "Kevin Brooks",
+                        "expected_authentication_pattern":  "interactive",
+                        "lifecycle_status":  "terminated",
+                        "source_freshness":  "current",
+                        "source_confidence":  "high"
+                    },
+                    {
+                        "username":  "admin.ops",
+                        "authoritative_identity_role":  "privileged",
+                        "application_dependency":  [
+                                                       "Infrastructure Management"
+                                                   ],
+                        "business_criticality":  "high",
+                        "registered_owner":  "Infrastructure Operations",
+                        "expected_authentication_pattern":  "interactive",
+                        "lifecycle_status":  "active",
+                        "source_freshness":  "current",
+                        "source_confidence":  "high"
+                    },
+                    {
+                        "username":  "svc_finance_batch",
+                        "authoritative_identity_role":  "service_account",
+                        "application_dependency":  [
+                                                       "Finance LedgerBridge",
+                                                       "Finance Settlement Processor"
+                                                   ],
+                        "business_criticality":  "high",
+                        "registered_owner":  "Finance Applications Team",
+                        "expected_authentication_pattern":  "noninteractive",
+                        "lifecycle_status":  "active",
+                        "source_freshness":  "current",
+                        "source_confidence":  "high"
+                    },
+                    {
+                        "username":  "svc_records_archive",
+                        "authoritative_identity_role":  "service_account",
+                        "application_dependency":  [
+                                                       "Records Archive Job"
+                                                   ],
+                        "business_criticality":  "medium",
+                        "registered_owner":  "Records Management",
+                        "expected_authentication_pattern":  "noninteractive",
+                        "lifecycle_status":  "active",
+                        "source_freshness":  "current",
+                        "source_confidence":  "high"
+                    },
+                    {
+                        "username":  "contractor.mills",
+                        "authoritative_identity_role":  "contractor",
+                        "application_dependency":  [
+
+                                                   ],
+                        "business_criticality":  "low",
+                        "registered_owner":  "Contractor Management",
+                        "expected_authentication_pattern":  "interactive",
+                        "lifecycle_status":  "contractor_expired",
+                        "source_freshness":  "current",
+                        "source_confidence":  "high"
+                    },
+                    {
+                        "username":  "analytics.temp",
+                        "authoritative_identity_role":  "unknown",
+                        "application_dependency":  [
+                                                       "Analytics Processing"
+                                                   ],
+                        "business_criticality":  "medium",
+                        "registered_owner":  "unknown",
+                        "expected_authentication_pattern":  "unknown",
+                        "lifecycle_status":  "unknown",
+                        "source_freshness":  "current",
+                        "source_confidence":  "low"
+                    },
+                    {
+                        "username":  "ingest.bridge",
+                        "authoritative_identity_role":  "integration",
+                        "application_dependency":  [
+                                                       "Data Ingestion Pipeline"
+                                                   ],
+                        "business_criticality":  "high",
+                        "registered_owner":  "Data Engineering",
+                        "expected_authentication_pattern":  "noninteractive",
+                        "lifecycle_status":  "active",
+                        "source_freshness":  "stale",
+                        "source_confidence":  "low"
+                    },
+                    {
+                        "username":  "payroll.emergency",
+                        "authoritative_identity_role":  "integration",
+                        "application_dependency":  [
+                                                       "Emergency Payroll Integration"
+                                                   ],
+                        "business_criticality":  "critical",
+                        "registered_owner":  "Payroll Operations",
+                        "expected_authentication_pattern":  "noninteractive",
+                        "lifecycle_status":  "active",
+                        "source_freshness":  "current",
+                        "source_confidence":  "high"
+                    }
+                ]
+}
