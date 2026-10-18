@@ -1,0 +1,10 @@
+﻿{
+    "approval_id":  "APR-A03-001",
+    "target_username":  "payroll.emergency",
+    "requested_action":  "DISABLE",
+    "approval_status":  "APPROVED",
+    "approved_by":  "soc.manager",
+    "issued_at_utc":  "2026-10-18T17:30:02.9096250Z",
+    "expires_at_utc":  "2026-10-18T18:00:02.9096250Z",
+    "signature_hmac_sha256":  "0a8b457ac99d7b4ede62a5cf72c6e813c4febc4aedce536de1c88b66752781c5"
+}
