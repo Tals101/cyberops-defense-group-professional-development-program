@@ -488,3 +488,114 @@ V2 demonstrated materially improved protection through:
 The original incident was therefore treated as an automation-governance and engineering-control failure, not merely an incorrect account classification.
 
 Ticket #009 simulation and safety validation are complete.
+
+---
+
+# Final Engineering Closure Addendum — October 18, 2026
+
+## Scope of This Addendum
+
+The preceding report documents the original incident investigation and the V1/V2 engineering work.
+
+The statement that the simulation and safety validation were complete referred to that earlier V2 scope.
+
+Subsequent engineering work extended Ticket #009 to V3 evidence-trust validation, failure injection, adversarial testing, operations planning, and production readiness assessment.
+
+This addendum records those later results without replacing the original evidence.
+
+## V3 Evidence-Trust Engineering
+
+V3 added secondary-source corroboration, explicit evidence-trust classifications, source-integrity verification, and independent observation-timestamp freshness checks.
+
+The canonical V3 decision engine remains dry-run only.
+
+Its AUTO_REMEDIATE classification does not grant authorization to modify production accounts.
+
+The synthetic payroll.emergency scenario demonstrated why decision confidence and evidence trust must be evaluated separately.
+
+Conflicting business-dependency evidence resulted in REQUIRE_APPROVAL rather than unattended remediation.
+
+## Failure-Injection Results — F01 Through F10
+
+Ten failure-injection scenarios were documented.
+
+F01–F03 exposed weaknesses involving missing identity attributes, corrupted input handling, and unavailable audit logging. Corrective implementations were tested.
+
+F04–F10 evaluated duplicate execution, interruption, remediation failure, rollback failure, approval timeout, unsupported identity types, and missing secondary corroboration.
+
+The results demonstrate laboratory control behavior, not integrated production readiness.
+
+Supporting record:
+
+tests/v3-failure-injection-results.md
+
+## Adversarial Results — A01 Through A03
+
+A01 demonstrated that poisoned secondary evidence could initially produce TRUSTED evidence and AUTO_REMEDIATE authority.
+
+Correction: validate source integrity against a separately protected SHA256 baseline before decision generation.
+
+A02 demonstrated that an attacker-controlled freshness label could make old evidence appear current.
+
+Correction: independently evaluate observation timestamps against a 24-hour freshness threshold.
+
+A03 demonstrated approval forgery and reuse of an unbound authorization reference in isolated synthetic enforcement tests.
+
+Correction: an isolated approval-verification workflow using HMAC-SHA256 signatures, identity and action binding, expiration, and one-time-use consumption.
+
+Corrective tests passed for their documented scenarios.
+
+The A03 approval controls remain separate from canonical V3 enforcement and are not production-ready.
+
+Supporting record:
+
+tests/v3-adversarial-test-results.md
+
+## Current Evidence Freshness
+
+The canonical V3 secondary observations are dated October 16, 2026.
+
+As of October 18, they exceed the 24-hour freshness threshold.
+
+Historical TRUSTED or AUTO_REMEDIATE outcomes must not be interpreted as currently valid authorization.
+
+Evidence must be refreshed from authoritative sources. Timestamps must not be artificially advanced.
+
+## Final Production Readiness Assessment
+
+The following production capabilities remain incomplete or unvalidated:
+
+- Integrated authorization and destructive enforcement
+- Independently protected approval issuance and replay prevention
+- Production IAM least-privilege enforcement
+- Protected integrity-baseline administration
+- Authoritative evidence refresh
+- Tamper-resistant audit logging
+- Integrated emergency stop, rollback, and service-health recovery
+- Formal operational and change-management authorization
+
+The laboratory evidence supports improvement over V1, but does not establish readiness for unattended destructive production operations.
+
+## Final Engineering Disposition
+
+**V1:** UNSAFE — RETIRED.
+
+**V2:** Improved authority and execution safeguards, validated within the laboratory.
+
+**V3:** Improved evidence-trust safeguards, validated within the documented laboratory scope; canonical implementation remains dry-run only.
+
+**Production decision:** NO-GO for full unattended destructive identity remediation.
+
+Continue read-only evidence collection, dry-run analysis, remediation recommendations, and separately authorized human-approved changes.
+
+The incident investigation and laboratory engineering documentation may be closed while production authorization remains explicitly withheld.
+
+## Final References
+
+- analysis/final-security-automation-engineering-report.md
+- analysis/security-automation-decision-brief.md
+- analysis/automation-operations-plan.md
+- analysis/automation-drift-analysis.md
+- analysis/iam-manager-allowlist-recommendation.md
+- notebook/engineering-notebook.md
+- lessons/lessons-learned.md
