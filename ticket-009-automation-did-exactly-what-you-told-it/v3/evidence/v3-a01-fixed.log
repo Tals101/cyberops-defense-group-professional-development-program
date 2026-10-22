@@ -1,0 +1,10 @@
+mode=DRY_RUN
+status=FAIL_CLOSED
+failure_type=SECONDARY_SOURCE_INTEGRITY_FAILURE
+source=C:\Users\Tals' CyberHub\Documents\GitHub\cyberops-defense-group-professional-development-program\ticket-009-identity-remediation-incident\simulation\v3-a01-poisoned-secondary.json
+baseline=C:\Users\Tals' CyberHub\Documents\GitHub\cyberops-defense-group-professional-development-program\ticket-009-identity-remediation-incident\automation\v3-source-integrity-baseline.json
+error_type=ValueError
+error=Secondary-source integrity mismatch. expected=A2413FFEC3AE18A8573205588EC4E2EBDF692E7B6C7563C588B31808FDC21E24 actual=3F23D57B9B6DE48379898B025CD2C59C6C90C015020A2D9D3D9D4B7C61F2B366
+decision_records=0
+remediation_performed=False
+required_operator_action=INVESTIGATE_SOURCE_INTEGRITY

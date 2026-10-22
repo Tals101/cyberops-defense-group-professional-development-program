@@ -1,0 +1,13 @@
+{
+  "description": "Persistent V2 identities deferred by a safety boundary. Deferred identities require explicit review before later enforcement.",
+  "deferred": [
+    {
+      "username": "contractor.mills",
+      "deferred_at_utc": "2026-10-12T21:12:25.258915+00:00",
+      "reason": "RUN_LIMIT_REACHED",
+      "authority": "AUTO_REMEDIATE",
+      "recommendation": "DISABLE",
+      "release_required": true
+    }
+  ]
+}

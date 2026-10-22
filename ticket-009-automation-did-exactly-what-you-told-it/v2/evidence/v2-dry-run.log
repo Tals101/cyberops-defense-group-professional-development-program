@@ -1,0 +1,12 @@
+2026-10-12T20:35:04.678997+00:00 V2 dry run started
+2026-10-12T20:35:04.679014+00:00 username=emma.reed confidence=HIGH authority=AUTO_REMEDIATE recommendation=NO_ACTION
+2026-10-12T20:35:04.679020+00:00 username=samir.patel confidence=HIGH authority=AUTO_REMEDIATE recommendation=NO_ACTION
+2026-10-12T20:35:04.679026+00:00 username=nora.hayes confidence=HIGH authority=AUTO_REMEDIATE recommendation=DISABLE
+2026-10-12T20:35:04.679028+00:00 username=kevin.brooks confidence=HIGH authority=AUTO_REMEDIATE recommendation=DISABLE
+2026-10-12T20:35:04.679031+00:00 username=admin.ops confidence=HIGH authority=REQUIRE_APPROVAL recommendation=REVIEW
+2026-10-12T20:35:04.679035+00:00 username=svc_finance_batch confidence=HIGH authority=REQUIRE_APPROVAL recommendation=KEEP_ENABLED
+2026-10-12T20:35:04.679038+00:00 username=svc_records_archive confidence=HIGH authority=REQUIRE_APPROVAL recommendation=REVIEW
+2026-10-12T20:35:04.679041+00:00 username=contractor.mills confidence=HIGH authority=AUTO_REMEDIATE recommendation=DISABLE
+2026-10-12T20:35:04.679044+00:00 username=analytics.temp confidence=LOW authority=DO_NOT_AUTOMATE recommendation=REVIEW
+2026-10-12T20:35:04.679046+00:00 username=ingest.bridge confidence=INSUFFICIENT authority=DO_NOT_AUTOMATE recommendation=REVIEW
+2026-10-12T20:35:04.679048+00:00 V2 dry run completed

@@ -1,0 +1,11 @@
+started_utc=2026-10-14T19:04:01.990710+00:00
+mode=DRY_RUN
+status=FAIL_CLOSED
+failure_type=INPUT_READ_OR_PARSE_FAILURE
+source=PRIMARY_IDENTITY_SOURCE
+path=C:\Users\Tals' CyberHub\Documents\GitHub\cyberops-defense-group-professional-development-program\ticket-009-identity-remediation-incident\simulation\v3-f02-corrupted-input.json
+error_type=JSONDecodeError
+error=Extra data: line 207 column 1 (char 10772)
+decision_records=0
+remediation_performed=False
+safe_to_retry_after_input_correction=True

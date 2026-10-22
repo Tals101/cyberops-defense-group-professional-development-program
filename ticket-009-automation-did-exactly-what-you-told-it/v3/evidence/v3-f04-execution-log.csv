@@ -1,0 +1,3 @@
+timestamp_utc,username,approval_status,desired_enabled_state,enabled_before,action,result,enabled_after
+2026-10-14T19:49:27.822212+00:00,nora.hayes,APPROVED,False,True,DISABLE,SUCCESS,False
+2026-10-14T19:53:34.147379+00:00,nora.hayes,APPROVED,False,False,NO_ACTION,ALREADY_DISABLED,False

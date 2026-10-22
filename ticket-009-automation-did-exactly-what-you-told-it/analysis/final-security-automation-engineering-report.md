@@ -1,4 +1,4 @@
-﻿# Ticket #009 — Final Security Automation Engineering Report
+# Ticket #009 — Final Security Automation Engineering Report
 
 **Project:** Identity Remediation Incident
 **Investigation Period:** October 11–18, 2026
@@ -494,14 +494,14 @@ The following gaps remain:
 
 ### Engineering Analysis
 
-- analysis/lab-identity-environment-design.md
-- analysis/identity-context-analysis.md
-- analysis/root-cause-and-blast-radius.md
-- analysis/iam-manager-allowlist-recommendation.md
-- analysis/automation-authority-matrix.md
-- analysis/automation-safeguard-register.md
-- analysis/automation-failure-mode-register.md
-- analysis/automation-change-record.md
+- environment/identity-environment-design.md
+- environment/identity-context-analysis.md
+- incident/root-cause-analysis.md
+- design/iam-manager-response.md
+- security/automation-authority-matrix.md
+- security/safeguard-register.md
+- security/failure-mode-register.md
+- operations/automation-change-record.md
 
 ### Automation Implementations
 
@@ -523,11 +523,11 @@ The following gaps remain:
 
 ### Final Engineering Records
 
-- notebook/engineering-notebook.md
-- lessons/lessons-learned.md
-- analysis/automation-operations-plan.md
-- analysis/automation-drift-analysis.md
-- analysis/security-automation-decision-brief.md
+- engineering-notebook.md
+- lessons-learned.md
+- operations/automation-operations-plan.md
+- operations/automation-drift.md
+- management/security-automation-decision-brief.md
 
 ## 19. Final Engineering Conclusion
 

@@ -1,0 +1,2 @@
+timestamp_utc,username,approval_status,approval_age_minutes,approval_timeout_minutes,attempted_action,result,enabled_before,enabled_after,state_change_committed,required_operator_action
+2026-10-15T19:49:41.858991+00:00,payroll.emergency,PENDING,180,60,DISABLE,APPROVAL_TIMEOUT,True,True,False,ESCALATE_APPROVAL_TIMEOUT

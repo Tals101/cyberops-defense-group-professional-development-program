@@ -1,0 +1,11 @@
+timestamp_utc,username,identity_type,days_since_interactive_login,decision,action_result,before_enabled,after_enabled,reason
+2026-10-11T19:15:17.608162+00:00,emma.reed,employee,1,KEEP_ENABLED,NO_CHANGE,True,True,Interactive login age 1 days is below 90-day threshold.
+2026-10-11T19:15:17.608174+00:00,samir.patel,employee,12,KEEP_ENABLED,NO_CHANGE,True,True,Interactive login age 12 days is below 90-day threshold.
+2026-10-11T19:15:17.608179+00:00,nora.hayes,employee,135,DISABLE,SUCCESS,True,False,Interactive login age 135 days meets or exceeds 90-day threshold.
+2026-10-11T19:15:17.608182+00:00,kevin.brooks,employee,18,KEEP_ENABLED,NO_CHANGE,True,True,Interactive login age 18 days is below 90-day threshold.
+2026-10-11T19:15:17.608185+00:00,admin.ops,privileged,3,KEEP_ENABLED,NO_CHANGE,True,True,Interactive login age 3 days is below 90-day threshold.
+2026-10-11T19:15:17.608188+00:00,svc_finance_batch,service_account,240,DISABLE,SUCCESS,True,False,Interactive login age 240 days meets or exceeds 90-day threshold.
+2026-10-11T19:15:17.608192+00:00,svc_records_archive,service_account,400,DISABLE,SUCCESS,True,False,Interactive login age 400 days meets or exceeds 90-day threshold.
+2026-10-11T19:15:17.608195+00:00,contractor.mills,contractor,160,DISABLE,SUCCESS,True,False,Interactive login age 160 days meets or exceeds 90-day threshold.
+2026-10-11T19:15:17.608198+00:00,analytics.temp,unknown,105,DISABLE,SUCCESS,True,False,Interactive login age 105 days meets or exceeds 90-day threshold.
+2026-10-11T19:15:17.608203+00:00,ingest.bridge,unknown,,KEEP_ENABLED,NO_CHANGE,True,True,Interactive login age unavailable; V1 threshold not matched.

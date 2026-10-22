@@ -1,4 +1,4 @@
-﻿# Ticket #009 — Identity Remediation Incident Closure Report
+# Ticket #009 — Identity Remediation Incident Closure Report
 
 ## Executive Summary
 
@@ -593,9 +593,9 @@ The incident investigation and laboratory engineering documentation may be close
 ## Final References
 
 - analysis/final-security-automation-engineering-report.md
-- analysis/security-automation-decision-brief.md
-- analysis/automation-operations-plan.md
-- analysis/automation-drift-analysis.md
-- analysis/iam-manager-allowlist-recommendation.md
-- notebook/engineering-notebook.md
-- lessons/lessons-learned.md
+- management/security-automation-decision-brief.md
+- operations/automation-operations-plan.md
+- operations/automation-drift.md
+- design/iam-manager-response.md
+- engineering-notebook.md
+- lessons-learned.md
