@@ -1,0 +1,7 @@
+2026-10-12T21:12:25.258876+00:00 V2 enforcement started
+2026-10-12T21:12:25.258888+00:00 max_state_changes_per_run=2
+2026-10-12T21:12:25.258892+00:00 deferred_identities_loaded=0
+2026-10-12T21:12:25.258901+00:00 username=nora.hayes before_enabled=True after_enabled=False action=DISABLE result=SUCCESS change_number=1
+2026-10-12T21:12:25.258910+00:00 username=kevin.brooks before_enabled=True after_enabled=False action=DISABLE result=SUCCESS change_number=2
+2026-10-12T21:12:25.258917+00:00 username=contractor.mills action=STAGE_ONLY result=RUN_LIMIT_REACHED deferred_persisted=True
+2026-10-12T21:12:25.258920+00:00 V2 enforcement completed changes_made=2

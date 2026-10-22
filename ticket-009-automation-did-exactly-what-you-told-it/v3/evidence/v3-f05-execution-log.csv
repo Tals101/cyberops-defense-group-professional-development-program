@@ -1,0 +1,4 @@
+timestamp_utc,username,enabled_before,action,result,enabled_after
+2026-10-15T18:56:50.042655+00:00,nora.hayes,True,DISABLE,SUCCESS,False
+2026-10-15T18:57:31.195139+00:00,nora.hayes,False,NO_ACTION,ALREADY_DISABLED,False
+2026-10-15T18:57:31.195917+00:00,kevin.brooks,True,DISABLE,SUCCESS,False

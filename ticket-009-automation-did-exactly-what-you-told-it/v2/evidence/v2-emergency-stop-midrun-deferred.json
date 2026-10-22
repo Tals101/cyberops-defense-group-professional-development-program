@@ -1,0 +1,4 @@
+{
+  "description": "Persistent V2 identities deferred by a safety boundary. Deferred identities require explicit review before later enforcement.",
+  "deferred": []
+}

@@ -1,0 +1,3 @@
+timestamp_utc,username,approval_reference,approval_status,desired_enabled_state,enabled_before,action,result,enabled_after
+2026-10-16T16:34:24.478638+00:00,payroll.emergency,GENERIC-APPROVAL-A03,APPROVED,False,True,DISABLE,SUCCESS,False
+2026-10-16T16:51:14.936631+00:00,payroll.emergency,GENERIC-APPROVAL-A03,APPROVED,False,True,DISABLE,SUCCESS,False

@@ -1,0 +1,5 @@
+2026-10-11T19:17:00.788891+00:00 Simulated Finance application health check started
+2026-10-11T19:17:00.788903+00:00 Required dependency=Finance LedgerBridge
+2026-10-11T19:17:00.788907+00:00 dependency_account=svc_finance_batch enabled=False
+2026-10-11T19:17:00.788913+00:00 AUTHENTICATION_FAILURE dependency_account=svc_finance_batch reason=identity_disabled
+2026-10-11T19:17:00.788914+00:00 APPLICATION_STATUS=FAILED

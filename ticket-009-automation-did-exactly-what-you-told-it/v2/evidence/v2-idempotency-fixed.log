@@ -1,0 +1,5 @@
+2026-10-12T21:12:36.143472+00:00 V2 enforcement started
+2026-10-12T21:12:36.143483+00:00 max_state_changes_per_run=2
+2026-10-12T21:12:36.143486+00:00 deferred_identities_loaded=1
+2026-10-12T21:12:36.143496+00:00 username=contractor.mills action=STAGE_ONLY result=DEFERRED_REVIEW_REQUIRED
+2026-10-12T21:12:36.143501+00:00 V2 enforcement completed changes_made=0
