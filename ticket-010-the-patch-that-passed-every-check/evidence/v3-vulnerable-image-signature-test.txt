@@ -1,0 +1,47 @@
+﻿=== STEP 126 VULNERABLE IMAGE SIGNATURE TEST ===
+=== VERIFY VULNERABLE IMAGE IDENTITY ===
+Image: 127.0.0.1:5500/ticket010-vulnerable-step125@sha256:ee721dc86416dfd14bce41c1312674a2621b222f58a42312bb8e4d74f92334d3
+Manifest identity: VERIFIED
+=== VERIFY REGISTRY CONNECTIVITY ===
+Registry reachable
+=== CREATE ISOLATED SIGNING CONFIGURATION ===
+=== GENERATE TEMPORARY TEST SIGNING KEY ===
+wsl : Private key written to vulnerable-test.key
+At line:1 char:26
++ $output = $linuxScript | wsl -d Ubuntu -- bash -s 2>&1
++                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Private key wri...erable-test.key:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Public key written to vulnerable-test.pub
+=== SIGN VULNERABLE IMAGE ===
+Signing artifact...
+Pushing signature to: 127.0.0.1:5500/ticket010-vulnerable-step125
+=== TEST 1: VERIFY WITH TEST PUBLIC KEY ===
+WARNING: Skipping tlog verification is an insecure practice that lacks transparency and auditability verification for 
+the signature.
+
+Verification for 
+127.0.0.1:5500/ticket010-vulnerable-step125@sha256:ee721dc86416dfd14bce41c1312674a2621b222f58a42312bb8e4d74f92334d3 --
+The following checks were performed on each of these signatures:
+  - The cosign claims were validated
+  - Existence of the claims in the transparency log was verified offline
+  - The signatures were verified against the specified public key
+TEST SIGNATURE: PASS - Vulnerable image signature valid
+=== SAVE TEST VERIFICATION MATERIAL ===
+Test public key SHA256:
+6a7889a21cad6c9455d347c62cc8c10484ecc112f8c027c88ab680495d9d3bb6  /mnt/c/Users/Tals' CyberHub/Documents/GitHub/cyberops-defense-group-professional-development-program/ticket-010-the-patch-that-passed-every-check/tests/v3-vulnerable-test-signer.pub
+=== TEST 2: VERIFY AGAINST EXISTING TRUSTED KEY ===
+WARNING: Skipping tlog verification is an insecure practice that lacks transparency and auditability verification for the signature.
+Error: no matching attestations: failed to verify signature: could not verify envelope: accepted signatures do not match threshold, Found: 0, Expected 1
+error during command execution: no matching attestations: failed to verify signature: could not verify envelope: accepted signatures do not match threshold, Found: 0, Expected 1
+Existing trusted-key verification exit code: 1
+TRUST ISOLATION: PASS - Existing trusted key rejected test signature
+=== FINAL RESULT ===
+CRYPTOGRAPHIC SIGNATURE: VALID
+EXISTING RELEASE TRUST: NOT AUTHORIZED
+VULNERABILITY ACCEPTANCE: NOT YET TESTED
+SECURITY TEST: PASS - Vulnerable image signed under isolated test identity
+Temporary private signing key scheduled for cleanup
+
+Vulnerable signing test exit code: 0

@@ -1,0 +1,53 @@
+﻿=== V3 COMBINED RELEASE GATE ===
+Image: 127.0.0.1:5500/ticket010-vulnerable-step125@sha256:ee721dc86416dfd14bce41c1312674a2621b222f58a42312bb8e4d74f92334d3
+=== V3 SIGNATURE GATE ===
+Image: 127.0.0.1:5500/ticket010-vulnerable-step125@sha256:ee721dc86416dfd14bce41c1312674a2621b222f58a42312bb8e4d74f92334d3
+Trusted public key hash: VERIFIED
+wsl : WARNING: Skipping tlog verification is an insecure practice that lacks transparency and auditability 
+verification for the signature.
+At C:\Users\Tals' CyberHub\Documents\GitHub\cyberops-defense-group-professional-development-program\ticket-010-the-patc
+h-that-passed-every-check\tests\v3-step127-isolated-trust\pipeline\v3-image-signature-gate.ps1:46 char:5
++     wsl -d Ubuntu -- bash -s -- $Image 2>&1
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (WARNING: Skippi... the signature.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Verification for 
+127.0.0.1:5500/ticket010-vulnerable-step125@sha256:ee721dc86416dfd14bce41c1312674a2621b222f58a42312bb8e4d74f92334d3 --
+The following checks were performed on each of these signatures:
+  - The cosign claims were validated
+  - Existence of the claims in the transparency log was verified offline
+  - The signatures were verified against the specified public key
+Cosign signature verified against trusted public key
+
+Cosign exit code: 0
+GATE SIGNATURE PASS: Trusted signature verified.
+
+Signature exit code: 0
+=== V3 VULNERABILITY GATE ===
+Image: 127.0.0.1:5500/ticket010-vulnerable-step125@sha256:ee721dc86416dfd14bce41c1312674a2621b222f58a42312bb8e4d74f92334d3
+trivy.exe : 2026-10-29T15:06:08-04:00	INFO	[vuln] Vulnerability scanning is enabled
+At C:\Users\Tals' CyberHub\Documents\GitHub\cyberops-defense-group-professional-development-program\ticket-010-the-patc
+h-that-passed-every-check\tests\v3-step127-isolated-trust\pipeline\v3-vulnerability-gate.ps1:27 char:1
++ & trivy image `
++ ~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (2026-10-29T15:0...ning is enabled:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+2026-10-29T15:06:08-04:00	INFO	Detected OS	family="debian" version="13.7"
+2026-10-29T15:06:08-04:00	INFO	[debian] Detecting vulnerabilities...	os_version="13" pkg_num=87
+2026-10-29T15:06:08-04:00	INFO	Number of language-specific files	num=1
+2026-10-29T15:06:08-04:00	INFO	[python-pkg] Detecting vulnerabilities...
+2026-10-29T15:06:08-04:00	WARN	Using severities from other vendors for some vulnerabilities. Read 
+https://trivy.dev/docs/v0.70/guide/scanner/vulnerability#severity-selection for details.
+Database age hours: 23.8
+GATE DB PASS: Vulnerability database meets freshness policy.
+HIGH findings: 44
+CRITICAL findings: 0
+Report: C:\Users\Tals' CyberHub\Documents\GitHub\cyberops-defense-group-professional-development-program\ticket-010-the-patch-that-passed-every-check\tests\v3-step127-isolated-trust\evidence\v3-gate-combined-signed-vulnerable.json
+GATE BLOCK: Vulnerability threshold exceeded.
+
+Vulnerability gate exit code: 1
+RELEASE BLOCK: Vulnerability threshold exceeded.
+Release exit code: 1

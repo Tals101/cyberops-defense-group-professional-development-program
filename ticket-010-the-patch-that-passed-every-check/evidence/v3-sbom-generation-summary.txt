@@ -1,0 +1,17 @@
+﻿
+
+File       : ledger-api-baseline.cdx.json
+Format     : CycloneDX
+Version    : 1.7
+Components : 2755
+Bytes      : 941487
+
+File       : ledger-api-alpine.cdx.json
+Format     : CycloneDX
+Version    : 1.7
+Components : 937
+Bytes      : 330678
+
+
+
+

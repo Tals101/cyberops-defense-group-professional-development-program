@@ -1,0 +1,44 @@
+﻿=== STEP 116 COSIGN SIGNATURE TEST ===
+=== CREATE TEMPORARY SIGNING KEY ===
+wsl : Private key written to lab.key
+At line:1 char:26
++ $output = $linuxScript | wsl -d Ubuntu -- bash -s 2>&1
++                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Private key written to lab.key:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Public key written to lab.pub
+=== CREATE TEST ARTIFACT ===
+=== SIGN TEST ARTIFACT ===
+
+	The sigstore service, hosted by sigstore a Series of LF Projects, LLC, is provided pursuant to the Hosted Project 
+Tools Terms of Use, available at https://lfprojects.org/policies/hosted-project-tools-terms-of-use/.
+	Note that if your submission includes personal data associated with this signed artifact, it will be part of an 
+immutable record.
+	This may include the email address associated with the account with which you authenticate your contractual Agreement.
+	This information will be used for signing this artifact and will be stored in public transparency logs and cannot be 
+removed later, and is subject to the Immutable Record notice at 
+https://lfprojects.org/policies/hosted-project-tools-immutable-records/.
+
+By typing 'y', you attest that (1) you are not submitting the personal data of any other person; and (2) you 
+understand and agree to the statement and the Agreement terms at the URLs listed above.
+Using payload from: artifact.txt
+Signing artifact...
+Wrote bundle to file artifact.sigstore.json
+=== VERIFY ORIGINAL ARTIFACT ===
+Verified OK
+POSITIVE TEST: PASS - Original signature verified
+=== MODIFY THE ARTIFACT ===
+=== VERIFY TAMPERED ARTIFACT ===
+Error: failed to verify signature: could not verify message: invalid signature when validating ASN.1 encoded signature
+error during command execution: failed to verify signature: could not verify message: invalid signature when validating ASN.1 encoded signature
+Tampered verification exit code: 1
+NEGATIVE TEST: PASS - Tampered artifact rejected
+=== ARTIFACT HASHES ===
+74bea32dab99317630589fc27fec41f1d9ded8725ac0d626e5d7d7dc6d473b86  artifact.txt
+0d11a0e1bb671f2ca82d40ed9bf3314db9ef85878c89112017c928256df58d55  tampered.txt
+=== FINAL RESULT ===
+SECURITY TEST: PASS - Signing and tamper detection verified
+Temporary private key will be deleted
+
+Cosign test exit code: 0

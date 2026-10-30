@@ -1,0 +1,24 @@
+﻿=== V3 IMAGE SIGNATURE GATE ===
+Image: 127.0.0.1:5500/ticket010-vulnerable-step125@sha256:ee721dc86416dfd14bce41c1312674a2621b222f58a42312bb8e4d74f92334d3
+Trusted key SHA256: 6a7889a21cad6c9455d347c62cc8c10484ecc112f8c027c88ab680495d9d3bb6
+wsl : WARNING: Skipping tlog verification is an insecure practice that lacks transparency and auditability 
+verification for the signature.
+At C:\Users\Tals' CyberHub\Documents\GitHub\cyberops-defense-group-professional-development-program\ticket-010-the-patc
+h-that-passed-every-check\tests\v3-step127-isolated-trust\pipeline\v3-image-signature-gate.ps1:46 char:5
++     wsl -d Ubuntu -- bash -s -- $Image 2>&1
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (WARNING: Skippi... the signature.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Verification for 
+127.0.0.1:5500/ticket010-vulnerable-step125@sha256:ee721dc86416dfd14bce41c1312674a2621b222f58a42312bb8e4d74f92334d3 --
+The following checks were performed on each of these signatures:
+  - The cosign claims were validated
+  - Existence of the claims in the transparency log was verified offline
+  - The signatures were verified against the specified public key
+Cosign signature verified against trusted public key
+
+Cosign exit code: 0
+GATE SIGNATURE PASS: Trusted signature verified.
+Gate exit code: 0

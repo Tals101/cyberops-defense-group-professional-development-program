@@ -1,0 +1,22 @@
+﻿=== V3 SCANNER FAILURE TEST ===
+Image: ledger-api:ticket010-missing-step108
+=== V3 VULNERABILITY GATE ===
+Image: ledger-api:ticket010-missing-step108
+trivy.exe : 2026-10-28T19:28:45-04:00	INFO	[vuln] Vulnerability scanning is enabled
+At C:\Users\Tals' CyberHub\Documents\GitHub\cyberops-defense-group-professional-development-program\ticket-010-the-patc
+h-that-passed-every-check\pipeline\v3-vulnerability-gate.ps1:27 char:1
++ & trivy image `
++ ~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (2026-10-28T19:2...ning is enabled:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+2026-10-28T19:28:45-04:00	FATAL	Fatal error	run error: image scan error: scan error: unable to initialize a scan 
+service: unable to initialize artifact: unable to initialize container image: unable to find the specified image 
+"ledger-api:ticket010-missing-step108" in ["docker"]: 1 error occurred:
+	* docker error: unable to inspect the image (ledger-api:ticket010-missing-step108): Error response from daemon: No 
+such image: ledger-api:ticket010-missing-step108
+
+
+GATE ERROR: Scanner failed or report missing.
+
+Gate exit code: 2

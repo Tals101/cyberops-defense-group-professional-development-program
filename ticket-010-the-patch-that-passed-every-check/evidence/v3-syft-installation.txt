@@ -1,0 +1,4 @@
+﻿Ticket 010 - Syft Installation
+Installation exit code: 0
+Package lookup exit code: 0
+Command available: False

@@ -1,0 +1,51 @@
+﻿=== V3 COMBINED RELEASE GATE ===
+Image: 127.0.0.1:5500/ledger-api@sha256:47ef846c1cfb97f06eb12413ed6354f9a4e6ac41d6849af7f97d7ac64f0e507a
+=== V3 SIGNATURE GATE ===
+Image: 127.0.0.1:5500/ledger-api@sha256:47ef846c1cfb97f06eb12413ed6354f9a4e6ac41d6849af7f97d7ac64f0e507a
+Trusted public key hash: VERIFIED
+wsl : WARNING: Skipping tlog verification is an insecure practice that lacks transparency and auditability 
+verification for the signature.
+At C:\Users\Tals' CyberHub\Documents\GitHub\cyberops-defense-group-professional-development-program\ticket-010-the-patc
+h-that-passed-every-check\pipeline\v3-image-signature-gate.ps1:46 char:5
++     wsl -d Ubuntu -- bash -s -- $Image 2>&1
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (WARNING: Skippi... the signature.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Verification for 127.0.0.1:5500/ledger-api@sha256:47ef846c1cfb97f06eb12413ed6354f9a4e6ac41d6849af7f97d7ac64f0e507a --
+The following checks were performed on each of these signatures:
+  - The cosign claims were validated
+  - Existence of the claims in the transparency log was verified offline
+  - The signatures were verified against the specified public key
+Cosign signature verified against trusted public key
+
+Cosign exit code: 0
+GATE SIGNATURE PASS: Trusted signature verified.
+
+Signature exit code: 0
+=== V3 VULNERABILITY GATE ===
+Image: 127.0.0.1:5500/ledger-api@sha256:47ef846c1cfb97f06eb12413ed6354f9a4e6ac41d6849af7f97d7ac64f0e507a
+trivy.exe : 2026-10-29T14:59:09-04:00	INFO	[vuln] Vulnerability scanning is enabled
+At C:\Users\Tals' CyberHub\Documents\GitHub\cyberops-defense-group-professional-development-program\ticket-010-the-patc
+h-that-passed-every-check\pipeline\v3-vulnerability-gate.ps1:27 char:1
++ & trivy image `
++ ~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (2026-10-29T14:5...ning is enabled:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+2026-10-29T14:59:09-04:00	INFO	Detected OS	family="alpine" version="3.24.3"
+2026-10-29T14:59:09-04:00	WARN	This OS version is not on the EOL list	family="alpine" version="3.24"
+2026-10-29T14:59:09-04:00	INFO	[alpine] Detecting vulnerabilities...	os_version="3.24" repository="3.24" pkg_num=38
+2026-10-29T14:59:09-04:00	INFO	Number of language-specific files	num=1
+2026-10-29T14:59:09-04:00	INFO	[python-pkg] Detecting vulnerabilities...
+Database age hours: 23.69
+GATE DB PASS: Vulnerability database meets freshness policy.
+HIGH findings: 0
+CRITICAL findings: 0
+Report: C:\Users\Tals' CyberHub\Documents\GitHub\cyberops-defense-group-professional-development-program\ticket-010-the-patch-that-passed-every-check\evidence\v3-gate-combined-signed-alpine.json
+GATE PASS: No HIGH or CRITICAL findings detected.
+
+Vulnerability gate exit code: 0
+RELEASE PASS: Signature, DB freshness and vulnerabilities approved.
+Release exit code: 0

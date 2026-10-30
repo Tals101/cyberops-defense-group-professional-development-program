@@ -1,0 +1,17 @@
+﻿=== V3 IMAGE IDENTITY PRECHECK ===
+
+Image: ledger-api:ticket010-baseline
+Docker image ID: sha256:ee721dc86416dfd14bce41c1312674a2621b222f58a42312bb8e4d74f92334d3
+Registry manifest digests: ["ledger-api@sha256:ee721dc86416dfd14bce41c1312674a2621b222f58a42312bb8e4d74f92334d3"]
+
+Image: ledger-api:ticket010-alpine
+Docker image ID: sha256:47ef846c1cfb97f06eb12413ed6354f9a4e6ac41d6849af7f97d7ac64f0e507a
+Registry manifest digests: ["ledger-api@sha256:47ef846c1cfb97f06eb12413ed6354f9a4e6ac41d6849af7f97d7ac64f0e507a"]
+
+=== DOCKER IMAGE DIGEST LIST ===
+REPOSITORY   TAG                  DIGEST                                                                    IMAGE ID       CREATED      SIZE
+ledger-api   ticket010-alpine     sha256:47ef846c1cfb97f06eb12413ed6354f9a4e6ac41d6849af7f97d7ac64f0e507a   47ef846c1cfb   3 days ago   74.1MB
+ledger-api   ticket010-baseline   sha256:ee721dc86416dfd14bce41c1312674a2621b222f58a42312bb8e4d74f92334d3   ee721dc86416   4 days ago   177MB
+
+
+Image IDs must not be represented as OCI manifest digests.

@@ -1,0 +1,9 @@
+﻿=== STEP 118 LOCAL REGISTRY ===
+Container: ticket010-registry
+Address: 127.0.0.1:5500
+Status=Up Less than a second Ports=127.0.0.1:5500->5000/tcp
+
+Windows response: HTTP 200
+Windows exit code: 0
+Ubuntu response: HTTP 200
+Ubuntu exit code: 0

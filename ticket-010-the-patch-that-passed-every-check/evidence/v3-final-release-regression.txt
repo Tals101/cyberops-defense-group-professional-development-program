@@ -1,0 +1,187 @@
+﻿=== Signed clean Alpine ===
+Image: 127.0.0.1:5500/ledger-api@sha256:47ef846c1cfb97f06eb12413ed6354f9a4e6ac41d6849af7f97d7ac64f0e507a
+Expected exit: 0
+Actual exit: 0
+Result: PASS
+HIGH=0 CRITICAL=0
+ReportSHA256=5361DFA7963C7A9ABE2C55159DC3304384DA8288522DB7BCC33EEB50BE811C7C
+
+=== V3 COMBINED RELEASE GATE ===
+Image: 127.0.0.1:5500/ledger-api@sha256:47ef846c1cfb97f06eb12413ed6354f9a4e6ac41d6849af7f97d7ac64f0e507a
+=== PHASE 1: SIGNATURE VERIFICATION ===
+=== V3 SIGNATURE GATE ===
+Image: 127.0.0.1:5500/ledger-api@sha256:47ef846c1cfb97f06eb12413ed6354f9a4e6ac41d6849af7f97d7ac64f0e507a
+Trusted public key hash: VERIFIED
+wsl : WARNING: Skipping tlog verification is an insecure practice that lacks transparency and auditability 
+verification for the signature.
+At C:\Users\Tals' CyberHub\Documents\GitHub\cyberops-defense-group-professional-development-program\ticket-010-the-patc
+h-that-passed-every-check\pipeline\v3-image-signature-gate.ps1:46 char:5
++     wsl -d Ubuntu -- bash -s -- $Image 2>&1
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (WARNING: Skippi... the signature.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Verification for 127.0.0.1:5500/ledger-api@sha256:47ef846c1cfb97f06eb12413ed6354f9a4e6ac41d6849af7f97d7ac64f0e507a --
+The following checks were performed on each of these signatures:
+  - The cosign claims were validated
+  - Existence of the claims in the transparency log was verified offline
+  - The signatures were verified against the specified public key
+Cosign signature verified against trusted public key
+
+Cosign exit code: 0
+GATE SIGNATURE PASS: Trusted signature verified.
+
+PHASE 1: PASS
+=== PHASE 2: VULNERABILITY AND DB CHECKS ===
+=== V3 VULNERABILITY GATE ===
+Image: 127.0.0.1:5500/ledger-api@sha256:47ef846c1cfb97f06eb12413ed6354f9a4e6ac41d6849af7f97d7ac64f0e507a
+trivy.exe : 2026-10-29T15:09:10-04:00	INFO	[vuln] Vulnerability scanning is enabled
+At C:\Users\Tals' CyberHub\Documents\GitHub\cyberops-defense-group-professional-development-program\ticket-010-the-patc
+h-that-passed-every-check\pipeline\v3-vulnerability-gate.ps1:27 char:1
++ & trivy image `
++ ~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (2026-10-29T15:0...ning is enabled:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+2026-10-29T15:09:10-04:00	INFO	Detected OS	family="alpine" version="3.24.3"
+2026-10-29T15:09:10-04:00	WARN	This OS version is not on the EOL list	family="alpine" version="3.24"
+2026-10-29T15:09:10-04:00	INFO	[alpine] Detecting vulnerabilities...	os_version="3.24" repository="3.24" pkg_num=38
+2026-10-29T15:09:10-04:00	INFO	Number of language-specific files	num=1
+2026-10-29T15:09:10-04:00	INFO	[python-pkg] Detecting vulnerabilities...
+Database age hours: 23.85
+GATE DB PASS: Vulnerability database meets freshness policy.
+HIGH findings: 0
+CRITICAL findings: 0
+Report: C:\Users\Tals' CyberHub\Documents\GitHub\cyberops-defense-group-professional-development-program\ticket-010-the-patch-that-passed-every-check\evidence\v3-gate-combined-regression-clean.json
+GATE PASS: No HIGH or CRITICAL findings detected.
+
+=== FINAL RELEASE DECISION ===
+RELEASE PASS: Signature, DB freshness and vulnerabilities approved.
+
+=== Unsigned image ===
+Image: 127.0.0.1:5500/ticket010-unsigned-step122-1793299904-13085@sha256:47ef846c1cfb97f06eb12413ed6354f9a4e6ac41d6849af7f97d7ac64f0e507a
+Expected exit: 2
+Actual exit: 2
+Result: PASS
+
+=== V3 COMBINED RELEASE GATE ===
+Image: 127.0.0.1:5500/ticket010-unsigned-step122-1793299904-13085@sha256:47ef846c1cfb97f06eb12413ed6354f9a4e6ac41d6849af7f97d7ac64f0e507a
+=== PHASE 1: SIGNATURE VERIFICATION ===
+=== V3 SIGNATURE GATE ===
+Image: 127.0.0.1:5500/ticket010-unsigned-step122-1793299904-13085@sha256:47ef846c1cfb97f06eb12413ed6354f9a4e6ac41d6849af7f97d7ac64f0e507a
+Trusted public key hash: VERIFIED
+wsl : WARNING: Skipping tlog verification is an insecure practice that lacks transparency and auditability 
+verification for the signature.
+At C:\Users\Tals' CyberHub\Documents\GitHub\cyberops-defense-group-professional-development-program\ticket-010-the-patc
+h-that-passed-every-check\pipeline\v3-image-signature-gate.ps1:46 char:5
++     wsl -d Ubuntu -- bash -s -- $Image 2>&1
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (WARNING: Skippi... the signature.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Error: no signatures found
+error during command execution: no signatures found
+
+Cosign exit code: 10
+GATE SIGNATURE ERROR: Signature verification failed.
+
+VULNERABILITY GATE SKIPPED
+RELEASE ERROR: Signature verification failed.
+
+=== Unauthorized vulnerable signer ===
+Image: 127.0.0.1:5500/ticket010-vulnerable-step125@sha256:ee721dc86416dfd14bce41c1312674a2621b222f58a42312bb8e4d74f92334d3
+Expected exit: 2
+Actual exit: 2
+Result: PASS
+
+=== V3 COMBINED RELEASE GATE ===
+Image: 127.0.0.1:5500/ticket010-vulnerable-step125@sha256:ee721dc86416dfd14bce41c1312674a2621b222f58a42312bb8e4d74f92334d3
+=== PHASE 1: SIGNATURE VERIFICATION ===
+=== V3 SIGNATURE GATE ===
+Image: 127.0.0.1:5500/ticket010-vulnerable-step125@sha256:ee721dc86416dfd14bce41c1312674a2621b222f58a42312bb8e4d74f92334d3
+Trusted public key hash: VERIFIED
+wsl : WARNING: Skipping tlog verification is an insecure practice that lacks transparency and auditability 
+verification for the signature.
+At C:\Users\Tals' CyberHub\Documents\GitHub\cyberops-defense-group-professional-development-program\ticket-010-the-patc
+h-that-passed-every-check\pipeline\v3-image-signature-gate.ps1:46 char:5
++     wsl -d Ubuntu -- bash -s -- $Image 2>&1
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (WARNING: Skippi... the signature.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Error: no matching attestations: failed to verify signature: could not verify envelope: accepted signatures do not 
+match threshold, Found: 0, Expected 1
+error during command execution: no matching attestations: failed to verify signature: could not verify envelope: 
+accepted signatures do not match threshold, Found: 0, Expected 1
+
+Cosign exit code: 1
+GATE SIGNATURE ERROR: Signature verification failed.
+
+VULNERABILITY GATE SKIPPED
+RELEASE ERROR: Signature verification failed.
+
+=== Signed vulnerable isolated trust ===
+Image: 127.0.0.1:5500/ticket010-vulnerable-step125@sha256:ee721dc86416dfd14bce41c1312674a2621b222f58a42312bb8e4d74f92334d3
+Expected exit: 1
+Actual exit: 1
+Result: PASS
+HIGH=44 CRITICAL=0
+ReportSHA256=8EBA6FD9484C8D8E206092FCBCF6ADFCE8879DA99F556E79D8444EB6E9A2266C
+
+=== V3 COMBINED RELEASE GATE ===
+Image: 127.0.0.1:5500/ticket010-vulnerable-step125@sha256:ee721dc86416dfd14bce41c1312674a2621b222f58a42312bb8e4d74f92334d3
+=== PHASE 1: SIGNATURE VERIFICATION ===
+=== V3 SIGNATURE GATE ===
+Image: 127.0.0.1:5500/ticket010-vulnerable-step125@sha256:ee721dc86416dfd14bce41c1312674a2621b222f58a42312bb8e4d74f92334d3
+Trusted public key hash: VERIFIED
+wsl : WARNING: Skipping tlog verification is an insecure practice that lacks transparency and auditability 
+verification for the signature.
+At C:\Users\Tals' CyberHub\Documents\GitHub\cyberops-defense-group-professional-development-program\ticket-010-the-patc
+h-that-passed-every-check\tests\v3-step127-isolated-trust\pipeline\v3-image-signature-gate.ps1:46 char:5
++     wsl -d Ubuntu -- bash -s -- $Image 2>&1
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (WARNING: Skippi... the signature.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Verification for 
+127.0.0.1:5500/ticket010-vulnerable-step125@sha256:ee721dc86416dfd14bce41c1312674a2621b222f58a42312bb8e4d74f92334d3 --
+The following checks were performed on each of these signatures:
+  - The cosign claims were validated
+  - Existence of the claims in the transparency log was verified offline
+  - The signatures were verified against the specified public key
+Cosign signature verified against trusted public key
+
+Cosign exit code: 0
+GATE SIGNATURE PASS: Trusted signature verified.
+
+PHASE 1: PASS
+=== PHASE 2: VULNERABILITY AND DB CHECKS ===
+=== V3 VULNERABILITY GATE ===
+Image: 127.0.0.1:5500/ticket010-vulnerable-step125@sha256:ee721dc86416dfd14bce41c1312674a2621b222f58a42312bb8e4d74f92334d3
+trivy.exe : 2026-10-29T15:09:10-04:00	INFO	[vuln] Vulnerability scanning is enabled
+At C:\Users\Tals' CyberHub\Documents\GitHub\cyberops-defense-group-professional-development-program\ticket-010-the-patc
+h-that-passed-every-check\tests\v3-step127-isolated-trust\pipeline\v3-vulnerability-gate.ps1:27 char:1
++ & trivy image `
++ ~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (2026-10-29T15:0...ning is enabled:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+2026-10-29T15:09:10-04:00	INFO	Detected OS	family="debian" version="13.7"
+2026-10-29T15:09:10-04:00	INFO	[debian] Detecting vulnerabilities...	os_version="13" pkg_num=87
+2026-10-29T15:09:10-04:00	INFO	Number of language-specific files	num=1
+2026-10-29T15:09:10-04:00	INFO	[python-pkg] Detecting vulnerabilities...
+2026-10-29T15:09:10-04:00	WARN	Using severities from other vendors for some vulnerabilities. Read 
+https://trivy.dev/docs/v0.70/guide/scanner/vulnerability#severity-selection for details.
+Database age hours: 23.85
+GATE DB PASS: Vulnerability database meets freshness policy.
+HIGH findings: 44
+CRITICAL findings: 0
+Report: C:\Users\Tals' CyberHub\Documents\GitHub\cyberops-defense-group-professional-development-program\ticket-010-the-patch-that-passed-every-check\tests\v3-step127-isolated-trust\evidence\v3-gate-combined-regression-vulnerable.json
+GATE BLOCK: Vulnerability threshold exceeded.
+
+=== FINAL RELEASE DECISION ===
+RELEASE BLOCK: Vulnerability threshold exceeded.
+
+Original pipeline scripts unchanged: True

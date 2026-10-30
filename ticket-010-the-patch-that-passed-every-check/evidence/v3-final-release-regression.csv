@@ -1,0 +1,5 @@
+﻿"Test","ExpectedExit","ActualExit","Result"
+"Signed clean Alpine","0","0","PASS"
+"Unsigned image","2","2","PASS"
+"Unauthorized vulnerable signer","2","2","PASS"
+"Signed vulnerable isolated trust","1","1","PASS"

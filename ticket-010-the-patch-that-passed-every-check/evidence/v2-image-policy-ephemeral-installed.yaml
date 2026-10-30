@@ -1,0 +1,51 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"admissionregistration.k8s.io/v1","kind":"ValidatingAdmissionPolicy","metadata":{"annotations":{},"name":"ticket010-image-reference-policy"},"spec":{"failurePolicy":"Fail","matchConstraints":{"resourceRules":[{"apiGroups":[""],"apiVersions":["v1"],"operations":["CREATE","UPDATE"],"resources":["pods"],"scope":"Namespaced"},{"apiGroups":[""],"apiVersions":["v1"],"operations":["UPDATE"],"resources":["pods/ephemeralcontainers"],"scope":"Namespaced"}]},"validations":[{"expression":"object.spec.containers.all(c,\n  c.image.matches(\"^registry[.]example[.]local/[a-z0-9._/-]+@sha256:[a-fA-F0-9]{64}$\"))\n\u0026\u0026 (!has(object.spec.initContainers) ||\n  object.spec.initContainers.all(c,\n    c.image.matches(\"^registry[.]example[.]local/[a-z0-9._/-]+@sha256:[a-fA-F0-9]{64}$\")))\n\u0026\u0026 (!has(object.spec.ephemeralContainers) ||\n  object.spec.ephemeralContainers.all(c,\n    c.image.matches(\"^registry[.]example[.]local/[a-z0-9._/-]+@sha256:[a-fA-F0-9]{64}$\")))","message":"Ticket010: Images must use the approved lab registry and SHA-256 digest."}]}}
+  creationTimestamp: "2026-10-27T14:06:21Z"
+  generation: 2
+  name: ticket010-image-reference-policy
+  resourceVersion: "79463"
+  uid: 9e1ebee9-4452-4e82-b8ad-f7aa74925d4a
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    matchPolicy: Equivalent
+    namespaceSelector: {}
+    objectSelector: {}
+    resourceRules:
+    - apiGroups:
+      - ""
+      apiVersions:
+      - v1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - pods
+      scope: Namespaced
+    - apiGroups:
+      - ""
+      apiVersions:
+      - v1
+      operations:
+      - UPDATE
+      resources:
+      - pods/ephemeralcontainers
+      scope: Namespaced
+  validations:
+  - expression: |-
+      object.spec.containers.all(c,
+        c.image.matches("^registry[.]example[.]local/[a-z0-9._/-]+@sha256:[a-fA-F0-9]{64}$"))
+      && (!has(object.spec.initContainers) ||
+        object.spec.initContainers.all(c,
+          c.image.matches("^registry[.]example[.]local/[a-z0-9._/-]+@sha256:[a-fA-F0-9]{64}$")))
+      && (!has(object.spec.ephemeralContainers) ||
+        object.spec.ephemeralContainers.all(c,
+          c.image.matches("^registry[.]example[.]local/[a-z0-9._/-]+@sha256:[a-fA-F0-9]{64}$")))
+    message: 'Ticket010: Images must use the approved lab registry and SHA-256 digest.'
+status:
+  observedGeneration: 2
+  typeChecking: {}

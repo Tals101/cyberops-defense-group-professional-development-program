@@ -1,0 +1,26 @@
+﻿=== V3 COMBINED RELEASE GATE ===
+Image: 127.0.0.1:5500/ticket010-vulnerable-step125@sha256:ee721dc86416dfd14bce41c1312674a2621b222f58a42312bb8e4d74f92334d3
+=== V3 SIGNATURE GATE ===
+Image: 127.0.0.1:5500/ticket010-vulnerable-step125@sha256:ee721dc86416dfd14bce41c1312674a2621b222f58a42312bb8e4d74f92334d3
+Trusted public key hash: VERIFIED
+wsl : WARNING: Skipping tlog verification is an insecure practice that lacks transparency and auditability 
+verification for the signature.
+At C:\Users\Tals' CyberHub\Documents\GitHub\cyberops-defense-group-professional-development-program\ticket-010-the-patc
+h-that-passed-every-check\pipeline\v3-image-signature-gate.ps1:46 char:5
++     wsl -d Ubuntu -- bash -s -- $Image 2>&1
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (WARNING: Skippi... the signature.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Error: no matching attestations: failed to verify signature: could not verify envelope: accepted signatures do not 
+match threshold, Found: 0, Expected 1
+error during command execution: no matching attestations: failed to verify signature: could not verify envelope: 
+accepted signatures do not match threshold, Found: 0, Expected 1
+
+Cosign exit code: 1
+GATE SIGNATURE ERROR: Signature verification failed.
+
+Signature exit code: 2
+VULNERABILITY GATE SKIPPED
+RELEASE ERROR: Signature verification failed.
+Release exit code: 2

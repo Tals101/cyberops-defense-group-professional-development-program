@@ -1,0 +1,15 @@
+﻿=== CREATE TEMPORARY TEST POD ===
+pod/ticket010-ephemeral-seed created
+=== EPHEMERAL SUBRESOURCE ADMISSION TEST ===
+kubectl : The pods "ticket010-ephemeral-seed" is invalid: : ValidatingAdmissionPolicy 
+'ticket010-image-reference-policy' with binding 'ticket010-image-reference-binding' denied request: Ticket010: Images 
+must use the approved lab registry and SHA-256 digest.
+At line:13 char:5
++     kubectl patch pod $name -n $ns `
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (The pods "ticke...SHA-256 digest.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+=== CLEANUP ===
+pod "ticket010-ephemeral-seed" deleted from ticket-010-lab namespace
+

@@ -1,0 +1,42 @@
+﻿=== STEP 122 UNSIGNED OCI IMAGE TEST ===
+=== VERIFY LOCAL REGISTRY ===
+Registry reachable
+=== TEST 1: SIGNED IMAGE ===
+wsl : WARNING: Skipping tlog verification is an insecure practice that lacks transparency and auditability 
+verification for the signature.
+At line:1 char:26
++ $output = $linuxScript | wsl -d Ubuntu -- bash -s 2>&1
++                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (WARNING: Skippi... the signature.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Verification for 127.0.0.1:5500/ledger-api@sha256:47ef846c1cfb97f06eb12413ed6354f9a4e6ac41d6849af7f97d7ac64f0e507a --
+The following checks were performed on each of these signatures:
+  - The cosign claims were validated
+  - Existence of the claims in the transparency log was verified offline
+  - The signatures were verified against the specified public key
+POSITIVE TEST: PASS - Signed image accepted
+=== CREATE ISOLATED UNSIGNED REPOSITORY ===
+The push refers to repository [127.0.0.1:5500/ticket010-unsigned-step122-1793299904-13085]
+3f325cfede92: Mounted from ledger-api
+7bb4f9c597cc: Mounted from ledger-api
+6505b46c81c2: Mounted from ledger-api
+7b229517ed22: Mounted from ledger-api
+37643e047ae4: Mounted from ledger-api
+44136fa355b3: Mounted from ledger-api
+37737182bc17: Mounted from ledger-api
+39a526054cd9: Mounted from ledger-api
+alpine: digest: sha256:47ef846c1cfb97f06eb12413ed6354f9a4e6ac41d6849af7f97d7ac64f0e507a size: 856
+=== RETRIEVE UNSIGNED IMAGE DIGEST ===
+Unsigned image: 127.0.0.1:5500/ticket010-unsigned-step122-1793299904-13085@sha256:47ef846c1cfb97f06eb12413ed6354f9a4e6ac41d6849af7f97d7ac64f0e507a
+=== TEST 2: VERIFY UNSIGNED IMAGE ===
+WARNING: Skipping tlog verification is an insecure practice that lacks transparency and auditability verification for the signature.
+Error: no signatures found
+error during command execution: no signatures found
+Unsigned verification exit code: 10
+NEGATIVE TEST: PASS - Unsigned image rejected
+=== FINAL RESULT ===
+SECURITY TEST: PASS - Signed image accepted; unsigned image rejected
+
+Unsigned image test exit code: 0

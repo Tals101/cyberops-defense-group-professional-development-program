@@ -1,0 +1,9 @@
+﻿=== CREATE TEST POD ===
+pod/ticket010-ephemeral-positive created
+
+=== APPROVED EPHEMERAL IMAGE TEST ===
+pod/ticket010-ephemeral-positive patched
+
+=== CLEANUP ===
+pod "ticket010-ephemeral-positive" deleted from ticket-010-lab namespace
+

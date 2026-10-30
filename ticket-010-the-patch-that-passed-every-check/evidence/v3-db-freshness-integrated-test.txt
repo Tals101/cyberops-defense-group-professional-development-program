@@ -1,0 +1,24 @@
+﻿=== V3 INTEGRATED FRESHNESS TEST ===
+=== V3 VULNERABILITY GATE ===
+Image: ledger-api:ticket010-alpine
+trivy.exe : 2026-10-28T19:42:24-04:00	INFO	[vuln] Vulnerability scanning is enabled
+At C:\Users\Tals' CyberHub\Documents\GitHub\cyberops-defense-group-professional-development-program\ticket-010-the-patc
+h-that-passed-every-check\pipeline\v3-vulnerability-gate.ps1:27 char:1
++ & trivy image `
++ ~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (2026-10-28T19:4...ning is enabled:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+2026-10-28T19:42:24-04:00	INFO	Detected OS	family="alpine" version="3.24.3"
+2026-10-28T19:42:24-04:00	WARN	This OS version is not on the EOL list	family="alpine" version="3.24"
+2026-10-28T19:42:24-04:00	INFO	[alpine] Detecting vulnerabilities...	os_version="3.24" repository="3.24" pkg_num=38
+2026-10-28T19:42:24-04:00	INFO	Number of language-specific files	num=1
+2026-10-28T19:42:24-04:00	INFO	[python-pkg] Detecting vulnerabilities...
+Database age hours: 4.41
+GATE DB PASS: Vulnerability database meets freshness policy.
+HIGH findings: 0
+CRITICAL findings: 0
+Report: C:\Users\Tals' CyberHub\Documents\GitHub\cyberops-defense-group-professional-development-program\ticket-010-the-patch-that-passed-every-check\evidence\v3-gate-freshness-integrated-alpine.json
+GATE PASS: No HIGH or CRITICAL findings detected.
+
+Gate exit code: 0

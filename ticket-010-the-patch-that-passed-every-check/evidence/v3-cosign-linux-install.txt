@@ -1,0 +1,34 @@
+﻿=== STEP 115 COSIGN INSTALLATION ===
+=== DOWNLOAD COSIGN ===
+=== VERIFY SHA256 ===
+cosign-linux-amd64: OK
+=== DOWNLOAD RELEASE SIGNATURE BUNDLE ===
+=== VERIFY OFFICIAL RELEASE SIGNATURE ===
+wsl : Verified OK
+At line:1 char:26
++ $output = $linuxScript | wsl -d Ubuntu -- bash -s 2>&1
++                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Verified OK:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+=== INSTALL COSIGN ===
+=== VERIFY INSTALLED VERSION ===
+  ______   ______        _______. __    _______ .__   __.
+ /      | /  __  \      /       ||  |  /  _____||  \ |  |
+|  ,----'|  |  |  |    |   (----`|  | |  |  __  |   \|  |
+|  |     |  |  |  |     \   \    |  | |  | |_ | |  . `  |
+|  `----.|  `--'  | .----)   |   |  | |  |__| | |  |\   |
+ \______| \______/  |_______/    |__|  \______| |__| \__|
+cosign: A tool for Container Signing, Verification and Storage in an OCI registry
+
+GitVersion:    v3.1.4
+GitCommit:     0e48502cf5ef34e2e60bbd3617aa19945712f705
+GitTreeState:  clean
+BuildDate:     2026-10-20T17:33:02Z
+GoVersion:     go1.27.3
+Compiler:      gc
+Platform:      linux/amd64
+
+=== INSTALLATION COMPLETE ===
+
+Linux installation exit code: 0

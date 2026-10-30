@@ -1,0 +1,44 @@
+﻿apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: ticket010-image-reference-policy
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+      - apiGroups: [""]
+        apiVersions: ["v1"]
+        operations: ["CREATE", "UPDATE"]
+        resources: ["pods"]
+        scope: Namespaced
+      - apiGroups: [""]
+        apiVersions: ["v1"]
+        operations: ["UPDATE"]
+        resources: ["pods/ephemeralcontainers"]
+        scope: Namespaced
+  validations:
+    - expression: >-
+        object.spec.containers.all(c,
+          c.image.matches("^registry[.]example[.]local/[a-z0-9._/-]+@sha256:[a-fA-F0-9]{64}$"))
+        &&
+        (!has(object.spec.initContainers) ||
+          object.spec.initContainers.all(c,
+            c.image.matches("^registry[.]example[.]local/[a-z0-9._/-]+@sha256:[a-fA-F0-9]{64}$")))
+        &&
+        (!has(object.spec.ephemeralContainers) ||
+          object.spec.ephemeralContainers.all(c,
+            c.image.matches("^registry[.]example[.]local/[a-z0-9._/-]+@sha256:[a-fA-F0-9]{64}$")))
+      message: "Ticket010: Images must use the approved lab registry and SHA-256 digest."
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: ticket010-image-reference-binding
+spec:
+  policyName: ticket010-image-reference-policy
+  validationActions: [Deny]
+  matchResources:
+    namespaceSelector:
+      matchLabels:
+        kubernetes.io/metadata.name: ticket-010-lab
+
