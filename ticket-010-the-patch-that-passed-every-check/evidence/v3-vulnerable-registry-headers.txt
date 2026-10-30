@@ -1,0 +1,8 @@
+HTTP/1.1 200 OK
+Content-Length: 856
+Content-Type: application/vnd.oci.image.index.v1+json
+Docker-Content-Digest: sha256:ee721dc86416dfd14bce41c1312674a2621b222f58a42312bb8e4d74f92334d3
+Docker-Distribution-Api-Version: registry/2.0
+Etag: "sha256:ee721dc86416dfd14bce41c1312674a2621b222f58a42312bb8e4d74f92334d3"
+Date: Thu, 29 Oct 2026 19:01:40 GMT
+

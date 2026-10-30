@@ -1,0 +1,42 @@
+﻿=== STEP 121 COSIGN WRONG-KEY TEST ===
+=== VERIFY IMAGE REFERENCE ===
+Image: 127.0.0.1:5500/ledger-api@sha256:47ef846c1cfb97f06eb12413ed6354f9a4e6ac41d6849af7f97d7ac64f0e507a
+=== TEST 1: CORRECT PUBLIC KEY ===
+wsl : WARNING: Skipping tlog verification is an insecure practice that lacks transparency and auditability 
+verification for the signature.
+At line:1 char:26
++ $output = $linuxScript | wsl -d Ubuntu -- bash -s 2>&1
++                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (WARNING: Skippi... the signature.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Verification for 127.0.0.1:5500/ledger-api@sha256:47ef846c1cfb97f06eb12413ed6354f9a4e6ac41d6849af7f97d7ac64f0e507a --
+The following checks were performed on each of these signatures:
+  - The cosign claims were validated
+  - Existence of the claims in the transparency log was verified offline
+  - The signatures were verified against the specified public key
+POSITIVE TEST: PASS - Correct key accepted
+=== GENERATE UNRELATED TEMPORARY KEY ===
+Private key written to wrong-key.key
+Public key written to wrong-key.pub
+=== TEST 2: INCORRECT PUBLIC KEY ===
+WARNING: Skipping tlog verification is an insecure practice that lacks transparency and auditability verification for the signature.
+Error: no matching attestations: failed to verify signature: could not verify envelope: accepted signatures do not match threshold, Found: 0, Expected 1
+error during command execution: no matching attestations: failed to verify signature: could not verify envelope: accepted signatures do not match threshold, Found: 0, Expected 1
+Incorrect-key verification exit code: 1
+=== TEST 3: CONFIRM TRUSTED KEY STILL WORKS ===
+WARNING: Skipping tlog verification is an insecure practice that lacks transparency and auditability verification for 
+the signature.
+
+Verification for 127.0.0.1:5500/ledger-api@sha256:47ef846c1cfb97f06eb12413ed6354f9a4e6ac41d6849af7f97d7ac64f0e507a --
+The following checks were performed on each of these signatures:
+  - The cosign claims were validated
+  - Existence of the claims in the transparency log was verified offline
+  - The signatures were verified against the specified public key
+TRUSTED KEY RECHECK: PASS
+=== FINAL RESULT ===
+SECURITY TEST: PASS - Incorrect public key rejected
+Temporary unrelated private key will be deleted
+
+Cosign negative-test exit code: 0

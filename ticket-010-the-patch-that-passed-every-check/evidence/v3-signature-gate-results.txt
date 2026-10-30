@@ -1,0 +1,8 @@
+﻿
+Test           ExpectedExit ActualExit Result
+----           ------------ ---------- ------
+Signed image              0          0 PASS  
+Unsigned image            2          2 PASS  
+
+
+

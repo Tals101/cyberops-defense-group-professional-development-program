@@ -1,0 +1,25 @@
+﻿=== STEP 119 VERIFIED REGISTRY IMAGE ===
+Source image: ledger-api:ticket010-alpine
+Source image ID: sha256:47ef846c1cfb97f06eb12413ed6354f9a4e6ac41d6849af7f97d7ac64f0e507a
+Registry tag: 127.0.0.1:5500/ledger-api:ticket010-alpine
+Push exit code: 0
+
+Registry manifest digest: sha256:47ef846c1cfb97f06eb12413ed6354f9a4e6ac41d6849af7f97d7ac64f0e507a
+Computed manifest digest: sha256:47ef846c1cfb97f06eb12413ed6354f9a4e6ac41d6849af7f97d7ac64f0e507a
+Digest comparison: PASS
+
+Immutable image reference:
+127.0.0.1:5500/ledger-api@sha256:47ef846c1cfb97f06eb12413ed6354f9a4e6ac41d6849af7f97d7ac64f0e507a
+
+=== DOCKER PUSH OUTPUT ===
+The push refers to repository [127.0.0.1:5500/ledger-api]
+7b229517ed22: Layer already exists
+44136fa355b3: Already exists
+37737182bc17: Layer already exists
+39a526054cd9: Layer already exists
+3f325cfede92: Layer already exists
+7bb4f9c597cc: Layer already exists
+6505b46c81c2: Layer already exists
+37643e047ae4: Already exists
+ticket010-alpine: digest: sha256:47ef846c1cfb97f06eb12413ed6354f9a4e6ac41d6849af7f97d7ac64f0e507a size: 856
+

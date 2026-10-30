@@ -1,0 +1,51 @@
+﻿=== TICKET 010 V3 SBOM COMPARISON ===
+
+=== BASELINE ===
+Total components: 2755
+
+Component types:
+file: 2659
+library: 88
+application: 7
+operating-system: 1
+
+=== ALPINE ===
+Total components: 937
+
+Component types:
+file: 890
+library: 39
+application: 7
+operating-system: 1
+
+=== SOFTWARE INVENTORY COMPARISON ===
+Shared component identities: 574
+Baseline-only identities: 2176
+Alpine-only identities: 358
+
+=== SAMPLE BASELINE-ONLY COMPONENTS ===
+file|/etc/adduser.conf|
+file|/etc/alternatives/README|
+file|/etc/apt/apt.conf.d/01autoremove|
+file|/etc/apt/apt.conf.d/70debconf|
+file|/etc/apt/trusted.gpg.d/debian-archive-bookworm-automatic.asc|
+file|/etc/apt/trusted.gpg.d/debian-archive-bookworm-security-automatic.asc|
+file|/etc/apt/trusted.gpg.d/debian-archive-bookworm-stable.asc|
+file|/etc/apt/trusted.gpg.d/debian-archive-bullseye-automatic.asc|
+file|/etc/apt/trusted.gpg.d/debian-archive-bullseye-security-automatic.asc|
+file|/etc/apt/trusted.gpg.d/debian-archive-bullseye-stable.asc|
+
+=== SAMPLE ALPINE-ONLY COMPONENTS ===
+file|/bin/busybox|
+file|/etc/alpine-release|
+file|/etc/apk/keys/alpine-devel@lists.alpinelinux.org-4a6a0840.rsa.pub|
+file|/etc/apk/keys/alpine-devel@lists.alpinelinux.org-5261cecb.rsa.pub|
+file|/etc/apk/keys/alpine-devel@lists.alpinelinux.org-6165ee59.rsa.pub|
+file|/etc/apk/protected_paths.d/ca-certificates.list|
+file|/etc/busybox-paths.d/busybox|
+file|/etc/ca-certificates.conf|
+file|/etc/ca-certificates/update.d/certhash|
+file|/etc/crontabs/root|
+
+NOTE: Comparison uses component type, name and version.
+This does not establish package equivalence or vulnerability status.

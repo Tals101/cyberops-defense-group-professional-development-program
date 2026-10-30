@@ -1,0 +1,13 @@
+﻿
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: ticket010-image-reference-binding
+spec:
+  policyName: ticket010-image-reference-policy
+  validationActions: [Deny]
+  matchResources:
+    namespaceSelector:
+      matchLabels:
+        kubernetes.io/metadata.name: ticket-010-lab
+

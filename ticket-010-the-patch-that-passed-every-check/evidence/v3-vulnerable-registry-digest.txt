@@ -1,0 +1,9 @@
+﻿=== STEP 125 VULNERABLE IMAGE REGISTRY ===
+Source image: ledger-api:ticket010-baseline
+Source image ID: sha256:ee721dc86416dfd14bce41c1312674a2621b222f58a42312bb8e4d74f92334d3
+Registry tag: 127.0.0.1:5500/ticket010-vulnerable-step125:baseline
+Push exit code: 0
+Registry manifest digest: sha256:ee721dc86416dfd14bce41c1312674a2621b222f58a42312bb8e4d74f92334d3
+Computed digest: sha256:ee721dc86416dfd14bce41c1312674a2621b222f58a42312bb8e4d74f92334d3
+Digest comparison: PASS
+Immutable image reference: 127.0.0.1:5500/ticket010-vulnerable-step125@sha256:ee721dc86416dfd14bce41c1312674a2621b222f58a42312bb8e4d74f92334d3

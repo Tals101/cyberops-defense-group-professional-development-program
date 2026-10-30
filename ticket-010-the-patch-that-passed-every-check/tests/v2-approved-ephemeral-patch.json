@@ -1,0 +1,27 @@
+﻿[
+    {
+        "path":  "/spec/ephemeralContainers",
+        "op":  "add",
+        "value":  [
+                      {
+                          "securityContext":  {
+                                                  "runAsUser":  10001,
+                                                  "capabilities":  {
+                                                                       "drop":  [
+                                                                                    "ALL"
+                                                                                ]
+                                                                   },
+                                                  "runAsNonRoot":  true,
+                                                  "seccompProfile":  {
+                                                                         "type":  "RuntimeDefault"
+                                                                     },
+                                                  "allowPrivilegeEscalation":  false,
+                                                  "privileged":  false
+                                              },
+                          "name":  "unapproved-debug",
+                          "image":  "registry.example.local/debug@sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+                      }
+                  ]
+    }
+]
+

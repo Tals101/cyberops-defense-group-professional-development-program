@@ -1,0 +1,30 @@
+﻿{
+    "spec":  {
+                 "containers":  [
+                                    {
+                                        "image":  "ledger-api:ticket010-alpine",
+                                        "imagePullPolicy":  "Never",
+                                        "name":  "ledger-api",
+                                        "ports":  [
+                                                      {
+                                                          "containerPort":  8080
+                                                      }
+                                                  ],
+                                        "securityContext":  {
+                                                                "allowPrivilegeEscalation":  true,
+                                                                "privileged":  true,
+                                                                "runAsUser":  0
+                                                            }
+                                    }
+                                ]
+             },
+    "metadata":  {
+                     "labels":  {
+                                    "app":  "ledger-api"
+                                },
+                     "name":  "ticket010-psa-unsafe",
+                     "namespace":  "ticket-010-lab"
+                 },
+    "apiVersion":  "v1",
+    "kind":  "Pod"
+}

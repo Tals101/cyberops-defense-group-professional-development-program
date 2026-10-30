@@ -1,0 +1,28 @@
+﻿apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ledger-api
+  namespace: ticket-010-lab
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ledger-api
+  template:
+    metadata:
+      labels:
+        app: ledger-api
+    spec:
+      containers:
+        - name: ledger-api
+          image: ledger-api:ticket010-alpine
+          imagePullPolicy: Never
+          securityContext:
+            privileged: true
+            allowPrivilegeEscalation: true
+            runAsUser: 0
+          ports:
+            - containerPort: 8080
+
+
+

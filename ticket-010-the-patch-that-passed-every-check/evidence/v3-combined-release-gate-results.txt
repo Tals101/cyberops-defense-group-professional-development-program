@@ -1,0 +1,12 @@
+﻿=== TEST: Signed Alpine ===
+PASS - Signed Alpine: exit 0
+
+Test                       ExpectedExit ActualExit Result
+----                       ------------ ---------- ------
+Signed Alpine                         0          0 PASS  
+=== TEST: Unsigned Alpine repository ===
+PASS - Unsigned Alpine repository: exit 2
+Unsigned Alpine repository            2          2 PASS  
+
+
+

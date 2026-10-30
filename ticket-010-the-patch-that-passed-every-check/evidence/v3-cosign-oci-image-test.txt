@@ -1,0 +1,27 @@
+﻿=== STEP 120 COSIGN OCI IMAGE TEST ===
+=== DERIVE VERIFIED IMAGE REFERENCE ===
+Image: 127.0.0.1:5500/ledger-api@sha256:47ef846c1cfb97f06eb12413ed6354f9a4e6ac41d6849af7f97d7ac64f0e507a
+=== VERIFY LOCAL REGISTRY ===
+Registry reachable
+=== GENERATE TEMPORARY SIGNING KEY ===
+wsl : Private key written to lab.key
+At line:1 char:26
++ $output = $linuxScript | wsl -d Ubuntu -- bash -s 2>&1
++                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Private key written to lab.key:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Public key written to lab.pub
+=== SIGN OCI IMAGE BY DIGEST ===
+Flag --tlog-upload has been deprecated, prefer using a --signing-config file with no transparency log services
+Error: --tlog-upload=false is not supported with --signing-config or --use-signing-config. Provide a signing config 
+with --signing-config without a transparency log service, which can be created with `cosign signing-config create` or 
+`curl https://raw.githubusercontent.com/sigstore/root-signing/refs/heads/main/targets/signing_config.v0.2.json | jq 
+'del(.rekorTlogUrls)'` for the public instance
+error during command execution: --tlog-upload=false is not supported with --signing-config or --use-signing-config. 
+Provide a signing config with --signing-config without a transparency log service, which can be created with `cosign 
+signing-config create` or `curl 
+https://raw.githubusercontent.com/sigstore/root-signing/refs/heads/main/targets/signing_config.v0.2.json | jq 
+'del(.rekorTlogUrls)'` for the public instance
+
+Cosign OCI test exit code: 1

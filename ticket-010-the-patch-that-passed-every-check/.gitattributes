@@ -1,0 +1,3 @@
+# Ticket 010 - preserve original evidence bytes.
+# Prevent automatic line-ending conversion of hashed artifacts.
+* -text
