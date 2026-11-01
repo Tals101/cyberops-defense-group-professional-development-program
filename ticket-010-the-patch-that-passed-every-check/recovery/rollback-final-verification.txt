@@ -1,0 +1,27 @@
+﻿Ticket 010 - Final Isolated Rollback Verification
+Recorded at: 2026-11-01T12:09:44.8430480-05:00
+Kubernetes context: minikube
+Namespace: ticket-010-rollback-lab
+Deployment: ledger-api-rollback
+Restored revision: 3
+Restored readiness port: 8080
+Ready replicas: 1
+Available replicas: 1
+Ready Pod: ledger-api-rollback-86d7888444-hlp24
+Runtime image ID: sha256:b1f8156aba3fa4861a992393b7d7424324d48d6781f97d1d2f49bd34eb06ab1e
+Runtime image matches initial Minikube baseline: Yes
+Health endpoint: HTTP 200
+Prior failed revision: 2
+Failure type: Incorrect readiness probe port
+Failed revision rollout exit code: 1
+Rollback command exit code: 0
+Configuration rollback: VERIFIED
+Restricted Pod Security Admission: ACTIVE
+Original V2 policy binding: UNCHANGED
+Image version rollback: NOT TESTED
+Production rollback: NOT TESTED
+V2 image policy integration in rehearsal namespace: NOT TESTED
+Docker Desktop/Minikube image identity discrepancy: OPEN
+Kubectl last-applied-configuration warning: Requires operational review
+Original evidence: UNCHANGED
+Result: PASS - ISOLATED CONFIGURATION ROLLBACK

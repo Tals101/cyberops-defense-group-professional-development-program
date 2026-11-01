@@ -1,0 +1,7 @@
+﻿"Session","Date","Workstream","ActualMinutes","TimeStatus","DateBasis"
+"S01","2026-10-25","Initial incident and baseline","","NOT RECORDED","Original engineering notebook"
+"W01","","V1 policy and pipeline controls","","NOT RECORDED","Workstream date not independently established"
+"W02","","V2 admission controls","","NOT RECORDED","Workstream date not independently established"
+"W03","","V3 release and artifact integrity","","NOT RECORDED","Workstream date not independently established"
+"W04","","Adversarial matrix and closure review","","NOT RECORDED","Workstream date not independently established"
+"S02","2026-11-01","Rollback rehearsal verification and cleanup","","NOT RECORDED","Recovery evidence recorded November 1"

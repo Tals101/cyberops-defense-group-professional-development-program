@@ -1,0 +1,21 @@
+﻿Ticket 010 - Rollback Laboratory Cleanup Verification
+Recorded at: 2026-11-01T12:14:45.3745418-05:00
+Context: minikube
+Deleted namespace: ticket-010-rollback-lab
+Rollback namespace deletion: VERIFIED
+Original namespace: ticket-010-lab
+Original namespace resource inventory: UNCHANGED
+Original V2 image-reference policy binding: UNCHANGED
+Original recovery evidence files: 6
+Original recovery evidence SHA-256 checks: PASS
+Application configuration rollback: VERIFIED IN PRIOR EVIDENCE
+Image-version rollback: NOT TESTED
+Production recovery: NOT TESTED
+Residual risk R06: OPEN
+Cleanup result: PASS
+SHA256 recovery\rollback-lab-preflight.txt B7C1ED57EF4CE61FC31A35EFBE148B3CD105CA1C2CA73FEEFBC647149E2D9E2A
+SHA256 recovery\rollback-initial-deployment-evidence.txt F98908464A7149EBD76821C37743F8FC7F8DCAFF4419756DF68C517AEF062530
+SHA256 recovery\rollback-rehearsal-evidence.txt 7B74ECC772910CA68D44EAF23E433FE0879599225B854C2D880AD95602FD70BD
+SHA256 recovery\rollback-final-verification.txt 14FCFC558D08C1C74B9412F3216A145F5DE6C9DC29A5B66F1BE118DB32C04209
+SHA256 recovery\recovery-and-rollback-assessment.md 48224C739147061D10566C45FB476A4924FABBE8248815B65C679E37907D83C0
+SHA256 recovery\recovery-assessment-pre-rehearsal.md 1D8144829095FF94920BD32C662450BFF1A07ED1E572FBB3E8ADB116CD7246EC
