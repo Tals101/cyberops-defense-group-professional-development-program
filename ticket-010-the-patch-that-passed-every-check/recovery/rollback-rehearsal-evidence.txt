@@ -1,0 +1,47 @@
+﻿=== TICKET 010 ROLLBACK REHEARSAL ===
+Recorded at: 2026-11-01T12:06:43.4746315-05:00
+Context: minikube
+Namespace: ticket-010-rollback-lab
+Baseline revision: 1
+Baseline readiness port: 8080
+Baseline image ID: sha256:b1f8156aba3fa4861a992393b7d7424324d48d6781f97d1d2f49bd34eb06ab1e
+Baseline ready replicas: 1
+Pod Security Admission: restricted:v1.35
+Failure patch: CREATED
+Failure scenario: readiness probe uses unreachable port 18081
+=== APPLY CONTROLLED FAILURE ===
+deployment.apps/ledger-api-rollback patched
+Changed revision: 2
+Changed readiness port: 18081
+=== OBSERVE FAILED ROLLOUT ===
+Waiting for deployment "ledger-api-rollback" rollout to finish: 1 old replicas are pending termination...
+error: timed out waiting for the condition
+Failed revision rollout exit code: 1
+=== POD STATE DURING FAILURE ===
+NAME                                   READY   STATUS    RESTARTS   AGE   IP            NODE       NOMINATED NODE   READINESS GATES
+ledger-api-rollback-68df84d87d-c8lg6   0/1     Running   0          30s   10.244.1.10   minikube   <none>           <none>
+ledger-api-rollback-86d7888444-hlp24   1/1     Running   0          59m   10.244.1.9    minikube   <none>           <none>
+Expected unsuccessful rollout: OBSERVED
+=== AUTOMATIC ROLLBACK ===
+Warning: resource deployments/ledger-api-rollback was previously managed with 'kubectl apply'. Rolling back will not update the kubectl.kubernetes.io/last-applied-configuration annotation, which may cause unexpected behavior on future 'kubectl apply' operations. Consider using 'kubectl apply' with your previous configuration file instead.
+deployment.apps/ledger-api-rollback rolled back
+Rollback command exit code: 0
+deployment "ledger-api-rollback" successfully rolled out
+Restored rollout exit code: 0
+Restored revision: 3
+Restored readiness port: 8080
+Restored ready replicas: 1
+Restored available replicas: 1
+Restored Pod: ledger-api-rollback-86d7888444-hlp24
+Restored runtime image ID: sha256:b1f8156aba3fa4861a992393b7d7424324d48d6781f97d1d2f49bd34eb06ab1e
+Restored health command exit: 0
+Restored health response: 200
+Rollback configuration and health: VERIFIED
+=== FINAL EVIDENCE SUMMARY ===
+Failed rollout observed: True
+Rollback command succeeded: True
+Recovery verified: True
+Original admission policy modified: No
+Production resources modified: No
+Image provenance limitation: REMAINS OPEN
+V2 image-reference enforcement in rehearsal namespace: NOT TESTED
