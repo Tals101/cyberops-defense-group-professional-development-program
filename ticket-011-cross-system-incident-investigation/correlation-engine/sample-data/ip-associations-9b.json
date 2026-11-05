@@ -1,0 +1,513 @@
+{
+  "ticket": "CYBEROPS-PDP-011",
+  "classification": "SYNTHETIC_ONLY_ASSOCIATIONS",
+  "source_event_count": 42,
+  "shared_ip_count": 2,
+  "temporal_pair_count": 37,
+  "correlation_window_seconds": 300,
+  "causation_established": false,
+  "shared_ip_groups": [
+    {
+      "ip": "203.0.113.77",
+      "systems": [
+        "AWS",
+        "KUBERNETES",
+        "LINUX"
+      ],
+      "members": [
+        {
+          "event_key": "LINUX_AUTH:lin-0003",
+          "system": "LINUX",
+          "source_id": "LINUX_AUTH",
+          "time_utc": "2026-11-02T13:03:10Z",
+          "role": "source"
+        },
+        {
+          "event_key": "LINUX_AUTH:lin-0004",
+          "system": "LINUX",
+          "source_id": "LINUX_AUTH",
+          "time_utc": "2026-11-02T13:03:17Z",
+          "role": "source"
+        },
+        {
+          "event_key": "LINUX_AUTH:lin-0005",
+          "system": "LINUX",
+          "source_id": "LINUX_AUTH",
+          "time_utc": "2026-11-02T13:04:02Z",
+          "role": "source"
+        },
+        {
+          "event_key": "LINUX_AUTH:lin-0006",
+          "system": "LINUX",
+          "source_id": "LINUX_AUTH",
+          "time_utc": "2026-11-02T13:04:03Z",
+          "role": "source"
+        },
+        {
+          "event_key": "K8S_NETWORK:k8s-0007",
+          "system": "KUBERNETES",
+          "source_id": "K8S_NETWORK",
+          "time_utc": "2026-11-02T13:05:09Z",
+          "role": "destination"
+        },
+        {
+          "event_key": "AWS_CLOUDTRAIL:aws-0004",
+          "system": "AWS",
+          "source_id": "AWS_CLOUDTRAIL",
+          "time_utc": "2026-11-02T13:05:41Z",
+          "role": "source"
+        },
+        {
+          "event_key": "AWS_CLOUDTRAIL:aws-0005",
+          "system": "AWS",
+          "source_id": "AWS_CLOUDTRAIL",
+          "time_utc": "2026-11-02T13:06:09Z",
+          "role": "source"
+        },
+        {
+          "event_key": "LINUX_NETWORK:lin-0017",
+          "system": "LINUX",
+          "source_id": "LINUX_NETWORK",
+          "time_utc": "2026-11-02T13:07:01Z",
+          "role": "destination"
+        },
+        {
+          "event_key": "AWS_CLOUDTRAIL:aws-0006",
+          "system": "AWS",
+          "source_id": "AWS_CLOUDTRAIL",
+          "time_utc": "2026-11-02T13:07:12Z",
+          "role": "source"
+        },
+        {
+          "event_key": "AWS_CLOUDTRAIL:aws-0007",
+          "system": "AWS",
+          "source_id": "AWS_CLOUDTRAIL",
+          "time_utc": "2026-11-02T13:07:55Z",
+          "role": "source"
+        },
+        {
+          "event_key": "AWS_CLOUDTRAIL:aws-0008",
+          "system": "AWS",
+          "source_id": "AWS_CLOUDTRAIL",
+          "time_utc": "2026-11-02T13:08:33Z",
+          "role": "source"
+        },
+        {
+          "event_key": "LINUX_AUTH:lin-0009",
+          "system": "LINUX",
+          "source_id": "LINUX_AUTH",
+          "time_utc": "2026-11-02T13:12:00Z",
+          "role": "source"
+        }
+      ],
+      "relationship": "SHARED_LITERAL_IP_ONLY",
+      "causation_established": false
+    },
+    {
+      "ip": "203.0.113.88",
+      "systems": [
+        "AWS",
+        "LINUX"
+      ],
+      "members": [
+        {
+          "event_key": "AWS_CLOUDTRAIL:aws-0009",
+          "system": "AWS",
+          "source_id": "AWS_CLOUDTRAIL",
+          "time_utc": "2026-11-02T13:09:04Z",
+          "role": "source"
+        },
+        {
+          "event_key": "LINUX_AUTH:lin-0008",
+          "system": "LINUX",
+          "source_id": "LINUX_AUTH",
+          "time_utc": "2026-11-02T13:09:15Z",
+          "role": "source"
+        }
+      ],
+      "relationship": "SHARED_LITERAL_IP_ONLY",
+      "causation_established": false
+    }
+  ],
+  "temporal_pairs": [
+    {
+      "ip": "203.0.113.77",
+      "first_event": "LINUX_NETWORK:lin-0017",
+      "first_role": "destination",
+      "second_event": "AWS_CLOUDTRAIL:aws-0006",
+      "second_role": "source",
+      "delta_seconds": 11.0,
+      "relationship": "SHARED_IP_AND_WITHIN_5_MINUTES",
+      "causation_established": false
+    },
+    {
+      "ip": "203.0.113.77",
+      "first_event": "K8S_NETWORK:k8s-0007",
+      "first_role": "destination",
+      "second_event": "AWS_CLOUDTRAIL:aws-0004",
+      "second_role": "source",
+      "delta_seconds": 32.0,
+      "relationship": "SHARED_IP_AND_WITHIN_5_MINUTES",
+      "causation_established": false
+    },
+    {
+      "ip": "203.0.113.77",
+      "first_event": "AWS_CLOUDTRAIL:aws-0005",
+      "first_role": "source",
+      "second_event": "LINUX_NETWORK:lin-0017",
+      "second_role": "destination",
+      "delta_seconds": 52.0,
+      "relationship": "SHARED_IP_AND_WITHIN_5_MINUTES",
+      "causation_established": false
+    },
+    {
+      "ip": "203.0.113.77",
+      "first_event": "LINUX_NETWORK:lin-0017",
+      "first_role": "destination",
+      "second_event": "AWS_CLOUDTRAIL:aws-0007",
+      "second_role": "source",
+      "delta_seconds": 54.0,
+      "relationship": "SHARED_IP_AND_WITHIN_5_MINUTES",
+      "causation_established": false
+    },
+    {
+      "ip": "203.0.113.77",
+      "first_event": "K8S_NETWORK:k8s-0007",
+      "first_role": "destination",
+      "second_event": "AWS_CLOUDTRAIL:aws-0005",
+      "second_role": "source",
+      "delta_seconds": 60.0,
+      "relationship": "SHARED_IP_AND_WITHIN_5_MINUTES",
+      "causation_established": false
+    },
+    {
+      "ip": "203.0.113.77",
+      "first_event": "LINUX_AUTH:lin-0006",
+      "first_role": "source",
+      "second_event": "K8S_NETWORK:k8s-0007",
+      "second_role": "destination",
+      "delta_seconds": 66.0,
+      "relationship": "SHARED_IP_AND_WITHIN_5_MINUTES",
+      "causation_established": false
+    },
+    {
+      "ip": "203.0.113.77",
+      "first_event": "LINUX_AUTH:lin-0005",
+      "first_role": "source",
+      "second_event": "K8S_NETWORK:k8s-0007",
+      "second_role": "destination",
+      "delta_seconds": 67.0,
+      "relationship": "SHARED_IP_AND_WITHIN_5_MINUTES",
+      "causation_established": false
+    },
+    {
+      "ip": "203.0.113.77",
+      "first_event": "AWS_CLOUDTRAIL:aws-0004",
+      "first_role": "source",
+      "second_event": "LINUX_NETWORK:lin-0017",
+      "second_role": "destination",
+      "delta_seconds": 80.0,
+      "relationship": "SHARED_IP_AND_WITHIN_5_MINUTES",
+      "causation_established": false
+    },
+    {
+      "ip": "203.0.113.77",
+      "first_event": "LINUX_NETWORK:lin-0017",
+      "first_role": "destination",
+      "second_event": "AWS_CLOUDTRAIL:aws-0008",
+      "second_role": "source",
+      "delta_seconds": 92.0,
+      "relationship": "SHARED_IP_AND_WITHIN_5_MINUTES",
+      "causation_established": false
+    },
+    {
+      "ip": "203.0.113.77",
+      "first_event": "LINUX_AUTH:lin-0006",
+      "first_role": "source",
+      "second_event": "AWS_CLOUDTRAIL:aws-0004",
+      "second_role": "source",
+      "delta_seconds": 98.0,
+      "relationship": "SHARED_IP_AND_WITHIN_5_MINUTES",
+      "causation_established": false
+    },
+    {
+      "ip": "203.0.113.77",
+      "first_event": "LINUX_AUTH:lin-0005",
+      "first_role": "source",
+      "second_event": "AWS_CLOUDTRAIL:aws-0004",
+      "second_role": "source",
+      "delta_seconds": 99.0,
+      "relationship": "SHARED_IP_AND_WITHIN_5_MINUTES",
+      "causation_established": false
+    },
+    {
+      "ip": "203.0.113.77",
+      "first_event": "K8S_NETWORK:k8s-0007",
+      "first_role": "destination",
+      "second_event": "LINUX_NETWORK:lin-0017",
+      "second_role": "destination",
+      "delta_seconds": 112.0,
+      "relationship": "SHARED_IP_AND_WITHIN_5_MINUTES",
+      "causation_established": false
+    },
+    {
+      "ip": "203.0.113.77",
+      "first_event": "LINUX_AUTH:lin-0004",
+      "first_role": "source",
+      "second_event": "K8S_NETWORK:k8s-0007",
+      "second_role": "destination",
+      "delta_seconds": 112.0,
+      "relationship": "SHARED_IP_AND_WITHIN_5_MINUTES",
+      "causation_established": false
+    },
+    {
+      "ip": "203.0.113.77",
+      "first_event": "LINUX_AUTH:lin-0003",
+      "first_role": "source",
+      "second_event": "K8S_NETWORK:k8s-0007",
+      "second_role": "destination",
+      "delta_seconds": 119.0,
+      "relationship": "SHARED_IP_AND_WITHIN_5_MINUTES",
+      "causation_established": false
+    },
+    {
+      "ip": "203.0.113.77",
+      "first_event": "K8S_NETWORK:k8s-0007",
+      "first_role": "destination",
+      "second_event": "AWS_CLOUDTRAIL:aws-0006",
+      "second_role": "source",
+      "delta_seconds": 123.0,
+      "relationship": "SHARED_IP_AND_WITHIN_5_MINUTES",
+      "causation_established": false
+    },
+    {
+      "ip": "203.0.113.77",
+      "first_event": "LINUX_AUTH:lin-0006",
+      "first_role": "source",
+      "second_event": "AWS_CLOUDTRAIL:aws-0005",
+      "second_role": "source",
+      "delta_seconds": 126.0,
+      "relationship": "SHARED_IP_AND_WITHIN_5_MINUTES",
+      "causation_established": false
+    },
+    {
+      "ip": "203.0.113.77",
+      "first_event": "LINUX_AUTH:lin-0005",
+      "first_role": "source",
+      "second_event": "AWS_CLOUDTRAIL:aws-0005",
+      "second_role": "source",
+      "delta_seconds": 127.0,
+      "relationship": "SHARED_IP_AND_WITHIN_5_MINUTES",
+      "causation_established": false
+    },
+    {
+      "ip": "203.0.113.77",
+      "first_event": "LINUX_AUTH:lin-0004",
+      "first_role": "source",
+      "second_event": "AWS_CLOUDTRAIL:aws-0004",
+      "second_role": "source",
+      "delta_seconds": 144.0,
+      "relationship": "SHARED_IP_AND_WITHIN_5_MINUTES",
+      "causation_established": false
+    },
+    {
+      "ip": "203.0.113.77",
+      "first_event": "LINUX_AUTH:lin-0003",
+      "first_role": "source",
+      "second_event": "AWS_CLOUDTRAIL:aws-0004",
+      "second_role": "source",
+      "delta_seconds": 151.0,
+      "relationship": "SHARED_IP_AND_WITHIN_5_MINUTES",
+      "causation_established": false
+    },
+    {
+      "ip": "203.0.113.77",
+      "first_event": "K8S_NETWORK:k8s-0007",
+      "first_role": "destination",
+      "second_event": "AWS_CLOUDTRAIL:aws-0007",
+      "second_role": "source",
+      "delta_seconds": 166.0,
+      "relationship": "SHARED_IP_AND_WITHIN_5_MINUTES",
+      "causation_established": false
+    },
+    {
+      "ip": "203.0.113.77",
+      "first_event": "LINUX_AUTH:lin-0004",
+      "first_role": "source",
+      "second_event": "AWS_CLOUDTRAIL:aws-0005",
+      "second_role": "source",
+      "delta_seconds": 172.0,
+      "relationship": "SHARED_IP_AND_WITHIN_5_MINUTES",
+      "causation_established": false
+    },
+    {
+      "ip": "203.0.113.77",
+      "first_event": "LINUX_AUTH:lin-0003",
+      "first_role": "source",
+      "second_event": "AWS_CLOUDTRAIL:aws-0005",
+      "second_role": "source",
+      "delta_seconds": 179.0,
+      "relationship": "SHARED_IP_AND_WITHIN_5_MINUTES",
+      "causation_established": false
+    },
+    {
+      "ip": "203.0.113.77",
+      "first_event": "LINUX_AUTH:lin-0006",
+      "first_role": "source",
+      "second_event": "AWS_CLOUDTRAIL:aws-0006",
+      "second_role": "source",
+      "delta_seconds": 189.0,
+      "relationship": "SHARED_IP_AND_WITHIN_5_MINUTES",
+      "causation_established": false
+    },
+    {
+      "ip": "203.0.113.77",
+      "first_event": "LINUX_AUTH:lin-0005",
+      "first_role": "source",
+      "second_event": "AWS_CLOUDTRAIL:aws-0006",
+      "second_role": "source",
+      "delta_seconds": 190.0,
+      "relationship": "SHARED_IP_AND_WITHIN_5_MINUTES",
+      "causation_established": false
+    },
+    {
+      "ip": "203.0.113.77",
+      "first_event": "K8S_NETWORK:k8s-0007",
+      "first_role": "destination",
+      "second_event": "AWS_CLOUDTRAIL:aws-0008",
+      "second_role": "source",
+      "delta_seconds": 204.0,
+      "relationship": "SHARED_IP_AND_WITHIN_5_MINUTES",
+      "causation_established": false
+    },
+    {
+      "ip": "203.0.113.77",
+      "first_event": "AWS_CLOUDTRAIL:aws-0008",
+      "first_role": "source",
+      "second_event": "LINUX_AUTH:lin-0009",
+      "second_role": "source",
+      "delta_seconds": 207.0,
+      "relationship": "SHARED_IP_AND_WITHIN_5_MINUTES",
+      "causation_established": false
+    },
+    {
+      "ip": "203.0.113.77",
+      "first_event": "LINUX_AUTH:lin-0006",
+      "first_role": "source",
+      "second_event": "AWS_CLOUDTRAIL:aws-0007",
+      "second_role": "source",
+      "delta_seconds": 232.0,
+      "relationship": "SHARED_IP_AND_WITHIN_5_MINUTES",
+      "causation_established": false
+    },
+    {
+      "ip": "203.0.113.77",
+      "first_event": "LINUX_AUTH:lin-0005",
+      "first_role": "source",
+      "second_event": "AWS_CLOUDTRAIL:aws-0007",
+      "second_role": "source",
+      "delta_seconds": 233.0,
+      "relationship": "SHARED_IP_AND_WITHIN_5_MINUTES",
+      "causation_established": false
+    },
+    {
+      "ip": "203.0.113.77",
+      "first_event": "LINUX_AUTH:lin-0004",
+      "first_role": "source",
+      "second_event": "AWS_CLOUDTRAIL:aws-0006",
+      "second_role": "source",
+      "delta_seconds": 235.0,
+      "relationship": "SHARED_IP_AND_WITHIN_5_MINUTES",
+      "causation_established": false
+    },
+    {
+      "ip": "203.0.113.77",
+      "first_event": "LINUX_AUTH:lin-0003",
+      "first_role": "source",
+      "second_event": "AWS_CLOUDTRAIL:aws-0006",
+      "second_role": "source",
+      "delta_seconds": 242.0,
+      "relationship": "SHARED_IP_AND_WITHIN_5_MINUTES",
+      "causation_established": false
+    },
+    {
+      "ip": "203.0.113.77",
+      "first_event": "AWS_CLOUDTRAIL:aws-0007",
+      "first_role": "source",
+      "second_event": "LINUX_AUTH:lin-0009",
+      "second_role": "source",
+      "delta_seconds": 245.0,
+      "relationship": "SHARED_IP_AND_WITHIN_5_MINUTES",
+      "causation_established": false
+    },
+    {
+      "ip": "203.0.113.77",
+      "first_event": "LINUX_AUTH:lin-0006",
+      "first_role": "source",
+      "second_event": "AWS_CLOUDTRAIL:aws-0008",
+      "second_role": "source",
+      "delta_seconds": 270.0,
+      "relationship": "SHARED_IP_AND_WITHIN_5_MINUTES",
+      "causation_established": false
+    },
+    {
+      "ip": "203.0.113.77",
+      "first_event": "LINUX_AUTH:lin-0005",
+      "first_role": "source",
+      "second_event": "AWS_CLOUDTRAIL:aws-0008",
+      "second_role": "source",
+      "delta_seconds": 271.0,
+      "relationship": "SHARED_IP_AND_WITHIN_5_MINUTES",
+      "causation_established": false
+    },
+    {
+      "ip": "203.0.113.77",
+      "first_event": "LINUX_AUTH:lin-0004",
+      "first_role": "source",
+      "second_event": "AWS_CLOUDTRAIL:aws-0007",
+      "second_role": "source",
+      "delta_seconds": 278.0,
+      "relationship": "SHARED_IP_AND_WITHIN_5_MINUTES",
+      "causation_established": false
+    },
+    {
+      "ip": "203.0.113.77",
+      "first_event": "LINUX_AUTH:lin-0003",
+      "first_role": "source",
+      "second_event": "AWS_CLOUDTRAIL:aws-0007",
+      "second_role": "source",
+      "delta_seconds": 285.0,
+      "relationship": "SHARED_IP_AND_WITHIN_5_MINUTES",
+      "causation_established": false
+    },
+    {
+      "ip": "203.0.113.77",
+      "first_event": "AWS_CLOUDTRAIL:aws-0006",
+      "first_role": "source",
+      "second_event": "LINUX_AUTH:lin-0009",
+      "second_role": "source",
+      "delta_seconds": 288.0,
+      "relationship": "SHARED_IP_AND_WITHIN_5_MINUTES",
+      "causation_established": false
+    },
+    {
+      "ip": "203.0.113.88",
+      "first_event": "AWS_CLOUDTRAIL:aws-0009",
+      "first_role": "source",
+      "second_event": "LINUX_AUTH:lin-0008",
+      "second_role": "source",
+      "delta_seconds": 11.0,
+      "relationship": "SHARED_IP_AND_WITHIN_5_MINUTES",
+      "causation_established": false
+    }
+  ],
+  "limitations": [
+    "A shared IP is not common-actor attribution.",
+    "Source and destination roles remain distinct.",
+    "Time proximity does not establish causation.",
+    "Clock synchronization is not independently verified.",
+    "Kubernetes ServiceAccount tokens are not AWS keys.",
+    "An allowed connection does not prove exfiltration.",
+    "Actual Minikube tests are excluded from this analysis."
+  ]
+}

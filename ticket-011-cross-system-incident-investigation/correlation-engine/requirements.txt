@@ -1,0 +1,4 @@
+# Ticket 011 correlation engine
+# Python 3 standard library only.
+# No third-party pip packages are required
+# by the inspected engine and unit-test source.
