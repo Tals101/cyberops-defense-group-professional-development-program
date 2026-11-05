@@ -1,0 +1,50 @@
+{
+    "datasetType":  "SYNTHETIC",
+    "cluster":  "synthetic-lab-cluster",
+    "namespace":  "production-reporting",
+    "deployment":  "reporting-api",
+    "workload":  {
+                     "podName":  "reporting-api-abc123",
+                     "podUID":  "synthetic-pod-uid-011-01",
+                     "containerName":  "reporting-api",
+                     "containerID":  "synthetic-container-011-01",
+                     "podIP":  "10.244.0.19",
+                     "image":  "registry.example.invalid/reporting-api:synthetic",
+                     "serviceAccount":  "reporting-api",
+                     "automountServiceAccountToken":  true,
+                     "securityContext":  {
+                                             "runAsNonRoot":  true,
+                                             "privileged":  false,
+                                             "allowPrivilegeEscalation":  false,
+                                             "readOnlyRootFilesystem":  true
+                                         }
+                 },
+    "rbac":  {
+                 "serviceAccount":  "reporting-api",
+                 "modeledAllowedActions":  [
+                                               "get configmaps/reporting-config"
+                                           ],
+                 "modeledDeniedActions":  [
+                                              "get secrets/reporting-credentials",
+                                              "patch deployments/reporting-api"
+                                          ],
+                 "snapshotIsAuthoritative":  false
+             },
+    "network":  {
+                    "expectedMetricsDestination":  "192.0.2.200",
+                    "unfamiliarDestination":  "203.0.113.77",
+                    "externalAddressesAreDocumentationOnly":  true,
+                    "payloadCaptureAvailable":  false,
+                    "natEgressMappingAvailable":  false
+                },
+    "investigationLimits":  [
+                                "No production Kubernetes resources were queried.",
+                                "Audit records are synthetic and do not prove an actual API request occurred.",
+                                "Falco-style events are simulated runtime records.",
+                                "Kubernetes ServiceAccount tokens are not automatically AWS access keys.",
+                                "A token-file read does not prove the token was copied or used.",
+                                "A shared IP between systems does not establish common control.",
+                                "No evidence currently establishes Kubernetes-to-AWS credential use.",
+                                "The dataset does not establish complete audit or network coverage."
+                            ]
+}
