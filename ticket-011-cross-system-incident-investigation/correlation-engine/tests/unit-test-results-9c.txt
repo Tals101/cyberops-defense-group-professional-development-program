@@ -1,0 +1,47 @@
+Ticket 011 - Correlation Engine Unit Tests
+
+Classification: LOCAL SYNTHETIC TEST VALIDATION
+Run UTC: 2026-11-05T00:58:49.9793393+00:00
+
+Expected test cases: 20
+Python exit code: 0
+
+Protected baseline files: 12
+Original files unchanged: True
+
+No external service calls were made.
+Invalid fixtures were created only in temporary
+directories under correlation-engine/tests.
+Temporary fixtures are deleted after each test.
+
+========== TEST OUTPUT ==========
+
+test_01_all_source_counts_and_hashes (__main__.CorrelationTests.test_01_all_source_counts_and_hashes) ... ok
+test_02_original_references_preserved (__main__.CorrelationTests.test_02_original_references_preserved) ... ok
+test_03_saved_normalization_integrity (__main__.CorrelationTests.test_03_saved_normalization_integrity) ... ok
+test_04_saved_association_safety (__main__.CorrelationTests.test_04_saved_association_safety) ... ok
+test_05_correlations_reproduce (__main__.CorrelationTests.test_05_correlations_reproduce) ... ok
+test_06_case_sensitive_field_variants (__main__.CorrelationTests.test_06_case_sensitive_field_variants) ... ok
+test_07_nested_cloudtrail_actor (__main__.CorrelationTests.test_07_nested_cloudtrail_actor) ... ok
+test_08_utc_timestamp_validation (__main__.CorrelationTests.test_08_utc_timestamp_validation) ... ok
+test_09_invalid_ips_excluded (__main__.CorrelationTests.test_09_invalid_ips_excluded) ... ok
+test_10_source_destination_roles (__main__.CorrelationTests.test_10_source_destination_roles) ... ok
+test_11_five_minute_boundary_included (__main__.CorrelationTests.test_11_five_minute_boundary_included) ... ok
+test_12_outside_time_window_excluded (__main__.CorrelationTests.test_12_outside_time_window_excluded) ... ok
+test_13_same_system_not_cross_correlated (__main__.CorrelationTests.test_13_same_system_not_cross_correlated) ... ok
+test_14_different_ips_not_correlated (__main__.CorrelationTests.test_14_different_ips_not_correlated) ... ok
+test_15_tampered_source_hash_rejected (__main__.CorrelationTests.test_15_tampered_source_hash_rejected) ... ok
+test_16_missing_event_id_rejected (__main__.CorrelationTests.test_16_missing_event_id_rejected) ... ok
+test_17_duplicate_event_id_rejected (__main__.CorrelationTests.test_17_duplicate_event_id_rejected) ... ok
+test_18_wrong_provenance_rejected (__main__.CorrelationTests.test_18_wrong_provenance_rejected) ... ok
+test_19_invalid_timestamp_rejected (__main__.CorrelationTests.test_19_invalid_timestamp_rejected) ... ok
+test_20_source_path_mismatch_rejected (__main__.CorrelationTests.test_20_source_path_mismatch_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 20 tests in 0.015s
+
+OK
+Tests executed: 20
+Failures: 0
+Errors: 0
+STEP 9C PYTHON: PASS

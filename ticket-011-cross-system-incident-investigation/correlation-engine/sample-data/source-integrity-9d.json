@@ -1,0 +1,63 @@
+{
+    "Ticket":  "CYBEROPS-PDP-011",
+    "Classification":  "SYNTHETIC_EVIDENCE_INTEGRITY",
+    "VerifiedUTC":  "2026-11-05T01:02:53.1012307+00:00",
+    "SourceCount":  7,
+    "TimelineEventCount":  42,
+    "SharedIPGroups":  2,
+    "TemporalPairs":  37,
+    "UnitTestsPassed":  20,
+    "CausationEstablished":  false,
+    "ContainmentGateStatus":  "PENDING_TIMEZONE_AND_AUTHORIZATION",
+    "Sources":  [
+                    {
+                        "SourceID":  "AWS_CLOUDTRAIL",
+                        "Path":  "evidence/aws/cloudtrail-synthetic.jsonl",
+                        "Records":  12,
+                        "SHA256":  "7F2CA74754DB29D78DBEE777F712BB74659D0A3FF895B77FF7114AF0A2CFAF78",
+                        "Status":  "VERIFIED"
+                    },
+                    {
+                        "SourceID":  "K8S_AUDIT",
+                        "Path":  "evidence/kubernetes/kubernetes-audit-synthetic.jsonl",
+                        "Records":  6,
+                        "SHA256":  "227E4A4A9173635A12566AF5246F3167BDCD968DFD44C9DE6566B9E12DC2F91F",
+                        "Status":  "VERIFIED"
+                    },
+                    {
+                        "SourceID":  "K8S_FALCO",
+                        "Path":  "evidence/kubernetes/falco-runtime-synthetic.jsonl",
+                        "Records":  4,
+                        "SHA256":  "BA61A3976213C45E97316C4E1D22FFD77C17678E4B812C8CE60DDE13A4B30760",
+                        "Status":  "VERIFIED"
+                    },
+                    {
+                        "SourceID":  "K8S_NETWORK",
+                        "Path":  "evidence/kubernetes/network-flow-synthetic.jsonl",
+                        "Records":  2,
+                        "SHA256":  "B8EDA9594E2765A1479F900A8B383B352F3721C7D0B333F0C6DD342DFD6577CA",
+                        "Status":  "VERIFIED"
+                    },
+                    {
+                        "SourceID":  "LINUX_AUTH",
+                        "Path":  "evidence/linux/linux-auth-synthetic.jsonl",
+                        "Records":  9,
+                        "SHA256":  "71B513E1ED147187C8396591C1782E8A4215F14D4C6753B82FDB6EA7D89F3AAD",
+                        "Status":  "VERIFIED"
+                    },
+                    {
+                        "SourceID":  "LINUX_PROCESS",
+                        "Path":  "evidence/linux/linux-process-persistence-synthetic.jsonl",
+                        "Records":  6,
+                        "SHA256":  "CBBE9708903F19FF8BA8CC495BDBC0A15441CFD8CB92D58C899F6A7F9E40A1A3",
+                        "Status":  "VERIFIED"
+                    },
+                    {
+                        "SourceID":  "LINUX_NETWORK",
+                        "Path":  "evidence/linux/linux-network-synthetic.jsonl",
+                        "Records":  3,
+                        "SHA256":  "5FFDA3A5C614C0E53C10B5BA33EBAF875BF4FC58F9685775184CDE67E14044C5",
+                        "Status":  "VERIFIED"
+                    }
+                ]
+}
