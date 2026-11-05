@@ -1,0 +1,38 @@
+{
+    "datasetType":  "SYNTHETIC",
+    "incidentDate":  "2026-11-02",
+    "timestampTimezone":  "UTC",
+    "awsAccount":  "111122223333",
+    "sourceIpNote":  "All IP addresses use documentation-only ranges.",
+    "reportingIdentity":  {
+                              "principal":  "svc-reporting-automation",
+                              "accessKeyIdentifier":  "SYNTH-KEY-REPORTING-01",
+                              "expectedSourceIps":  [
+                                                        "198.51.100.25"
+                                                    ],
+                              "unfamiliarSourceIp":  "203.0.113.77",
+                              "approvedReportingBucket":  "synthetic-reporting-bucket",
+                              "normalOperations":  [
+                                                       "GetCallerIdentity",
+                                                       "ListBuckets",
+                                                       "GetObject"
+                                                   ]
+                          },
+    "legitimateAdministrator":  {
+                                    "principal":  "analyst-admin",
+                                    "sourceIp":  "203.0.113.88",
+                                    "approvalReference":  "SYNTH-CHANGE-011-001",
+                                    "note":  "Approved temporary administrative access."
+                                },
+    "routineBackupIdentity":  {
+                                  "principal":  "svc-backup-maintenance",
+                                  "sourceIp":  "192.0.2.58",
+                                  "bucket":  "synthetic-backup-bucket"
+                              },
+    "limitations":  [
+                        "Reference context is synthetic, not independent production evidence.",
+                        "A successful API call does not alone prove which bytes were received.",
+                        "The outcome of one AssumeRole attempt does not establish all possible role activity.",
+                        "AWS events alone cannot establish Kubernetes or Linux causation."
+                    ]
+}
