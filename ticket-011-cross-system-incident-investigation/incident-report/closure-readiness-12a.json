@@ -1,0 +1,76 @@
+{
+    "Ticket":  "CYBEROPS-PDP-011",
+    "Classification":  "TECHNICAL_CLOSURE_READINESS_NOT_FINAL_CLOSURE",
+    "PreparedUTC":  "2026-11-05T17:34:00.6180357+00:00",
+    "SyntheticSourceFilesVerified":  7,
+    "SyntheticTimelineEventsVerified":  42,
+    "CorrelationUnitTestsPassed":  20,
+    "SharedIPGroups":  2,
+    "FiveMinutePairs":  37,
+    "DocumentedAdversarialCases":  8,
+    "AuthorizationSimulationCases":  4,
+    "ExecutedRuntimeTestCases":  4,
+    "FalcoEnhancementsValidated":  2,
+    "FalcoPositiveControls":  2,
+    "FalcoNegativeControls":  2,
+    "FormalAdversarialAcceptance":  "PENDING",
+    "ContainmentGateStatus":  "PENDING",
+    "RecoveryExecuted":  false,
+    "ProductionRecoveryReady":  false,
+    "CrossSystemCausationEstablished":  false,
+    "ActualCompromiseEstablished":  false,
+    "RootCause":  "UNDETERMINED",
+    "FinalClosureStatus":  "PENDING_AUTHORIZED_DISPOSITION",
+    "Gates":  [
+                  {
+                      "Gate":  "C01",
+                      "Requirement":  "Seven source hashes and 42-event timeline",
+                      "Status":  "VERIFIED"
+                  },
+                  {
+                      "Gate":  "C02",
+                      "Requirement":  "Correlation-engine unit tests",
+                      "Status":  "VERIFIED_20_PASS"
+                  },
+                  {
+                      "Gate":  "C03",
+                      "Requirement":  "Eight-case technical evidence matrix",
+                      "Status":  "VERIFIED_PROVISIONALLY"
+                  },
+                  {
+                      "Gate":  "C04",
+                      "Requirement":  "Authoritative test rubric and formal acceptance",
+                      "Status":  "PENDING"
+                  },
+                  {
+                      "Gate":  "C05",
+                      "Requirement":  "09:05 date, timezone, and authorization",
+                      "Status":  "PENDING"
+                  },
+                  {
+                      "Gate":  "C06",
+                      "Requirement":  "Production recovery readiness",
+                      "Status":  "NOT_ESTABLISHED"
+                  },
+                  {
+                      "Gate":  "C07",
+                      "Requirement":  "Incident attribution and actual impact",
+                      "Status":  "NOT_ESTABLISHED"
+                  },
+                  {
+                      "Gate":  "C08",
+                      "Requirement":  "Authorized final closure disposition",
+                      "Status":  "PENDING"
+                  }
+              ],
+    "ReportFiles":  [
+                        {
+                            "Path":  "incident-report/consolidated-incident-report-12a.md",
+                            "SHA256":  "88E36B7FC94A8A84876EA8D802A1828A0D023E48881DFF76FAA5D18F5448D784"
+                        },
+                        {
+                            "Path":  "incident-report/recommendations-lessons-learned-12a.md",
+                            "SHA256":  "0AB068CEB838F258128EED01134205C7149E39472E49F0264486EC9E88D461DB"
+                        }
+                    ]
+}

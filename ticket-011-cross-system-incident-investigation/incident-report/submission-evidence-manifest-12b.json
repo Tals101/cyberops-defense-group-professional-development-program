@@ -1,0 +1,460 @@
+{
+    "Ticket":  "CYBEROPS-PDP-011",
+    "Classification":  "CURATED_TECHNICAL_SUBMISSION_MANIFEST",
+    "PreparedUTC":  "2026-11-05T17:37:07.3317083+00:00",
+    "Scope":  "CURATED_EVIDENCE_NOT_COMPLETE_REPOSITORY",
+    "IncludedFileCount":  73,
+    "OriginalSyntheticSourcesVerified":  7,
+    "OriginalKubernetesSupportingFilesVerified":  35,
+    "TimelineEvents":  42,
+    "CorrelationUnitTestsPassed":  20,
+    "AdversarialScenariosDocumented":  8,
+    "AuthorizationSimulations":  4,
+    "ExecutedRuntimeTests":  4,
+    "TechnicalReviewPackageStatus":  "PREPARED",
+    "AuthoritativeAcceptanceStatus":  "PENDING",
+    "ContainmentAuthorizationStatus":  "PENDING",
+    "ProductionRecoveryCompleted":  false,
+    "ActualCompromiseEstablished":  false,
+    "FormalTicketClosure":  "PENDING",
+    "Files":  [
+                  {
+                      "Path":  "adversarial-testing/acceptance-criteria-reconciliation-11d.json",
+                      "Category":  "TECHNICAL_REPORT_OR_METHOD",
+                      "Bytes":  6171,
+                      "SHA256":  "145D7EBBAF0C33FC9596AB35994770F721FC0ED27448D6A16B37E7A52670825A"
+                  },
+                  {
+                      "Path":  "adversarial-testing/acceptance-criteria-reconciliation-11d.md",
+                      "Category":  "TECHNICAL_REPORT_OR_METHOD",
+                      "Bytes":  3096,
+                      "SHA256":  "88060857F2E8753C99C8E41E846DCA9C5BDAC0559223F4C6CCABE0728E02D494"
+                  },
+                  {
+                      "Path":  "adversarial-testing/eight-case-acceptance-review-11c.json",
+                      "Category":  "TECHNICAL_REPORT_OR_METHOD",
+                      "Bytes":  4017,
+                      "SHA256":  "A92E40B82C296B6712180DB45DF6CA2D340B5ED1FE4661D348A131AAA4549985"
+                  },
+                  {
+                      "Path":  "adversarial-testing/eight-case-acceptance-review-11c.md",
+                      "Category":  "TECHNICAL_REPORT_OR_METHOD",
+                      "Bytes":  4226,
+                      "SHA256":  "CB21BD12F1036E0663D3FF438886225B9D76651D54B01034DB2D53A358BFF5F8"
+                  },
+                  {
+                      "Path":  "adversarial-testing/eight-case-technical-matrix-11f.json",
+                      "Category":  "TECHNICAL_REPORT_OR_METHOD",
+                      "Bytes":  7006,
+                      "SHA256":  "0FB8D9BA855ABBFBE665F8D99837D1F0450FC2A06098498130CCB524D7828165"
+                  },
+                  {
+                      "Path":  "adversarial-testing/eight-case-technical-matrix-11f.md",
+                      "Category":  "TECHNICAL_REPORT_OR_METHOD",
+                      "Bytes":  2850,
+                      "SHA256":  "1571F3347E0BD7B25592194A280B3444C578A8A73DBF81EB45743F66A69F63C4"
+                  },
+                  {
+                      "Path":  "adversarial-testing/provisional-test-assessment-7g.md",
+                      "Category":  "TECHNICAL_REPORT_OR_METHOD",
+                      "Bytes":  3032,
+                      "SHA256":  "CDA446078E564E0C0C27699710017DA31E484BA7B7787F52172DED70E61F9A04"
+                  },
+                  {
+                      "Path":  "adversarial-testing/provisional-test-register-7g.csv",
+                      "Category":  "TECHNICAL_REPORT_OR_METHOD",
+                      "Bytes":  2373,
+                      "SHA256":  "75ED6069CF8C43F5F8B3638705A29E8039CAD871488AD25308418D491AE22F2B"
+                  },
+                  {
+                      "Path":  "adversarial-testing/rbac-case-mapping-11e.json",
+                      "Category":  "TECHNICAL_REPORT_OR_METHOD",
+                      "Bytes":  5389,
+                      "SHA256":  "E1DC1A774D55B7686BA432269A9E123A0E7E2C78C16199BB8E7E9D9BAA9870A2"
+                  },
+                  {
+                      "Path":  "adversarial-testing/rbac-case-mapping-11e.md",
+                      "Category":  "TECHNICAL_REPORT_OR_METHOD",
+                      "Bytes":  2195,
+                      "SHA256":  "BBE1AC84CB8F61D7F0FD30839A8F6D2A30BD59D39E81CEC330A3000B6E326C27"
+                  },
+                  {
+                      "Path":  "correlation-engine/sample-data/correlation-summary-9b.md",
+                      "Category":  "TECHNICAL_REPORT_OR_METHOD",
+                      "Bytes":  1031,
+                      "SHA256":  "103617F0153381A7737BE243DBAF5E4FC498BE9267240B943B820A9E19573295"
+                  },
+                  {
+                      "Path":  "correlation-engine/sample-data/ip-associations-9b.json",
+                      "Category":  "TECHNICAL_REPORT_OR_METHOD",
+                      "Bytes":  15941,
+                      "SHA256":  "B676CF0D888C34D17D035A9208C15C8249D6515A970CCA000BBA406B5DFBB7A0"
+                  },
+                  {
+                      "Path":  "correlation-engine/sample-data/normalized-events-9b.jsonl",
+                      "Category":  "TECHNICAL_REPORT_OR_METHOD",
+                      "Bytes":  30588,
+                      "SHA256":  "68666C9224F72C78D0DFC7A719C0B60BA64EB1A4DD3F6A935292E8309DFE169F"
+                  },
+                  {
+                      "Path":  "correlation-engine/sample-data/source-integrity-9d.json",
+                      "Category":  "TECHNICAL_REPORT_OR_METHOD",
+                      "Bytes":  3071,
+                      "SHA256":  "B088B0DF1D1B29F0F38E343E56CA15CBABB1DDD7F4C8129990A56036FDC154C5"
+                  },
+                  {
+                      "Path":  "correlation-engine/sample-data/source-schema-audit-9a.json",
+                      "Category":  "TECHNICAL_REPORT_OR_METHOD",
+                      "Bytes":  33011,
+                      "SHA256":  "F453C35B9401561D6998034B9568AF79714FF96190ADD734180C84590EB8CEBD"
+                  },
+                  {
+                      "Path":  "correlation-engine/src/ticket011_correlate.py",
+                      "Category":  "TECHNICAL_REPORT_OR_METHOD",
+                      "Bytes":  14349,
+                      "SHA256":  "CE63EDC573BFABED36188737E4F09121966313F5A558EB9FDC20A80A2A003C26"
+                  },
+                  {
+                      "Path":  "correlation-engine/tests/unit-test-results-9c.txt",
+                      "Category":  "TECHNICAL_REPORT_OR_METHOD",
+                      "Bytes":  2735,
+                      "SHA256":  "2CB7ADEBE52E8DBA47603C14A6B9903FD17BA6CD74D94E752EC4A24A5A8816BB"
+                  },
+                  {
+                      "Path":  "evidence/aws/cloudtrail-synthetic.jsonl",
+                      "Category":  "SYNTHETIC_ORIGINAL_SOURCE",
+                      "Bytes":  8915,
+                      "SHA256":  "7F2CA74754DB29D78DBEE777F712BB74659D0A3FF895B77FF7114AF0A2CFAF78"
+                  },
+                  {
+                      "Path":  "evidence/kubernetes/falco-detection-assessment-11b.json",
+                      "Category":  "TECHNICAL_REPORT_OR_METHOD",
+                      "Bytes":  3833,
+                      "SHA256":  "83FA98138E69BD1562A7E1E73799DD9D6455EA0A6A46473A290DCE082415D42B"
+                  },
+                  {
+                      "Path":  "evidence/kubernetes/falco-detection-assessment-11b.md",
+                      "Category":  "TECHNICAL_REPORT_OR_METHOD",
+                      "Bytes":  3804,
+                      "SHA256":  "CB32AE7063C29B2BEF4C223E2C78E83406D896C335EB8118350231EA3192AAC5"
+                  },
+                  {
+                      "Path":  "evidence/kubernetes/falco-detection-inventory-11a.json",
+                      "Category":  "TECHNICAL_REPORT_OR_METHOD",
+                      "Bytes":  32626,
+                      "SHA256":  "F4F7528CB9C86DA2158DD4E77F1819BC7BB39DB94DD6152E95970F422B67AE34"
+                  },
+                  {
+                      "Path":  "evidence/kubernetes/falco-detection-inventory-11a.md",
+                      "Category":  "TECHNICAL_REPORT_OR_METHOD",
+                      "Bytes":  6278,
+                      "SHA256":  "BF17BAB6EA991A614713558C6FCABAB7BEA139397B3FAF9D62D73E803F11B58F"
+                  },
+                  {
+                      "Path":  "evidence/kubernetes/falco-enhancement1-deployment-attempt.txt",
+                      "Category":  "ISOLATED_LAB_SUPPORTING_FILE",
+                      "Bytes":  959,
+                      "SHA256":  "DAEACCC913A2AA4951726F4A0B55329F7588F6BBF053996EBC8CC5C3945C9E83"
+                  },
+                  {
+                      "Path":  "evidence/kubernetes/falco-enhancement1-deployment-result.md",
+                      "Category":  "ISOLATED_LAB_SUPPORTING_FILE",
+                      "Bytes":  1121,
+                      "SHA256":  "44545508B7DE65B312A532060D31A3CB3032270B5E55737056BA73F0A68922F3"
+                  },
+                  {
+                      "Path":  "evidence/kubernetes/falco-enhancement1-design.md",
+                      "Category":  "ISOLATED_LAB_SUPPORTING_FILE",
+                      "Bytes":  1815,
+                      "SHA256":  "C7540E8518108AB94A4D6EB198626005CEFDCFC2ED7B263D655F4095DC28A5DF"
+                  },
+                  {
+                      "Path":  "evidence/kubernetes/falco-enhancement1-rule-validation.txt",
+                      "Category":  "ISOLATED_LAB_SUPPORTING_FILE",
+                      "Bytes":  3599,
+                      "SHA256":  "8B90D8ED2AB448AD3E6B8EFA5B1F52146AC35741F767DE8C24B722698BAA8985"
+                  },
+                  {
+                      "Path":  "evidence/kubernetes/falco-enhancement2-deployment-attempt.txt",
+                      "Category":  "ISOLATED_LAB_SUPPORTING_FILE",
+                      "Bytes":  880,
+                      "SHA256":  "A6F9787F9842D6400C89A0DAF9864AFEBB257A7AD461F920FD10124A68D2E87D"
+                  },
+                  {
+                      "Path":  "evidence/kubernetes/falco-enhancement2-deployment-result.md",
+                      "Category":  "ISOLATED_LAB_SUPPORTING_FILE",
+                      "Bytes":  1172,
+                      "SHA256":  "50C4CDCFC87A743F84AFC0F0FE55745E58106DFBD8148A45EA6794F8BE45F1B0"
+                  },
+                  {
+                      "Path":  "evidence/kubernetes/falco-enhancement2-design.md",
+                      "Category":  "ISOLATED_LAB_SUPPORTING_FILE",
+                      "Bytes":  1812,
+                      "SHA256":  "0D4BF69C13EAF19EEE4E59B873929C8D076B9B3E86C4C4FEB5234132A57D9666"
+                  },
+                  {
+                      "Path":  "evidence/kubernetes/falco-enhancement2-recovery-check.txt",
+                      "Category":  "ISOLATED_LAB_SUPPORTING_FILE",
+                      "Bytes":  815,
+                      "SHA256":  "E4EFE6D4CB6CD36C7174F1FD9E142DAB840E2A5068C81050599ED6819066EDFA"
+                  },
+                  {
+                      "Path":  "evidence/kubernetes/falco-enhancement2-rule-validation.txt",
+                      "Category":  "ISOLATED_LAB_SUPPORTING_FILE",
+                      "Bytes":  4386,
+                      "SHA256":  "908EC7C73836EA087A436F4C0673BDF05A4F990AAF9D10C9E11EF5D667296EC4"
+                  },
+                  {
+                      "Path":  "evidence/kubernetes/falco-enhancement2-v2-rule-validation.txt",
+                      "Category":  "ISOLATED_LAB_SUPPORTING_FILE",
+                      "Bytes":  3437,
+                      "SHA256":  "436B8C5957067B8B31BFCAEA49A677191D8B55497AEA591BC2416A2EEE34F48C"
+                  },
+                  {
+                      "Path":  "evidence/kubernetes/falco-enhancements-verification-and-inventory.md",
+                      "Category":  "ISOLATED_LAB_SUPPORTING_FILE",
+                      "Bytes":  5675,
+                      "SHA256":  "2298A77CBA7D853E3106E21001737660E8BFE1A29B8649D862FFABD4092E6EA8"
+                  },
+                  {
+                      "Path":  "evidence/kubernetes/falco-runtime-synthetic.jsonl",
+                      "Category":  "SYNTHETIC_ORIGINAL_SOURCE",
+                      "Bytes":  2815,
+                      "SHA256":  "BA61A3976213C45E97316C4E1D22FFD77C17678E4B812C8CE60DDE13A4B30760"
+                  },
+                  {
+                      "Path":  "evidence/kubernetes/kubernetes-audit-synthetic.jsonl",
+                      "Category":  "SYNTHETIC_ORIGINAL_SOURCE",
+                      "Bytes":  4421,
+                      "SHA256":  "227E4A4A9173635A12566AF5246F3167BDCD968DFD44C9DE6566B9E12DC2F91F"
+                  },
+                  {
+                      "Path":  "evidence/kubernetes/live-lab-falco-crash-review-6q.txt",
+                      "Category":  "ISOLATED_LAB_SUPPORTING_FILE",
+                      "Bytes":  4894,
+                      "SHA256":  "0BEC9F61D5AA17DB96CA01335353793BB240F031FBFC0EE9A1587D5E8C53C291"
+                  },
+                  {
+                      "Path":  "evidence/kubernetes/live-lab-falco-daemonset.json",
+                      "Category":  "ISOLATED_LAB_SUPPORTING_FILE",
+                      "Bytes":  37474,
+                      "SHA256":  "667535E2CBA1E39C70DA9E2A48E18C4681053902322FF0DBD321E1FAC418534A"
+                  },
+                  {
+                      "Path":  "evidence/kubernetes/live-lab-falco-enhancement1-negative.json",
+                      "Category":  "ISOLATED_LAB_SUPPORTING_FILE",
+                      "Bytes":  912,
+                      "SHA256":  "8176AF087BD915CA1FBF03F02265B4C90942D9622D90196F11A7A44495923246"
+                  },
+                  {
+                      "Path":  "evidence/kubernetes/live-lab-falco-enhancement1-negative.md",
+                      "Category":  "ISOLATED_LAB_SUPPORTING_FILE",
+                      "Bytes":  973,
+                      "SHA256":  "2A29E170F798A5D66547B64FD3A837B91DF563EE69DF8641194B960AF1EFF73D"
+                  },
+                  {
+                      "Path":  "evidence/kubernetes/live-lab-falco-enhancement1-positive.json",
+                      "Category":  "ISOLATED_LAB_SUPPORTING_FILE",
+                      "Bytes":  1409,
+                      "SHA256":  "A580D522F0F7F00006580073037DA79A56FE15BBF1A65FCDCEC17496C398A579"
+                  },
+                  {
+                      "Path":  "evidence/kubernetes/live-lab-falco-enhancement1-positive.md",
+                      "Category":  "ISOLATED_LAB_SUPPORTING_FILE",
+                      "Bytes":  1092,
+                      "SHA256":  "BA0CC255383DB66A1CBB6C6CAA2E6181DA690920780A5BF62E28A0D02818B49B"
+                  },
+                  {
+                      "Path":  "evidence/kubernetes/live-lab-falco-enhancement2-negative.json",
+                      "Category":  "ISOLATED_LAB_SUPPORTING_FILE",
+                      "Bytes":  1177,
+                      "SHA256":  "01B6B3C19D6FA91652C3842D4873E84E2FA60E86F33B3BB2BBB3322186C4FA31"
+                  },
+                  {
+                      "Path":  "evidence/kubernetes/live-lab-falco-enhancement2-negative.md",
+                      "Category":  "ISOLATED_LAB_SUPPORTING_FILE",
+                      "Bytes":  1027,
+                      "SHA256":  "6084EF89BCC717260739E3E7E5B41D0BF37F9511A12C87C7883D6365279DCDDE"
+                  },
+                  {
+                      "Path":  "evidence/kubernetes/live-lab-falco-enhancement2-positive.json",
+                      "Category":  "ISOLATED_LAB_SUPPORTING_FILE",
+                      "Bytes":  1623,
+                      "SHA256":  "4916DB7F001D59E8C46B1478FF1A1EAF26769BBF75337219D0861A6A22A36B59"
+                  },
+                  {
+                      "Path":  "evidence/kubernetes/live-lab-falco-enhancement2-positive.md",
+                      "Category":  "ISOLATED_LAB_SUPPORTING_FILE",
+                      "Bytes":  1149,
+                      "SHA256":  "82AF8E316275425CB48696C24650379CF8A284F972E0CE3E146AC0F8C86A61CD"
+                  },
+                  {
+                      "Path":  "evidence/kubernetes/live-lab-falco-install.md",
+                      "Category":  "ISOLATED_LAB_SUPPORTING_FILE",
+                      "Bytes":  1476,
+                      "SHA256":  "CF7B997F67774635569A48B16E9F5647FE09108883A5E9CBC402B4B6A48268C9"
+                  },
+                  {
+                      "Path":  "evidence/kubernetes/live-lab-falco-negative-control.json",
+                      "Category":  "ISOLATED_LAB_SUPPORTING_FILE",
+                      "Bytes":  740,
+                      "SHA256":  "81A9A6756FC164346401E1FBDAC43BD82E9675630464544DA93C6583B82ACB8F"
+                  },
+                  {
+                      "Path":  "evidence/kubernetes/live-lab-falco-negative-control.md",
+                      "Category":  "ISOLATED_LAB_SUPPORTING_FILE",
+                      "Bytes":  1167,
+                      "SHA256":  "E88481C4F752119F7DEF0BB370017A980F6DADFE35665DB144E20117B9BCE23D"
+                  },
+                  {
+                      "Path":  "evidence/kubernetes/live-lab-falco-preflight.txt",
+                      "Category":  "ISOLATED_LAB_SUPPORTING_FILE",
+                      "Bytes":  834,
+                      "SHA256":  "C20BC941A168FD5EE481AA4BBE28BE169674674E6B6EBCAFEE14FFABE15E51C9"
+                  },
+                  {
+                      "Path":  "evidence/kubernetes/live-lab-falco-readiness-recheck-6q.txt",
+                      "Category":  "ISOLATED_LAB_SUPPORTING_FILE",
+                      "Bytes":  2344,
+                      "SHA256":  "AD6ED5E76BD0654F60F019F58FFC9F1A39CB0F7F83C779D5D2C9C90F7BAB030D"
+                  },
+                  {
+                      "Path":  "evidence/kubernetes/live-lab-falco-runtime-daemonset.json",
+                      "Category":  "ISOLATED_LAB_SUPPORTING_FILE",
+                      "Bytes":  19852,
+                      "SHA256":  "696423DE812C3A422C2CC0F006720874511E1A2D9795342C7D5DCFF98FE8627D"
+                  },
+                  {
+                      "Path":  "evidence/kubernetes/live-lab-falco-runtime-pods.json",
+                      "Category":  "ISOLATED_LAB_SUPPORTING_FILE",
+                      "Bytes":  29994,
+                      "SHA256":  "834C4B9C15DF7B8F3EBD642DB7438556545EFBA10ACD898EE89C05556F3D6B8B"
+                  },
+                  {
+                      "Path":  "evidence/kubernetes/live-lab-falco-shell-test.json",
+                      "Category":  "ISOLATED_LAB_SUPPORTING_FILE",
+                      "Bytes":  1237,
+                      "SHA256":  "80EE8F626348FAEDD3ACEDEFDDDA222C3725C90EF612B2CE903F8214C2216DFA"
+                  },
+                  {
+                      "Path":  "evidence/kubernetes/live-lab-falco-shell-test.md",
+                      "Category":  "ISOLATED_LAB_SUPPORTING_FILE",
+                      "Bytes":  1324,
+                      "SHA256":  "91CBDE698D0A02072E40F458813B57FF11610942C837F5D179DFDDB35C211079"
+                  },
+                  {
+                      "Path":  "evidence/kubernetes/live-lab-falco-startup-diagnostics.txt",
+                      "Category":  "ISOLATED_LAB_SUPPORTING_FILE",
+                      "Bytes":  4465,
+                      "SHA256":  "6A5CA60806EDF3CA91423BE8D97C2EF1F9AF9DCE5F331CD063B545AFE74EFB2C"
+                  },
+                  {
+                      "Path":  "evidence/kubernetes/live-lab-rbac-validation.json",
+                      "Category":  "ISOLATED_LAB_SUPPORTING_FILE",
+                      "Bytes":  2238,
+                      "SHA256":  "3E4791BCB1FC98EB2C7AC30D602610D5036A93E1F5A72C0B05E305A724BAFD42"
+                  },
+                  {
+                      "Path":  "evidence/kubernetes/live-lab-security-boundary-assessment.md",
+                      "Category":  "ISOLATED_LAB_SUPPORTING_FILE",
+                      "Bytes":  1775,
+                      "SHA256":  "D4633DB2BD8F8EA786D8EAC4E4F271438756213F84E236AAE204AAF533E84A19"
+                  },
+                  {
+                      "Path":  "evidence/kubernetes/live-lab-uid0-escalation-denial-7f.json",
+                      "Category":  "ISOLATED_LAB_SUPPORTING_FILE",
+                      "Bytes":  1099,
+                      "SHA256":  "19F4DD573F37F0AF0BFF3F14EE3348A83F2F839251677B784A8FC97EE074BD70"
+                  },
+                  {
+                      "Path":  "evidence/kubernetes/live-lab-uid0-escalation-denial-7f.md",
+                      "Category":  "ISOLATED_LAB_SUPPORTING_FILE",
+                      "Bytes":  1160,
+                      "SHA256":  "FF742DB6533A9B59B3AD048B8079392CF2706D16617F923B7EB04262DF57980C"
+                  },
+                  {
+                      "Path":  "evidence/kubernetes/network-flow-synthetic.jsonl",
+                      "Category":  "SYNTHETIC_ORIGINAL_SOURCE",
+                      "Bytes":  1412,
+                      "SHA256":  "B8EDA9594E2765A1479F900A8B383B352F3721C7D0B333F0C6DD342DFD6577CA"
+                  },
+                  {
+                      "Path":  "evidence/linux/linux-auth-synthetic.jsonl",
+                      "Category":  "SYNTHETIC_ORIGINAL_SOURCE",
+                      "Bytes":  3822,
+                      "SHA256":  "71B513E1ED147187C8396591C1782E8A4215F14D4C6753B82FDB6EA7D89F3AAD"
+                  },
+                  {
+                      "Path":  "evidence/linux/linux-network-synthetic.jsonl",
+                      "Category":  "SYNTHETIC_ORIGINAL_SOURCE",
+                      "Bytes":  1304,
+                      "SHA256":  "5FFDA3A5C614C0E53C10B5BA33EBAF875BF4FC58F9685775184CDE67E14044C5"
+                  },
+                  {
+                      "Path":  "evidence/linux/linux-process-persistence-synthetic.jsonl",
+                      "Category":  "SYNTHETIC_ORIGINAL_SOURCE",
+                      "Bytes":  2717,
+                      "SHA256":  "CBBE9708903F19FF8BA8CC495BDBC0A15441CFD8CB92D58C899F6A7F9E40A1A3"
+                  },
+                  {
+                      "Path":  "incident-report/closure-readiness-12a.json",
+                      "Category":  "TECHNICAL_REPORT_OR_METHOD",
+                      "Bytes":  3209,
+                      "SHA256":  "9A605281A44051279DB5A680DEE28286FBE14AB480B2F7349D12AFD2A76EEED3"
+                  },
+                  {
+                      "Path":  "incident-report/consolidated-incident-report-12a.md",
+                      "Category":  "TECHNICAL_REPORT_OR_METHOD",
+                      "Bytes":  7940,
+                      "SHA256":  "88E36B7FC94A8A84876EA8D802A1828A0D023E48881DFF76FAA5D18F5448D784"
+                  },
+                  {
+                      "Path":  "incident-report/containment-decision-memorandum-10a.md",
+                      "Category":  "TECHNICAL_REPORT_OR_METHOD",
+                      "Bytes":  5610,
+                      "SHA256":  "BC5076F050817C0AD585A6FF61D610EA8B56EA0DD126D84431340A04DFD877B7"
+                  },
+                  {
+                      "Path":  "incident-report/containment-decision-record-10a.json",
+                      "Category":  "TECHNICAL_REPORT_OR_METHOD",
+                      "Bytes":  2327,
+                      "SHA256":  "6B67C5FCFED93A0265094170B65F7CA85F29A183CA049CC832923B57CDE32BE1"
+                  },
+                  {
+                      "Path":  "incident-report/cross-system-evidence-assessment-9d.md",
+                      "Category":  "TECHNICAL_REPORT_OR_METHOD",
+                      "Bytes":  7266,
+                      "SHA256":  "F0859E31AAA972F43DB5DD60514E89BC665E61A4F1A89CBF8A3CF7E9BAD97AD6"
+                  },
+                  {
+                      "Path":  "incident-report/cross-system-timeline-9d.csv",
+                      "Category":  "TECHNICAL_REPORT_OR_METHOD",
+                      "Bytes":  10019,
+                      "SHA256":  "D1C895B136F0F9E6946D06CE71C35E7991DB07FD69C4FBD62E3C8849412E437A"
+                  },
+                  {
+                      "Path":  "incident-report/recommendations-lessons-learned-12a.md",
+                      "Category":  "TECHNICAL_REPORT_OR_METHOD",
+                      "Bytes":  4764,
+                      "SHA256":  "0AB068CEB838F258128EED01134205C7149E39472E49F0264486EC9E88D461DB"
+                  },
+                  {
+                      "Path":  "README.md",
+                      "Category":  "TECHNICAL_REPORT_OR_METHOD",
+                      "Bytes":  2058,
+                      "SHA256":  "9463D5F4E05531836B773BB919BBBF327DB6BAD4E0D28A7C3453F3B62D4DAAB9"
+                  },
+                  {
+                      "Path":  "recovery/recovery-readiness-10b.json",
+                      "Category":  "TECHNICAL_REPORT_OR_METHOD",
+                      "Bytes":  2695,
+                      "SHA256":  "9C6878C05A9CE840B12BCE545A0E3FB50422897AA27E28B601286CC46E86B08E"
+                  },
+                  {
+                      "Path":  "recovery/recovery-runbook-10b.md",
+                      "Category":  "TECHNICAL_REPORT_OR_METHOD",
+                      "Bytes":  6981,
+                      "SHA256":  "1A0136CDFA225FAFA261D7580B245741291278A251F05475DBEBCF89334DEBCC"
+                  }
+              ]
+}
