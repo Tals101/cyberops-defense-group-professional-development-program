@@ -1,0 +1,36 @@
+{
+    "Classification":  "ACTUAL_MINIKUBE_LAB",
+    "Test":  "SERVICEACCOUNT_TOKEN_FAILED_OPEN",
+    "Rule":  "Ticket011 Reporting ServiceAccount Token Access Attempt",
+    "HelmRevision":  3,
+    "ApplicationNamespace":  "ticket-011-lab",
+    "ApplicationPod":  "reporting-api-598b9767f5-scfzw",
+    "ApplicationPodUID":  "f2c5a54d-7174-4f06-ab16-1c21df762003",
+    "ContainerIDPrefix":  "215250d2f9ed",
+    "FalcoNamespace":  "ticket-011-monitoring",
+    "FalcoPod":  "ticket011-falco-mclt8",
+    "StartUTC":  "2026-11-03T18:14:21.1120659+00:00",
+    "EndUTC":  "2026-11-03T18:14:21.4302822+00:00",
+    "TokenPathPresentBeforeAttempt":  false,
+    "TokenAutomountEnabled":  false,
+    "OpenResult":  "ENOENT",
+    "TokenContentsRead":  false,
+    "TerminalAttached":  false,
+    "StimulusExitCode":  0,
+    "CandidateRuleEventCount":  1,
+    "AttributedEventCount":  1,
+    "InvalidEventTimeCount":  0,
+    "LogWindowTruncated":  false,
+    "SensorStable":  true,
+    "Outcome":  "DETECTED_AND_ATTRIBUTED_FAILED_OPEN",
+    "AttributedEvents":  [
+                             {
+                                 "Rule":  "Ticket011 Reporting ServiceAccount Token Access Attempt",
+                                 "Time":  "2026-11-03T18:14:20.073829516Z",
+                                 "Priority":  "Warning",
+                                 "ContainerIDPrefix":  "215250d2f9ed",
+                                 "Attribution":  "TICKET011_REPORTING_CONTAINER",
+                                 "ResultMentionsENOENT":  true
+                             }
+                         ]
+}

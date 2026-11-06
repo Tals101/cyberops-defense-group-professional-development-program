@@ -1,0 +1,31 @@
+{
+    "Classification":  "ACTUAL_MINIKUBE_LAB",
+    "Test":  "FALCO_CUSTOM_RULE_NONINTERACTIVE_SHELL",
+    "Rule":  "Ticket011 Unexpected Shell In Reporting Image",
+    "HelmRevision":  2,
+    "ApplicationNamespace":  "ticket-011-lab",
+    "ApplicationPod":  "reporting-api-598b9767f5-scfzw",
+    "ApplicationPodUID":  "f2c5a54d-7174-4f06-ab16-1c21df762003",
+    "ContainerIDPrefix":  "215250d2f9ed",
+    "FalcoNamespace":  "ticket-011-monitoring",
+    "FalcoPod":  "ticket011-falco-8zk5f",
+    "StartUTC":  "2026-11-03T17:47:43.2872607+00:00",
+    "EndUTC":  "2026-11-03T17:47:43.4484701+00:00",
+    "Stimulus":  "kubectl exec without TTY; sh -c benign marker",
+    "StimulusExitCode":  0,
+    "TerminalAttached":  false,
+    "CandidateRuleEventCount":  1,
+    "AttributedEventCount":  1,
+    "LogWindowTruncated":  false,
+    "SensorStable":  true,
+    "Outcome":  "DETECTED_AND_ATTRIBUTED",
+    "AttributedEvents":  [
+                             {
+                                 "Rule":  "Ticket011 Unexpected Shell In Reporting Image",
+                                 "Time":  "2026-11-03T17:47:42.777788860Z",
+                                 "Priority":  "Warning",
+                                 "Source":  "syscall",
+                                 "Attribution":  "MATCHED_TICKET011_REPORTING_CONTAINER"
+                             }
+                         ]
+}

@@ -1,0 +1,67 @@
+{
+    "apiVersion": "v1",
+    "items": [
+        {
+            "addressType": "IPv4",
+            "apiVersion": "discovery.k8s.io/v1",
+            "endpoints": [
+                {
+                    "addresses": [
+                        "10.244.1.26"
+                    ],
+                    "conditions": {
+                        "ready": true,
+                        "serving": true,
+                        "terminating": false
+                    },
+                    "nodeName": "minikube",
+                    "targetRef": {
+                        "kind": "Pod",
+                        "name": "reporting-api-598b9767f5-scfzw",
+                        "namespace": "ticket-011-lab",
+                        "uid": "f2c5a54d-7174-4f06-ab16-1c21df762003"
+                    }
+                }
+            ],
+            "kind": "EndpointSlice",
+            "metadata": {
+                "annotations": {
+                    "endpoints.kubernetes.io/last-change-trigger-time": "2026-11-03T01:15:39Z"
+                },
+                "creationTimestamp": "2026-11-03T01:15:38Z",
+                "generateName": "reporting-api-",
+                "generation": 3,
+                "labels": {
+                    "app.kubernetes.io/part-of": "ticket-011",
+                    "endpointslice.kubernetes.io/managed-by": "endpointslice-controller.k8s.io",
+                    "kubernetes.io/service-name": "reporting-api"
+                },
+                "name": "reporting-api-gfp95",
+                "namespace": "ticket-011-lab",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "v1",
+                        "blockOwnerDeletion": true,
+                        "controller": true,
+                        "kind": "Service",
+                        "name": "reporting-api",
+                        "uid": "da095945-e42b-4223-bec3-833587291ffe"
+                    }
+                ],
+                "resourceVersion": "108936",
+                "uid": "baa2957b-5a8e-44fa-b119-c69b123b89a0"
+            },
+            "ports": [
+                {
+                    "name": "http",
+                    "port": 8080,
+                    "protocol": "TCP"
+                }
+            ]
+        }
+    ],
+    "kind": "List",
+    "metadata": {
+        "resourceVersion": ""
+    }
+}

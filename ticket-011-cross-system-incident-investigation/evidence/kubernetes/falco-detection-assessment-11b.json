@@ -1,0 +1,60 @@
+{
+    "Ticket":  "CYBEROPS-PDP-011",
+    "Classification":  "ACTUAL_ISOLATED_MINIKUBE_LAB_ANALYSIS",
+    "PreparedUTC":  "2026-11-05T01:19:36.9801333+00:00",
+    "EvidenceFilesHashVerified":  35,
+    "EnhancementsAssessed":  2,
+    "PositiveControlsVerified":  2,
+    "NegativeControlsVerified":  2,
+    "SensorStableDuringRecordedTests":  true,
+    "FalsePositiveRateEstablished":  false,
+    "ProductionDetectionCoverageEstablished":  false,
+    "SyntheticCrossSystemCausationEstablished":  false,
+    "Results":  [
+                    {
+                        "Enhancement":  "ENHANCEMENT_1",
+                        "Rule":  "Ticket011 Unexpected Shell In Reporting Image",
+                        "PositiveTest":  "FALCO_CUSTOM_RULE_NONINTERACTIVE_SHELL",
+                        "PositiveOutcome":  "DETECTED_AND_ATTRIBUTED",
+                        "PositiveCandidateAlerts":  1,
+                        "PositiveAttributedEvents":  1,
+                        "NegativeTest":  "CUSTOM_RULE_NEGATIVE_CONTROL",
+                        "NegativeOutcome":  "PASS_NO_CUSTOM_RULE_ALERT",
+                        "NegativeCandidateAlerts":  0,
+                        "PositiveEvidence":  "evidence/kubernetes/live-lab-falco-enhancement1-positive.json",
+                        "PositiveSHA256":  "A580D522F0F7F00006580073037DA79A56FE15BBF1A65FCDCEC17496C398A579",
+                        "NegativeEvidence":  "evidence/kubernetes/live-lab-falco-enhancement1-negative.json",
+                        "NegativeSHA256":  "8176AF087BD915CA1FBF03F02265B4C90942D9622D90196F11A7A44495923246",
+                        "Interpretation":  "SHELL_STIMULUS_DETECTED_IN_TESTED_SCOPE",
+                        "ComprehensiveCoverageEstablished":  false
+                    },
+                    {
+                        "Enhancement":  "ENHANCEMENT_2",
+                        "Rule":  "Ticket011 Reporting ServiceAccount Token Access Attempt",
+                        "PositiveTest":  "SERVICEACCOUNT_TOKEN_FAILED_OPEN",
+                        "PositiveOutcome":  "DETECTED_AND_ATTRIBUTED_FAILED_OPEN",
+                        "PositiveCandidateAlerts":  1,
+                        "PositiveAttributedEvents":  1,
+                        "NegativeTest":  "SERVICEACCOUNT_ACCESS_NEGATIVE_CONTROL",
+                        "NegativeOutcome":  "PASS_NO_TOKEN_ACCESS_ALERT",
+                        "NegativeCandidateAlerts":  0,
+                        "PositiveEvidence":  "evidence/kubernetes/live-lab-falco-enhancement2-positive.json",
+                        "PositiveSHA256":  "4916DB7F001D59E8C46B1478FF1A1EAF26769BBF75337219D0861A6A22A36B59",
+                        "NegativeEvidence":  "evidence/kubernetes/live-lab-falco-enhancement2-negative.json",
+                        "NegativeSHA256":  "01B6B3C19D6FA91652C3842D4873E84E2FA60E86F33B3BB2BBB3322186C4FA31",
+                        "OpenResult":  "ENOENT",
+                        "TokenContentsRead":  false,
+                        "Interpretation":  "FAILED_TOKEN_PATH_OPEN_DETECTED",
+                        "ComprehensiveCoverageEstablished":  false
+                    }
+                ],
+    "ResidualRisks":  [
+                          "Only the recorded test stimuli are validated",
+                          "Small negative controls cannot estimate false-positive rate",
+                          "An alert does not establish successful credential theft",
+                          "A failed token-file open did not read token contents",
+                          "Sensor uptime beyond recorded windows is not proven",
+                          "Detection does not replace prevention or authorization",
+                          "Production deployment and coverage are not established"
+                      ]
+}

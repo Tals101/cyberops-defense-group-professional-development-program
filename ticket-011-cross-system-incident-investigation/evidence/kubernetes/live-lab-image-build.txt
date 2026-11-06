@@ -1,0 +1,47 @@
+Ticket 011 - Reporting API Image Build Verification
+
+Evidence classification: ACTUAL LOCAL DOCKER LAB
+
+Timestamp: 2026-11-02T20:07:20.3268895-05:00
+
+Image tag: ticket011-reporting-api:lab-v1
+Image ID: sha256:4658629531583e911b9704fd2c1f1224b691054166fbd290de0767b117e23af9
+Docker version: 29.8.2
+
+Application source:
+kubernetes-lab/app/app.py
+
+Application SHA256:
+475914C1279550B9DBDEB378A450FC805251B31577240C91599503D5F3792B1B
+
+Dockerfile:
+kubernetes-lab/app/Dockerfile
+
+Dockerfile SHA256:
+BAE5D345014C4E26F3BA5A2B3AF2BAB370D80514749CD7F48156253AAE2F6552
+
+Image configured user: 10001:10001
+Exposed port: 8080/tcp
+
+Self-test network access: DISABLED
+Self-test root filesystem: READ ONLY
+Self-test capabilities: ALL DROPPED
+Self-test privilege escalation: DISABLED
+
+Health endpoint logic: PASS
+Synthetic reporting logic: PASS
+Unknown route handling: PASS
+
+Base image reference: python:3.12-slim
+Base-image digest pinning: NOT YET PERFORMED
+
+Minikube image loading: NOT PERFORMED
+Kubernetes Deployment: NOT CREATED
+Live HTTP network validation: NOT YET PERFORMED
+Falco runtime detection: NOT YET TESTED
+
+This image contains no actual reporting records,
+AWS credentials, or production secrets.
+
+The image ID is a local Docker artifact identifier.
+It does not prove end-to-end supply-chain provenance.

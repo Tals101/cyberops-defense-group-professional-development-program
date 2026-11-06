@@ -1,0 +1,36 @@
+Ticket 011 - Falco Environment Preflight
+
+Classification: ACTUAL READ-ONLY MINIKUBE LAB OBSERVATION
+
+Timestamp: 2026-11-02T20:28:19.3525935-05:00
+
+Context: minikube
+Node: node/minikube
+Namespace: ticket-011-lab
+Namespace security: restricted
+
+Reporting API available replicas: 1/1
+
+Helm version: v4.2.0+g0646808
+Falco Helm release: NO FALCO HELM RELEASE FOUND
+Falco Pod count: 0
+Falco DaemonSet count: 0
+
+Minikube kernel: 6.6.87.2-microsoft-standard-WSL2
+Node architecture: x86_64
+
+Observed Falco Pods:
+
+
+Observed Falco DaemonSets:
+
+
+Preflight limitations:
+- No kernel event sensor was installed or tested.
+- No runtime detection alert was generated.
+- No Falco rules were validated.
+- Node-wide Falco installation requires a separate
+  deployment and safety decision.
+
+Kubernetes resources created: 0
+Kubernetes resources modified: 0

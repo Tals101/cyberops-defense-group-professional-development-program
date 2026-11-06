@@ -1,0 +1,51 @@
+# Ticket 011 - Modern eBPF laboratory monitoring
+# Falco chart pinned to version 9.1.0
+
+driver:
+  kind: modern_ebpf
+  modernEbpf:
+    leastPrivileged: true
+
+controller:
+  kind: daemonset
+
+falco:
+  json_output: true
+  time_format_iso_8601: true
+  stdout_output:
+    enabled: true
+  http_output:
+    enabled: false
+  program_output:
+    enabled: false
+  file_output:
+    enabled: false
+  syslog_output:
+    enabled: false
+
+falcoctl:
+  artifact:
+    follow:
+      enabled: false
+
+falcosidekick:
+  enabled: false
+
+customRules:
+  ticket011-reporting-shell.yaml: |-
+    - rule: Ticket011 Unexpected Shell In Reporting Image
+      desc: >
+        Detect shell execution inside the Ticket 011
+        reporting API image, with or without a terminal.
+      condition: >
+        evt.type in (execve, execveat) and
+        container.id != host and
+        container.image.repository contains "ticket011-reporting-api" and
+        proc.name in (sh, bash, dash, ash, zsh)
+      output: >
+        Ticket011 reporting image shell execution
+        image=%container.image.repository
+        container=%container.id
+        process=%proc.name
+      priority: WARNING
+      tags: [ticket011, container, process, detection_enhancement]

@@ -1,0 +1,24 @@
+{
+    "Classification":  "ACTUAL_MINIKUBE_LAB",
+    "Test":  "CUSTOM_RULE_NEGATIVE_CONTROL",
+    "Rule":  "Ticket011 Unexpected Shell In Reporting Image",
+    "HelmRevision":  2,
+    "ApplicationNamespace":  "ticket-011-lab",
+    "ApplicationPod":  "reporting-api-598b9767f5-scfzw",
+    "ContainerIDPrefix":  "215250d2f9ed",
+    "FalcoPod":  "ticket011-falco-8zk5f",
+    "StartUTC":  "2026-11-03T17:49:58.0737548+00:00",
+    "EndUTC":  "2026-11-03T17:49:58.8011214+00:00",
+    "Stimulus":  "Direct Python HTTP GET /health, no shell or TTY",
+    "StimulusExitCode":  0,
+    "PositiveControlOutcome":  "DETECTED_AND_ATTRIBUTED",
+    "CandidateRuleEventCount":  0,
+    "AttributedEventCount":  0,
+    "InvalidEventTimeCount":  0,
+    "LogWindowTruncated":  false,
+    "SensorStable":  true,
+    "Outcome":  "PASS_NO_CUSTOM_RULE_ALERT",
+    "AttributedEvents":  [
+
+                         ]
+}

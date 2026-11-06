@@ -1,0 +1,16 @@
+- rule: Ticket011 Unexpected Shell In Reporting Image
+  desc: >
+    Detect shell execution inside the Ticket 011
+    reporting API image, with or without a terminal.
+  condition: >
+    evt.type in (execve, execveat) and
+    container.id != host and
+    container.image.repository contains "ticket011-reporting-api" and
+    proc.name in (sh, bash, dash, ash, zsh)
+  output: >
+    Ticket011 reporting image shell execution
+    image=%container.image.repository
+    container=%container.id
+    process=%proc.name
+  priority: WARNING
+  tags: [ticket011, container, process, detection_enhancement]

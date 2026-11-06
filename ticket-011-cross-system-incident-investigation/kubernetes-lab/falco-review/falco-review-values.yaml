@@ -1,0 +1,13 @@
+# Ticket 011 - REVIEW CONFIGURATION ONLY
+# Do not install until rendered permissions are reviewed.
+
+driver:
+  kind: modern_ebpf
+  modernEbpf:
+    leastPrivileged: true
+
+controller:
+  kind: daemonset
+
+# Do not configure production output destinations
+# or apply custom runtime rules during this review.

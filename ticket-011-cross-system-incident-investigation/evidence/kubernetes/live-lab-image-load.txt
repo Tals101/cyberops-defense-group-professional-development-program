@@ -1,0 +1,35 @@
+Ticket 011 - Minikube Image Loading Evidence
+
+Classification: ACTUAL ISOLATED KUBERNETES LAB
+Recorded verification timestamp: 2026-11-02T20:12:39.4835274-05:00
+
+Context: minikube
+Node: node/minikube
+Namespace: ticket-011-lab
+Namespace Pod Security Admission: restricted
+
+Image tag: ticket011-reporting-api:lab-v1
+Local Docker image ID: sha256:4658629531583e911b9704fd2c1f1224b691054166fbd290de0767b117e23af9
+Configured container user: 10001:10001
+
+Application source SHA256:
+475914C1279550B9DBDEB378A450FC805251B31577240C91599503D5F3792B1B
+
+Dockerfile SHA256:
+BAE5D345014C4E26F3BA5A2B3AF2BAB370D80514749CD7F48156253AAE2F6552
+
+Minikube image load command: SUCCESS
+Minikube inventory verification: PASS
+
+Verified inventory entry:
+docker.io/library/ticket011-reporting-api:lab-v1
+
+Limitations:
+- Image presence was verified by Minikube inventory.
+- Independent runtime image-byte comparison was not performed.
+- No Kubernetes Deployment or Pod was created.
+- No live HTTP endpoint was tested.
+- Falco runtime detection remains untested.
+
+Previously generated Kubernetes synthetic evidence remains
+separate from these actual Minikube laboratory observations.

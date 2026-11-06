@@ -1,0 +1,27 @@
+{
+    "Classification":  "ACTUAL_MINIKUBE_LAB",
+    "Context":  "minikube",
+    "ApplicationNamespace":  "ticket-011-lab",
+    "MonitoringNamespace":  "ticket-011-monitoring",
+    "ApplicationPod":  "reporting-api-598b9767f5-scfzw",
+    "ApplicationPodUID":  "f2c5a54d-7174-4f06-ab16-1c21df762003",
+    "ContainerIDPrefix":  "0f898ea77e1b",
+    "FalcoPod":  "ticket011-falco-kg6dz",
+    "Stimulus":  "kubectl exec -it; sh terminal check",
+    "StimulusStartUTC":  "2026-11-03T01:51:53.3235134+00:00",
+    "StimulusEndUTC":  "2026-11-03T01:51:53.4730811+00:00",
+    "StimulusExitCode":  0,
+    "FalcoRule":  "Terminal shell in container",
+    "CandidateRuleEventCount":  1,
+    "AttributedEventCount":  1,
+    "Outcome":  "DETECTED_AND_ATTRIBUTED",
+    "AttributedEvents":  [
+                             {
+                                 "Rule":  "Terminal shell in container",
+                                 "Priority":  "Notice",
+                                 "Source":  "syscall",
+                                 "Time":  "2026-11-03T01:51:53.404652675Z",
+                                 "Attribution":  "MATCHED_TICKET011_POD_OR_CONTAINER"
+                             }
+                         ]
+}

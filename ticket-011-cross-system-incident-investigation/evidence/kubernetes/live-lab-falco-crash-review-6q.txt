@@ -1,0 +1,77 @@
+Ticket 011 - Falco Previous-Failure Log Review
+
+Classification: ACTUAL READ-ONLY MINIKUBE LAB
+Timestamp UTC: 2026-11-03T17:37:07.7607506+00:00
+
+Namespace: ticket-011-monitoring
+Pod: ticket011-falco-kg6dz
+Pod UID: 756ab5e9-85cd-46bc-9790-c7a52543170f
+Pod phase: Running
+
+Falco ready: True
+Falco restart count: 1
+
+Previous Falco termination:
+
+
+containerID : docker://ae27e1c88f7eab5f3e53e7fb6bec9a8f1a00170adab573c53b6605077aeab977
+exitCode    : 255
+finishedAt  : 2026-11-03T17:31:45Z
+reason      : Error
+startedAt   : 2026-11-03T01:42:10Z
+
+
+
+
+
+Startup and failure diagnostics:
+=== falco / previous ===
+Retrieval exit code: 0
+2026-11-03T01:42:10.201833951Z 2026-11-03T01:42:10+0000: Falco initialized with configuration files:
+2026-11-03T01:42:10.206409436Z 2026-11-03T01:42:10+0000: [libs]: container: Enabled 'podman' container engine.
+2026-11-03T01:42:10.206416912Z 2026-11-03T01:42:10+0000: [libs]: container: Enabled 'docker' container engine.
+2026-11-03T01:42:10.206418669Z 2026-11-03T01:42:10+0000: [libs]: container: Enabled 'cri' container engine.
+2026-11-03T01:42:10.206422571Z 2026-11-03T01:42:10+0000: [libs]: container: Enabled 'containerd' container engine.
+2026-11-03T01:42:10.206424079Z 2026-11-03T01:42:10+0000: [libs]: container: Enabled 'lxc' container engine.
+2026-11-03T01:42:10.206484585Z 2026-11-03T01:42:10+0000: [libs]: container: Enabled 'libvirt_lxc' container engine.
+2026-11-03T01:42:10.206490862Z 2026-11-03T01:42:10+0000: [libs]: container: Enabled 'bpm' container engine.
+2026-11-03T01:42:10.206714550Z 2026-11-03T01:42:10+0000: Loading rules from:
+2026-11-03T01:42:10.231800890Z 2026-11-03T01:42:10+0000:    /etc/falco/falco_rules.yaml | schema validation: ok
+2026-11-03T01:42:10.232208098Z 2026-11-03T01:42:10+0000: The chosen syscall buffer dimension is: 8388608 bytes (8 MBs)
+2026-11-03T01:42:10.232214879Z 2026-11-03T01:42:10+0000: Starting health webserver with threadiness 20, listening on 0.0.0.0:8765
+2026-11-03T01:42:10.232529263Z 2026-11-03T01:42:10+0000: Loaded event sources: syscall
+2026-11-03T01:42:10.232551091Z 2026-11-03T01:42:10+0000: Enabled event sources: syscall
+2026-11-03T01:42:10.232552696Z 2026-11-03T01:42:10+0000: Opening 'syscall' source with modern BPF probe.
+2026-11-03T01:42:10.232554233Z 2026-11-03T01:42:10+0000: [libs]: Trying to open the right engine!
+2026-11-03T01:42:10.234595656Z 2026-11-03T01:42:10+0000: [libs]: libpman: disabled BPF iterators (not running in the root PID namespace, or failed to determine it)
+=== falcoctl-artifact-install / previous ===
+Retrieval exit code: 1
+Log stream unavailable
+=== falco / current ===
+Retrieval exit code: 0
+2026-11-03T17:33:06.300505841Z 2026-11-03T17:33:06+0000: Falco initialized with configuration files:
+2026-11-03T17:33:06.304950711Z 2026-11-03T17:33:06+0000: [libs]: container: Enabled 'podman' container engine.
+2026-11-03T17:33:06.304958245Z 2026-11-03T17:33:06+0000: [libs]: container: Enabled 'docker' container engine.
+2026-11-03T17:33:06.304960428Z 2026-11-03T17:33:06+0000: [libs]: container: Enabled 'cri' container engine.
+2026-11-03T17:33:06.304963921Z 2026-11-03T17:33:06+0000: [libs]: container: Enabled 'containerd' container engine.
+2026-11-03T17:33:06.304965152Z 2026-11-03T17:33:06+0000: [libs]: container: Enabled 'lxc' container engine.
+2026-11-03T17:33:06.304975303Z 2026-11-03T17:33:06+0000: [libs]: container: Enabled 'libvirt_lxc' container engine.
+2026-11-03T17:33:06.304981191Z 2026-11-03T17:33:06+0000: [libs]: container: Enabled 'bpm' container engine.
+2026-11-03T17:33:06.305224119Z 2026-11-03T17:33:06+0000: Loading rules from:
+2026-11-03T17:33:06.331124923Z 2026-11-03T17:33:06+0000:    /etc/falco/falco_rules.yaml | schema validation: ok
+2026-11-03T17:33:06.331721762Z 2026-11-03T17:33:06+0000: The chosen syscall buffer dimension is: 8388608 bytes (8 MBs)
+2026-11-03T17:33:06.331724479Z 2026-11-03T17:33:06+0000: Starting health webserver with threadiness 20, listening on 0.0.0.0:8765
+2026-11-03T17:33:06.332288394Z 2026-11-03T17:33:06+0000: Loaded event sources: syscall
+2026-11-03T17:33:06.332304963Z 2026-11-03T17:33:06+0000: Enabled event sources: syscall
+2026-11-03T17:33:06.332306606Z 2026-11-03T17:33:06+0000: Opening 'syscall' source with modern BPF probe.
+2026-11-03T17:33:06.332308540Z 2026-11-03T17:33:06+0000: [libs]: Trying to open the right engine!
+2026-11-03T17:33:06.332986293Z 2026-11-03T17:33:06+0000: [libs]: libpman: disabled BPF iterators (not running in the root PID namespace, or failed to determine it)
+
+Evidence limitations:
+- Only selected diagnostic text is retained.
+- Structured Falco alerts are excluded.
+- Previous logs may be unavailable after sandbox replacement.
+- Container restart cause must be based on actual logs;
+  exit code 255 alone does not establish root cause.
+- No container, Helm, or Kubernetes configuration
+  was changed during this inspection.
