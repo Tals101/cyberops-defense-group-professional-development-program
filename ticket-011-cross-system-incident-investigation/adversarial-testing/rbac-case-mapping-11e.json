@@ -1,0 +1,102 @@
+{
+    "Ticket":  "CYBEROPS-PDP-011",
+    "Classification":  "ISOLATED_LAB_RBAC_EVIDENCE_MAPPING",
+    "ReviewedUTC":  "2026-11-05T17:26:01.1506486+00:00",
+    "Source":  "evidence/kubernetes/live-lab-rbac-validation.json",
+    "SourceSHA256":  "3E4791BCB1FC98EB2C7AC30D602610D5036A93E1F5A72C0B05E305A724BAFD42",
+    "RecordedAuthorizationChecks":  4,
+    "CasesWithMatchingDecisions":  4,
+    "UnmappedChecks":  0,
+    "AllFourMappingsConfirmed":  true,
+    "PrivilegedActionsExecutedByTheseChecks":  false,
+    "FormalAdversarialAcceptance":  "PENDING_AUTHORITATIVE_RUBRIC_AND_SIGNOFF",
+    "Observations":  [
+                         {
+                             "CheckIndex":  1,
+                             "ProposedCaseID":  "AT-01",
+                             "EvidenceType":  "LIVE_KUBERNETES_AUTHORIZATION_CHECK",
+                             "Namespace":  "ticket-011-lab",
+                             "Principal":  "system:serviceaccount:ticket-011-lab:reporting-api",
+                             "Verb":  "get",
+                             "Resource":  "secrets",
+                             "ExpectedDecision":  "no",
+                             "ActualDecision":  "no",
+                             "RecordedResult":  "PASS",
+                             "DecisionMatchesExpected":  true,
+                             "UnderlyingPrivilegedActionExecuted":  false
+                         },
+                         {
+                             "CheckIndex":  2,
+                             "ProposedCaseID":  "AT-02",
+                             "EvidenceType":  "LIVE_KUBERNETES_AUTHORIZATION_CHECK",
+                             "Namespace":  "ticket-011-lab",
+                             "Principal":  "system:serviceaccount:ticket-011-lab:reporting-api",
+                             "Verb":  "patch",
+                             "Resource":  "deployments",
+                             "ExpectedDecision":  "no",
+                             "ActualDecision":  "no",
+                             "RecordedResult":  "PASS",
+                             "DecisionMatchesExpected":  true,
+                             "UnderlyingPrivilegedActionExecuted":  false
+                         },
+                         {
+                             "CheckIndex":  3,
+                             "ProposedCaseID":  "AT-03",
+                             "EvidenceType":  "LIVE_KUBERNETES_AUTHORIZATION_CHECK",
+                             "Namespace":  "ticket-011-lab",
+                             "Principal":  "system:serviceaccount:ticket-011-lab:reporting-api",
+                             "Verb":  "create",
+                             "Resource":  "pods",
+                             "ExpectedDecision":  "no",
+                             "ActualDecision":  "no",
+                             "RecordedResult":  "PASS",
+                             "DecisionMatchesExpected":  true,
+                             "UnderlyingPrivilegedActionExecuted":  false
+                         },
+                         {
+                             "CheckIndex":  4,
+                             "ProposedCaseID":  "AT-04",
+                             "EvidenceType":  "LIVE_KUBERNETES_AUTHORIZATION_CHECK",
+                             "Namespace":  "ticket-011-lab",
+                             "Principal":  "system:serviceaccount:ticket-011-lab:reporting-api",
+                             "Verb":  "create",
+                             "Resource":  "pods/exec",
+                             "ExpectedDecision":  "no",
+                             "ActualDecision":  "no",
+                             "RecordedResult":  "PASS",
+                             "DecisionMatchesExpected":  true,
+                             "UnderlyingPrivilegedActionExecuted":  false
+                         }
+                     ],
+    "Cases":  [
+                  {
+                      "TestID":  "AT-01",
+                      "Objective":  "Reporting ServiceAccount secret-read authorization",
+                      "MatchedChecks":  1,
+                      "EvidenceStatus":  "DECISION_MATCH_RECORDED",
+                      "FormalAcceptance":  "PENDING"
+                  },
+                  {
+                      "TestID":  "AT-02",
+                      "Objective":  "Reporting ServiceAccount deployment-patch authorization",
+                      "MatchedChecks":  1,
+                      "EvidenceStatus":  "DECISION_MATCH_RECORDED",
+                      "FormalAcceptance":  "PENDING"
+                  },
+                  {
+                      "TestID":  "AT-03",
+                      "Objective":  "Reporting ServiceAccount Pod-creation authorization",
+                      "MatchedChecks":  1,
+                      "EvidenceStatus":  "DECISION_MATCH_RECORDED",
+                      "FormalAcceptance":  "PENDING"
+                  },
+                  {
+                      "TestID":  "AT-04",
+                      "Objective":  "Reporting ServiceAccount pods/exec authorization",
+                      "MatchedChecks":  1,
+                      "EvidenceStatus":  "DECISION_MATCH_RECORDED",
+                      "FormalAcceptance":  "PENDING"
+                  }
+              ],
+    "CrossSystemCausationEstablished":  false
+}

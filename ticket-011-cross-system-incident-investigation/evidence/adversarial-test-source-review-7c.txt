@@ -1,0 +1,229 @@
+Ticket 011 - Adversarial Test Source Review
+
+Classification: LOCAL SOURCE AND FILE INVENTORY
+Timestamp UTC: 2026-11-03T18:29:01.4237872+00:00
+
+Purpose:
+Identify actual evidence supporting the required
+eight distinct adversarial tests.
+
+This review does not certify test completion.
+
+Total inventoried project files: 100
+
+========== PROJECT FILE INVENTORY ==========
+
+adversarial-testing\.gitkeep (0 bytes)
+closure\.gitkeep (0 bytes)
+closure\deliverables-checklist.md (986 bytes)
+correlation-engine\sample-data\.gitkeep (0 bytes)
+correlation-engine\src\.gitkeep (0 bytes)
+correlation-engine\tests\.gitkeep (0 bytes)
+detection-engineering\detection-rules\.gitkeep (0 bytes)
+detection-engineering\detection-rules\ticket011-reporting-shell.yaml (593 bytes)
+detection-engineering\detection-rules\ticket011-serviceaccount-token-access.yaml (756 bytes)
+detection-engineering\detection-rules\ticket011-serviceaccount-token-access-v2.yaml (736 bytes)
+detection-engineering\validation-results\.gitkeep (0 bytes)
+evidence\adversarial-test-evidence-audit-7b.md (1756 bytes)
+evidence\aws\.gitkeep (0 bytes)
+evidence\aws\aws-investigation-timeline.csv (2991 bytes)
+evidence\aws\cloudtrail-synthetic.jsonl (8915 bytes)
+evidence\aws\DATASET-PROVENANCE.md (1456 bytes)
+evidence\aws\reference-context-synthetic.json (2197 bytes)
+evidence\kubernetes\.gitkeep (0 bytes)
+evidence\kubernetes\DATASET-PROVENANCE.md (1994 bytes)
+evidence\kubernetes\falco-enhancement1-deployment-attempt.txt (959 bytes)
+evidence\kubernetes\falco-enhancement1-deployment-result.md (1121 bytes)
+evidence\kubernetes\falco-enhancement1-design.md (1815 bytes)
+evidence\kubernetes\falco-enhancement1-rule-validation.txt (3599 bytes)
+evidence\kubernetes\falco-enhancement2-deployment-attempt.txt (880 bytes)
+evidence\kubernetes\falco-enhancement2-deployment-result.md (1172 bytes)
+evidence\kubernetes\falco-enhancement2-design.md (1812 bytes)
+evidence\kubernetes\falco-enhancement2-recovery-check.txt (815 bytes)
+evidence\kubernetes\falco-enhancement2-rule-validation.txt (4386 bytes)
+evidence\kubernetes\falco-enhancement2-v2-rule-validation.txt (3437 bytes)
+evidence\kubernetes\falco-enhancements-verification-and-inventory.md (5675 bytes)
+evidence\kubernetes\falco-runtime-synthetic.jsonl (2815 bytes)
+evidence\kubernetes\kubernetes-audit-synthetic.jsonl (4421 bytes)
+evidence\kubernetes\live-lab-deployment.json (5483 bytes)
+evidence\kubernetes\live-lab-deployment-verification.md (1965 bytes)
+evidence\kubernetes\live-lab-ebpf-readiness.txt (896 bytes)
+evidence\kubernetes\live-lab-falco-crash-review-6q.txt (4894 bytes)
+evidence\kubernetes\live-lab-falco-daemonset.json (37474 bytes)
+evidence\kubernetes\live-lab-falco-enhancement1-negative.json (912 bytes)
+evidence\kubernetes\live-lab-falco-enhancement1-negative.md (973 bytes)
+evidence\kubernetes\live-lab-falco-enhancement1-positive.json (1409 bytes)
+evidence\kubernetes\live-lab-falco-enhancement1-positive.md (1092 bytes)
+evidence\kubernetes\live-lab-falco-enhancement2-negative.json (1177 bytes)
+evidence\kubernetes\live-lab-falco-enhancement2-negative.md (1027 bytes)
+evidence\kubernetes\live-lab-falco-enhancement2-positive.json (1623 bytes)
+evidence\kubernetes\live-lab-falco-enhancement2-positive.md (1149 bytes)
+evidence\kubernetes\live-lab-falco-install.md (1476 bytes)
+evidence\kubernetes\live-lab-falco-negative-control.json (740 bytes)
+evidence\kubernetes\live-lab-falco-negative-control.md (1167 bytes)
+evidence\kubernetes\live-lab-falco-preflight.txt (834 bytes)
+evidence\kubernetes\live-lab-falco-readiness-recheck-6q.txt (2344 bytes)
+evidence\kubernetes\live-lab-falco-runtime-daemonset.json (19852 bytes)
+evidence\kubernetes\live-lab-falco-runtime-pods.json (29994 bytes)
+evidence\kubernetes\live-lab-falco-shell-test.json (1237 bytes)
+evidence\kubernetes\live-lab-falco-shell-test.md (1324 bytes)
+evidence\kubernetes\live-lab-falco-startup-diagnostics.txt (4465 bytes)
+evidence\kubernetes\live-lab-http-container-logs.txt (3485 bytes)
+evidence\kubernetes\live-lab-http-results.json (2411 bytes)
+evidence\kubernetes\live-lab-http-validation.md (1423 bytes)
+evidence\kubernetes\live-lab-image-build.txt (1299 bytes)
+evidence\kubernetes\live-lab-image-load.txt (1154 bytes)
+evidence\kubernetes\live-lab-namespace.json (811 bytes)
+evidence\kubernetes\live-lab-namespace-setup.md (856 bytes)
+evidence\kubernetes\live-lab-pod.json (13518 bytes)
+evidence\kubernetes\live-lab-rbac-validation.json (2238 bytes)
+evidence\kubernetes\live-lab-runtime-security.json (381 bytes)
+evidence\kubernetes\live-lab-security-boundary-assessment.md (1775 bytes)
+evidence\kubernetes\live-lab-service.json (1063 bytes)
+evidence\kubernetes\live-lab-serviceaccount.json (441 bytes)
+evidence\kubernetes\live-lab-service-endpoints.json (2410 bytes)
+evidence\kubernetes\network-flow-synthetic.jsonl (1412 bytes)
+evidence\kubernetes\workload-context-synthetic.json (2859 bytes)
+evidence\linux\.gitkeep (0 bytes)
+incident-report\.gitkeep (0 bytes)
+incident-report\aws-identity-investigation.md (8416 bytes)
+incident-report\hypothesis-register.md (1617 bytes)
+kubernetes-lab\app\app.py (1844 bytes)
+kubernetes-lab\app\Dockerfile (203 bytes)
+kubernetes-lab\falco-review\falco-chart-metadata.yaml (842 bytes)
+kubernetes-lab\falco-review\falco-detailed-permissions.txt (1231 bytes)
+kubernetes-lab\falco-review\falco-enhancement1-rendered.yaml (12891 bytes)
+kubernetes-lab\falco-review\falco-enhancement1-values.yaml (1217 bytes)
+kubernetes-lab\falco-review\falco-enhancement2-rendered.yaml (13772 bytes)
+kubernetes-lab\falco-review\falco-enhancement2-v2-rendered.yaml (13748 bytes)
+kubernetes-lab\falco-review\falco-enhancement2-v2-values.yaml (2074 bytes)
+kubernetes-lab\falco-review\falco-enhancement2-values.yaml (2098 bytes)
+kubernetes-lab\falco-review\falco-install-rendered.yaml (11665 bytes)
+kubernetes-lab\falco-review\falco-install-values.yaml (508 bytes)
+kubernetes-lab\falco-review\falco-rendered-manifests.yaml (12262 bytes)
+kubernetes-lab\falco-review\falco-review-values.yaml (301 bytes)
+kubernetes-lab\falco-review\falco-security-review.md (1667 bytes)
+kubernetes-lab\falco-review\monitoring-namespace.yaml (270 bytes)
+kubernetes-lab\manifests\namespace.yaml (319 bytes)
+kubernetes-lab\manifests\reporting-api-restricted.yaml (2142 bytes)
+kubernetes-lab\tests\http_probe.py (1863 bytes)
+kubernetes-lab\tests\runtime_security_probe.py (1005 bytes)
+notebook\.gitkeep (0 bytes)
+notebook\engineering-notebook.md (1295 bytes)
+notebook\session-time-ledger.csv (213 bytes)
+operations\.gitkeep (0 bytes)
+README.md (2058 bytes)
+
+========== SOURCE DOCUMENT CONTENTS ==========
+
+========== README.md ==========
+
+# Ticket #011 - Cross-System Incident Investigation
+
+Ticket ID: CYBEROPS-PDP-011
+
+Classification: HIGH - Security Incident / Cloud Infrastructure
+
+Engineer: Naftali Wodinsky
+
+Environment: Authorized, isolated laboratory
+
+Status: OPEN - INVESTIGATION REQUIRED
+
+## Mission
+
+Investigate AWS CloudTrail, Kubernetes security monitoring,
+and Linux host events to determine whether their activity
+is related, unrelated, or inconclusive.
+
+Do not infer causation from timestamps alone.
+
+## Investigation Components
+
+- AWS identity and S3 activity investigation
+- Kubernetes runtime and workload investigation
+- Linux authentication and persistence investigation
+- Python cross-system event correlation engine
+- Adversarial test scenarios
+- Containment stop-gate decision
+- Detection engineering
+- Recovery and operational readiness
+- Final incident disposition
+
+## Repository Structure
+
+- incident-report/
+- evidence/aws/
+- evidence/kubernetes/
+- evidence/linux/
+- correlation-engine/src/
+- correlation-engine/tests/
+- correlation-engine/sample-data/
+- detection-engineering/detection-rules/
+- detection-engineering/validation-results/
+- adversarial-testing/
+- operations/
+- closure/
+- notebook/
+
+## Safety and Evidence Rules
+
+1. Use only synthetic or explicitly authorized data.
+2. Never include live credentials or sensitive personal data.
+3. Keep observed events separate from interpretations.
+4. Preserve event identifiers and source timestamps.
+5. Preserve original evidence when issuing corrections.
+6. Document alternative incident hypotheses.
+7. Do not perform destructive containment in real systems.
+8. Label untested claims and unsupported relationships.
+9. Record actual session durations; do not estimate hours
+   from file timestamps.
+10. Keep production-readiness conclusions evidence-based.
+
+## Reproduction
+
+Environment setup, dataset-generation commands,
+correlation-engine usage, test commands, and expected
+results will be documented as each component is built.
+
+No investigation results have been established during
+workspace initialization.
+
+
+========== closure\deliverables-checklist.md ==========
+
+# Ticket #011 - Final Submission Checklist
+
+- [ ] AWS investigation and evidence table
+- [ ] Kubernetes investigation and validation evidence
+- [ ] Linux investigation and persistence assessment
+- [ ] Python correlation engine and sample datasets
+- [ ] Correlation logic documentation and automated tests
+- [ ] Containment decision memorandum
+- [ ] At least eight adversarial test scenarios
+- [ ] Detection engineering report and two validated improvements
+- [ ] Recovery runbook and readiness assessment
+- [ ] Final incident report and evidence-supported disposition
+- [ ] README with reproducible execution instructions
+- [ ] Engineering notebook and actual work-time accounting
+- [ ] Engineering reflection and residual-risk register
+- [ ] Evidence integrity verification
+- [ ] GitHub publication and final ZIP verification
+
+Required archive name:
+
+Ticket-011-Final-Closure-Package.zip
+
+Checklist entries must be completed only after
+their supporting evidence has been verified.
+
+
+========== AUDIT LIMITATIONS ==========
+
+Filenames and document claims alone do not prove
+an adversarial test was executed.
+
+Synthetic incident events must be distinguished
+from actual Minikube execution evidence.
+
+No Kubernetes, Helm, or AWS changes were made.

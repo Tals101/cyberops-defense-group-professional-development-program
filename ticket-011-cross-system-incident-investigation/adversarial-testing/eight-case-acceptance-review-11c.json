@@ -1,0 +1,78 @@
+{
+    "Ticket":  "CYBEROPS-PDP-011",
+    "Classification":  "ISOLATED_LAB_ADVERSARIAL_ACCEPTANCE_REVIEW",
+    "ReviewedUTC":  "2026-11-05T01:24:55.8963435+00:00",
+    "ProvisionalCases":  8,
+    "AuthorizationSimulations":  4,
+    "ExecutedRuntimeTests":  4,
+    "FalcoPositiveControls":  2,
+    "FalcoNegativeControls":  2,
+    "EightExecutedRuntimeTestsDemonstrated":  false,
+    "FormalEightTestAcceptance":  "PENDING_CRITERIA_REVIEW",
+    "CrossSystemCompromiseEstablished":  false,
+    "OriginalEvidenceModified":  false,
+    "Cases":  [
+                  {
+                      "TestID":  "AT-01",
+                      "EvidenceClass":  "AUTHORIZATION_SIMULATION",
+                      "Description":  "Reporting ServiceAccount secret-read authorization",
+                      "Source":  "live-lab-rbac-validation.json",
+                      "Acceptance":  "PENDING_CRITERIA_REVIEW"
+                  },
+                  {
+                      "TestID":  "AT-02",
+                      "EvidenceClass":  "AUTHORIZATION_SIMULATION",
+                      "Description":  "Reporting ServiceAccount deployment-patch authorization",
+                      "Source":  "live-lab-rbac-validation.json",
+                      "Acceptance":  "PENDING_CRITERIA_REVIEW"
+                  },
+                  {
+                      "TestID":  "AT-03",
+                      "EvidenceClass":  "AUTHORIZATION_SIMULATION",
+                      "Description":  "Reporting ServiceAccount Pod-creation authorization",
+                      "Source":  "live-lab-rbac-validation.json",
+                      "Acceptance":  "PENDING_CRITERIA_REVIEW"
+                  },
+                  {
+                      "TestID":  "AT-04",
+                      "EvidenceClass":  "AUTHORIZATION_SIMULATION",
+                      "Description":  "Reporting ServiceAccount pods/exec authorization",
+                      "Source":  "live-lab-rbac-validation.json",
+                      "Acceptance":  "PENDING_CRITERIA_REVIEW"
+                  },
+                  {
+                      "TestID":  "AT-05",
+                      "EvidenceClass":  "EXECUTED_RUNTIME_TEST",
+                      "Description":  "Interactive shell and Falco observation",
+                      "Source":  "live-lab-falco-shell-test.json",
+                      "Acceptance":  "PENDING_CRITERIA_REVIEW"
+                  },
+                  {
+                      "TestID":  "AT-06",
+                      "EvidenceClass":  "EXECUTED_RUNTIME_TEST",
+                      "Description":  "Noninteractive shell custom-rule detection",
+                      "Source":  "live-lab-falco-enhancement1-positive.json",
+                      "Acceptance":  "PENDING_CRITERIA_REVIEW"
+                  },
+                  {
+                      "TestID":  "AT-07",
+                      "EvidenceClass":  "EXECUTED_RUNTIME_TEST",
+                      "Description":  "Failed ServiceAccount token-path open detected",
+                      "Source":  "live-lab-falco-enhancement2-positive.json",
+                      "Acceptance":  "PENDING_CRITERIA_REVIEW"
+                  },
+                  {
+                      "TestID":  "AT-08",
+                      "EvidenceClass":  "EXECUTED_RUNTIME_TEST",
+                      "Description":  "Attempted setuid(0) denied by EPERM",
+                      "Source":  "live-lab-uid0-escalation-denial-7f.json",
+                      "Acceptance":  "PENDING_CRITERIA_REVIEW"
+                  }
+              ],
+    "ReviewQuestions":  [
+                            "Does the acceptance criterion allow authorization simulations?",
+                            "Are eight executed runtime tests specifically required?",
+                            "Is each candidate mapped to an approved test objective?",
+                            "What evidence and authorization are required for final sign-off?"
+                        ]
+}

@@ -1,0 +1,14 @@
+{
+    "aws_credential_environment_keys":  [
+
+                                        ],
+    "classification":  "ACTUAL_MINIKUBE_LAB",
+    "effective_capabilities_hex":  "0000000000000000",
+    "egid":  10001,
+    "euid":  10001,
+    "gid":  10001,
+    "no_new_privileges":  "1",
+    "seccomp_mode":  "2",
+    "serviceaccount_token_present":  false,
+    "uid":  10001
+}

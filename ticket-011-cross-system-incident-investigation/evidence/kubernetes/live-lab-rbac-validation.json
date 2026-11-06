@@ -1,0 +1,48 @@
+{
+    "Classification":  "ACTUAL_MINIKUBE_LAB",
+    "VerificationTime":  "2026-11-02T20:26:10.3222706-05:00",
+    "Context":  "minikube",
+    "Namespace":  "ticket-011-lab",
+    "Checks":  [
+                   {
+                       "Principal":  "system:serviceaccount:ticket-011-lab:reporting-api",
+                       "Namespace":  "ticket-011-lab",
+                       "Verb":  "get",
+                       "Resource":  "secrets",
+                       "ExpectedDecision":  "no",
+                       "ActualDecision":  "no",
+                       "Result":  "PASS",
+                       "EvidenceType":  "LIVE_KUBERNETES_AUTHORIZATION_CHECK"
+                   },
+                   {
+                       "Principal":  "system:serviceaccount:ticket-011-lab:reporting-api",
+                       "Namespace":  "ticket-011-lab",
+                       "Verb":  "patch",
+                       "Resource":  "deployments",
+                       "ExpectedDecision":  "no",
+                       "ActualDecision":  "no",
+                       "Result":  "PASS",
+                       "EvidenceType":  "LIVE_KUBERNETES_AUTHORIZATION_CHECK"
+                   },
+                   {
+                       "Principal":  "system:serviceaccount:ticket-011-lab:reporting-api",
+                       "Namespace":  "ticket-011-lab",
+                       "Verb":  "create",
+                       "Resource":  "pods",
+                       "ExpectedDecision":  "no",
+                       "ActualDecision":  "no",
+                       "Result":  "PASS",
+                       "EvidenceType":  "LIVE_KUBERNETES_AUTHORIZATION_CHECK"
+                   },
+                   {
+                       "Principal":  "system:serviceaccount:ticket-011-lab:reporting-api",
+                       "Namespace":  "ticket-011-lab",
+                       "Verb":  "create",
+                       "Resource":  "pods/exec",
+                       "ExpectedDecision":  "no",
+                       "ActualDecision":  "no",
+                       "Result":  "PASS",
+                       "EvidenceType":  "LIVE_KUBERNETES_AUTHORIZATION_CHECK"
+                   }
+               ]
+}
