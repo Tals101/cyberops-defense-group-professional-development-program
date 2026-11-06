@@ -1,0 +1,110 @@
+{
+    "Ticket":  "CYBEROPS-PDP-011",
+    "Classification":  "ACCEPTANCE_REQUIREMENTS_RECONCILIATION",
+    "PreparedUTC":  "2026-11-05T17:22:56.3599400+00:00",
+    "ReadmeScenarioCategoryVerified":  true,
+    "ReadmeQuantitativeMinimumVerified":  false,
+    "ProvisionalCases":  8,
+    "AuthorizationSimulations":  4,
+    "ExecutedRuntimeTests":  4,
+    "FormalAcceptance":  "PENDING_AUTHORITATIVE_RUBRIC_AND_SIGNOFF",
+    "EightRuntimeExecutionsEstablished":  false,
+    "EvidenceIntegrityVerified":  true,
+    "CrossSystemCompromiseEstablished":  false,
+    "ReadmeRequirementLines":  [
+                                   "- Adversarial test scenarios",
+                                   "- Containment stop-gate decision",
+                                   "- adversarial-testing/"
+                               ],
+    "RBACCheckFields":  [
+                            "ActualDecision",
+                            "EvidenceType",
+                            "ExpectedDecision",
+                            "Namespace",
+                            "Principal",
+                            "Resource",
+                            "Result",
+                            "Verb"
+                        ],
+    "Cases":  [
+                  {
+                      "TestID":  "AT-01",
+                      "EvidenceClass":  "AUTHORIZATION_SIMULATION",
+                      "Objective":  "Reporting ServiceAccount secret-read authorization",
+                      "ProvisionalResult":  "PASS",
+                      "EvidenceFile":  "evidence/kubernetes/live-lab-rbac-validation.json",
+                      "EvidenceSHA256":  "3E4791BCB1FC98EB2C7AC30D602610D5036A93E1F5A72C0B05E305A724BAFD42",
+                      "FormalAcceptance":  "PENDING"
+                  },
+                  {
+                      "TestID":  "AT-02",
+                      "EvidenceClass":  "AUTHORIZATION_SIMULATION",
+                      "Objective":  "Reporting ServiceAccount deployment-patch authorization",
+                      "ProvisionalResult":  "PASS",
+                      "EvidenceFile":  "evidence/kubernetes/live-lab-rbac-validation.json",
+                      "EvidenceSHA256":  "3E4791BCB1FC98EB2C7AC30D602610D5036A93E1F5A72C0B05E305A724BAFD42",
+                      "FormalAcceptance":  "PENDING"
+                  },
+                  {
+                      "TestID":  "AT-03",
+                      "EvidenceClass":  "AUTHORIZATION_SIMULATION",
+                      "Objective":  "Reporting ServiceAccount Pod-creation authorization",
+                      "ProvisionalResult":  "PASS",
+                      "EvidenceFile":  "evidence/kubernetes/live-lab-rbac-validation.json",
+                      "EvidenceSHA256":  "3E4791BCB1FC98EB2C7AC30D602610D5036A93E1F5A72C0B05E305A724BAFD42",
+                      "FormalAcceptance":  "PENDING"
+                  },
+                  {
+                      "TestID":  "AT-04",
+                      "EvidenceClass":  "AUTHORIZATION_SIMULATION",
+                      "Objective":  "Reporting ServiceAccount pods/exec authorization",
+                      "ProvisionalResult":  "PASS",
+                      "EvidenceFile":  "evidence/kubernetes/live-lab-rbac-validation.json",
+                      "EvidenceSHA256":  "3E4791BCB1FC98EB2C7AC30D602610D5036A93E1F5A72C0B05E305A724BAFD42",
+                      "FormalAcceptance":  "PENDING"
+                  },
+                  {
+                      "TestID":  "AT-05",
+                      "EvidenceClass":  "EXECUTED_RUNTIME_TEST",
+                      "Objective":  "Interactive shell and Falco observation",
+                      "ProvisionalResult":  "PASS",
+                      "EvidenceFile":  "evidence/kubernetes/live-lab-falco-shell-test.json",
+                      "EvidenceSHA256":  "80EE8F626348FAEDD3ACEDEFDDDA222C3725C90EF612B2CE903F8214C2216DFA",
+                      "FormalAcceptance":  "PENDING"
+                  },
+                  {
+                      "TestID":  "AT-06",
+                      "EvidenceClass":  "EXECUTED_RUNTIME_TEST",
+                      "Objective":  "Noninteractive shell custom-rule detection",
+                      "ProvisionalResult":  "PASS",
+                      "EvidenceFile":  "evidence/kubernetes/live-lab-falco-enhancement1-positive.json",
+                      "EvidenceSHA256":  "A580D522F0F7F00006580073037DA79A56FE15BBF1A65FCDCEC17496C398A579",
+                      "FormalAcceptance":  "PENDING"
+                  },
+                  {
+                      "TestID":  "AT-07",
+                      "EvidenceClass":  "EXECUTED_RUNTIME_TEST",
+                      "Objective":  "Failed ServiceAccount token-path open detected",
+                      "ProvisionalResult":  "PASS",
+                      "EvidenceFile":  "evidence/kubernetes/live-lab-falco-enhancement2-positive.json",
+                      "EvidenceSHA256":  "4916DB7F001D59E8C46B1478FF1A1EAF26769BBF75337219D0861A6A22A36B59",
+                      "FormalAcceptance":  "PENDING"
+                  },
+                  {
+                      "TestID":  "AT-08",
+                      "EvidenceClass":  "EXECUTED_RUNTIME_TEST",
+                      "Objective":  "Attempted setuid(0) denied by EPERM",
+                      "ProvisionalResult":  "PASS",
+                      "EvidenceFile":  "evidence/kubernetes/live-lab-uid0-escalation-denial-7f.json",
+                      "EvidenceSHA256":  "19F4DD573F37F0AF0BFF3F14EE3348A83F2F839251677B784A8FC97EE074BD70",
+                      "FormalAcceptance":  "PENDING"
+                  }
+              ],
+    "RemainingIssues":  [
+                            "Find original authoritative eight-scenario requirement",
+                            "Confirm whether SSAR checks meet scenario acceptance rubric",
+                            "Map four RBAC checks individually to AT-01 through AT-04",
+                            "Obtain authorized review and acceptance",
+                            "Resolve separate 09:05 containment gate"
+                        ]
+}

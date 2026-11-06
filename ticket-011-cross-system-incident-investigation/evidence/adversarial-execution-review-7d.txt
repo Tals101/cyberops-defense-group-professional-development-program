@@ -1,0 +1,327 @@
+Ticket 011 - Existing Adversarial Execution Evidence Review
+
+Classification: LOCAL EVIDENCE INSPECTION
+Timestamp UTC: 2026-11-03T18:34:08.9805467+00:00
+
+Purpose:
+Review existing RBAC, Falco, and security-boundary
+records before constructing the eight-test register.
+
+Files examined: 6
+
+This report does not certify eight completed tests.
+Evidence sources retain their original classification.
+
+========== REVIEWED SOURCES ==========
+
+========== evidence\kubernetes\live-lab-rbac-validation.json ==========
+Size: 2238 bytes
+SHA256: 3E4791BCB1FC98EB2C7AC30D602610D5036A93E1F5A72C0B05E305A724BAFD42
+
+{
+    "Classification":  "ACTUAL_MINIKUBE_LAB",
+    "VerificationTime":  "2026-11-02T20:26:10.3222706-05:00",
+    "Context":  "minikube",
+    "Namespace":  "ticket-011-lab",
+    "Checks":  [
+                   {
+                       "Principal":  "system:serviceaccount:ticket-011-lab:reporting-api",
+                       "Namespace":  "ticket-011-lab",
+                       "Verb":  "get",
+                       "Resource":  "secrets",
+                       "ExpectedDecision":  "no",
+                       "ActualDecision":  "no",
+                       "Result":  "PASS",
+                       "EvidenceType":  "LIVE_KUBERNETES_AUTHORIZATION_CHECK"
+                   },
+                   {
+                       "Principal":  "system:serviceaccount:ticket-011-lab:reporting-api",
+                       "Namespace":  "ticket-011-lab",
+                       "Verb":  "patch",
+                       "Resource":  "deployments",
+                       "ExpectedDecision":  "no",
+                       "ActualDecision":  "no",
+                       "Result":  "PASS",
+                       "EvidenceType":  "LIVE_KUBERNETES_AUTHORIZATION_CHECK"
+                   },
+                   {
+                       "Principal":  "system:serviceaccount:ticket-011-lab:reporting-api",
+                       "Namespace":  "ticket-011-lab",
+                       "Verb":  "create",
+                       "Resource":  "pods",
+                       "ExpectedDecision":  "no",
+                       "ActualDecision":  "no",
+                       "Result":  "PASS",
+                       "EvidenceType":  "LIVE_KUBERNETES_AUTHORIZATION_CHECK"
+                   },
+                   {
+                       "Principal":  "system:serviceaccount:ticket-011-lab:reporting-api",
+                       "Namespace":  "ticket-011-lab",
+                       "Verb":  "create",
+                       "Resource":  "pods/exec",
+                       "ExpectedDecision":  "no",
+                       "ActualDecision":  "no",
+                       "Result":  "PASS",
+                       "EvidenceType":  "LIVE_KUBERNETES_AUTHORIZATION_CHECK"
+                   }
+               ]
+}
+
+========== evidence\kubernetes\live-lab-falco-shell-test.json ==========
+Size: 1237 bytes
+SHA256: 80EE8F626348FAEDD3ACEDEFDDDA222C3725C90EF612B2CE903F8214C2216DFA
+
+{
+    "Classification":  "ACTUAL_MINIKUBE_LAB",
+    "Context":  "minikube",
+    "ApplicationNamespace":  "ticket-011-lab",
+    "MonitoringNamespace":  "ticket-011-monitoring",
+    "ApplicationPod":  "reporting-api-598b9767f5-scfzw",
+    "ApplicationPodUID":  "f2c5a54d-7174-4f06-ab16-1c21df762003",
+    "ContainerIDPrefix":  "0f898ea77e1b",
+    "FalcoPod":  "ticket011-falco-kg6dz",
+    "Stimulus":  "kubectl exec -it; sh terminal check",
+    "StimulusStartUTC":  "2026-11-03T01:51:53.3235134+00:00",
+    "StimulusEndUTC":  "2026-11-03T01:51:53.4730811+00:00",
+    "StimulusExitCode":  0,
+    "FalcoRule":  "Terminal shell in container",
+    "CandidateRuleEventCount":  1,
+    "AttributedEventCount":  1,
+    "Outcome":  "DETECTED_AND_ATTRIBUTED",
+    "AttributedEvents":  [
+                             {
+                                 "Rule":  "Terminal shell in container",
+                                 "Priority":  "Notice",
+                                 "Source":  "syscall",
+                                 "Time":  "2026-11-03T01:51:53.404652675Z",
+                                 "Attribution":  "MATCHED_TICKET011_POD_OR_CONTAINER"
+                             }
+                         ]
+}
+
+========== evidence\kubernetes\live-lab-falco-enhancement1-positive.json ==========
+Size: 1409 bytes
+SHA256: A580D522F0F7F00006580073037DA79A56FE15BBF1A65FCDCEC17496C398A579
+
+{
+    "Classification":  "ACTUAL_MINIKUBE_LAB",
+    "Test":  "FALCO_CUSTOM_RULE_NONINTERACTIVE_SHELL",
+    "Rule":  "Ticket011 Unexpected Shell In Reporting Image",
+    "HelmRevision":  2,
+    "ApplicationNamespace":  "ticket-011-lab",
+    "ApplicationPod":  "reporting-api-598b9767f5-scfzw",
+    "ApplicationPodUID":  "f2c5a54d-7174-4f06-ab16-1c21df762003",
+    "ContainerIDPrefix":  "215250d2f9ed",
+    "FalcoNamespace":  "ticket-011-monitoring",
+    "FalcoPod":  "ticket011-falco-8zk5f",
+    "StartUTC":  "2026-11-03T17:47:43.2872607+00:00",
+    "EndUTC":  "2026-11-03T17:47:43.4484701+00:00",
+    "Stimulus":  "kubectl exec without TTY; sh -c benign marker",
+    "StimulusExitCode":  0,
+    "TerminalAttached":  false,
+    "CandidateRuleEventCount":  1,
+    "AttributedEventCount":  1,
+    "LogWindowTruncated":  false,
+    "SensorStable":  true,
+    "Outcome":  "DETECTED_AND_ATTRIBUTED",
+    "AttributedEvents":  [
+                             {
+                                 "Rule":  "Ticket011 Unexpected Shell In Reporting Image",
+                                 "Time":  "2026-11-03T17:47:42.777788860Z",
+                                 "Priority":  "Warning",
+                                 "Source":  "syscall",
+                                 "Attribution":  "MATCHED_TICKET011_REPORTING_CONTAINER"
+                             }
+                         ]
+}
+
+========== evidence\kubernetes\live-lab-falco-enhancement2-positive.json ==========
+Size: 1623 bytes
+SHA256: 4916DB7F001D59E8C46B1478FF1A1EAF26769BBF75337219D0861A6A22A36B59
+
+{
+    "Classification":  "ACTUAL_MINIKUBE_LAB",
+    "Test":  "SERVICEACCOUNT_TOKEN_FAILED_OPEN",
+    "Rule":  "Ticket011 Reporting ServiceAccount Token Access Attempt",
+    "HelmRevision":  3,
+    "ApplicationNamespace":  "ticket-011-lab",
+    "ApplicationPod":  "reporting-api-598b9767f5-scfzw",
+    "ApplicationPodUID":  "f2c5a54d-7174-4f06-ab16-1c21df762003",
+    "ContainerIDPrefix":  "215250d2f9ed",
+    "FalcoNamespace":  "ticket-011-monitoring",
+    "FalcoPod":  "ticket011-falco-mclt8",
+    "StartUTC":  "2026-11-03T18:14:21.1120659+00:00",
+    "EndUTC":  "2026-11-03T18:14:21.4302822+00:00",
+    "TokenPathPresentBeforeAttempt":  false,
+    "TokenAutomountEnabled":  false,
+    "OpenResult":  "ENOENT",
+    "TokenContentsRead":  false,
+    "TerminalAttached":  false,
+    "StimulusExitCode":  0,
+    "CandidateRuleEventCount":  1,
+    "AttributedEventCount":  1,
+    "InvalidEventTimeCount":  0,
+    "LogWindowTruncated":  false,
+    "SensorStable":  true,
+    "Outcome":  "DETECTED_AND_ATTRIBUTED_FAILED_OPEN",
+    "AttributedEvents":  [
+                             {
+                                 "Rule":  "Ticket011 Reporting ServiceAccount Token Access Attempt",
+                                 "Time":  "2026-11-03T18:14:20.073829516Z",
+                                 "Priority":  "Warning",
+                                 "ContainerIDPrefix":  "215250d2f9ed",
+                                 "Attribution":  "TICKET011_REPORTING_CONTAINER",
+                                 "ResultMentionsENOENT":  true
+                             }
+                         ]
+}
+
+========== evidence\kubernetes\live-lab-security-boundary-assessment.md ==========
+Size: 1775 bytes
+SHA256: D4633DB2BD8F8EA786D8EAC4E4F271438756213F84E236AAE204AAF533E84A19
+
+# Ticket 011 - Live Kubernetes Security Boundary Assessment
+
+Classification: ACTUAL ISOLATED MINIKUBE LAB
+
+Verification timestamp: 2026-11-02T20:26:10.3222706-05:00
+
+Namespace: ticket-011-lab
+Pod: reporting-api-598b9767f5-scfzw
+Pod UID: f2c5a54d-7174-4f06-ab16-1c21df762003
+ServiceAccount: reporting-api
+
+## Runtime Security
+
+- UID/GID: 10001/10001 - VERIFIED
+- ServiceAccount token file: ABSENT
+- Named AWS credential environment variables: ABSENT
+- Effective Linux capabilities: ZERO
+- NoNewPrivs: ENABLED
+- Seccomp filtering: ENABLED
+
+## RBAC Authorization
+
+- get secrets: DENIED
+- patch deployments: DENIED
+- create pods: DENIED
+- create pods/exec: DENIED
+
+Total: 4 expected denials verified.
+
+These checks impersonated the reporting-api
+ServiceAccount using Kubernetes authorization review.
+
+## Evidence
+
+- kubernetes-lab/tests/runtime_security_probe.py
+- evidence/kubernetes/live-lab-runtime-security.json
+- evidence/kubernetes/live-lab-rbac-validation.json
+
+Runtime probe SHA256: A840E3F3F6AE86A9EF55D2747DEB8FC7A588D18B2E4C7AD49389F4631D033F3C
+
+## Limitations
+
+These findings apply to the observed laboratory Pod.
+
+Only specific environment variable names were checked.
+This is not a complete credential inventory.
+
+The synthetic Kubernetes scenario included a token read,
+but the actual hardened Pod has no mounted ServiceAccount
+token at the checked path.
+
+This supports the token-automount restriction but does
+not prove that all possible credential exposure is absent.
+
+Seccomp filtering mode was verified; policy completeness
+was not assessed.
+
+No real credentials were read or displayed.
+No Kubernetes resource specifications were changed.
+Falco alert detection remains untested.
+
+Cross-system compromise: NOT ESTABLISHED.
+Production readiness: NOT ESTABLISHED.
+
+========== evidence\kubernetes\DATASET-PROVENANCE.md ==========
+Size: 1994 bytes
+SHA256: D117C0F425DD0DAD9EFE7D54058CDE00F0847E47A2D3470CC67DC0CAF2D5336E
+
+# Kubernetes Evidence Provenance - Ticket 011
+
+## Classification
+
+SYNTHETIC LABORATORY EVIDENCE
+
+These are modeled Kubernetes audit, Falco-style
+runtime, and network-flow records.
+
+They are not exports from a production cluster
+or observations collected from a running Pod.
+
+## Scenario
+
+A reporting-api Pod in the simulated
+production-reporting namespace exhibits:
+
+- Routine application and network activity
+- A successful Kubernetes exec API operation
+- An unexpected shell process
+- A read of the Kubernetes ServiceAccount token file
+- A connection to an unfamiliar external destination
+- A denied Kubernetes Secret request
+- A denied ephemeral-container modification
+- A denied Deployment modification
+- Later administrative workload inspection
+
+## Relationship to AWS Evidence
+
+The external address 203.0.113.77 appears as a
+Kubernetes outbound destination in this dataset.
+
+The same address appears as an AWS API source
+in the separately generated AWS dataset.
+
+This is a possible investigative association.
+It is NOT proof of shared origin, credential theft,
+a common operator, or causal linkage.
+
+NAT mapping, destination attribution, process-to-
+network attribution, AWS credential access evidence,
+and independent infrastructure records are absent.
+
+The modeled ServiceAccount token is a Kubernetes
+identity credential, not an AWS access key.
+
+## Evidence Limitations
+
+All timestamps are UTC on November 2, 2026.
+
+The synthetic workload context is a modeled snapshot,
+not an authoritative live RBAC inspection.
+
+A successful exec API operation does not prove who
+spawned every subsequent process.
+
+A token-file read does not prove successful token
+exfiltration or AWS credential exposure.
+
+An allowed network connection does not establish
+its content, intent, or successful data transfer.
+
+Denied workload modifications do not rule out
+persistence mechanisms outside the modeled events.
+
+No real cluster resources were created, changed,
+deleted, or queried to generate these records.
+
+========== NEXT AUDIT TASK ==========
+
+Identify distinct adversarial actions.
+Separate live observations from synthetic records.
+Check results and expected behavior.
+Reconcile duplicate actions and supporting evidence.
+Determine which additional tests are required.
+
+No Kubernetes, Helm, or AWS changes were made.

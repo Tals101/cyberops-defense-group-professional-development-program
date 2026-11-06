@@ -1,0 +1,114 @@
+{
+    "Ticket":  "CYBEROPS-PDP-011",
+    "Classification":  "ISOLATED_LAB_TECHNICAL_EVIDENCE_MATRIX",
+    "PreparedUTC":  "2026-11-05T17:29:44.7757334+00:00",
+    "TotalDocumentedCases":  8,
+    "AuthorizationSimulationCases":  4,
+    "ExecutedRuntimeTestCases":  4,
+    "CasesWithSupportingTechnicalEvidence":  8,
+    "FalcoPositiveControls":  2,
+    "FalcoNegativeControls":  2,
+    "OriginalEvidenceFilesVerified":  35,
+    "FormalEightScenarioAcceptance":  "PENDING_AUTHORITATIVE_RUBRIC_AND_SIGNOFF",
+    "EightExecutedRuntimeTestsEstablished":  false,
+    "ContainmentGate":  "PENDING_TIMEZONE_AND_AUTHORIZATION",
+    "ProductionRecoveryReady":  false,
+    "CrossSystemCausationEstablished":  false,
+    "Cases":  [
+                  {
+                      "TestID":  "AT-01",
+                      "EvidenceClass":  "AUTHORIZATION_SIMULATION",
+                      "Objective":  "Reporting ServiceAccount secret-read authorization",
+                      "RecordedOutcome":  "AUTHORIZATION_DENIED_AS_EXPECTED",
+                      "TechnicalEvidence":  "SUPPORTED_FOR_RECORDED_SCOPE",
+                      "UnderlyingPrivilegedActionExecuted":  false,
+                      "EvidenceFile":  "evidence/kubernetes/live-lab-rbac-validation.json",
+                      "EvidenceSHA256":  "3E4791BCB1FC98EB2C7AC30D602610D5036A93E1F5A72C0B05E305A724BAFD42",
+                      "FormalAcceptance":  "PENDING"
+                  },
+                  {
+                      "TestID":  "AT-02",
+                      "EvidenceClass":  "AUTHORIZATION_SIMULATION",
+                      "Objective":  "Reporting ServiceAccount deployment-patch authorization",
+                      "RecordedOutcome":  "AUTHORIZATION_DENIED_AS_EXPECTED",
+                      "TechnicalEvidence":  "SUPPORTED_FOR_RECORDED_SCOPE",
+                      "UnderlyingPrivilegedActionExecuted":  false,
+                      "EvidenceFile":  "evidence/kubernetes/live-lab-rbac-validation.json",
+                      "EvidenceSHA256":  "3E4791BCB1FC98EB2C7AC30D602610D5036A93E1F5A72C0B05E305A724BAFD42",
+                      "FormalAcceptance":  "PENDING"
+                  },
+                  {
+                      "TestID":  "AT-03",
+                      "EvidenceClass":  "AUTHORIZATION_SIMULATION",
+                      "Objective":  "Reporting ServiceAccount Pod-creation authorization",
+                      "RecordedOutcome":  "AUTHORIZATION_DENIED_AS_EXPECTED",
+                      "TechnicalEvidence":  "SUPPORTED_FOR_RECORDED_SCOPE",
+                      "UnderlyingPrivilegedActionExecuted":  false,
+                      "EvidenceFile":  "evidence/kubernetes/live-lab-rbac-validation.json",
+                      "EvidenceSHA256":  "3E4791BCB1FC98EB2C7AC30D602610D5036A93E1F5A72C0B05E305A724BAFD42",
+                      "FormalAcceptance":  "PENDING"
+                  },
+                  {
+                      "TestID":  "AT-04",
+                      "EvidenceClass":  "AUTHORIZATION_SIMULATION",
+                      "Objective":  "Reporting ServiceAccount pods/exec authorization",
+                      "RecordedOutcome":  "AUTHORIZATION_DENIED_AS_EXPECTED",
+                      "TechnicalEvidence":  "SUPPORTED_FOR_RECORDED_SCOPE",
+                      "UnderlyingPrivilegedActionExecuted":  false,
+                      "EvidenceFile":  "evidence/kubernetes/live-lab-rbac-validation.json",
+                      "EvidenceSHA256":  "3E4791BCB1FC98EB2C7AC30D602610D5036A93E1F5A72C0B05E305A724BAFD42",
+                      "FormalAcceptance":  "PENDING"
+                  },
+                  {
+                      "TestID":  "AT-05",
+                      "EvidenceClass":  "EXECUTED_RUNTIME_TEST",
+                      "Objective":  "Interactive shell and Falco observation",
+                      "RecordedOutcome":  "DETECTED_AND_ATTRIBUTED",
+                      "TechnicalEvidence":  "SUPPORTED_FOR_RECORDED_SCOPE",
+                      "UnderlyingPrivilegedActionExecuted":  null,
+                      "EvidenceFile":  "evidence/kubernetes/live-lab-falco-shell-test.json",
+                      "EvidenceSHA256":  "80EE8F626348FAEDD3ACEDEFDDDA222C3725C90EF612B2CE903F8214C2216DFA",
+                      "FormalAcceptance":  "PENDING"
+                  },
+                  {
+                      "TestID":  "AT-06",
+                      "EvidenceClass":  "EXECUTED_RUNTIME_TEST",
+                      "Objective":  "Noninteractive shell custom-rule detection",
+                      "RecordedOutcome":  "DETECTED_AND_ATTRIBUTED",
+                      "TechnicalEvidence":  "SUPPORTED_FOR_RECORDED_SCOPE",
+                      "UnderlyingPrivilegedActionExecuted":  null,
+                      "EvidenceFile":  "evidence/kubernetes/live-lab-falco-enhancement1-positive.json",
+                      "EvidenceSHA256":  "A580D522F0F7F00006580073037DA79A56FE15BBF1A65FCDCEC17496C398A579",
+                      "FormalAcceptance":  "PENDING"
+                  },
+                  {
+                      "TestID":  "AT-07",
+                      "EvidenceClass":  "EXECUTED_RUNTIME_TEST",
+                      "Objective":  "Failed ServiceAccount token-path open detected",
+                      "RecordedOutcome":  "DETECTED_AND_ATTRIBUTED_FAILED_OPEN",
+                      "TechnicalEvidence":  "SUPPORTED_FOR_RECORDED_SCOPE",
+                      "UnderlyingPrivilegedActionExecuted":  null,
+                      "EvidenceFile":  "evidence/kubernetes/live-lab-falco-enhancement2-positive.json",
+                      "EvidenceSHA256":  "4916DB7F001D59E8C46B1478FF1A1EAF26769BBF75337219D0861A6A22A36B59",
+                      "FormalAcceptance":  "PENDING"
+                  },
+                  {
+                      "TestID":  "AT-08",
+                      "EvidenceClass":  "EXECUTED_RUNTIME_TEST",
+                      "Objective":  "Attempted setuid(0) denied by EPERM",
+                      "RecordedOutcome":  "PASS_UID0_ESCALATION_DENIED",
+                      "TechnicalEvidence":  "SUPPORTED_FOR_RECORDED_SCOPE",
+                      "UnderlyingPrivilegedActionExecuted":  null,
+                      "EvidenceFile":  "evidence/kubernetes/live-lab-uid0-escalation-denial-7f.json",
+                      "EvidenceSHA256":  "19F4DD573F37F0AF0BFF3F14EE3348A83F2F839251677B784A8FC97EE074BD70",
+                      "FormalAcceptance":  "PENDING"
+                  }
+              ],
+    "OutstandingItems":  [
+                             "Confirm original authoritative eight-scenario rubric",
+                             "Obtain acceptance review and sign-off",
+                             "Verify 09:05 containment gate date and timezone",
+                             "Identify authorized incident decision-maker",
+                             "Do not claim completed production containment or recovery"
+                         ]
+}

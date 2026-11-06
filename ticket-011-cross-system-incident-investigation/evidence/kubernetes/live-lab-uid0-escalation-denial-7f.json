@@ -1,0 +1,29 @@
+{
+    "Classification":  "ACTUAL_MINIKUBE_LAB",
+    "TestID":  "AT-08",
+    "Test":  "ATTEMPT_UID0_SETUID_ESCALATION",
+    "Context":  "minikube",
+    "Namespace":  "ticket-011-lab",
+    "Pod":  "reporting-api-598b9767f5-scfzw",
+    "PodUID":  "f2c5a54d-7174-4f06-ab16-1c21df762003",
+    "ContainerIDPrefix":  "215250d2f9ed",
+    "StartUTC":  "2026-11-03T18:42:35.7158221+00:00",
+    "EndUTC":  "2026-11-03T18:42:35.9703824+00:00",
+    "InitialUID":  10001,
+    "RequestedUID":  0,
+    "SecurityPreflightPassed":  true,
+    "ExpectedKernelResult":  "EPERM",
+    "ObservedDeniedEPERM":  true,
+    "UnexpectedPrivilegeGain":  false,
+    "PythonExitCode":  0,
+    "ReportingContainerStable":  true,
+    "ProtectedNamespaceUnchanged":  true,
+    "ShellLaunched":  false,
+    "InteractiveTerminal":  false,
+    "KubernetesSpecChanged":  false,
+    "Outcome":  "PASS_UID0_ESCALATION_DENIED",
+    "ExecutionMarkers":  [
+                             "TICKET011_SECURITY_PREFLIGHT_OK",
+                             "TICKET011_UID0_SETUID_DENIED_EPERM"
+                         ]
+}
