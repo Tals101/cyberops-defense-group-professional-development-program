@@ -1,0 +1,65 @@
+{
+    "Ticket":  "CYBEROPS-PDP-011",
+    "Classification":  "SYNTHETIC_RECOVERY_PLANNING",
+    "PreparedUTC":  "2026-11-05T01:12:46.9583390+00:00",
+    "RunbookPrepared":  true,
+    "RecoveryReadiness":  "NOT_READY_FOR_PRODUCTION_ACTION",
+    "ContainmentRecommendation":  "HOLD_DISRUPTIVE_CONTAINMENT",
+    "ContainmentAuthorized":  false,
+    "RecoveryAuthorized":  false,
+    "RecoveryExecutedThisStep":  false,
+    "RecoveryVerifiedThisStep":  false,
+    "ActualIncidentEstablished":  false,
+    "CrossSystemCausationEstablished":  false,
+    "ContainmentGateStatus":  "PENDING_AUTHORIZATION_AND_TIME_VERIFICATION",
+    "OriginalEvidenceSourcesVerified":  7,
+    "Gates":  [
+                  {
+                      "Gate":  "R01",
+                      "Requirement":  "Verified 09:05 date and timezone",
+                      "Status":  "OPEN"
+                  },
+                  {
+                      "Gate":  "R02",
+                      "Requirement":  "Authorized incident decision-maker",
+                      "Status":  "OPEN"
+                  },
+                  {
+                      "Gate":  "R03",
+                      "Requirement":  "Original synthetic evidence integrity",
+                      "Status":  "VERIFIED"
+                  },
+                  {
+                      "Gate":  "R04",
+                      "Requirement":  "Production service dependency mapping",
+                      "Status":  "NOT_ASSESSED"
+                  },
+                  {
+                      "Gate":  "R05",
+                      "Requirement":  "Approved backup and restoration baseline",
+                      "Status":  "NOT_ASSESSED"
+                  },
+                  {
+                      "Gate":  "R06",
+                      "Requirement":  "Authorized recovery execution test",
+                      "Status":  "NOT_PERFORMED"
+                  },
+                  {
+                      "Gate":  "R07",
+                      "Requirement":  "Post-recovery operational verification",
+                      "Status":  "NOT_PERFORMED"
+                  },
+                  {
+                      "Gate":  "R08",
+                      "Requirement":  "Documented sign-off and closure approval",
+                      "Status":  "OPEN"
+                  }
+              ],
+    "ProtectedScope":  [
+                           "ticket-010-lab",
+                           "all non-Ticket011 Kubernetes namespaces",
+                           "production infrastructure",
+                           "real AWS accounts",
+                           "real Linux systems"
+                       ]
+}

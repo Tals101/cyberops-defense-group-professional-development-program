@@ -1,0 +1,44 @@
+{
+    "Ticket":  "CYBEROPS-PDP-011",
+    "Classification":  "SYNTHETIC_INCIDENT_DECISION_ANALYSIS",
+    "PreparedUTC":  "2026-11-05T01:05:47.9331865+00:00",
+    "Gate":  {
+                 "SpecifiedTime":  "09:05",
+                 "Date":  "NOT_VERIFIED",
+                 "Timezone":  "NOT_VERIFIED",
+                 "AuthorizedDecisionMaker":  "NOT_VERIFIED",
+                 "FormalDecisionStatus":  "PENDING_AUTHORIZATION"
+             },
+    "Analysis":  {
+                     "SyntheticEvents":  42,
+                     "EvidenceSourcesVerified":  7,
+                     "SharedIPGroups":  2,
+                     "TemporalPairs":  37,
+                     "CorrelationUnitTestsPassed":  20,
+                     "CrossSystemCausationEstablished":  false,
+                     "RealWorldCompromiseEstablished":  false
+                 },
+    "Recommendation":  {
+                           "Action":  "HOLD_DISRUPTIVE_CONTAINMENT",
+                           "Status":  "ANALYST_RECOMMENDATION_ONLY",
+                           "ProductionChangeAuthorized":  false,
+                           "ActiveContainmentExecuted":  false,
+                           "DecisionAuthorityApprovalRecorded":  false
+                       },
+    "EvidenceFiles":  [
+                          "incident-report/cross-system-evidence-assessment-9d.md",
+                          "incident-report/cross-system-timeline-9d.csv",
+                          "correlation-engine/sample-data/source-integrity-9d.json",
+                          "correlation-engine/sample-data/ip-associations-9b.json",
+                          "correlation-engine/tests/unit-test-results-9c.txt"
+                      ],
+    "RemainingConditions":  [
+                                "Verify 09:05 gate date and timezone",
+                                "Identify authorized incident decision-maker",
+                                "Preserve relevant evidence",
+                                "Validate identity and source network attribution",
+                                "Assess reporting service dependencies",
+                                "Document containment scope and rollback",
+                                "Obtain required approval before production changes"
+                            ]
+}
