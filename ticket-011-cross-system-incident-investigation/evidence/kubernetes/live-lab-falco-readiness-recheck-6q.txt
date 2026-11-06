@@ -1,0 +1,50 @@
+Ticket 011 - Falco Readiness Diagnostic
+
+Classification: ACTUAL MINIKUBE LAB OBSERVATION
+Timestamp UTC: 2026-11-03T17:35:20.2192047+00:00
+
+Context: minikube
+Namespace: ticket-011-monitoring
+
+DaemonSet: ticket011-falco
+Desired: 1
+Current: 1
+Ready: 1
+Available: 1
+Generation: 1
+Observed generation: 1
+
+Falco Pod count: 1
+
+Pod and container states:
+Pod: ticket011-falco-kg6dz; Phase: Running; Node: minikube
+Container: falcoctl-artifact-install; State: Terminated; Reason: Completed; Ready: True; Restarts: 3
+Container: falco; State: Running; Reason: ; Ready: True; Restarts: 1
+Previous termination: falco; Reason: Error; ExitCode: 255; Finished: 2026-11-03T17:31:45Z
+
+Minikube node conditions:
+MemoryPressure: False (KubeletHasSufficientMemory)
+DiskPressure: False (KubeletHasNoDiskPressure)
+PIDPressure: False (KubeletHasSufficientPID)
+Ready: True (KubeletReady)
+
+Recent relevant Kubernetes events:
+2026-11-03T17:33:06Z | Normal | Pulled | Container image "docker.io/falcosecurity/falco:0.44.1" already present on machine and can be accessed by the pod
+2026-11-03T17:33:06Z | Normal | Created | Container created
+2026-11-03T17:33:06Z | Normal | Started | Container started
+2026-11-03T17:32:11Z | Warning | BackOff | Back-off restarting failed container falcoctl-artifact-install in pod ticket011-falco-kg6dz_ticket-011-monitoring(756ab5e9-85cd-46bc-9790-c7a52543170f)
+2026-11-03T17:32:00Z | Normal | Created | Container created
+2026-11-03T17:32:00Z | Normal | Started | Container started
+2026-11-03T17:31:59Z | Normal | Pulled | Container image "docker.io/falcosecurity/falcoctl:0.13.0" already present on machine and can be accessed by the pod
+2026-11-03T17:31:57Z | Normal | SandboxChanged | Pod sandbox changed, it will be killed and re-created.
+2026-11-03T01:42:10Z | Normal | Started | Container started
+2026-11-03T01:42:10Z | Normal | Created | Container created
+2026-11-03T01:42:09Z | Normal | Pulled | Successfully pulled image "docker.io/falcosecurity/falco:0.44.1" in 16.84s (16.84s including waiting). Image size: 112279460 bytes.
+2026-11-03T01:41:53Z | Normal | Pulling | Pulling image "docker.io/falcosecurity/falco:0.44.1"
+
+Scope:
+- No Helm installation or upgrade.
+- No Kubernetes resource changes.
+- No shell-execution test.
+- No node-wide Falco alert bodies collected.
+- No production or AWS resources accessed.

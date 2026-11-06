@@ -1,0 +1,19 @@
+{
+    "Classification":  "ACTUAL_MINIKUBE_LAB",
+    "Test":  "NONINTERACTIVE_EXEC_NEGATIVE_CONTROL",
+    "ApplicationNamespace":  "ticket-011-lab",
+    "ApplicationPod":  "reporting-api-598b9767f5-scfzw",
+    "FalcoPod":  "ticket011-falco-kg6dz",
+    "Stimulus":  "python -B -c; no TTY; HTTP GET /health",
+    "StartUTC":  "2026-11-03T01:54:11.2777175+00:00",
+    "EndUTC":  "2026-11-03T01:54:11.9745239+00:00",
+    "StimulusExitCode":  0,
+    "PositiveControlOutcome":  "DETECTED_AND_ATTRIBUTED",
+    "FalcoRule":  "Terminal shell in container",
+    "CandidateRuleEventCount":  0,
+    "AttributedRuleEventCount":  0,
+    "Outcome":  "PASS_NO_TERMINAL_SHELL_ALERT",
+    "AttributedEvents":  [
+
+                         ]
+}

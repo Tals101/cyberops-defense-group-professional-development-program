@@ -1,0 +1,57 @@
+Ticket 011 - Enhancement 2 V2 Validation
+
+Classification: ACTUAL OFFLINE FALCO VALIDATION
+Timestamp UTC: 2026-11-03T17:59:01.3567995+00:00
+
+Original rule SHA256: 3CD99AA9CBAE42446A2245FFB09CDAC14D51CE91ACE18D8BB6A583B31F759DA3
+Original values SHA256: 5AB68154603A6BBC3CA1B1D575255465F9A815FF6D626D67F43B0AF692291139
+
+Corrected rule SHA256: 10192AE7CF4DBBC833D9AB0C4F355DFA415F94BE6D4BB73CD9320EA76ED21A5F
+Corrected Helm values SHA256: E501A632B780F3468B5398FDC0B83719D0E2E5E8AC07B1F081A16F909E6B02CE
+
+Correction:
+Removed the deprecated evt.dir = < condition.
+Original rule and prior validation evidence retained.
+
+Falco version: 0.44.1
+Image: falcosecurity/falco:0.44.1
+Image ID: sha256:d0cfe422d6ac0e0f20857798f46c7d7273210e1b064b22821e4e6e7f843cde6b
+
+Validation exit code: 0
+Warnings detected: False
+Outcome: PASS_NO_WARNINGS
+
+Validator output:
+2026-11-03T17:59:01+0000: Falco version: 0.44.1 (x86_64)
+2026-11-03T17:59:01+0000: Falco initialized with configuration files:
+2026-11-03T17:59:01+0000:    /etc/falco/config.d/falco.container_plugin.yaml | schema validation: ok
+2026-11-03T17:59:01+0000:    /etc/falco/config.d/falco.iso8601_timeformat.yaml | schema validation: ok
+2026-11-03T17:59:01+0000:    /etc/falco/falco.yaml | schema validation: ok
+2026-11-03T17:59:01+0000: System info: Linux version 6.6.87.2-microsoft-standard-WSL2 (root@439a258ad544) (gcc (GCC) 11.2.0, GNU ld (GNU Binutils) 2.37) #1 SMP PREEMPT_DYNAMIC Thu Jun  5 18:30:46 UTC 2025
+2026-11-03T17:59:01+0000: [libs]: Cannot read host init process proc root: 2
+2026-11-03T17:59:01+0000: Loaded plugin 'container@0.7.1' from file /usr/share/falco/plugins/libcontainer.so
+2026-11-03T17:59:01+0000: [libs]: Cannot read host init process proc root: 2
+2026-11-03T17:59:01+0000: [libs]: container: Enabled 'podman' container engine.
+2026-11-03T17:59:01+0000: [libs]: container: * enabled container runtime socket at '/host/run/podman/podman.sock'
+2026-11-03T17:59:01+0000: [libs]: container: Enabled 'docker' container engine.
+2026-11-03T17:59:01+0000: [libs]: container: * enabled container runtime socket at '/host/var/run/docker.sock'
+2026-11-03T17:59:01+0000: [libs]: container: Enabled 'cri' container engine.
+2026-11-03T17:59:01+0000: [libs]: container: * enabled container runtime socket at '/host/run/containerd/containerd.sock'
+2026-11-03T17:59:01+0000: [libs]: container: * enabled container runtime socket at '/host/run/crio/crio.sock'
+2026-11-03T17:59:01+0000: [libs]: container: * enabled container runtime socket at '/host/run/k3s/containerd/containerd.sock'
+2026-11-03T17:59:01+0000: [libs]: container: * enabled container runtime socket at '/host/run/host-containerd/containerd.sock'
+2026-11-03T17:59:01+0000: [libs]: container: Enabled 'containerd' container engine.
+2026-11-03T17:59:01+0000: [libs]: container: * enabled container runtime socket at '/host/run/host-containerd/containerd.sock'
+2026-11-03T17:59:01+0000: [libs]: container: Enabled 'lxc' container engine.
+2026-11-03T17:59:01+0000: [libs]: container: Enabled 'libvirt_lxc' container engine.
+2026-11-03T17:59:01+0000: [libs]: container: Enabled 'bpm' container engine.
+2026-11-03T17:59:01+0000: Validating rules file(s):
+2026-11-03T17:59:01+0000:    /tmp/ticket011-token-v2.yaml
+/tmp/ticket011-token-v2.yaml: Ok
+
+Helm rendering: PASS
+Both rules retained: YES
+Live Falco deployment: NOT MODIFIED
+
+Runtime positive control: PENDING
+Runtime negative control: PENDING

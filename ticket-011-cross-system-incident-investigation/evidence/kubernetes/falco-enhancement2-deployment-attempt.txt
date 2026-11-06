@@ -1,0 +1,24 @@
+Ticket 011 - Enhancement 2 Deployment Attempt
+
+Classification: ACTUAL MINIKUBE LAB CHANGE
+Timestamp UTC: 2026-11-03T18:08:10.0249866+00:00
+
+Release: ticket011-falco
+Namespace: ticket-011-monitoring
+Chart: falco-9.1.0
+Starting Helm revision: 2
+Target Helm revision: 3
+
+Enhancement 1 SHA256: 12E024B3D1F4AD50FCE44D11731858559E90C82BE5C8B0F71724932662CC1CE0
+Enhancement 2 V2 SHA256: 10192AE7CF4DBBC833D9AB0C4F355DFA415F94BE6D4BB73CD9320EA76ED21A5F
+Values SHA256: E501A632B780F3468B5398FDC0B83719D0E2E5E8AC07B1F081A16F909E6B02CE
+
+Falco rule validation: PASS_NO_WARNINGS
+Falco readiness before upgrade: 1/1
+Ticket 010 namespace UID: cd91501b-a06d-4d70-abd5-76a6fcae4b5c
+Reporting API UID: 748aa6a1-4a6b-459f-a545-ebb9c2eba9d9
+Reporting API generation: 1
+
+Planned change: Helm upgrade with rollback protection.
+Scope: Ticket 011 Falco monitoring release only.
+Helm upgrade exit code: 0

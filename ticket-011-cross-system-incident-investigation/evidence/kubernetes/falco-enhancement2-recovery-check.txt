@@ -1,0 +1,31 @@
+Ticket 011 - Step 6X Recovery Check
+
+Classification: ACTUAL READ-ONLY MINIKUBE OBSERVATION
+Timestamp UTC: 2026-11-03T18:04:34.0613144+00:00
+
+Helm release: ticket011-falco
+Namespace: ticket-011-monitoring
+Helm revision: 2
+Helm status: deployed
+Chart: falco-9.1.0
+
+Falco desired: 1
+Falco ready: 1
+Falco available: 1
+
+Enhancement 1 installed: True
+Enhancement 2 installed: False
+Enhancement 2 deprecated condition: False
+
+Ticket 010 namespace UID: cd91501b-a06d-4d70-abd5-76a6fcae4b5c
+
+Reporting API Deployment UID: 748aa6a1-4a6b-459f-a545-ebb9c2eba9d9
+Reporting API generation: 1
+Reporting API available replicas: 1
+
+Recovery assessment: REVISION_2_UNCHANGED
+
+The previous Step 6X script contained a parser error.
+Its subsequent success messages are not valid evidence.
+
+This check made no Kubernetes or Helm changes.

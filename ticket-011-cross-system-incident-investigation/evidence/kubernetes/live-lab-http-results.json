@@ -1,0 +1,57 @@
+{
+    "classification":  "ACTUAL_MINIKUBE_LAB",
+    "failed":  0,
+    "passed":  5,
+    "tests":  [
+                  {
+                      "response":  {
+                                       "environment":  "isolated-lab",
+                                       "service":  "ticket011-reporting-api",
+                                       "status":  "ok"
+                                   },
+                      "result":  "PASS",
+                      "status":  200,
+                      "test":  "pod_health"
+                  },
+                  {
+                      "response":  {
+                                       "contains_real_financial_data":  false,
+                                       "records":  0,
+                                       "report_type":  "synthetic",
+                                       "service":  "ticket011-reporting-api"
+                                   },
+                      "result":  "PASS",
+                      "status":  200,
+                      "test":  "pod_report"
+                  },
+                  {
+                      "response":  {
+                                       "environment":  "isolated-lab",
+                                       "service":  "ticket011-reporting-api",
+                                       "status":  "ok"
+                                   },
+                      "result":  "PASS",
+                      "status":  200,
+                      "test":  "service_health"
+                  },
+                  {
+                      "response":  {
+                                       "contains_real_financial_data":  false,
+                                       "records":  0,
+                                       "report_type":  "synthetic",
+                                       "service":  "ticket011-reporting-api"
+                                   },
+                      "result":  "PASS",
+                      "status":  200,
+                      "test":  "service_report"
+                  },
+                  {
+                      "response":  {
+                                       "error":  "not_found"
+                                   },
+                      "result":  "PASS",
+                      "status":  404,
+                      "test":  "service_unknown_route"
+                  }
+              ]
+}

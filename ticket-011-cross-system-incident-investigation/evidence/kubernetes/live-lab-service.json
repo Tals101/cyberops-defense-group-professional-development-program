@@ -1,0 +1,41 @@
+{
+    "apiVersion": "v1",
+    "kind": "Service",
+    "metadata": {
+        "creationTimestamp": "2026-11-03T01:15:38Z",
+        "labels": {
+            "app.kubernetes.io/part-of": "ticket-011"
+        },
+        "name": "reporting-api",
+        "namespace": "ticket-011-lab",
+        "resourceVersion": "108922",
+        "uid": "da095945-e42b-4223-bec3-833587291ffe"
+    },
+    "spec": {
+        "clusterIP": "10.104.232.116",
+        "clusterIPs": [
+            "10.104.232.116"
+        ],
+        "internalTrafficPolicy": "Cluster",
+        "ipFamilies": [
+            "IPv4"
+        ],
+        "ipFamilyPolicy": "SingleStack",
+        "ports": [
+            {
+                "name": "http",
+                "port": 8080,
+                "protocol": "TCP",
+                "targetPort": "http"
+            }
+        ],
+        "selector": {
+            "app": "ticket011-reporting-api"
+        },
+        "sessionAffinity": "None",
+        "type": "ClusterIP"
+    },
+    "status": {
+        "loadBalancer": {}
+    }
+}

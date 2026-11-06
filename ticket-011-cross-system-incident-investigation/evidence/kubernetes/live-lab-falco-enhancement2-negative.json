@@ -1,0 +1,30 @@
+{
+    "Classification":  "ACTUAL_MINIKUBE_LAB",
+    "Test":  "SERVICEACCOUNT_ACCESS_NEGATIVE_CONTROL",
+    "Rule":  "Ticket011 Reporting ServiceAccount Token Access Attempt",
+    "HelmRevision":  3,
+    "ApplicationNamespace":  "ticket-011-lab",
+    "ApplicationPod":  "reporting-api-598b9767f5-scfzw",
+    "ApplicationPodUID":  "f2c5a54d-7174-4f06-ab16-1c21df762003",
+    "ContainerIDPrefix":  "215250d2f9ed",
+    "FalcoNamespace":  "ticket-011-monitoring",
+    "FalcoPod":  "ticket011-falco-mclt8",
+    "StartUTC":  "2026-11-03T18:17:38.0349240+00:00",
+    "EndUTC":  "2026-11-03T18:17:38.7967566+00:00",
+    "Stimulus":  "Direct Python HTTP GET /health",
+    "StimulusExitCode":  0,
+    "ApplicationHTTPStatus":  200,
+    "TokenPathAccessed":  false,
+    "ShellLaunched":  false,
+    "TerminalAttached":  false,
+    "PositiveControlOutcome":  "DETECTED_AND_ATTRIBUTED_FAILED_OPEN",
+    "CandidateRuleEventCount":  0,
+    "AttributedEventCount":  0,
+    "InvalidEventTimeCount":  0,
+    "LogWindowTruncated":  false,
+    "SensorStable":  true,
+    "Outcome":  "PASS_NO_TOKEN_ACCESS_ALERT",
+    "AttributedEvents":  [
+
+                         ]
+}

@@ -1,0 +1,26 @@
+{
+    "apiVersion": "v1",
+    "kind": "Namespace",
+    "metadata": {
+        "creationTimestamp": "2026-11-03T01:03:16Z",
+        "labels": {
+            "app.kubernetes.io/part-of": "ticket-011",
+            "kubernetes.io/metadata.name": "ticket-011-lab",
+            "pod-security.kubernetes.io/audit": "restricted",
+            "pod-security.kubernetes.io/enforce": "restricted",
+            "pod-security.kubernetes.io/enforce-version": "latest",
+            "pod-security.kubernetes.io/warn": "restricted"
+        },
+        "name": "ticket-011-lab",
+        "resourceVersion": "108313",
+        "uid": "4739aec3-4bf6-488f-afa1-8bb695a0e4a1"
+    },
+    "spec": {
+        "finalizers": [
+            "kubernetes"
+        ]
+    },
+    "status": {
+        "phase": "Active"
+    }
+}

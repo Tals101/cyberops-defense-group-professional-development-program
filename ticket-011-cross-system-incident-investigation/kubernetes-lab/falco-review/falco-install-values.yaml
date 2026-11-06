@@ -1,0 +1,32 @@
+# Ticket 011 - Modern eBPF laboratory monitoring
+# Falco chart pinned to version 9.1.0
+
+driver:
+  kind: modern_ebpf
+  modernEbpf:
+    leastPrivileged: true
+
+controller:
+  kind: daemonset
+
+falco:
+  json_output: true
+  time_format_iso_8601: true
+  stdout_output:
+    enabled: true
+  http_output:
+    enabled: false
+  program_output:
+    enabled: false
+  file_output:
+    enabled: false
+  syslog_output:
+    enabled: false
+
+falcoctl:
+  artifact:
+    follow:
+      enabled: false
+
+falcosidekick:
+  enabled: false

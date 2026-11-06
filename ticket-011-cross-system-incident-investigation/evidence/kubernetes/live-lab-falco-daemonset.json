@@ -1,0 +1,410 @@
+{
+    "apiVersion":  "apps/v1",
+    "kind":  "DaemonSet",
+    "metadata":  {
+                     "annotations":  {
+                                         "deprecated.daemonset.template.generation":  "1",
+                                         "meta.helm.sh/release-name":  "ticket011-falco",
+                                         "meta.helm.sh/release-namespace":  "ticket-011-monitoring"
+                                     },
+                     "creationTimestamp":  "2026-11-03T01:41:32Z",
+                     "generation":  1,
+                     "labels":  {
+                                    "app.kubernetes.io/instance":  "ticket011-falco",
+                                    "app.kubernetes.io/managed-by":  "Helm",
+                                    "app.kubernetes.io/name":  "falco",
+                                    "app.kubernetes.io/version":  "0.44.1",
+                                    "helm.sh/chart":  "falco-9.1.0"
+                                },
+                     "name":  "ticket011-falco",
+                     "namespace":  "ticket-011-monitoring",
+                     "resourceVersion":  "110199",
+                     "uid":  "ff6ad8f4-6396-4e80-a4f5-8554aae44e51"
+                 },
+    "spec":  {
+                 "revisionHistoryLimit":  10,
+                 "selector":  {
+                                  "matchLabels":  {
+                                                      "app.kubernetes.io/instance":  "ticket011-falco",
+                                                      "app.kubernetes.io/name":  "falco"
+                                                  }
+                              },
+                 "template":  {
+                                  "metadata":  {
+                                                   "annotations":  {
+                                                                       "checksum/certs":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                                                                       "checksum/config":  "19442b5b6d74cc346593e1890a177a124a4ce267f27c0417602b8fa4457b2bc7",
+                                                                       "checksum/rules":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                                                                       "container.apparmor.security.beta.kubernetes.io/falco":  "unconfined"
+                                                                   },
+                                                   "labels":  {
+                                                                  "app.kubernetes.io/instance":  "ticket011-falco",
+                                                                  "app.kubernetes.io/name":  "falco"
+                                                              },
+                                                   "name":  "ticket011-falco"
+                                               },
+                                  "spec":  {
+                                               "containers":  [
+                                                                  {
+                                                                      "args":  [
+                                                                                   "/usr/bin/falco"
+                                                                               ],
+                                                                      "env":  [
+                                                                                  {
+                                                                                      "name":  "HOST_ROOT",
+                                                                                      "value":  "/host"
+                                                                                  },
+                                                                                  {
+                                                                                      "name":  "FALCO_HOSTNAME",
+                                                                                      "valueFrom":  {
+                                                                                                        "fieldRef":  {
+                                                                                                                         "apiVersion":  "v1",
+                                                                                                                         "fieldPath":  "spec.nodeName"
+                                                                                                                     }
+                                                                                                    }
+                                                                                  },
+                                                                                  {
+                                                                                      "name":  "FALCO_K8S_NODE_NAME",
+                                                                                      "valueFrom":  {
+                                                                                                        "fieldRef":  {
+                                                                                                                         "apiVersion":  "v1",
+                                                                                                                         "fieldPath":  "spec.nodeName"
+                                                                                                                     }
+                                                                                                    }
+                                                                                  }
+                                                                              ],
+                                                                      "image":  "docker.io/falcosecurity/falco:0.44.1",
+                                                                      "imagePullPolicy":  "IfNotPresent",
+                                                                      "livenessProbe":  {
+                                                                                            "failureThreshold":  3,
+                                                                                            "httpGet":  {
+                                                                                                            "path":  "/healthz",
+                                                                                                            "port":  8765,
+                                                                                                            "scheme":  "HTTP"
+                                                                                                        },
+                                                                                            "periodSeconds":  15,
+                                                                                            "successThreshold":  1,
+                                                                                            "timeoutSeconds":  5
+                                                                                        },
+                                                                      "name":  "falco",
+                                                                      "ports":  [
+                                                                                    {
+                                                                                        "containerPort":  8765,
+                                                                                        "name":  "web",
+                                                                                        "protocol":  "TCP"
+                                                                                    }
+                                                                                ],
+                                                                      "readinessProbe":  {
+                                                                                             "failureThreshold":  3,
+                                                                                             "httpGet":  {
+                                                                                                             "path":  "/healthz",
+                                                                                                             "port":  8765,
+                                                                                                             "scheme":  "HTTP"
+                                                                                                         },
+                                                                                             "periodSeconds":  15,
+                                                                                             "successThreshold":  1,
+                                                                                             "timeoutSeconds":  5
+                                                                                         },
+                                                                      "resources":  {
+                                                                                        "limits":  {
+                                                                                                       "cpu":  "1",
+                                                                                                       "memory":  "1Gi"
+                                                                                                   },
+                                                                                        "requests":  {
+                                                                                                         "cpu":  "100m",
+                                                                                                         "memory":  "512Mi"
+                                                                                                     }
+                                                                                    },
+                                                                      "securityContext":  {
+                                                                                              "capabilities":  {
+                                                                                                                   "add":  [
+                                                                                                                               "BPF",
+                                                                                                                               "SYS_RESOURCE",
+                                                                                                                               "PERFMON",
+                                                                                                                               "SYS_PTRACE"
+                                                                                                                           ]
+                                                                                                               }
+                                                                                          },
+                                                                      "startupProbe":  {
+                                                                                           "failureThreshold":  20,
+                                                                                           "httpGet":  {
+                                                                                                           "path":  "/healthz",
+                                                                                                           "port":  8765,
+                                                                                                           "scheme":  "HTTP"
+                                                                                                       },
+                                                                                           "initialDelaySeconds":  3,
+                                                                                           "periodSeconds":  5,
+                                                                                           "successThreshold":  1,
+                                                                                           "timeoutSeconds":  5
+                                                                                       },
+                                                                      "terminationMessagePath":  "/dev/termination-log",
+                                                                      "terminationMessagePolicy":  "File",
+                                                                      "volumeMounts":  [
+                                                                                           {
+                                                                                               "mountPath":  "/host/var/run/docker.sock",
+                                                                                               "name":  "container-engine-socket-0"
+                                                                                           },
+                                                                                           {
+                                                                                               "mountPath":  "/host/run/podman/podman.sock",
+                                                                                               "name":  "container-engine-socket-1"
+                                                                                           },
+                                                                                           {
+                                                                                               "mountPath":  "/host/run/host-containerd/containerd.sock",
+                                                                                               "name":  "container-engine-socket-2"
+                                                                                           },
+                                                                                           {
+                                                                                               "mountPath":  "/host/run/containerd/containerd.sock",
+                                                                                               "name":  "container-engine-socket-3"
+                                                                                           },
+                                                                                           {
+                                                                                               "mountPath":  "/host/run/crio/crio.sock",
+                                                                                               "name":  "container-engine-socket-4"
+                                                                                           },
+                                                                                           {
+                                                                                               "mountPath":  "/host/run/k3s/containerd/containerd.sock",
+                                                                                               "name":  "container-engine-socket-5"
+                                                                                           },
+                                                                                           {
+                                                                                               "mountPath":  "/etc/falco",
+                                                                                               "name":  "rulesfiles-install-dir"
+                                                                                           },
+                                                                                           {
+                                                                                               "mountPath":  "/usr/share/falco/plugins",
+                                                                                               "name":  "plugins-install-dir"
+                                                                                           },
+                                                                                           {
+                                                                                               "mountPath":  "/root/.falco",
+                                                                                               "name":  "root-falco-fs"
+                                                                                           },
+                                                                                           {
+                                                                                               "mountPath":  "/host/proc",
+                                                                                               "name":  "proc-fs"
+                                                                                           },
+                                                                                           {
+                                                                                               "mountPath":  "/host/etc",
+                                                                                               "name":  "etc-fs",
+                                                                                               "readOnly":  true
+                                                                                           },
+                                                                                           {
+                                                                                               "mountPath":  "/sys/kernel",
+                                                                                               "name":  "sys-fs",
+                                                                                               "readOnly":  true
+                                                                                           },
+                                                                                           {
+                                                                                               "mountPath":  "/etc/falco/falco.yaml",
+                                                                                               "name":  "falco-yaml",
+                                                                                               "subPath":  "falco.yaml"
+                                                                                           }
+                                                                                       ]
+                                                                  }
+                                                              ],
+                                               "dnsPolicy":  "ClusterFirst",
+                                               "initContainers":  [
+                                                                      {
+                                                                          "args":  [
+                                                                                       "artifact",
+                                                                                       "install",
+                                                                                       "--log-format=json"
+                                                                                   ],
+                                                                          "image":  "docker.io/falcosecurity/falcoctl:0.13.0",
+                                                                          "imagePullPolicy":  "IfNotPresent",
+                                                                          "name":  "falcoctl-artifact-install",
+                                                                          "resources":  {
+
+                                                                                        },
+                                                                          "terminationMessagePath":  "/dev/termination-log",
+                                                                          "terminationMessagePolicy":  "File",
+                                                                          "volumeMounts":  [
+                                                                                               {
+                                                                                                   "mountPath":  "/plugins",
+                                                                                                   "name":  "plugins-install-dir"
+                                                                                               },
+                                                                                               {
+                                                                                                   "mountPath":  "/rulesfiles",
+                                                                                                   "name":  "rulesfiles-install-dir"
+                                                                                               },
+                                                                                               {
+                                                                                                   "mountPath":  "/etc/falcoctl",
+                                                                                                   "name":  "falcoctl-config-volume"
+                                                                                               },
+                                                                                               {
+                                                                                                   "mountPath":  "/artifactstate",
+                                                                                                   "name":  "artifact-state-dir"
+                                                                                               }
+                                                                                           ]
+                                                                      }
+                                                                  ],
+                                               "restartPolicy":  "Always",
+                                               "schedulerName":  "default-scheduler",
+                                               "securityContext":  {
+
+                                                                   },
+                                               "serviceAccount":  "ticket011-falco",
+                                               "serviceAccountName":  "ticket011-falco",
+                                               "terminationGracePeriodSeconds":  30,
+                                               "tolerations":  [
+                                                                   {
+                                                                       "effect":  "NoSchedule",
+                                                                       "key":  "node-role.kubernetes.io/master"
+                                                                   },
+                                                                   {
+                                                                       "effect":  "NoSchedule",
+                                                                       "key":  "node-role.kubernetes.io/control-plane"
+                                                                   }
+                                                               ],
+                                               "volumes":  [
+                                                               {
+                                                                   "hostPath":  {
+                                                                                    "path":  "/var/run/docker.sock",
+                                                                                    "type":  ""
+                                                                                },
+                                                                   "name":  "container-engine-socket-0"
+                                                               },
+                                                               {
+                                                                   "hostPath":  {
+                                                                                    "path":  "/run/podman/podman.sock",
+                                                                                    "type":  ""
+                                                                                },
+                                                                   "name":  "container-engine-socket-1"
+                                                               },
+                                                               {
+                                                                   "hostPath":  {
+                                                                                    "path":  "/run/host-containerd/containerd.sock",
+                                                                                    "type":  ""
+                                                                                },
+                                                                   "name":  "container-engine-socket-2"
+                                                               },
+                                                               {
+                                                                   "hostPath":  {
+                                                                                    "path":  "/run/containerd/containerd.sock",
+                                                                                    "type":  ""
+                                                                                },
+                                                                   "name":  "container-engine-socket-3"
+                                                               },
+                                                               {
+                                                                   "hostPath":  {
+                                                                                    "path":  "/run/crio/crio.sock",
+                                                                                    "type":  ""
+                                                                                },
+                                                                   "name":  "container-engine-socket-4"
+                                                               },
+                                                               {
+                                                                   "hostPath":  {
+                                                                                    "path":  "/run/k3s/containerd/containerd.sock",
+                                                                                    "type":  ""
+                                                                                },
+                                                                   "name":  "container-engine-socket-5"
+                                                               },
+                                                               {
+                                                                   "emptyDir":  {
+
+                                                                                },
+                                                                   "name":  "plugins-install-dir"
+                                                               },
+                                                               {
+                                                                   "emptyDir":  {
+
+                                                                                },
+                                                                   "name":  "rulesfiles-install-dir"
+                                                               },
+                                                               {
+                                                                   "emptyDir":  {
+
+                                                                                },
+                                                                   "name":  "artifact-state-dir"
+                                                               },
+                                                               {
+                                                                   "emptyDir":  {
+
+                                                                                },
+                                                                   "name":  "root-falco-fs"
+                                                               },
+                                                               {
+                                                                   "hostPath":  {
+                                                                                    "path":  "/boot",
+                                                                                    "type":  ""
+                                                                                },
+                                                                   "name":  "boot-fs"
+                                                               },
+                                                               {
+                                                                   "hostPath":  {
+                                                                                    "path":  "/lib/modules",
+                                                                                    "type":  ""
+                                                                                },
+                                                                   "name":  "lib-modules"
+                                                               },
+                                                               {
+                                                                   "hostPath":  {
+                                                                                    "path":  "/usr",
+                                                                                    "type":  ""
+                                                                                },
+                                                                   "name":  "usr-fs"
+                                                               },
+                                                               {
+                                                                   "hostPath":  {
+                                                                                    "path":  "/etc",
+                                                                                    "type":  ""
+                                                                                },
+                                                                   "name":  "etc-fs"
+                                                               },
+                                                               {
+                                                                   "hostPath":  {
+                                                                                    "path":  "/sys/kernel",
+                                                                                    "type":  ""
+                                                                                },
+                                                                   "name":  "sys-fs"
+                                                               },
+                                                               {
+                                                                   "hostPath":  {
+                                                                                    "path":  "/proc",
+                                                                                    "type":  ""
+                                                                                },
+                                                                   "name":  "proc-fs"
+                                                               },
+                                                               {
+                                                                   "configMap":  {
+                                                                                     "defaultMode":  420,
+                                                                                     "items":  [
+                                                                                                   {
+                                                                                                       "key":  "falcoctl.yaml",
+                                                                                                       "path":  "falcoctl.yaml"
+                                                                                                   }
+                                                                                               ],
+                                                                                     "name":  "ticket011-falco-falcoctl"
+                                                                                 },
+                                                                   "name":  "falcoctl-config-volume"
+                                                               },
+                                                               {
+                                                                   "configMap":  {
+                                                                                     "defaultMode":  420,
+                                                                                     "items":  [
+                                                                                                   {
+                                                                                                       "key":  "falco.yaml",
+                                                                                                       "path":  "falco.yaml"
+                                                                                                   }
+                                                                                               ],
+                                                                                     "name":  "ticket011-falco"
+                                                                                 },
+                                                                   "name":  "falco-yaml"
+                                                               }
+                                                           ]
+                                           }
+                              },
+                 "updateStrategy":  {
+                                        "rollingUpdate":  {
+                                                              "maxSurge":  0,
+                                                              "maxUnavailable":  1
+                                                          },
+                                        "type":  "RollingUpdate"
+                                    }
+             },
+    "status":  {
+                   "currentNumberScheduled":  1,
+                   "desiredNumberScheduled":  1,
+                   "numberMisscheduled":  0,
+                   "numberReady":  0,
+                   "numberUnavailable":  1,
+                   "observedGeneration":  1,
+                   "updatedNumberScheduled":  1
+               }
+}

@@ -1,0 +1,36 @@
+Ticket 011 - Falco Modern eBPF Readiness
+
+Classification: ACTUAL READ-ONLY MINIKUBE LAB
+
+Verification timestamp: 2026-11-02T20:31:12.6047497-05:00
+
+Cluster context: minikube
+Node: minikube
+Kernel: 6.6.87.2-microsoft-standard-WSL2
+Container runtime: docker://29.2.1
+Kubelet version: v1.35.1
+
+Kernel BTF readable: True
+BPF directory present: True
+Kernel tracing directory present: True
+
+Falco Helm repository: CONFIGURED
+
+Assessment:
+
+These checks establish preliminary kernel-interface
+availability only.
+
+They do not prove that Falco can load eBPF programs,
+receive syscall events, or produce detection alerts.
+
+No privileged monitoring component was installed.
+
+No changes to the WSL2 kernel, Kubernetes nodes,
+Pod security settings, or prior ticket resources
+were performed.
+
+Next decision:
+
+Review the Falco Helm chart and its permissions
+before attempting a dedicated monitoring installation.

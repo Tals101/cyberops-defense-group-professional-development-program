@@ -1,0 +1,56 @@
+Ticket 011 - Detailed Falco Helm Permissions Review
+
+Classification: LOCAL RENDERED-MANIFEST INSPECTION
+Timestamp: 2026-11-02T20:37:33.2244703-05:00
+Chart version: 9.1.0
+Requested driver: modern_ebpf
+Requested least-privileged configuration: true
+
+Resource kinds:
+ConfigMap: 2
+DaemonSet: 1
+ServiceAccount: 1
+
+HostPath mounts:
+/boot
+/lib/modules
+/usr
+/etc
+/sys/kernel
+/proc
+
+Elevated capability entries:
+BPF
+SYS_RESOURCE
+PERFMON
+SYS_PTRACE
+
+Node-sharing and privilege flags:
+PrivilegedTrue: 0
+HostPIDTrue: 0
+HostNetworkTrue: 0
+HostIPCTrue: 0
+AllowPrivilegeEscalationTrue: 0
+
+Container images:
+docker.io/falcosecurity/falco:0.44.1
+docker.io/falcosecurity/falcoctl:0.13.0
+
+Rendered manifest SHA256:
+71733B447A9966C3283982A026A1082CB63B3BA23A4568F1909440CAEE092D55
+
+Assessment:
+
+The review identifies node filesystem exposure,
+explicit elevated capabilities, resource kinds,
+and selected security flags.
+
+This textual inspection is not a full YAML policy
+audit and does not establish effective runtime
+privileges or successful kernel driver loading.
+
+Falco would monitor the Minikube node, potentially
+observing workloads belonging to other laboratory
+projects on that node.
+
+Installation was NOT performed in this step.

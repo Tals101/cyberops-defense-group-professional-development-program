@@ -1,0 +1,30 @@
+Ticket 011 - Falco Enhancement 1 Deployment Attempt
+
+Classification: ACTUAL MINIKUBE LAB CHANGE
+Timestamp UTC: 2026-11-03T17:43:24.4227857+00:00
+
+Release: ticket011-falco
+Namespace: ticket-011-monitoring
+Chart: falco-9.1.0
+Starting revision: 1
+Proposed revision: 2
+
+Rule: Ticket011 Unexpected Shell In Reporting Image
+Rule SHA256: 12E024B3D1F4AD50FCE44D11731858559E90C82BE5C8B0F71724932662CC1CE0
+Proposed values SHA256: FA64D9C83A650D420169141AD0133F6264B8A20AE21493468FCAEF4C34B68923
+
+Falco 0.44.1 offline validation: PASS
+Falco DaemonSet before change: 1/1 READY
+
+Ticket 010 namespace UID: cd91501b-a06d-4d70-abd5-76a6fcae4b5c
+Reporting API Deployment UID: 748aa6a1-4a6b-459f-a545-ebb9c2eba9d9
+
+Planned operation:
+Helm upgrade with --rollback-on-failure and --wait.
+
+This operation may restart Falco and briefly
+interrupt node-level monitoring.
+
+The previous Falco exit-code-255 incident remains
+an unresolved operational finding.
+Helm upgrade exit code: 0
