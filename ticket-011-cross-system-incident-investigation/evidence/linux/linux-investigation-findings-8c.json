@@ -1,0 +1,296 @@
+{
+    "Ticket":  "CYBEROPS-PDP-011",
+    "Classification":  "SYNTHETIC_LABORATORY_ANALYSIS",
+    "GeneratedUTC":  "2026-11-05T00:45:06.6525777+00:00",
+    "ModeledHost":  "linux-reporting-01",
+    "EventCounts":  {
+                        "Authentication":  9,
+                        "ProcessPersistence":  6,
+                        "Network":  3,
+                        "Total":  18
+                    },
+    "Findings":  [
+                     {
+                         "ID":  "F-LNX-01",
+                         "Observation":  "Two failed SSH attempts followed by one successful login",
+                         "Events":  [
+                                        "lin-0003",
+                                        "lin-0004",
+                                        "lin-0005"
+                                    ],
+                         "Assessment":  "SUSPICIOUS_SEQUENCE_IN_SYNTHETIC_DATA"
+                     },
+                     {
+                         "ID":  "F-LNX-02",
+                         "Observation":  "User-level crontab modified in modeled SSH session",
+                         "Events":  [
+                                        "lin-0005",
+                                        "lin-0011",
+                                        "lin-0012"
+                                    ],
+                         "Assessment":  "POSSIBLE_PERSISTENCE_INTENT_UNCONFIRMED"
+                     },
+                     {
+                         "ID":  "F-LNX-03",
+                         "Observation":  "Cron process and outbound connection share modeled process ID",
+                         "Events":  [
+                                        "lin-0013",
+                                        "lin-0017"
+                                    ],
+                         "Assessment":  "MODELED_PROCESS_NETWORK_LINKAGE"
+                     },
+                     {
+                         "ID":  "F-LNX-04",
+                         "Observation":  "Privilege request denied",
+                         "Events":  [
+                                        "lin-0007"
+                                    ],
+                         "Assessment":  "DENIED_ELEVATION_IN_SYNTHETIC_DATA"
+                     },
+                     {
+                         "ID":  "F-LNX-05",
+                         "Observation":  "Routine and administrative events also present",
+                         "Events":  [
+                                        "lin-0001",
+                                        "lin-0008",
+                                        "lin-0010",
+                                        "lin-0015"
+                                    ],
+                         "Assessment":  "BENIGN_ALTERNATIVES_REQUIRE_REVIEW"
+                     }
+                 ],
+    "SourceSHA256":  {
+                         "Authentication":  "71B513E1ED147187C8396591C1782E8A4215F14D4C6753B82FDB6EA7D89F3AAD",
+                         "ProcessPersistence":  "CBBE9708903F19FF8BA8CC495BDBC0A15441CFD8CB92D58C899F6A7F9E40A1A3",
+                         "Network":  "5FFDA3A5C614C0E53C10B5BA33EBAF875BF4FC58F9685775184CDE67E14044C5",
+                         "Generator":  "AF61E698480B32EC7978D77D2BDBC028E5F08C6F2BB8808A9AAC27434C1F575E",
+                         "AWSReference":  "4900A2274D355AFF8D6D5174B375D5DB48B943F8A8046B17EDABE31FD78E574F",
+                         "KubernetesProvenance":  "D117C0F425DD0DAD9EFE7D54058CDE00F0847E47A2D3470CC67DC0CAF2D5336E"
+                     },
+    "Conclusions":  {
+                        "SyntheticSuspiciousSequencePresent":  true,
+                        "ActualUnauthorizedSSHEstablished":  false,
+                        "ActualMaliciousPersistenceEstablished":  false,
+                        "ActualDataExfiltrationEstablished":  false,
+                        "AWSLinuxCausationEstablished":  false,
+                        "KubernetesLinuxCausationEstablished":  false
+                    },
+    "Timeline":  [
+                     {
+                         "TimeUTC":  "2026-11-02T12:50:00Z",
+                         "EventID":  "lin-0001",
+                         "Actor":  "ops-admin",
+                         "Action":  "ssh.accepted",
+                         "Outcome":  "SUCCESS",
+                         "SessionID":  "sess-normal-01",
+                         "ProcessID":  "1001",
+                         "SourceIP":  "198.51.100.60",
+                         "DestinationIP":  "",
+                         "Target":  "sshd"
+                     },
+                     {
+                         "TimeUTC":  "2026-11-02T12:50:01Z",
+                         "EventID":  "lin-0002",
+                         "Actor":  "ops-admin",
+                         "Action":  "ssh.session_open",
+                         "Outcome":  "SUCCESS",
+                         "SessionID":  "sess-normal-01",
+                         "ProcessID":  "1001",
+                         "SourceIP":  "198.51.100.60",
+                         "DestinationIP":  "",
+                         "Target":  "sshd"
+                     },
+                     {
+                         "TimeUTC":  "2026-11-02T12:50:12Z",
+                         "EventID":  "lin-0010",
+                         "Actor":  "ops-admin",
+                         "Action":  "process.started",
+                         "Outcome":  "SUCCESS",
+                         "SessionID":  "sess-normal-01",
+                         "ProcessID":  "1100",
+                         "SourceIP":  "",
+                         "DestinationIP":  "",
+                         "Target":  "/opt/reporting/jobs/check_health.py"
+                     },
+                     {
+                         "TimeUTC":  "2026-11-02T12:50:21Z",
+                         "EventID":  "lin-0016",
+                         "Actor":  "ops-admin",
+                         "Action":  "tcp.connect",
+                         "Outcome":  "ALLOWED",
+                         "SessionID":  "sess-normal-01",
+                         "ProcessID":  "1100",
+                         "SourceIP":  "",
+                         "DestinationIP":  "192.0.2.40",
+                         "Target":  "192.0.2.40:443"
+                     },
+                     {
+                         "TimeUTC":  "2026-11-02T13:03:10Z",
+                         "EventID":  "lin-0003",
+                         "Actor":  "ops-runner",
+                         "Action":  "ssh.failed_password",
+                         "Outcome":  "DENIED",
+                         "SessionID":  "sess-unfamiliar-01",
+                         "ProcessID":  "1203",
+                         "SourceIP":  "203.0.113.77",
+                         "DestinationIP":  "",
+                         "Target":  "sshd"
+                     },
+                     {
+                         "TimeUTC":  "2026-11-02T13:03:17Z",
+                         "EventID":  "lin-0004",
+                         "Actor":  "ops-runner",
+                         "Action":  "ssh.failed_password",
+                         "Outcome":  "DENIED",
+                         "SessionID":  "sess-unfamiliar-01",
+                         "ProcessID":  "1203",
+                         "SourceIP":  "203.0.113.77",
+                         "DestinationIP":  "",
+                         "Target":  "sshd"
+                     },
+                     {
+                         "TimeUTC":  "2026-11-02T13:04:02Z",
+                         "EventID":  "lin-0005",
+                         "Actor":  "ops-runner",
+                         "Action":  "ssh.accepted",
+                         "Outcome":  "SUCCESS",
+                         "SessionID":  "sess-unfamiliar-01",
+                         "ProcessID":  "1205",
+                         "SourceIP":  "203.0.113.77",
+                         "DestinationIP":  "",
+                         "Target":  "sshd"
+                     },
+                     {
+                         "TimeUTC":  "2026-11-02T13:04:03Z",
+                         "EventID":  "lin-0006",
+                         "Actor":  "ops-runner",
+                         "Action":  "ssh.session_open",
+                         "Outcome":  "SUCCESS",
+                         "SessionID":  "sess-unfamiliar-01",
+                         "ProcessID":  "1205",
+                         "SourceIP":  "203.0.113.77",
+                         "DestinationIP":  "",
+                         "Target":  "sshd"
+                     },
+                     {
+                         "TimeUTC":  "2026-11-02T13:05:59Z",
+                         "EventID":  "lin-0011",
+                         "Actor":  "ops-runner",
+                         "Action":  "user_crontab.modified",
+                         "Outcome":  "SUCCESS",
+                         "SessionID":  "sess-unfamiliar-01",
+                         "ProcessID":  "1210",
+                         "SourceIP":  "",
+                         "DestinationIP":  "",
+                         "Target":  "/var/spool/cron/crontabs/ops-runner"
+                     },
+                     {
+                         "TimeUTC":  "2026-11-02T13:06:00Z",
+                         "EventID":  "lin-0012",
+                         "Actor":  "ops-runner",
+                         "Action":  "file.metadata_changed",
+                         "Outcome":  "SUCCESS",
+                         "SessionID":  "sess-unfamiliar-01",
+                         "ProcessID":  "1210",
+                         "SourceIP":  "",
+                         "DestinationIP":  "",
+                         "Target":  "/var/spool/cron/crontabs/ops-runner"
+                     },
+                     {
+                         "TimeUTC":  "2026-11-02T13:06:25Z",
+                         "EventID":  "lin-0007",
+                         "Actor":  "ops-runner",
+                         "Action":  "sudo.authorization",
+                         "Outcome":  "DENIED",
+                         "SessionID":  "sess-unfamiliar-01",
+                         "ProcessID":  "1205",
+                         "SourceIP":  "",
+                         "DestinationIP":  "",
+                         "Target":  "root"
+                     },
+                     {
+                         "TimeUTC":  "2026-11-02T13:07:00Z",
+                         "EventID":  "lin-0013",
+                         "Actor":  "ops-runner",
+                         "Action":  "cron.job_started",
+                         "Outcome":  "SUCCESS",
+                         "SessionID":  "cron-ops-runner-01",
+                         "ProcessID":  "1413",
+                         "SourceIP":  "",
+                         "DestinationIP":  "",
+                         "Target":  "/opt/reporting/jobs/telemetry_diag.py"
+                     },
+                     {
+                         "TimeUTC":  "2026-11-02T13:07:01Z",
+                         "EventID":  "lin-0017",
+                         "Actor":  "ops-runner",
+                         "Action":  "tcp.connect",
+                         "Outcome":  "ALLOWED",
+                         "SessionID":  "cron-ops-runner-01",
+                         "ProcessID":  "1413",
+                         "SourceIP":  "",
+                         "DestinationIP":  "203.0.113.77",
+                         "Target":  "203.0.113.77:443"
+                     },
+                     {
+                         "TimeUTC":  "2026-11-02T13:07:02Z",
+                         "EventID":  "lin-0014",
+                         "Actor":  "ops-runner",
+                         "Action":  "process.exited",
+                         "Outcome":  "SUCCESS",
+                         "SessionID":  "cron-ops-runner-01",
+                         "ProcessID":  "1413",
+                         "SourceIP":  "",
+                         "DestinationIP":  "",
+                         "Target":  "/opt/reporting/jobs/telemetry_diag.py"
+                     },
+                     {
+                         "TimeUTC":  "2026-11-02T13:09:15Z",
+                         "EventID":  "lin-0008",
+                         "Actor":  "analyst-admin",
+                         "Action":  "ssh.accepted",
+                         "Outcome":  "SUCCESS",
+                         "SessionID":  "sess-admin-review-01",
+                         "ProcessID":  "1308",
+                         "SourceIP":  "203.0.113.88",
+                         "DestinationIP":  "",
+                         "Target":  "sshd"
+                     },
+                     {
+                         "TimeUTC":  "2026-11-02T13:09:20Z",
+                         "EventID":  "lin-0018",
+                         "Actor":  "analyst-admin",
+                         "Action":  "tcp.connect",
+                         "Outcome":  "ALLOWED",
+                         "SessionID":  "sess-admin-review-01",
+                         "ProcessID":  "1308",
+                         "SourceIP":  "",
+                         "DestinationIP":  "192.0.2.40",
+                         "Target":  "192.0.2.40:443"
+                     },
+                     {
+                         "TimeUTC":  "2026-11-02T13:10:30Z",
+                         "EventID":  "lin-0015",
+                         "Actor":  "analyst-admin",
+                         "Action":  "systemd_timer.inspected",
+                         "Outcome":  "SUCCESS",
+                         "SessionID":  "sess-admin-review-01",
+                         "ProcessID":  "1315",
+                         "SourceIP":  "",
+                         "DestinationIP":  "",
+                         "Target":  "systemd timers"
+                     },
+                     {
+                         "TimeUTC":  "2026-11-02T13:12:00Z",
+                         "EventID":  "lin-0009",
+                         "Actor":  "ops-runner",
+                         "Action":  "ssh.session_close",
+                         "Outcome":  "SUCCESS",
+                         "SessionID":  "sess-unfamiliar-01",
+                         "ProcessID":  "1205",
+                         "SourceIP":  "203.0.113.77",
+                         "DestinationIP":  "",
+                         "Target":  "sshd"
+                     }
+                 ]
+}
