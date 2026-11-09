@@ -441,8 +441,8 @@
                   {
                       "Path":  "README.md",
                       "Category":  "TECHNICAL_REPORT_OR_METHOD",
-                      "Bytes":  2058,
-                      "SHA256":  "9463D5F4E05531836B773BB919BBBF327DB6BAD4E0D28A7C3453F3B62D4DAAB9"
+                      "Bytes":  5136,
+                      "SHA256":  "900A2118B70D1633D5D10A7A69DFF2C1C3F9EF14F10F707501ADB27FA1302B34"
                   },
                   {
                       "Path":  "recovery/recovery-readiness-10b.json",
