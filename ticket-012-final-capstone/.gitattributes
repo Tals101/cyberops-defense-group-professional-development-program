@@ -1,0 +1,4 @@
+﻿# Preserve exact file bytes for SHA256 evidence verification.
+# Disable automatic Git line-ending conversion in Ticket 012.
+
+* -text
