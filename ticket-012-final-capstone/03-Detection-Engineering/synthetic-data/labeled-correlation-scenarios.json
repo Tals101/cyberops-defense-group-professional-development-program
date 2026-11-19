@@ -1,0 +1,460 @@
+{
+  "dataset_type": "synthetic",
+  "description": "Ticket 012 labeled detector evaluation scenarios",
+  "cases": [
+    {
+      "case_id": "B01",
+      "label": "benign",
+      "description": "Approved traffic after deployment",
+      "network_event": {
+        "event_id": "N-B01",
+        "event_type": "network_request",
+        "timestamp": "2026-11-12T18:14:40Z",
+        "workload": "application-api",
+        "destination": "http://internal-service:8080/resource",
+        "claimed_identity": "application-api"
+      },
+      "deployment_event": {
+        "event_id": "D-B01",
+        "event_type": "deployment_change",
+        "timestamp": "2026-11-12T18:12:00Z",
+        "workload": "application-api"
+      }
+    },
+    {
+      "case_id": "B02",
+      "label": "benign",
+      "description": "Approved traffic outside deployment window",
+      "network_event": {
+        "event_id": "N-B02",
+        "event_type": "network_request",
+        "timestamp": "2026-11-12T18:14:40Z",
+        "workload": "application-api",
+        "destination": "http://internal-service:8080/resource",
+        "claimed_identity": "application-api"
+      },
+      "deployment_event": {
+        "event_id": "D-B02",
+        "event_type": "deployment_change",
+        "timestamp": "2026-11-12T18:00:00Z",
+        "workload": "application-api"
+      }
+    },
+    {
+      "case_id": "B03",
+      "label": "benign",
+      "description": "Approved traffic with missing identity",
+      "network_event": {
+        "event_id": "N-B03",
+        "event_type": "network_request",
+        "timestamp": "2026-11-12T18:14:40Z",
+        "workload": "application-api",
+        "destination": "http://internal-service:8080/resource"
+      },
+      "deployment_event": {
+        "event_id": "D-B03",
+        "event_type": "deployment_change",
+        "timestamp": "2026-11-12T18:12:00Z",
+        "workload": "application-api"
+      }
+    },
+    {
+      "case_id": "B04",
+      "label": "benign",
+      "description": "Approved traffic with inconsistent identity metadata",
+      "network_event": {
+        "event_id": "N-B04",
+        "event_type": "network_request",
+        "timestamp": "2026-11-12T18:14:40Z",
+        "workload": "application-api",
+        "destination": "http://internal-service:8080/resource",
+        "claimed_identity": "internal-service"
+      },
+      "deployment_event": {
+        "event_id": "D-B04",
+        "event_type": "deployment_change",
+        "timestamp": "2026-11-12T18:12:00Z",
+        "workload": "application-api"
+      }
+    },
+    {
+      "case_id": "B05",
+      "label": "benign",
+      "description": "Approved traffic before deployment",
+      "network_event": {
+        "event_id": "N-B05",
+        "event_type": "network_request",
+        "timestamp": "2026-11-12T18:14:40Z",
+        "workload": "application-api",
+        "destination": "http://internal-service:8080/resource",
+        "claimed_identity": "application-api"
+      },
+      "deployment_event": {
+        "event_id": "D-B05",
+        "event_type": "deployment_change",
+        "timestamp": "2026-11-12T18:20:00Z",
+        "workload": "application-api"
+      }
+    },
+    {
+      "case_id": "B06",
+      "label": "benign",
+      "description": "Approved traffic with unrelated deployment",
+      "network_event": {
+        "event_id": "N-B06",
+        "event_type": "network_request",
+        "timestamp": "2026-11-12T18:14:40Z",
+        "workload": "application-api",
+        "destination": "http://internal-service:8080/resource",
+        "claimed_identity": "application-api"
+      },
+      "deployment_event": {
+        "event_id": "D-B06",
+        "event_type": "deployment_change",
+        "timestamp": "2026-11-12T18:12:00Z",
+        "workload": "internal-service"
+      }
+    },
+    {
+      "case_id": "B07",
+      "label": "benign",
+      "description": "Approved traffic at five-minute boundary",
+      "network_event": {
+        "event_id": "N-B07",
+        "event_type": "network_request",
+        "timestamp": "2026-11-12T18:17:00Z",
+        "workload": "application-api",
+        "destination": "http://internal-service:8080/resource",
+        "claimed_identity": "application-api"
+      },
+      "deployment_event": {
+        "event_id": "D-B07",
+        "event_type": "deployment_change",
+        "timestamp": "2026-11-12T18:12:00Z",
+        "workload": "application-api"
+      }
+    },
+    {
+      "case_id": "B08",
+      "label": "benign",
+      "description": "Approved traffic with maintenance event",
+      "network_event": {
+        "event_id": "N-B08",
+        "event_type": "network_request",
+        "timestamp": "2026-11-12T18:14:40Z",
+        "workload": "application-api",
+        "destination": "http://internal-service:8080/resource",
+        "claimed_identity": "application-api"
+      },
+      "deployment_event": {
+        "event_id": "D-B08",
+        "event_type": "maintenance",
+        "timestamp": "2026-11-12T18:12:00Z",
+        "workload": "application-api"
+      }
+    },
+    {
+      "case_id": "B09",
+      "label": "benign",
+      "description": "Normal unknown workload scenario",
+      "network_event": {
+        "event_id": "N-B09",
+        "event_type": "network_request",
+        "timestamp": "2026-11-12T18:14:40Z",
+        "workload": "unknown-application",
+        "destination": "http://internal-service:8080/resource",
+        "claimed_identity": "application-api"
+      },
+      "deployment_event": {
+        "event_id": "D-B09",
+        "event_type": "deployment_change",
+        "timestamp": "2026-11-12T18:12:00Z",
+        "workload": "unknown-application"
+      }
+    },
+    {
+      "case_id": "B10",
+      "label": "benign",
+      "description": "Authorized diagnostic exception outside change window",
+      "network_event": {
+        "event_id": "N-B10",
+        "event_type": "network_request",
+        "timestamp": "2026-11-12T18:14:40Z",
+        "workload": "application-api",
+        "destination": "http://unapproved-collector:8080/resource",
+        "claimed_identity": "application-api"
+      },
+      "deployment_event": {
+        "event_id": "D-B10",
+        "event_type": "deployment_change",
+        "timestamp": "2026-11-12T18:00:00Z",
+        "workload": "application-api"
+      }
+    },
+    {
+      "case_id": "B11",
+      "label": "benign",
+      "description": "Authorized exception with unrelated deployment",
+      "network_event": {
+        "event_id": "N-B11",
+        "event_type": "network_request",
+        "timestamp": "2026-11-12T18:14:40Z",
+        "workload": "application-api",
+        "destination": "http://unapproved-collector:8080/resource",
+        "claimed_identity": "application-api"
+      },
+      "deployment_event": {
+        "event_id": "D-B11",
+        "event_type": "deployment_change",
+        "timestamp": "2026-11-12T18:12:00Z",
+        "workload": "internal-service"
+      }
+    },
+    {
+      "case_id": "B12",
+      "label": "benign",
+      "description": "Authorized exception following deployment",
+      "network_event": {
+        "event_id": "N-B12",
+        "event_type": "network_request",
+        "timestamp": "2026-11-12T18:14:40Z",
+        "workload": "application-api",
+        "destination": "http://unapproved-collector:8080/resource",
+        "claimed_identity": "application-api"
+      },
+      "deployment_event": {
+        "event_id": "D-B12",
+        "event_type": "deployment_change",
+        "timestamp": "2026-11-12T18:12:00Z",
+        "workload": "application-api"
+      }
+    },
+    {
+      "case_id": "S01",
+      "label": "suspicious",
+      "description": "Unapproved destination after deployment",
+      "network_event": {
+        "event_id": "N-S01",
+        "event_type": "network_request",
+        "timestamp": "2026-11-12T18:14:40Z",
+        "workload": "application-api",
+        "destination": "http://unapproved-collector:8080/resource",
+        "claimed_identity": "application-api"
+      },
+      "deployment_event": {
+        "event_id": "D-S01",
+        "event_type": "deployment_change",
+        "timestamp": "2026-11-12T18:12:00Z",
+        "workload": "application-api"
+      }
+    },
+    {
+      "case_id": "S02",
+      "label": "suspicious",
+      "description": "Unapproved destination and identity mismatch",
+      "network_event": {
+        "event_id": "N-S02",
+        "event_type": "network_request",
+        "timestamp": "2026-11-12T18:14:40Z",
+        "workload": "application-api",
+        "destination": "http://unapproved-collector:8080/resource",
+        "claimed_identity": "internal-service"
+      },
+      "deployment_event": {
+        "event_id": "D-S02",
+        "event_type": "deployment_change",
+        "timestamp": "2026-11-12T18:12:00Z",
+        "workload": "application-api"
+      }
+    },
+    {
+      "case_id": "S03",
+      "label": "suspicious",
+      "description": "Unapproved destination with missing identity",
+      "network_event": {
+        "event_id": "N-S03",
+        "event_type": "network_request",
+        "timestamp": "2026-11-12T18:14:40Z",
+        "workload": "application-api",
+        "destination": "http://unapproved-collector:8080/resource"
+      },
+      "deployment_event": {
+        "event_id": "D-S03",
+        "event_type": "deployment_change",
+        "timestamp": "2026-11-12T18:12:00Z",
+        "workload": "application-api"
+      }
+    },
+    {
+      "case_id": "S04",
+      "label": "suspicious",
+      "description": "Unapproved destination at five-minute boundary",
+      "network_event": {
+        "event_id": "N-S04",
+        "event_type": "network_request",
+        "timestamp": "2026-11-12T18:17:00Z",
+        "workload": "application-api",
+        "destination": "http://unapproved-collector:8080/resource",
+        "claimed_identity": "application-api"
+      },
+      "deployment_event": {
+        "event_id": "D-S04",
+        "event_type": "deployment_change",
+        "timestamp": "2026-11-12T18:12:00Z",
+        "workload": "application-api"
+      }
+    },
+    {
+      "case_id": "S05",
+      "label": "suspicious",
+      "description": "Unapproved destination at 299 seconds",
+      "network_event": {
+        "event_id": "N-S05",
+        "event_type": "network_request",
+        "timestamp": "2026-11-12T18:16:59Z",
+        "workload": "application-api",
+        "destination": "http://unapproved-collector:8080/resource",
+        "claimed_identity": "application-api"
+      },
+      "deployment_event": {
+        "event_id": "D-S05",
+        "event_type": "deployment_change",
+        "timestamp": "2026-11-12T18:12:00Z",
+        "workload": "application-api"
+      }
+    },
+    {
+      "case_id": "S06",
+      "label": "suspicious",
+      "description": "Unapproved destination outside correlation window",
+      "network_event": {
+        "event_id": "N-S06",
+        "event_type": "network_request",
+        "timestamp": "2026-11-12T18:14:40Z",
+        "workload": "application-api",
+        "destination": "http://unapproved-collector:8080/resource",
+        "claimed_identity": "application-api"
+      },
+      "deployment_event": {
+        "event_id": "D-S06",
+        "event_type": "deployment_change",
+        "timestamp": "2026-11-12T18:00:00Z",
+        "workload": "application-api"
+      }
+    },
+    {
+      "case_id": "S07",
+      "label": "suspicious",
+      "description": "Unapproved destination before deployment",
+      "network_event": {
+        "event_id": "N-S07",
+        "event_type": "network_request",
+        "timestamp": "2026-11-12T18:14:40Z",
+        "workload": "application-api",
+        "destination": "http://unapproved-collector:8080/resource",
+        "claimed_identity": "application-api"
+      },
+      "deployment_event": {
+        "event_id": "D-S07",
+        "event_type": "deployment_change",
+        "timestamp": "2026-11-12T18:20:00Z",
+        "workload": "application-api"
+      }
+    },
+    {
+      "case_id": "S08",
+      "label": "suspicious",
+      "description": "Unapproved destination with unrelated deployment",
+      "network_event": {
+        "event_id": "N-S08",
+        "event_type": "network_request",
+        "timestamp": "2026-11-12T18:14:40Z",
+        "workload": "application-api",
+        "destination": "http://unapproved-collector:8080/resource",
+        "claimed_identity": "application-api"
+      },
+      "deployment_event": {
+        "event_id": "D-S08",
+        "event_type": "deployment_change",
+        "timestamp": "2026-11-12T18:12:00Z",
+        "workload": "internal-service"
+      }
+    },
+    {
+      "case_id": "S09",
+      "label": "suspicious",
+      "description": "Unapproved destination without deployment event",
+      "network_event": {
+        "event_id": "N-S09",
+        "event_type": "network_request",
+        "timestamp": "2026-11-12T18:14:40Z",
+        "workload": "application-api",
+        "destination": "http://unapproved-collector:8080/resource",
+        "claimed_identity": "application-api"
+      },
+      "deployment_event": {
+        "event_id": "D-S09",
+        "event_type": "maintenance",
+        "timestamp": "2026-11-12T18:12:00Z",
+        "workload": "application-api"
+      }
+    },
+    {
+      "case_id": "S10",
+      "label": "suspicious",
+      "description": "Suspicious identity mismatch at approved destination",
+      "network_event": {
+        "event_id": "N-S10",
+        "event_type": "network_request",
+        "timestamp": "2026-11-12T18:14:40Z",
+        "workload": "application-api",
+        "destination": "http://internal-service:8080/resource",
+        "claimed_identity": "internal-service"
+      },
+      "deployment_event": {
+        "event_id": "D-S10",
+        "event_type": "deployment_change",
+        "timestamp": "2026-11-12T18:12:00Z",
+        "workload": "application-api"
+      }
+    },
+    {
+      "case_id": "S11",
+      "label": "suspicious",
+      "description": "Unknown workload contacting suspicious destination",
+      "network_event": {
+        "event_id": "N-S11",
+        "event_type": "network_request",
+        "timestamp": "2026-11-12T18:14:40Z",
+        "workload": "unknown-application",
+        "destination": "http://unapproved-collector:8080/resource",
+        "claimed_identity": "application-api"
+      },
+      "deployment_event": {
+        "event_id": "D-S11",
+        "event_type": "deployment_change",
+        "timestamp": "2026-11-12T18:12:00Z",
+        "workload": "unknown-application"
+      }
+    },
+    {
+      "case_id": "S12",
+      "label": "suspicious",
+      "description": "Unapproved destination at 301 seconds",
+      "network_event": {
+        "event_id": "N-S12",
+        "event_type": "network_request",
+        "timestamp": "2026-11-12T18:17:01Z",
+        "workload": "application-api",
+        "destination": "http://unapproved-collector:8080/resource",
+        "claimed_identity": "application-api"
+      },
+      "deployment_event": {
+        "event_id": "D-S12",
+        "event_type": "deployment_change",
+        "timestamp": "2026-11-12T18:12:00Z",
+        "workload": "application-api"
+      }
+    }
+  ]
+}
