@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: unapproved-collector
+  namespace: ticket-012-lab
+  labels:
+    app: unapproved-collector
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: unapproved-collector
+  template:
+    metadata:
+      labels:
+        app: unapproved-collector
+    spec:
+      containers:
+        - name: unapproved-collector
+          image: ticket012-unapproved-collector:lab-v1
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8080
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+            initialDelaySeconds: 2
+            periodSeconds: 5
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 1000
+            runAsGroup: 1000
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+                - ALL
+            seccompProfile:
+              type: RuntimeDefault

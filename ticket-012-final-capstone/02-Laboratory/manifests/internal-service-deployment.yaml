@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: internal-service
+  namespace: ticket-012-lab
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: internal-service
+  template:
+    metadata:
+      labels:
+        app: internal-service
+    spec:
+      containers:
+        - name: internal-service
+          image: ticket012-internal-service:lab-v1
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8080
+          env:
+            - name: LAB_AUTH_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: ticket012-lab-auth
+                  key: LAB_AUTH_TOKEN
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+            initialDelaySeconds: 3
+            periodSeconds: 5
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+                - ALL
+            runAsNonRoot: true
+            runAsUser: 1000
+            runAsGroup: 1000
+            seccompProfile:
+              type: RuntimeDefault
+
