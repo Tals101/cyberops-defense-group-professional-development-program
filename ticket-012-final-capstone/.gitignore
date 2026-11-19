@@ -1,0 +1,29 @@
+﻿# Python generated files
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+
+# Virtual environments
+.venv/
+venv/
+
+# Credentials and local secrets
+.env
+.env.*
+*.pem
+*.ppk
+*.key
+*.p12
+*.pfx
+*.kubeconfig
+
+# Temporary files and archives
+*.tmp
+*.bak
+*.zip
+
+# Operating-system files
+.DS_Store
+Thumbs.db
+Desktop.ini
