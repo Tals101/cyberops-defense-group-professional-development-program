@@ -1,0 +1,240 @@
+{
+  "test_type": "synthetic_adversarial_and_resilience",
+  "test_count": 8,
+  "passed": 8,
+  "failed": 0,
+  "operational_validation_completed": false,
+  "results": [
+    {
+      "case_id": "AV01",
+      "title": "True positive",
+      "scope": "synthetic_detector_validation",
+      "ground_truth": "suspicious",
+      "classification": "true_positive",
+      "checks": {
+        "alert": true,
+        "recent_change": true,
+        "reason": true
+      },
+      "test_passed": true,
+      "detector_result": {
+        "network_event_id": "N-AV01",
+        "destination_status": "unapproved",
+        "identity_status": "mismatch",
+        "recent_deployment_change": true,
+        "alert": true,
+        "triage_level": "high",
+        "reasons": [
+          "unapproved_destination",
+          "claimed_identity_mismatch"
+        ],
+        "supporting_indicators": [
+          "recent_deployment_change"
+        ],
+        "telemetry_warnings": []
+      },
+      "limitation_note": "Claimed identity is not independently authenticated."
+    },
+    {
+      "case_id": "AV02",
+      "title": "Benign identity lookalike",
+      "scope": "synthetic_detector_validation",
+      "ground_truth": "benign",
+      "classification": "false_positive",
+      "checks": {
+        "alert": true,
+        "recent_change": true,
+        "reason": true
+      },
+      "test_passed": true,
+      "detector_result": {
+        "network_event_id": "N-AV02",
+        "destination_status": "approved",
+        "identity_status": "mismatch",
+        "recent_deployment_change": true,
+        "alert": true,
+        "triage_level": "review",
+        "reasons": [
+          "claimed_identity_mismatch"
+        ],
+        "supporting_indicators": [
+          "recent_deployment_change"
+        ],
+        "telemetry_warnings": []
+      },
+      "limitation_note": "Known false positive: metadata mismatch without verified misuse."
+    },
+    {
+      "case_id": "AV03",
+      "title": "Clock skew",
+      "scope": "synthetic_detector_validation",
+      "ground_truth": "suspicious",
+      "classification": "true_positive",
+      "checks": {
+        "alert": true,
+        "recent_change": true,
+        "reason": true
+      },
+      "test_passed": true,
+      "detector_result": {
+        "network_event_id": "N-AV03",
+        "destination_status": "unapproved",
+        "identity_status": "matched",
+        "recent_deployment_change": false,
+        "alert": true,
+        "triage_level": "review",
+        "reasons": [
+          "unapproved_destination"
+        ],
+        "supporting_indicators": [],
+        "telemetry_warnings": []
+      },
+      "limitation_note": "Temporal correlation is lost; independent destination alert remains."
+    },
+    {
+      "case_id": "AV04",
+      "title": "Identity ambiguity",
+      "scope": "synthetic_detector_validation",
+      "ground_truth": "suspicious",
+      "classification": "true_positive",
+      "checks": {
+        "alert": true,
+        "recent_change": true,
+        "warning": true
+      },
+      "test_passed": true,
+      "detector_result": {
+        "network_event_id": "N-AV04",
+        "destination_status": "unapproved",
+        "identity_status": "unknown",
+        "recent_deployment_change": true,
+        "alert": true,
+        "triage_level": "elevated",
+        "reasons": [
+          "unapproved_destination"
+        ],
+        "supporting_indicators": [
+          "recent_deployment_change"
+        ],
+        "telemetry_warnings": [
+          "identity_telemetry_incomplete"
+        ]
+      },
+      "limitation_note": "Missing identity must not be interpreted as authenticated."
+    },
+    {
+      "case_id": "AV05",
+      "title": "Configuration change",
+      "scope": "synthetic_detector_validation",
+      "ground_truth": "suspicious",
+      "classification": "true_positive",
+      "checks": {
+        "alert": true,
+        "recent_change": true,
+        "warning": true
+      },
+      "test_passed": true,
+      "detector_result": {
+        "network_event_id": "N-AV05",
+        "destination_status": "unapproved",
+        "identity_status": "matched",
+        "recent_deployment_change": false,
+        "alert": true,
+        "triage_level": "review",
+        "reasons": [
+          "unapproved_destination"
+        ],
+        "supporting_indicators": [],
+        "telemetry_warnings": [
+          "deployment_change_not_available"
+        ]
+      },
+      "limitation_note": "Configuration events are not yet independently correlated."
+    },
+    {
+      "case_id": "AV06",
+      "title": "Missing deployment telemetry",
+      "scope": "synthetic_detector_validation",
+      "ground_truth": "suspicious",
+      "classification": "true_positive",
+      "checks": {
+        "alert": true,
+        "recent_change": true,
+        "warning": true
+      },
+      "test_passed": true,
+      "detector_result": {
+        "network_event_id": "N-AV06",
+        "destination_status": "unapproved",
+        "identity_status": "matched",
+        "recent_deployment_change": false,
+        "alert": true,
+        "triage_level": "review",
+        "reasons": [
+          "unapproved_destination"
+        ],
+        "supporting_indicators": [],
+        "telemetry_warnings": [
+          "deployment_telemetry_missing"
+        ]
+      },
+      "limitation_note": "Detection must not depend solely on available deployment data."
+    },
+    {
+      "case_id": "AV07",
+      "title": "Simulated policy bypass",
+      "scope": "synthetic_detector_validation",
+      "ground_truth": "suspicious",
+      "classification": "true_positive",
+      "checks": {
+        "alert": true,
+        "recent_change": true,
+        "reason": true
+      },
+      "test_passed": true,
+      "detector_result": {
+        "network_event_id": "N-AV07",
+        "destination_status": "unapproved",
+        "identity_status": "matched",
+        "recent_deployment_change": true,
+        "alert": true,
+        "triage_level": "elevated",
+        "reasons": [
+          "unapproved_destination"
+        ],
+        "supporting_indicators": [
+          "recent_deployment_change"
+        ],
+        "telemetry_warnings": []
+      },
+      "limitation_note": "Synthetic direct-call event only; actual network enforcement untested here."
+    },
+    {
+      "case_id": "AV08",
+      "title": "Simulated rollback failure",
+      "scope": "synthetic_detector_validation",
+      "ground_truth": "suspicious",
+      "classification": "true_positive",
+      "checks": {
+        "alert": true,
+        "recent_change": true,
+        "reason": true
+      },
+      "test_passed": true,
+      "detector_result": {
+        "network_event_id": "N-AV08",
+        "destination_status": "unapproved",
+        "identity_status": "matched",
+        "recent_deployment_change": false,
+        "alert": true,
+        "triage_level": "review",
+        "reasons": [
+          "unapproved_destination"
+        ],
+        "supporting_indicators": [],
+        "telemetry_warnings": []
+      },
+      "limitation_note": "Post-rollback traffic simulated; no Kubernetes rollback executed here."
+    }
+  ]
+}

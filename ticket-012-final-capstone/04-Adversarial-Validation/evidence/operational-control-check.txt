@@ -1,0 +1,3 @@
+﻿APPROVED_APPLICATION_FLOW={'result': 'authorized', 'data': 'synthetic'}
+DIRECT_COLLECTOR_HTTP_STATUS=200
+SA_TOKEN_MOUNTED=False

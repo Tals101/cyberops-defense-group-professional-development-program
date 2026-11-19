@@ -1,0 +1,8 @@
+﻿kubectl.exe : error: unable to find specified revision 999 in history
+At line:1 char:15
++ ... adAttempt = & kubectl -n $ns rollout undo "deployment/$probe" --to-re ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (error: unable t... 999 in history:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+

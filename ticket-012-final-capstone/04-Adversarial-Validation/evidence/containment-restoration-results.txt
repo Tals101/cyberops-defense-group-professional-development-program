@@ -1,0 +1,7 @@
+﻿Ticket 012 - Controlled Containment and Restoration
+Original collector replicas: 1
+Collector IP: 10.104.21.119
+APPROVED_FLOW=authorized
+COLLECTOR_DURING_CONTAINMENT=UNAVAILABLE
+RESTORED_READY_REPLICAS=1
+NOTE=Network isolation weakness remains unresolved.
