@@ -1,0 +1,35 @@
+TICKET 012 - ADVERSARIAL AND RESILIENCE VALIDATION
+Scope: Synthetic detector-level execution
+
+AV01 PASS - True positive
+  Classification: true_positive
+  Note: Claimed identity is not independently authenticated.
+AV02 PASS - Benign identity lookalike
+  Classification: false_positive
+  Note: Known false positive: metadata mismatch without verified misuse.
+AV03 PASS - Clock skew
+  Classification: true_positive
+  Note: Temporal correlation is lost; independent destination alert remains.
+AV04 PASS - Identity ambiguity
+  Classification: true_positive
+  Note: Missing identity must not be interpreted as authenticated.
+AV05 PASS - Configuration change
+  Classification: true_positive
+  Note: Configuration events are not yet independently correlated.
+AV06 PASS - Missing deployment telemetry
+  Classification: true_positive
+  Note: Detection must not depend solely on available deployment data.
+AV07 PASS - Simulated policy bypass
+  Classification: true_positive
+  Note: Synthetic direct-call event only; actual network enforcement untested here.
+AV08 PASS - Simulated rollback failure
+  Classification: true_positive
+  Note: Post-rollback traffic simulated; no Kubernetes rollback executed here.
+
+RESULT: 8/8 behavioral checks passed
+
+PASS indicates expected detector behavior, not necessarily
+correct classification of benign versus suspicious traffic.
+
+Operational Kubernetes policy bypass and rollback
+failure exercises remain outstanding.

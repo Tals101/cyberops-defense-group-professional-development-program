@@ -1,0 +1,5 @@
+﻿Ticket 012 - Temporary NetworkPolicy Enforcement Test
+Namespace: ticket-012-lab
+Collector IP: 10.104.21.119
+EGRESS_CHECK=REACHABLE
+Temporary policy deletion attempted after testing.

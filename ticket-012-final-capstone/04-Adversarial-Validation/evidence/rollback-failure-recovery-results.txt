@@ -1,0 +1,5 @@
+﻿Ticket 012 - Failed Rollback Attempt and Recovery
+INVALID_ROLLBACK_EXIT_CODE=1
+RECOVERY_IMAGE=ticket012-unapproved-collector:lab-v1
+RECOVERY_READY_REPLICAS=1
+RECOVERY_UPDATED_REPLICAS=1

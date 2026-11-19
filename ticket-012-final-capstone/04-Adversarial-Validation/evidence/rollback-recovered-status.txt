@@ -1,0 +1,10 @@
+﻿NAME                                       READY   UP-TO-DATE   AVAILABLE   AGE     CONTAINERS                       IMAGES                                  SELECTOR
+deployment.apps/ticket012-rollback-probe   1/1     1            1           6m34s   ticket012-unapproved-collector   ticket012-unapproved-collector:lab-v1   app=ticket012-rollback-probe
+
+NAME                                                  DESIRED   CURRENT   READY   AGE     CONTAINERS                       IMAGES                                     SELECTOR
+replicaset.apps/ticket012-rollback-probe-6d7b9564f    1         1         1       6m34s   ticket012-unapproved-collector   ticket012-unapproved-collector:lab-v1      app=ticket012-rollback-probe,pod-template-hash=6d7b9564f
+replicaset.apps/ticket012-rollback-probe-75d68ddfd4   0         0         0       5m14s   ticket012-unapproved-collector   example.invalid/ticket012-missing:lab-v2   app=ticket012-rollback-probe,pod-template-hash=75d68ddfd4
+
+NAME                                            READY   STATUS        RESTARTS   AGE     IP             NODE       NOMINATED NODE   READINESS GATES
+pod/ticket012-rollback-probe-6d7b9564f-2ncbd    1/1     Running       0          6m34s   10.244.1.249   minikube   <none>           <none>
+pod/ticket012-rollback-probe-75d68ddfd4-r96qp   0/1     Terminating   0          5m14s   10.244.1.250   minikube   <none>           <none>
