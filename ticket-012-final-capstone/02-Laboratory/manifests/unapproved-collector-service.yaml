@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: unapproved-collector
+  namespace: ticket-012-lab
+spec:
+  type: ClusterIP
+  selector:
+    app: unapproved-collector
+  ports:
+    - name: http
+      port: 8080
+      targetPort: 8080
+      protocol: TCP
