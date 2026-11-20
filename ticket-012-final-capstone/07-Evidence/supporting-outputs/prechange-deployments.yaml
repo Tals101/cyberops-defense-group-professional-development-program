@@ -1,0 +1,189 @@
+﻿apiVersion: v1
+items:
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{},"name":"application-api","namespace":"ticket-012-lab"},"spec":{"replicas":1,"selector":{"matchLabels":{"app":"application-api"}},"template":{"metadata":{"labels":{"app":"application-api"}},"spec":{"containers":[{"env":[{"name":"INTERNAL_URL","value":"http://internal-service:8080/resource"},{"name":"LAB_AUTH_TOKEN","valueFrom":{"secretKeyRef":{"key":"LAB_AUTH_TOKEN","name":"ticket012-lab-auth"}}}],"image":"ticket012-application-api:lab-v1","imagePullPolicy":"Never","name":"application-api","ports":[{"containerPort":8080}],"readinessProbe":{"httpGet":{"path":"/health","port":8080},"initialDelaySeconds":3,"periodSeconds":5},"securityContext":{"allowPrivilegeEscalation":false,"capabilities":{"drop":["ALL"]},"runAsGroup":1000,"runAsNonRoot":true,"runAsUser":1000,"seccompProfile":{"type":"RuntimeDefault"}}}]}}}}
+    creationTimestamp: "2026-11-11T17:07:37Z"
+    generation: 1
+    name: application-api
+    namespace: ticket-012-lab
+    resourceVersion: "142695"
+    uid: e4445107-45e7-4daf-8682-7fdd38b65a36
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        app: application-api
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        labels:
+          app: application-api
+      spec:
+        containers:
+        - env:
+          - name: INTERNAL_URL
+            value: http://internal-service:8080/resource
+          - name: LAB_AUTH_TOKEN
+            valueFrom:
+              secretKeyRef:
+                key: LAB_AUTH_TOKEN
+                name: ticket012-lab-auth
+          image: ticket012-application-api:lab-v1
+          imagePullPolicy: Never
+          name: application-api
+          ports:
+          - containerPort: 8080
+            protocol: TCP
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /health
+              port: 8080
+              scheme: HTTP
+            initialDelaySeconds: 3
+            periodSeconds: 5
+            successThreshold: 1
+            timeoutSeconds: 1
+          resources: {}
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+              - ALL
+            runAsGroup: 1000
+            runAsNonRoot: true
+            runAsUser: 1000
+            seccompProfile:
+              type: RuntimeDefault
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2026-11-11T17:07:46Z"
+      lastUpdateTime: "2026-11-11T17:07:46Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    - lastTransitionTime: "2026-11-11T17:07:37Z"
+      lastUpdateTime: "2026-11-11T17:07:46Z"
+      message: ReplicaSet "application-api-86b96b9f5" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    terminatingReplicas: 0
+    updatedReplicas: 1
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "2"
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{},"name":"internal-service","namespace":"ticket-012-lab"},"spec":{"replicas":1,"selector":{"matchLabels":{"app":"internal-service"}},"template":{"metadata":{"labels":{"app":"internal-service"}},"spec":{"containers":[{"env":[{"name":"LAB_AUTH_TOKEN","valueFrom":{"secretKeyRef":{"key":"LAB_AUTH_TOKEN","name":"ticket012-lab-auth"}}}],"image":"ticket012-internal-service:lab-v1","imagePullPolicy":"Never","name":"internal-service","ports":[{"containerPort":8080}],"readinessProbe":{"httpGet":{"path":"/health","port":8080},"initialDelaySeconds":3,"periodSeconds":5},"securityContext":{"allowPrivilegeEscalation":false,"capabilities":{"drop":["ALL"]},"runAsGroup":1000,"runAsNonRoot":true,"runAsUser":1000,"seccompProfile":{"type":"RuntimeDefault"}}}]}}}}
+    creationTimestamp: "2026-11-11T16:48:15Z"
+    generation: 2
+    name: internal-service
+    namespace: ticket-012-lab
+    resourceVersion: "141968"
+    uid: da1c8409-a388-4de4-b315-2bbe832abb7c
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        app: internal-service
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        labels:
+          app: internal-service
+      spec:
+        containers:
+        - env:
+          - name: LAB_AUTH_TOKEN
+            valueFrom:
+              secretKeyRef:
+                key: LAB_AUTH_TOKEN
+                name: ticket012-lab-auth
+          image: ticket012-internal-service:lab-v1
+          imagePullPolicy: Never
+          name: internal-service
+          ports:
+          - containerPort: 8080
+            protocol: TCP
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /health
+              port: 8080
+              scheme: HTTP
+            initialDelaySeconds: 3
+            periodSeconds: 5
+            successThreshold: 1
+            timeoutSeconds: 1
+          resources: {}
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+              - ALL
+            runAsGroup: 1000
+            runAsNonRoot: true
+            runAsUser: 1000
+            seccompProfile:
+              type: RuntimeDefault
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2026-11-11T16:52:39Z"
+      lastUpdateTime: "2026-11-11T16:52:39Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    - lastTransitionTime: "2026-11-11T16:48:15Z"
+      lastUpdateTime: "2026-11-11T16:52:39Z"
+      message: ReplicaSet "internal-service-65ff7485" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    observedGeneration: 2
+    readyReplicas: 1
+    replicas: 1
+    terminatingReplicas: 0
+    updatedReplicas: 1
+kind: List
+metadata:
+  resourceVersion: ""

@@ -1,0 +1,12 @@
+﻿2026-11-10T18:48:54.225237545Z {"timestamp": "2026-11-10T18:48:54.225047+00:00", "service": "internal-service", "identity": "unknown", "path": "/health", "status": 200, "source_ip": "172.17.0.1"}
+2026-11-10T18:49:10.929287983Z {"timestamp": "2026-11-10T18:49:10.929099+00:00", "service": "internal-service", "identity": "application-api", "path": "/resource", "status": 200, "source_ip": "172.17.0.1"}
+2026-11-10T18:49:29.574319272Z {"timestamp": "2026-11-10T18:49:29.574064+00:00", "service": "internal-service", "identity": "application-api", "path": "/resource", "status": 403, "source_ip": "172.17.0.1"}
+docker : 2026-11-10T18:48:54.225317391Z 172.17.0.1 - - [10/Nov/2026 18:48:54] "GET /health HTTP/1.1" 200 -
+At line:1 char:1
++ docker logs --timestamps ticket012-internal-test 2>&1 | Out-File -Fil ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (2026-11-10T18:4...HTTP/1.1" 200 -:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+2026-11-10T18:49:10.929264394Z 172.17.0.1 - - [10/Nov/2026 18:49:10] "GET /resource HTTP/1.1" 200 -
+2026-11-10T18:49:29.574264999Z 172.17.0.1 - - [10/Nov/2026 18:49:29] "GET /resource HTTP/1.1" 403 -

@@ -1,0 +1,25 @@
+case_id,expected_label,description,baseline_alert,correlated_alert,destination_status,identity_status,recent_deployment_change,triage_level
+B01,benign,Approved traffic after deployment,False,False,approved,matched,True,none
+B02,benign,Approved traffic outside deployment window,False,False,approved,matched,False,none
+B03,benign,Approved traffic with missing identity,False,False,approved,unknown,True,none
+B04,benign,Approved traffic with inconsistent identity metadata,False,False,approved,mismatch,True,none
+B05,benign,Approved traffic before deployment,False,False,approved,matched,False,none
+B06,benign,Approved traffic with unrelated deployment,False,False,approved,matched,False,none
+B07,benign,Approved traffic at five-minute boundary,False,False,approved,matched,True,none
+B08,benign,Approved traffic with maintenance event,False,False,approved,matched,False,none
+B09,benign,Normal unknown workload scenario,False,False,unknown,mismatch,True,none
+B10,benign,Authorized diagnostic exception outside change window,True,False,unapproved,matched,False,none
+B11,benign,Authorized exception with unrelated deployment,True,False,unapproved,matched,False,none
+B12,benign,Authorized exception following deployment,True,True,unapproved,matched,True,review
+S01,suspicious,Unapproved destination after deployment,True,True,unapproved,matched,True,review
+S02,suspicious,Unapproved destination and identity mismatch,True,True,unapproved,mismatch,True,high
+S03,suspicious,Unapproved destination with missing identity,True,True,unapproved,unknown,True,review
+S04,suspicious,Unapproved destination at five-minute boundary,True,True,unapproved,matched,True,review
+S05,suspicious,Unapproved destination at 299 seconds,True,True,unapproved,matched,True,review
+S06,suspicious,Unapproved destination outside correlation window,True,False,unapproved,matched,False,none
+S07,suspicious,Unapproved destination before deployment,True,False,unapproved,matched,False,none
+S08,suspicious,Unapproved destination with unrelated deployment,True,False,unapproved,matched,False,none
+S09,suspicious,Unapproved destination without deployment event,True,False,unapproved,matched,False,none
+S10,suspicious,Suspicious identity mismatch at approved destination,False,False,approved,mismatch,True,none
+S11,suspicious,Unknown workload contacting suspicious destination,False,False,unknown,mismatch,True,none
+S12,suspicious,Unapproved destination at 301 seconds,True,False,unapproved,matched,False,none

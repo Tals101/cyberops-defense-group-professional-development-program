@@ -1,0 +1,45 @@
+test_01_benign_approved_after_deployment (test_correlation_detector.TestCorrelationDetector.test_01_benign_approved_after_deployment) ... ok
+test_02_benign_approved_outside_window (test_correlation_detector.TestCorrelationDetector.test_02_benign_approved_outside_window) ... ok
+test_03_benign_approved_missing_identity (test_correlation_detector.TestCorrelationDetector.test_03_benign_approved_missing_identity) ... ok
+test_04_benign_approved_unrelated_deployment (test_correlation_detector.TestCorrelationDetector.test_04_benign_approved_unrelated_deployment) ... ok
+test_05_benign_approved_before_deployment (test_correlation_detector.TestCorrelationDetector.test_05_benign_approved_before_deployment) ... ok
+test_06_unapproved_destination_generates_alert (test_correlation_detector.TestCorrelationDetector.test_06_unapproved_destination_generates_alert) ... ok
+test_07_identity_mismatch_increases_priority (test_correlation_detector.TestCorrelationDetector.test_07_identity_mismatch_increases_priority) ... ok
+test_08_unapproved_with_unknown_identity (test_correlation_detector.TestCorrelationDetector.test_08_unapproved_with_unknown_identity) ... ok
+test_09_unapproved_outside_window_not_correlated (test_correlation_detector.TestCorrelationDetector.test_09_unapproved_outside_window_not_correlated) ... ok
+test_10_unapproved_before_deployment_not_correlated (test_correlation_detector.TestCorrelationDetector.test_10_unapproved_before_deployment_not_correlated) ... ok
+test_11_unapproved_unrelated_deployment (test_correlation_detector.TestCorrelationDetector.test_11_unapproved_unrelated_deployment) ... ok
+test_12_unknown_workload (test_correlation_detector.TestCorrelationDetector.test_12_unknown_workload) ... ok
+test_13_missing_destination (test_correlation_detector.TestCorrelationDetector.test_13_missing_destination) ... ok
+test_14_invalid_network_event_type (test_correlation_detector.TestCorrelationDetector.test_14_invalid_network_event_type) ... ok
+test_15_invalid_deployment_event_type (test_correlation_detector.TestCorrelationDetector.test_15_invalid_deployment_event_type) ... ok
+test_16_exactly_five_minutes (test_correlation_detector.TestCorrelationDetector.test_16_exactly_five_minutes) ... ok
+test_17_more_than_five_minutes (test_correlation_detector.TestCorrelationDetector.test_17_more_than_five_minutes) ... ok
+test_18_timezone_conversion (test_correlation_detector.TestCorrelationDetector.test_18_timezone_conversion) ... ok
+test_19_utc_timestamp (test_correlation_detector.TestCorrelationDetector.test_19_utc_timestamp) ... ok
+test_20_missing_timezone_rejected (test_correlation_detector.TestCorrelationDetector.test_20_missing_timezone_rejected) ... ok
+test_21_malformed_timestamp_rejected (test_correlation_detector.TestCorrelationDetector.test_21_malformed_timestamp_rejected) ... ok
+test_22_missing_event_id (test_correlation_detector.TestCorrelationDetector.test_22_missing_event_id) ... ok
+test_23_missing_event_type (test_correlation_detector.TestCorrelationDetector.test_23_missing_event_type) ... ok
+test_24_missing_timestamp (test_correlation_detector.TestCorrelationDetector.test_24_missing_timestamp) ... ok
+test_25_event_timestamp_normalization (test_correlation_detector.TestCorrelationDetector.test_25_event_timestamp_normalization) ... ok
+test_26_identical_duplicates (test_correlation_detector.TestCorrelationDetector.test_26_identical_duplicates) ... ok
+test_27_conflicting_duplicates (test_correlation_detector.TestCorrelationDetector.test_27_conflicting_duplicates) ... ok
+test_28_invalid_duplicate_input (test_correlation_detector.TestCorrelationDetector.test_28_invalid_duplicate_input) ... ok
+test_29_matching_identity (test_correlation_detector.TestCorrelationDetector.test_29_matching_identity) ... ok
+test_30_mismatched_identity (test_correlation_detector.TestCorrelationDetector.test_30_mismatched_identity) ... ok
+test_31_missing_identity (test_correlation_detector.TestCorrelationDetector.test_31_missing_identity) ... ok
+test_v2_01_approved_traffic (test_correlation_detector_v2.TestCorrelationDetectorV2.test_v2_01_approved_traffic) ... ok
+test_v2_02_unapproved_traffic (test_correlation_detector_v2.TestCorrelationDetectorV2.test_v2_02_unapproved_traffic) ... ok
+test_v2_03_unapproved_without_recent_change (test_correlation_detector_v2.TestCorrelationDetectorV2.test_v2_03_unapproved_without_recent_change) ... ok
+test_v2_04_unapproved_without_deployment_telemetry (test_correlation_detector_v2.TestCorrelationDetectorV2.test_v2_04_unapproved_without_deployment_telemetry) ... ok
+test_v2_05_identity_mismatch (test_correlation_detector_v2.TestCorrelationDetectorV2.test_v2_05_identity_mismatch) ... ok
+test_v2_06_high_priority_correlation (test_correlation_detector_v2.TestCorrelationDetectorV2.test_v2_06_high_priority_correlation) ... ok
+test_v2_07_unknown_workload (test_correlation_detector_v2.TestCorrelationDetectorV2.test_v2_07_unknown_workload) ... ok
+test_v2_08_missing_identity_warning (test_correlation_detector_v2.TestCorrelationDetectorV2.test_v2_08_missing_identity_warning) ... ok
+test_v2_09_invalid_event_type (test_correlation_detector_v2.TestCorrelationDetectorV2.test_v2_09_invalid_event_type) ... ok
+
+----------------------------------------------------------------------
+Ran 40 tests in 0.001s
+
+OK

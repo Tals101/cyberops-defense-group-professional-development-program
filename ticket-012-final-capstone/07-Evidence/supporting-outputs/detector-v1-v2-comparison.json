@@ -1,0 +1,37 @@
+{
+  "dataset_type": "synthetic",
+  "case_count": 24,
+  "baseline": {
+    "TP": 10,
+    "FP": 3,
+    "TN": 9,
+    "FN": 2,
+    "precision": 0.769,
+    "recall": 0.833,
+    "false_positive_rate": 0.25
+  },
+  "version_1": {
+    "TP": 5,
+    "FP": 1,
+    "TN": 11,
+    "FN": 7,
+    "precision": 0.833,
+    "recall": 0.417,
+    "false_positive_rate": 0.083
+  },
+  "version_2": {
+    "TP": 12,
+    "FP": 5,
+    "TN": 7,
+    "FN": 0,
+    "precision": 0.706,
+    "recall": 1.0,
+    "false_positive_rate": 0.417
+  },
+  "limitations": [
+    "Synthetic scenarios do not establish production performance.",
+    "Authorized exceptions are not independently verified.",
+    "Claimed identity is not authenticated.",
+    "Unknown workloads may generate false positives."
+  ]
+}

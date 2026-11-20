@@ -1,0 +1,23 @@
+TICKET 012 - DETECTOR CLI ERROR HANDLING
+Environment: Isolated synthetic tests
+
+test_01_valid_dataset (__main__.TestDetectorCLI.test_01_valid_dataset) ... ok
+test_02_custom_window (__main__.TestDetectorCLI.test_02_custom_window) ... ok
+test_03_missing_deployment_telemetry (__main__.TestDetectorCLI.test_03_missing_deployment_telemetry) ... ok
+test_04_identical_duplicate (__main__.TestDetectorCLI.test_04_identical_duplicate) ... ok
+test_05_conflicting_duplicate (__main__.TestDetectorCLI.test_05_conflicting_duplicate) ... ok
+test_06_missing_timezone (__main__.TestDetectorCLI.test_06_missing_timezone) ... ok
+test_07_missing_network_event (__main__.TestDetectorCLI.test_07_missing_network_event) ... ok
+test_08_invalid_json (__main__.TestDetectorCLI.test_08_invalid_json) ... ok
+test_09_missing_input_file (__main__.TestDetectorCLI.test_09_missing_input_file) ... ok
+test_10_invalid_window (__main__.TestDetectorCLI.test_10_invalid_window) ... ok
+test_11_missing_required_arguments (__main__.TestDetectorCLI.test_11_missing_required_arguments) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.567s
+
+OK
+
+TESTS_EXECUTED=11
+TESTS_FAILED=0
+STATUS=PASS

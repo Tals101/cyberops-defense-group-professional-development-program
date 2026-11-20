@@ -1,0 +1,502 @@
+{
+  "detector": "ticket012-correlation-v2",
+  "dataset_type": "synthetic",
+  "window_seconds": 300,
+  "total_cases": 24,
+  "processed_cases": 24,
+  "skipped_cases": 0,
+  "alerts": 17,
+  "results": [
+    {
+      "case_id": "B01",
+      "label": "benign",
+      "network_event_id": "N-B01",
+      "detection": {
+        "network_event_id": "N-B01",
+        "destination_status": "approved",
+        "identity_status": "matched",
+        "recent_deployment_change": true,
+        "alert": false,
+        "triage_level": "none",
+        "reasons": [],
+        "supporting_indicators": [
+          "recent_deployment_change"
+        ],
+        "telemetry_warnings": []
+      },
+      "explanation": "No alert generated from available indicators. A deployment change occurred within the configured correlation window."
+    },
+    {
+      "case_id": "B02",
+      "label": "benign",
+      "network_event_id": "N-B02",
+      "detection": {
+        "network_event_id": "N-B02",
+        "destination_status": "approved",
+        "identity_status": "matched",
+        "recent_deployment_change": false,
+        "alert": false,
+        "triage_level": "none",
+        "reasons": [],
+        "supporting_indicators": [],
+        "telemetry_warnings": []
+      },
+      "explanation": "No alert generated from available indicators."
+    },
+    {
+      "case_id": "B03",
+      "label": "benign",
+      "network_event_id": "N-B03",
+      "detection": {
+        "network_event_id": "N-B03",
+        "destination_status": "approved",
+        "identity_status": "unknown",
+        "recent_deployment_change": true,
+        "alert": false,
+        "triage_level": "none",
+        "reasons": [],
+        "supporting_indicators": [
+          "recent_deployment_change"
+        ],
+        "telemetry_warnings": [
+          "identity_telemetry_incomplete"
+        ]
+      },
+      "explanation": "No alert generated from available indicators. A deployment change occurred within the configured correlation window. Telemetry limitations: identity_telemetry_incomplete."
+    },
+    {
+      "case_id": "B04",
+      "label": "benign",
+      "network_event_id": "N-B04",
+      "detection": {
+        "network_event_id": "N-B04",
+        "destination_status": "approved",
+        "identity_status": "mismatch",
+        "recent_deployment_change": true,
+        "alert": true,
+        "triage_level": "review",
+        "reasons": [
+          "claimed_identity_mismatch"
+        ],
+        "supporting_indicators": [
+          "recent_deployment_change"
+        ],
+        "telemetry_warnings": []
+      },
+      "explanation": "Alert generated: claimed_identity_mismatch. A deployment change occurred within the configured correlation window."
+    },
+    {
+      "case_id": "B05",
+      "label": "benign",
+      "network_event_id": "N-B05",
+      "detection": {
+        "network_event_id": "N-B05",
+        "destination_status": "approved",
+        "identity_status": "matched",
+        "recent_deployment_change": false,
+        "alert": false,
+        "triage_level": "none",
+        "reasons": [],
+        "supporting_indicators": [],
+        "telemetry_warnings": []
+      },
+      "explanation": "No alert generated from available indicators."
+    },
+    {
+      "case_id": "B06",
+      "label": "benign",
+      "network_event_id": "N-B06",
+      "detection": {
+        "network_event_id": "N-B06",
+        "destination_status": "approved",
+        "identity_status": "matched",
+        "recent_deployment_change": false,
+        "alert": false,
+        "triage_level": "none",
+        "reasons": [],
+        "supporting_indicators": [],
+        "telemetry_warnings": []
+      },
+      "explanation": "No alert generated from available indicators."
+    },
+    {
+      "case_id": "B07",
+      "label": "benign",
+      "network_event_id": "N-B07",
+      "detection": {
+        "network_event_id": "N-B07",
+        "destination_status": "approved",
+        "identity_status": "matched",
+        "recent_deployment_change": true,
+        "alert": false,
+        "triage_level": "none",
+        "reasons": [],
+        "supporting_indicators": [
+          "recent_deployment_change"
+        ],
+        "telemetry_warnings": []
+      },
+      "explanation": "No alert generated from available indicators. A deployment change occurred within the configured correlation window."
+    },
+    {
+      "case_id": "B08",
+      "label": "benign",
+      "network_event_id": "N-B08",
+      "detection": {
+        "network_event_id": "N-B08",
+        "destination_status": "approved",
+        "identity_status": "matched",
+        "recent_deployment_change": false,
+        "alert": false,
+        "triage_level": "none",
+        "reasons": [],
+        "supporting_indicators": [],
+        "telemetry_warnings": [
+          "deployment_change_not_available"
+        ]
+      },
+      "explanation": "No alert generated from available indicators. Telemetry limitations: deployment_change_not_available."
+    },
+    {
+      "case_id": "B09",
+      "label": "benign",
+      "network_event_id": "N-B09",
+      "detection": {
+        "network_event_id": "N-B09",
+        "destination_status": "unknown",
+        "identity_status": "mismatch",
+        "recent_deployment_change": true,
+        "alert": true,
+        "triage_level": "review",
+        "reasons": [
+          "claimed_identity_mismatch",
+          "workload_not_in_policy"
+        ],
+        "supporting_indicators": [
+          "recent_deployment_change"
+        ],
+        "telemetry_warnings": [
+          "destination_classification_unknown"
+        ]
+      },
+      "explanation": "Alert generated: claimed_identity_mismatch, workload_not_in_policy. A deployment change occurred within the configured correlation window. Telemetry limitations: destination_classification_unknown."
+    },
+    {
+      "case_id": "B10",
+      "label": "benign",
+      "network_event_id": "N-B10",
+      "detection": {
+        "network_event_id": "N-B10",
+        "destination_status": "unapproved",
+        "identity_status": "matched",
+        "recent_deployment_change": false,
+        "alert": true,
+        "triage_level": "review",
+        "reasons": [
+          "unapproved_destination"
+        ],
+        "supporting_indicators": [],
+        "telemetry_warnings": []
+      },
+      "explanation": "Alert generated: unapproved_destination."
+    },
+    {
+      "case_id": "B11",
+      "label": "benign",
+      "network_event_id": "N-B11",
+      "detection": {
+        "network_event_id": "N-B11",
+        "destination_status": "unapproved",
+        "identity_status": "matched",
+        "recent_deployment_change": false,
+        "alert": true,
+        "triage_level": "review",
+        "reasons": [
+          "unapproved_destination"
+        ],
+        "supporting_indicators": [],
+        "telemetry_warnings": []
+      },
+      "explanation": "Alert generated: unapproved_destination."
+    },
+    {
+      "case_id": "B12",
+      "label": "benign",
+      "network_event_id": "N-B12",
+      "detection": {
+        "network_event_id": "N-B12",
+        "destination_status": "unapproved",
+        "identity_status": "matched",
+        "recent_deployment_change": true,
+        "alert": true,
+        "triage_level": "elevated",
+        "reasons": [
+          "unapproved_destination"
+        ],
+        "supporting_indicators": [
+          "recent_deployment_change"
+        ],
+        "telemetry_warnings": []
+      },
+      "explanation": "Alert generated: unapproved_destination. A deployment change occurred within the configured correlation window."
+    },
+    {
+      "case_id": "S01",
+      "label": "suspicious",
+      "network_event_id": "N-S01",
+      "detection": {
+        "network_event_id": "N-S01",
+        "destination_status": "unapproved",
+        "identity_status": "matched",
+        "recent_deployment_change": true,
+        "alert": true,
+        "triage_level": "elevated",
+        "reasons": [
+          "unapproved_destination"
+        ],
+        "supporting_indicators": [
+          "recent_deployment_change"
+        ],
+        "telemetry_warnings": []
+      },
+      "explanation": "Alert generated: unapproved_destination. A deployment change occurred within the configured correlation window."
+    },
+    {
+      "case_id": "S02",
+      "label": "suspicious",
+      "network_event_id": "N-S02",
+      "detection": {
+        "network_event_id": "N-S02",
+        "destination_status": "unapproved",
+        "identity_status": "mismatch",
+        "recent_deployment_change": true,
+        "alert": true,
+        "triage_level": "high",
+        "reasons": [
+          "unapproved_destination",
+          "claimed_identity_mismatch"
+        ],
+        "supporting_indicators": [
+          "recent_deployment_change"
+        ],
+        "telemetry_warnings": []
+      },
+      "explanation": "Alert generated: unapproved_destination, claimed_identity_mismatch. A deployment change occurred within the configured correlation window."
+    },
+    {
+      "case_id": "S03",
+      "label": "suspicious",
+      "network_event_id": "N-S03",
+      "detection": {
+        "network_event_id": "N-S03",
+        "destination_status": "unapproved",
+        "identity_status": "unknown",
+        "recent_deployment_change": true,
+        "alert": true,
+        "triage_level": "elevated",
+        "reasons": [
+          "unapproved_destination"
+        ],
+        "supporting_indicators": [
+          "recent_deployment_change"
+        ],
+        "telemetry_warnings": [
+          "identity_telemetry_incomplete"
+        ]
+      },
+      "explanation": "Alert generated: unapproved_destination. A deployment change occurred within the configured correlation window. Telemetry limitations: identity_telemetry_incomplete."
+    },
+    {
+      "case_id": "S04",
+      "label": "suspicious",
+      "network_event_id": "N-S04",
+      "detection": {
+        "network_event_id": "N-S04",
+        "destination_status": "unapproved",
+        "identity_status": "matched",
+        "recent_deployment_change": true,
+        "alert": true,
+        "triage_level": "elevated",
+        "reasons": [
+          "unapproved_destination"
+        ],
+        "supporting_indicators": [
+          "recent_deployment_change"
+        ],
+        "telemetry_warnings": []
+      },
+      "explanation": "Alert generated: unapproved_destination. A deployment change occurred within the configured correlation window."
+    },
+    {
+      "case_id": "S05",
+      "label": "suspicious",
+      "network_event_id": "N-S05",
+      "detection": {
+        "network_event_id": "N-S05",
+        "destination_status": "unapproved",
+        "identity_status": "matched",
+        "recent_deployment_change": true,
+        "alert": true,
+        "triage_level": "elevated",
+        "reasons": [
+          "unapproved_destination"
+        ],
+        "supporting_indicators": [
+          "recent_deployment_change"
+        ],
+        "telemetry_warnings": []
+      },
+      "explanation": "Alert generated: unapproved_destination. A deployment change occurred within the configured correlation window."
+    },
+    {
+      "case_id": "S06",
+      "label": "suspicious",
+      "network_event_id": "N-S06",
+      "detection": {
+        "network_event_id": "N-S06",
+        "destination_status": "unapproved",
+        "identity_status": "matched",
+        "recent_deployment_change": false,
+        "alert": true,
+        "triage_level": "review",
+        "reasons": [
+          "unapproved_destination"
+        ],
+        "supporting_indicators": [],
+        "telemetry_warnings": []
+      },
+      "explanation": "Alert generated: unapproved_destination."
+    },
+    {
+      "case_id": "S07",
+      "label": "suspicious",
+      "network_event_id": "N-S07",
+      "detection": {
+        "network_event_id": "N-S07",
+        "destination_status": "unapproved",
+        "identity_status": "matched",
+        "recent_deployment_change": false,
+        "alert": true,
+        "triage_level": "review",
+        "reasons": [
+          "unapproved_destination"
+        ],
+        "supporting_indicators": [],
+        "telemetry_warnings": []
+      },
+      "explanation": "Alert generated: unapproved_destination."
+    },
+    {
+      "case_id": "S08",
+      "label": "suspicious",
+      "network_event_id": "N-S08",
+      "detection": {
+        "network_event_id": "N-S08",
+        "destination_status": "unapproved",
+        "identity_status": "matched",
+        "recent_deployment_change": false,
+        "alert": true,
+        "triage_level": "review",
+        "reasons": [
+          "unapproved_destination"
+        ],
+        "supporting_indicators": [],
+        "telemetry_warnings": []
+      },
+      "explanation": "Alert generated: unapproved_destination."
+    },
+    {
+      "case_id": "S09",
+      "label": "suspicious",
+      "network_event_id": "N-S09",
+      "detection": {
+        "network_event_id": "N-S09",
+        "destination_status": "unapproved",
+        "identity_status": "matched",
+        "recent_deployment_change": false,
+        "alert": true,
+        "triage_level": "review",
+        "reasons": [
+          "unapproved_destination"
+        ],
+        "supporting_indicators": [],
+        "telemetry_warnings": [
+          "deployment_change_not_available"
+        ]
+      },
+      "explanation": "Alert generated: unapproved_destination. Telemetry limitations: deployment_change_not_available."
+    },
+    {
+      "case_id": "S10",
+      "label": "suspicious",
+      "network_event_id": "N-S10",
+      "detection": {
+        "network_event_id": "N-S10",
+        "destination_status": "approved",
+        "identity_status": "mismatch",
+        "recent_deployment_change": true,
+        "alert": true,
+        "triage_level": "review",
+        "reasons": [
+          "claimed_identity_mismatch"
+        ],
+        "supporting_indicators": [
+          "recent_deployment_change"
+        ],
+        "telemetry_warnings": []
+      },
+      "explanation": "Alert generated: claimed_identity_mismatch. A deployment change occurred within the configured correlation window."
+    },
+    {
+      "case_id": "S11",
+      "label": "suspicious",
+      "network_event_id": "N-S11",
+      "detection": {
+        "network_event_id": "N-S11",
+        "destination_status": "unknown",
+        "identity_status": "mismatch",
+        "recent_deployment_change": true,
+        "alert": true,
+        "triage_level": "review",
+        "reasons": [
+          "claimed_identity_mismatch",
+          "workload_not_in_policy"
+        ],
+        "supporting_indicators": [
+          "recent_deployment_change"
+        ],
+        "telemetry_warnings": [
+          "destination_classification_unknown"
+        ]
+      },
+      "explanation": "Alert generated: claimed_identity_mismatch, workload_not_in_policy. A deployment change occurred within the configured correlation window. Telemetry limitations: destination_classification_unknown."
+    },
+    {
+      "case_id": "S12",
+      "label": "suspicious",
+      "network_event_id": "N-S12",
+      "detection": {
+        "network_event_id": "N-S12",
+        "destination_status": "unapproved",
+        "identity_status": "matched",
+        "recent_deployment_change": false,
+        "alert": true,
+        "triage_level": "review",
+        "reasons": [
+          "unapproved_destination"
+        ],
+        "supporting_indicators": [],
+        "telemetry_warnings": []
+      },
+      "explanation": "Alert generated: unapproved_destination."
+    }
+  ],
+  "errors": [],
+  "limitations": [
+    "Claimed identities are not independently authenticated",
+    "Synthetic labels do not establish real compromise",
+    "Missing telemetry can weaken correlation",
+    "CLI input uses structured network/deployment event pairs"
+  ],
+  "status": "complete"
+}

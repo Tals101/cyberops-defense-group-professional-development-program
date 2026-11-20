@@ -1,0 +1,276 @@
+﻿2026-11-12T17:50:57.625625691Z 10.244.0.1 - - [12/Nov/2026 17:50:57] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:50:57.625642575Z {"timestamp": "2026-11-12T17:50:57.625491+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:51:05.325534280Z 10.244.0.1 - - [12/Nov/2026 17:51:05] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:51:05.325546975Z {"timestamp": "2026-11-12T17:51:05.325344+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:51:10.326389542Z {"timestamp": "2026-11-12T17:51:10.326282+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:51:10.326421128Z 10.244.0.1 - - [12/Nov/2026 17:51:10] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:51:15.326708317Z 10.244.0.1 - - [12/Nov/2026 17:51:15] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:51:15.326818494Z {"timestamp": "2026-11-12T17:51:15.326386+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:51:20.326222289Z {"timestamp": "2026-11-12T17:51:20.325893+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:51:20.326242620Z 10.244.0.1 - - [12/Nov/2026 17:51:20] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:51:25.326350740Z 10.244.0.1 - - [12/Nov/2026 17:51:25] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:51:25.326367100Z {"timestamp": "2026-11-12T17:51:25.326142+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:51:30.326262770Z {"timestamp": "2026-11-12T17:51:30.326000+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:51:30.326264019Z 10.244.0.1 - - [12/Nov/2026 17:51:30] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:51:38.010899849Z 10.244.0.1 - - [12/Nov/2026 17:51:38] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:51:38.010939334Z {"timestamp": "2026-11-12T17:51:38.010735+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:51:43.011083328Z {"timestamp": "2026-11-12T17:51:43.010771+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:51:43.011109323Z 10.244.0.1 - - [12/Nov/2026 17:51:43] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:51:48.010836158Z {"timestamp": "2026-11-12T17:51:48.010213+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:51:48.010836135Z 10.244.0.1 - - [12/Nov/2026 17:51:48] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:51:53.011160007Z {"timestamp": "2026-11-12T17:51:53.010860+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:51:53.011153141Z 10.244.0.1 - - [12/Nov/2026 17:51:53] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:51:58.012171981Z 10.244.0.1 - - [12/Nov/2026 17:51:58] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:51:58.012177945Z {"timestamp": "2026-11-12T17:51:58.011784+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:52:03.010997676Z 10.244.0.1 - - [12/Nov/2026 17:52:03] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:52:03.011031116Z {"timestamp": "2026-11-12T17:52:03.010758+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:52:10.657868760Z {"timestamp": "2026-11-12T17:52:10.657482+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:52:10.657872307Z 10.244.0.1 - - [12/Nov/2026 17:52:10] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:52:15.657749349Z {"timestamp": "2026-11-12T17:52:15.657565+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:52:15.657773598Z 10.244.0.1 - - [12/Nov/2026 17:52:15] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:52:20.656984138Z 10.244.0.1 - - [12/Nov/2026 17:52:20] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:52:20.657020134Z {"timestamp": "2026-11-12T17:52:20.656808+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:52:25.658271699Z {"timestamp": "2026-11-12T17:52:25.657926+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:52:25.658289026Z 10.244.0.1 - - [12/Nov/2026 17:52:25] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:52:30.657397149Z {"timestamp": "2026-11-12T17:52:30.657263+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:52:30.657397001Z 10.244.0.1 - - [12/Nov/2026 17:52:30] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:52:35.658029019Z 10.244.0.1 - - [12/Nov/2026 17:52:35] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:52:35.658029207Z {"timestamp": "2026-11-12T17:52:35.657633+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:52:43.317635953Z {"timestamp": "2026-11-12T17:52:43.317435+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:52:43.317636003Z 10.244.0.1 - - [12/Nov/2026 17:52:43] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:52:48.318125503Z {"timestamp": "2026-11-12T17:52:48.317862+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:52:48.318133340Z 10.244.0.1 - - [12/Nov/2026 17:52:48] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:52:53.318094375Z 10.244.0.1 - - [12/Nov/2026 17:52:53] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:52:53.318176232Z {"timestamp": "2026-11-12T17:52:53.317667+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:52:58.318425524Z {"timestamp": "2026-11-12T17:52:58.317626+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:52:58.318450397Z 10.244.0.1 - - [12/Nov/2026 17:52:58] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:53:03.318529301Z {"timestamp": "2026-11-12T17:53:03.318277+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:53:03.318529588Z 10.244.0.1 - - [12/Nov/2026 17:53:03] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:53:08.317949483Z 10.244.0.1 - - [12/Nov/2026 17:53:08] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:53:08.317972655Z {"timestamp": "2026-11-12T17:53:08.317786+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:53:16.039546037Z 10.244.0.1 - - [12/Nov/2026 17:53:16] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:53:16.039571065Z {"timestamp": "2026-11-12T17:53:16.039388+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:53:21.039631717Z 10.244.0.1 - - [12/Nov/2026 17:53:21] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:53:21.039702057Z {"timestamp": "2026-11-12T17:53:21.039397+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:53:26.039741143Z 10.244.0.1 - - [12/Nov/2026 17:53:26] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:53:26.039779741Z {"timestamp": "2026-11-12T17:53:26.039486+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:53:31.040407822Z 10.244.0.1 - - [12/Nov/2026 17:53:31] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:53:31.040428888Z {"timestamp": "2026-11-12T17:53:31.040129+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:53:36.040209680Z {"timestamp": "2026-11-12T17:53:36.039982+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:53:36.040222055Z 10.244.0.1 - - [12/Nov/2026 17:53:36] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:53:41.040275541Z 10.244.0.1 - - [12/Nov/2026 17:53:41] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:53:41.040273887Z {"timestamp": "2026-11-12T17:53:41.039911+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:53:48.717126610Z 10.244.0.1 - - [12/Nov/2026 17:53:48] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:53:48.717172050Z {"timestamp": "2026-11-12T17:53:48.716820+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:53:53.717020993Z 10.244.0.1 - - [12/Nov/2026 17:53:53] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:53:53.717058709Z {"timestamp": "2026-11-12T17:53:53.716852+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:53:58.717598258Z {"timestamp": "2026-11-12T17:53:58.717321+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:53:58.717658318Z 10.244.0.1 - - [12/Nov/2026 17:53:58] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:54:03.717565143Z 10.244.0.1 - - [12/Nov/2026 17:54:03] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:54:03.717579164Z {"timestamp": "2026-11-12T17:54:03.717355+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:54:08.717266502Z {"timestamp": "2026-11-12T17:54:08.717022+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:54:08.717275877Z 10.244.0.1 - - [12/Nov/2026 17:54:08] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:54:13.717986714Z {"timestamp": "2026-11-12T17:54:13.717691+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:54:13.717995014Z 10.244.0.1 - - [12/Nov/2026 17:54:13] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:54:21.382035887Z {"timestamp": "2026-11-12T17:54:21.381864+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:54:21.382036554Z 10.244.0.1 - - [12/Nov/2026 17:54:21] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:54:26.382015784Z 10.244.0.1 - - [12/Nov/2026 17:54:26] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:54:26.382031849Z {"timestamp": "2026-11-12T17:54:26.381738+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:54:31.382803658Z 10.244.0.1 - - [12/Nov/2026 17:54:31] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:54:31.382812124Z {"timestamp": "2026-11-12T17:54:31.382550+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:54:36.382497567Z {"timestamp": "2026-11-12T17:54:36.382183+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:54:36.382531094Z 10.244.0.1 - - [12/Nov/2026 17:54:36] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:54:41.383038682Z 10.244.0.1 - - [12/Nov/2026 17:54:41] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:54:41.383073379Z {"timestamp": "2026-11-12T17:54:41.382829+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:54:46.382563535Z 10.244.0.1 - - [12/Nov/2026 17:54:46] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:54:46.382631944Z {"timestamp": "2026-11-12T17:54:46.382182+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:54:54.096992807Z 10.244.0.1 - - [12/Nov/2026 17:54:54] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:54:54.097005211Z {"timestamp": "2026-11-12T17:54:54.096776+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:54:59.096494045Z 10.244.0.1 - - [12/Nov/2026 17:54:59] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:54:59.096565011Z {"timestamp": "2026-11-12T17:54:59.096124+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:55:04.097060923Z 10.244.0.1 - - [12/Nov/2026 17:55:04] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:55:04.097109075Z {"timestamp": "2026-11-12T17:55:04.096835+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:55:09.096816788Z 10.244.0.1 - - [12/Nov/2026 17:55:09] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:55:09.096867450Z {"timestamp": "2026-11-12T17:55:09.096591+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:55:14.095977553Z 10.244.0.1 - - [12/Nov/2026 17:55:14] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:55:14.096007595Z {"timestamp": "2026-11-12T17:55:14.095843+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:55:19.096838981Z {"timestamp": "2026-11-12T17:55:19.096410+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:55:19.096874789Z 10.244.0.1 - - [12/Nov/2026 17:55:19] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:55:26.764403296Z {"timestamp": "2026-11-12T17:55:26.764070+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:55:26.764463976Z 10.244.0.1 - - [12/Nov/2026 17:55:26] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:55:31.764476630Z 10.244.0.1 - - [12/Nov/2026 17:55:31] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:55:31.764475297Z {"timestamp": "2026-11-12T17:55:31.764329+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:55:36.764779622Z 10.244.0.1 - - [12/Nov/2026 17:55:36] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:55:36.764779500Z {"timestamp": "2026-11-12T17:55:36.764535+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:55:41.764477464Z 10.244.0.1 - - [12/Nov/2026 17:55:41] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:55:41.764522393Z {"timestamp": "2026-11-12T17:55:41.764295+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:55:46.763898521Z {"timestamp": "2026-11-12T17:55:46.763711+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:55:46.763942637Z 10.244.0.1 - - [12/Nov/2026 17:55:46] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:55:51.764167012Z 10.244.0.1 - - [12/Nov/2026 17:55:51] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:55:51.764184764Z {"timestamp": "2026-11-12T17:55:51.764013+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:55:59.447558288Z 10.244.0.1 - - [12/Nov/2026 17:55:59] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:55:59.447569974Z {"timestamp": "2026-11-12T17:55:59.447293+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:56:04.447238702Z 10.244.0.1 - - [12/Nov/2026 17:56:04] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:56:04.447241727Z {"timestamp": "2026-11-12T17:56:04.446942+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:56:09.447116607Z 10.244.0.1 - - [12/Nov/2026 17:56:09] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:56:09.447137810Z {"timestamp": "2026-11-12T17:56:09.446832+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:56:14.447158881Z {"timestamp": "2026-11-12T17:56:14.446708+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:56:14.447161278Z 10.244.0.1 - - [12/Nov/2026 17:56:14] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:56:19.447640442Z 10.244.0.1 - - [12/Nov/2026 17:56:19] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:56:19.447661495Z {"timestamp": "2026-11-12T17:56:19.447429+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:56:24.447442650Z {"timestamp": "2026-11-12T17:56:24.447272+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:56:24.447450886Z 10.244.0.1 - - [12/Nov/2026 17:56:24] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:56:32.227959575Z 10.244.0.1 - - [12/Nov/2026 17:56:32] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:56:32.227989215Z {"timestamp": "2026-11-12T17:56:32.227786+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:56:37.227595107Z 10.244.0.1 - - [12/Nov/2026 17:56:37] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:56:37.227647880Z {"timestamp": "2026-11-12T17:56:37.227373+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:56:42.228231849Z 10.244.0.1 - - [12/Nov/2026 17:56:42] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:56:42.228295694Z {"timestamp": "2026-11-12T17:56:42.227976+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:56:47.227131028Z 10.244.0.1 - - [12/Nov/2026 17:56:47] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:56:47.227160053Z {"timestamp": "2026-11-12T17:56:47.226961+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:56:52.227544931Z 10.244.0.1 - - [12/Nov/2026 17:56:52] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:56:52.227581979Z {"timestamp": "2026-11-12T17:56:52.227403+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:56:57.227301593Z 10.244.0.1 - - [12/Nov/2026 17:56:57] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:56:57.227328007Z {"timestamp": "2026-11-12T17:56:57.227113+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:57:05.050091313Z 10.244.0.1 - - [12/Nov/2026 17:57:05] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:57:05.050126623Z {"timestamp": "2026-11-12T17:57:05.049935+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:57:10.050196270Z {"timestamp": "2026-11-12T17:57:10.050014+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:57:10.050192966Z 10.244.0.1 - - [12/Nov/2026 17:57:10] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:57:15.050600812Z {"timestamp": "2026-11-12T17:57:15.050156+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:57:15.050630073Z 10.244.0.1 - - [12/Nov/2026 17:57:15] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:57:20.051419322Z 10.244.0.1 - - [12/Nov/2026 17:57:20] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:57:20.051444645Z {"timestamp": "2026-11-12T17:57:20.051040+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:57:25.050389711Z {"timestamp": "2026-11-12T17:57:25.050255+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:57:25.050416549Z 10.244.0.1 - - [12/Nov/2026 17:57:25] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:57:30.050197482Z 10.244.0.1 - - [12/Nov/2026 17:57:30] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:57:30.050247464Z {"timestamp": "2026-11-12T17:57:30.049985+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:57:37.767700019Z 10.244.0.1 - - [12/Nov/2026 17:57:37] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:57:37.767703418Z {"timestamp": "2026-11-12T17:57:37.767508+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:57:42.767122337Z 10.244.0.1 - - [12/Nov/2026 17:57:42] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:57:42.767161444Z {"timestamp": "2026-11-12T17:57:42.766960+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:57:47.767367481Z 10.244.0.1 - - [12/Nov/2026 17:57:47] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:57:47.767371461Z {"timestamp": "2026-11-12T17:57:47.767200+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:57:52.767713746Z 10.244.0.1 - - [12/Nov/2026 17:57:52] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:57:52.767738251Z {"timestamp": "2026-11-12T17:57:52.767509+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:57:57.767942115Z 10.244.0.1 - - [12/Nov/2026 17:57:57] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:57:57.767971171Z {"timestamp": "2026-11-12T17:57:57.767632+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:58:02.767520121Z 10.244.0.1 - - [12/Nov/2026 17:58:02] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:58:02.767545841Z {"timestamp": "2026-11-12T17:58:02.767303+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:58:10.461324994Z 10.244.0.1 - - [12/Nov/2026 17:58:10] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:58:10.461372394Z {"timestamp": "2026-11-12T17:58:10.460970+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:58:15.461002254Z {"timestamp": "2026-11-12T17:58:15.460856+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:58:15.461048427Z 10.244.0.1 - - [12/Nov/2026 17:58:15] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:58:20.461063670Z {"timestamp": "2026-11-12T17:58:20.460622+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:58:20.461079003Z 10.244.0.1 - - [12/Nov/2026 17:58:20] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:58:25.460849000Z 10.244.0.1 - - [12/Nov/2026 17:58:25] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:58:25.460884691Z {"timestamp": "2026-11-12T17:58:25.460716+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:58:30.461204736Z 10.244.0.1 - - [12/Nov/2026 17:58:30] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:58:30.461229933Z {"timestamp": "2026-11-12T17:58:30.460969+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:58:35.461135369Z 10.244.0.1 - - [12/Nov/2026 17:58:35] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:58:35.461169943Z {"timestamp": "2026-11-12T17:58:35.460816+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:58:43.234972390Z 10.244.0.1 - - [12/Nov/2026 17:58:43] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:58:43.234995326Z {"timestamp": "2026-11-12T17:58:43.234751+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:58:48.234987544Z {"timestamp": "2026-11-12T17:58:48.234696+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:58:48.235006852Z 10.244.0.1 - - [12/Nov/2026 17:58:48] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:58:53.234729586Z 10.244.0.1 - - [12/Nov/2026 17:58:53] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:58:53.234799558Z {"timestamp": "2026-11-12T17:58:53.234446+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:58:58.234619645Z 10.244.0.1 - - [12/Nov/2026 17:58:58] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:58:58.234627003Z {"timestamp": "2026-11-12T17:58:58.234336+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:59:03.234328452Z {"timestamp": "2026-11-12T17:59:03.234175+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:59:03.234347375Z 10.244.0.1 - - [12/Nov/2026 17:59:03] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:59:08.235305904Z 10.244.0.1 - - [12/Nov/2026 17:59:08] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:59:08.235378114Z {"timestamp": "2026-11-12T17:59:08.234995+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:59:16.067380685Z 10.244.0.1 - - [12/Nov/2026 17:59:16] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:59:16.067396345Z {"timestamp": "2026-11-12T17:59:16.067193+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:59:21.067453966Z {"timestamp": "2026-11-12T17:59:21.067155+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:59:21.067511285Z 10.244.0.1 - - [12/Nov/2026 17:59:21] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:59:26.066614734Z 10.244.0.1 - - [12/Nov/2026 17:59:26] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:59:26.066621352Z {"timestamp": "2026-11-12T17:59:26.066342+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:59:31.066911167Z 10.244.0.1 - - [12/Nov/2026 17:59:31] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:59:31.066955078Z {"timestamp": "2026-11-12T17:59:31.066619+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:59:36.067301871Z {"timestamp": "2026-11-12T17:59:36.066992+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:59:36.067321386Z 10.244.0.1 - - [12/Nov/2026 17:59:36] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:59:41.067384896Z {"timestamp": "2026-11-12T17:59:41.067184+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:59:41.067437112Z 10.244.0.1 - - [12/Nov/2026 17:59:41] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:59:48.833789362Z {"timestamp": "2026-11-12T17:59:48.833436+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:59:48.833852256Z 10.244.0.1 - - [12/Nov/2026 17:59:48] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:59:53.833245029Z 10.244.0.1 - - [12/Nov/2026 17:59:53] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:59:53.833256582Z {"timestamp": "2026-11-12T17:59:53.832991+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T17:59:58.832763549Z 10.244.0.1 - - [12/Nov/2026 17:59:58] "GET /health HTTP/1.1" 200 -
+2026-11-12T17:59:58.832763564Z {"timestamp": "2026-11-12T17:59:58.832312+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T18:00:03.833502900Z 10.244.0.1 - - [12/Nov/2026 18:00:03] "GET /health HTTP/1.1" 200 -
+2026-11-12T18:00:03.833502566Z {"timestamp": "2026-11-12T18:00:03.833158+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T18:00:08.137115088Z 10.244.1.156 - - [12/Nov/2026 18:00:08] "GET /health HTTP/1.1" 200 -
+2026-11-12T18:00:08.137134702Z {"timestamp": "2026-11-12T18:00:08.137016+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.1.156", "policy_status": "unapproved"}
+2026-11-12T18:00:08.833386295Z 10.244.0.1 - - [12/Nov/2026 18:00:08] "GET /health HTTP/1.1" 200 -
+2026-11-12T18:00:08.833385119Z {"timestamp": "2026-11-12T18:00:08.833093+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T18:00:13.832463904Z 10.244.0.1 - - [12/Nov/2026 18:00:13] "GET /health HTTP/1.1" 200 -
+2026-11-12T18:00:13.832466418Z {"timestamp": "2026-11-12T18:00:13.832213+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T18:00:21.542512689Z 10.244.0.1 - - [12/Nov/2026 18:00:21] "GET /health HTTP/1.1" 200 -
+2026-11-12T18:00:21.542517723Z {"timestamp": "2026-11-12T18:00:21.542344+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T18:00:26.542843317Z 10.244.0.1 - - [12/Nov/2026 18:00:26] "GET /health HTTP/1.1" 200 -
+2026-11-12T18:00:26.542883643Z {"timestamp": "2026-11-12T18:00:26.542627+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T18:00:31.542040647Z 10.244.0.1 - - [12/Nov/2026 18:00:31] "GET /health HTTP/1.1" 200 -
+2026-11-12T18:00:31.542083013Z {"timestamp": "2026-11-12T18:00:31.541675+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T18:00:36.541719936Z 10.244.0.1 - - [12/Nov/2026 18:00:36] "GET /health HTTP/1.1" 200 -
+2026-11-12T18:00:36.541775611Z {"timestamp": "2026-11-12T18:00:36.541522+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T18:00:41.542203236Z 10.244.0.1 - - [12/Nov/2026 18:00:41] "GET /health HTTP/1.1" 200 -
+2026-11-12T18:00:41.542203418Z {"timestamp": "2026-11-12T18:00:41.542024+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T18:00:46.542639577Z 10.244.0.1 - - [12/Nov/2026 18:00:46] "GET /health HTTP/1.1" 200 -
+2026-11-12T18:00:46.542640414Z {"timestamp": "2026-11-12T18:00:46.542446+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T18:00:54.358900341Z 10.244.0.1 - - [12/Nov/2026 18:00:54] "GET /health HTTP/1.1" 200 -
+2026-11-12T18:00:54.358920234Z {"timestamp": "2026-11-12T18:00:54.358776+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T18:00:59.359128660Z {"timestamp": "2026-11-12T18:00:59.358862+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T18:00:59.359149142Z 10.244.0.1 - - [12/Nov/2026 18:00:59] "GET /health HTTP/1.1" 200 -
+2026-11-12T18:01:04.359182565Z 10.244.0.1 - - [12/Nov/2026 18:01:04] "GET /health HTTP/1.1" 200 -
+2026-11-12T18:01:04.359215593Z {"timestamp": "2026-11-12T18:01:04.358902+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T18:01:09.359722032Z 10.244.0.1 - - [12/Nov/2026 18:01:09] "GET /health HTTP/1.1" 200 -
+2026-11-12T18:01:09.359769467Z {"timestamp": "2026-11-12T18:01:09.359559+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T18:01:14.358756092Z 10.244.0.1 - - [12/Nov/2026 18:01:14] "GET /health HTTP/1.1" 200 -
+2026-11-12T18:01:14.358776263Z {"timestamp": "2026-11-12T18:01:14.358605+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T18:01:19.359228202Z 10.244.0.1 - - [12/Nov/2026 18:01:19] "GET /health HTTP/1.1" 200 -
+2026-11-12T18:01:19.359245367Z {"timestamp": "2026-11-12T18:01:19.359052+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T18:01:27.187746848Z 10.244.0.1 - - [12/Nov/2026 18:01:27] "GET /health HTTP/1.1" 200 -
+2026-11-12T18:01:27.187782015Z {"timestamp": "2026-11-12T18:01:27.187561+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T18:01:32.187532571Z {"timestamp": "2026-11-12T18:01:32.187392+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T18:01:32.187543507Z 10.244.0.1 - - [12/Nov/2026 18:01:32] "GET /health HTTP/1.1" 200 -
+2026-11-12T18:01:37.187819651Z {"timestamp": "2026-11-12T18:01:37.187523+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T18:01:37.187853983Z 10.244.0.1 - - [12/Nov/2026 18:01:37] "GET /health HTTP/1.1" 200 -
+2026-11-12T18:01:42.187873333Z 10.244.0.1 - - [12/Nov/2026 18:01:42] "GET /health HTTP/1.1" 200 -
+2026-11-12T18:01:42.187910446Z {"timestamp": "2026-11-12T18:01:42.187626+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T18:01:47.188631596Z {"timestamp": "2026-11-12T18:01:47.187415+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T18:01:47.188633867Z 10.244.0.1 - - [12/Nov/2026 18:01:47] "GET /health HTTP/1.1" 200 -
+2026-11-12T18:01:52.187702020Z {"timestamp": "2026-11-12T18:01:52.187466+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T18:01:52.187710868Z 10.244.0.1 - - [12/Nov/2026 18:01:52] "GET /health HTTP/1.1" 200 -
+2026-11-12T18:01:59.823799151Z {"timestamp": "2026-11-12T18:01:59.823609+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T18:01:59.823786144Z 10.244.0.1 - - [12/Nov/2026 18:01:59] "GET /health HTTP/1.1" 200 -
+2026-11-12T18:02:04.823537763Z 10.244.0.1 - - [12/Nov/2026 18:02:04] "GET /health HTTP/1.1" 200 -
+2026-11-12T18:02:04.823551859Z {"timestamp": "2026-11-12T18:02:04.823379+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T18:02:09.823585754Z {"timestamp": "2026-11-12T18:02:09.823358+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T18:02:09.823653602Z 10.244.0.1 - - [12/Nov/2026 18:02:09] "GET /health HTTP/1.1" 200 -
+2026-11-12T18:02:14.823309214Z 10.244.0.1 - - [12/Nov/2026 18:02:14] "GET /health HTTP/1.1" 200 -
+2026-11-12T18:02:14.823318190Z {"timestamp": "2026-11-12T18:02:14.823043+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T18:02:19.823382363Z 10.244.0.1 - - [12/Nov/2026 18:02:19] "GET /health HTTP/1.1" 200 -
+2026-11-12T18:02:19.823401880Z {"timestamp": "2026-11-12T18:02:19.823265+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T18:02:24.823876353Z 10.244.0.1 - - [12/Nov/2026 18:02:24] "GET /health HTTP/1.1" 200 -
+2026-11-12T18:02:24.823882825Z {"timestamp": "2026-11-12T18:02:24.823733+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T18:02:32.537775035Z {"timestamp": "2026-11-12T18:02:32.537447+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T18:02:32.537786102Z 10.244.0.1 - - [12/Nov/2026 18:02:32] "GET /health HTTP/1.1" 200 -
+2026-11-12T18:02:37.537086104Z 10.244.0.1 - - [12/Nov/2026 18:02:37] "GET /health HTTP/1.1" 200 -
+2026-11-12T18:02:37.537090780Z {"timestamp": "2026-11-12T18:02:37.536772+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T18:02:42.536967960Z 10.244.0.1 - - [12/Nov/2026 18:02:42] "GET /health HTTP/1.1" 200 -
+2026-11-12T18:02:42.536976743Z {"timestamp": "2026-11-12T18:02:42.536814+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T18:02:47.537079761Z 10.244.0.1 - - [12/Nov/2026 18:02:47] "GET /health HTTP/1.1" 200 -
+2026-11-12T18:02:47.537100680Z {"timestamp": "2026-11-12T18:02:47.536907+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T18:02:52.537489350Z 10.244.0.1 - - [12/Nov/2026 18:02:52] "GET /health HTTP/1.1" 200 -
+2026-11-12T18:02:52.537498325Z {"timestamp": "2026-11-12T18:02:52.537149+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T18:02:57.536838512Z 10.244.0.1 - - [12/Nov/2026 18:02:57] "GET /health HTTP/1.1" 200 -
+2026-11-12T18:02:57.536872779Z {"timestamp": "2026-11-12T18:02:57.536689+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T18:03:05.300675315Z 10.244.0.1 - - [12/Nov/2026 18:03:05] "GET /health HTTP/1.1" 200 -
+2026-11-12T18:03:05.300711364Z {"timestamp": "2026-11-12T18:03:05.300473+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T18:03:10.300778699Z 10.244.0.1 - - [12/Nov/2026 18:03:10] "GET /health HTTP/1.1" 200 -
+2026-11-12T18:03:10.300816059Z {"timestamp": "2026-11-12T18:03:10.300623+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T18:03:15.300670832Z 10.244.0.1 - - [12/Nov/2026 18:03:15] "GET /health HTTP/1.1" 200 -
+2026-11-12T18:03:15.300671495Z {"timestamp": "2026-11-12T18:03:15.300488+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
+2026-11-12T18:03:20.301568407Z 10.244.0.1 - - [12/Nov/2026 18:03:20] "GET /health HTTP/1.1" 200 -
+2026-11-12T18:03:20.301586175Z {"timestamp": "2026-11-12T18:03:20.301407+00:00", "service": "unapproved-collector", "claimed_identity": "unknown", "path": "/health", "status": 200, "source_ip": "10.244.0.1", "policy_status": "unapproved"}
