@@ -1,0 +1,34 @@
+TICKET 012 - SYNTHETIC BASELINE COMPARISON
+24 labeled scenarios: 12 benign and 12 suspicious
+
+Destination-only baseline
+TP=10 FP=3 TN=9 FN=2
+Precision=0.769 Recall=0.833 FPR=0.250
+
+Multi-dimensional correlation
+TP=5 FP=1 TN=11 FN=7
+Precision=0.833 Recall=0.417 FPR=0.083
+
+BASELINE FALSE NEGATIVES:
+S10: Suspicious identity mismatch at approved destination
+S11: Unknown workload contacting suspicious destination
+
+BASELINE FALSE POSITIVES:
+B10: Authorized diagnostic exception outside change window
+B11: Authorized exception with unrelated deployment
+B12: Authorized exception following deployment
+
+CORRELATION FALSE NEGATIVES:
+S06: Unapproved destination outside correlation window
+S07: Unapproved destination before deployment
+S08: Unapproved destination with unrelated deployment
+S09: Unapproved destination without deployment event
+S10: Suspicious identity mismatch at approved destination
+S11: Unknown workload contacting suspicious destination
+S12: Unapproved destination at 301 seconds
+
+CORRELATION FALSE POSITIVES:
+B12: Authorized exception following deployment
+
+All labels and authorized exceptions are synthetic assumptions.
+Passing tests does not establish production detection effectiveness.

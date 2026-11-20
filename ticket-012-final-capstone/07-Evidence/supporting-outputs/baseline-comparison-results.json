@@ -1,0 +1,32 @@
+{
+  "dataset_type": "synthetic",
+  "total_cases": 24,
+  "benign_cases": 12,
+  "suspicious_cases": 12,
+  "baseline_definition": "Alert on any unapproved destination",
+  "candidate_definition": "Unapproved destination AND recent deployment",
+  "baseline_metrics": {
+    "TP": 10,
+    "FP": 3,
+    "TN": 9,
+    "FN": 2,
+    "precision": 0.769,
+    "recall": 0.833,
+    "false_positive_rate": 0.25
+  },
+  "candidate_metrics": {
+    "TP": 5,
+    "FP": 1,
+    "TN": 11,
+    "FN": 7,
+    "precision": 0.833,
+    "recall": 0.417,
+    "false_positive_rate": 0.083
+  },
+  "limitations": [
+    "Synthetic labels are scenario assumptions, not observed incidents",
+    "Authorized exceptions are not represented in the static allowlist",
+    "Correlation may miss suspicious traffic without a recent deployment",
+    "Identity fields are compared, not independently authenticated"
+  ]
+}

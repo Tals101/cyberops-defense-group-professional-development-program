@@ -1,0 +1,17 @@
+﻿LAST SEEN   TYPE      REASON              OBJECT                                       MESSAGE
+46m         Normal    Scheduled           pod/unapproved-collector-56768c8c47-cjqk4    Successfully assigned ticket-012-lab/unapproved-collector-56768c8c47-cjqk4 to minikube
+46m         Normal    ScalingReplicaSet   deployment/unapproved-collector              Scaled up replica set unapproved-collector-56768c8c47 from 0 to 1
+46m         Normal    SuccessfulCreate    replicaset/unapproved-collector-56768c8c47   Created pod: unapproved-collector-56768c8c47-cjqk4
+46m         Normal    Started             pod/unapproved-collector-56768c8c47-cjqk4    Container started
+46m         Normal    Created             pod/unapproved-collector-56768c8c47-cjqk4    Container created
+46m         Normal    Pulled              pod/unapproved-collector-56768c8c47-cjqk4    Container image "ticket012-unapproved-collector:lab-v1" already present on machine and can be accessed by the pod
+24m         Normal    SuccessfulCreate    replicaset/application-api-7c4dfc69b6        Created pod: application-api-7c4dfc69b6-9r6m7
+24m         Normal    ScalingReplicaSet   deployment/application-api                   Scaled up replica set application-api-7c4dfc69b6 from 0 to 1
+24m         Normal    Scheduled           pod/application-api-7c4dfc69b6-9r6m7         Successfully assigned ticket-012-lab/application-api-7c4dfc69b6-9r6m7 to minikube
+24m         Normal    Started             pod/application-api-7c4dfc69b6-9r6m7         Container started
+24m         Normal    Created             pod/application-api-7c4dfc69b6-9r6m7         Container created
+24m         Normal    Pulled              pod/application-api-7c4dfc69b6-9r6m7         Container image "ticket012-application-api:lab-v1" already present on machine and can be accessed by the pod
+24m         Normal    SuccessfulDelete    replicaset/application-api-86b96b9f5         Deleted pod: application-api-86b96b9f5-w68p9
+24m         Normal    ScalingReplicaSet   deployment/application-api                   Scaled down replica set application-api-86b96b9f5 from 1 to 0
+24m         Normal    Killing             pod/application-api-86b96b9f5-w68p9          Stopping container application-api
+23m         Warning   Unhealthy           pod/application-api-86b96b9f5-w68p9          Readiness probe failed: Get "http://10.244.1.156:8080/health": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
