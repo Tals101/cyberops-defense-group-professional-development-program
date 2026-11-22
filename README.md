@@ -85,7 +85,7 @@ Every ticket folder has its own README, which is the place to start. Most ticket
 - a final report, and for later tickets an executive brief or decision record
 - lessons learned
 
-Where a ticket includes runnable code, its README explains how to run the tests and what results to expect.
+Where a ticket includes runnable code, its README explains how to run the tests and what results to expect. Some tests in Tickets 009 and 012 rewrite files in their evidence folders, so run them in a disposable copy; see [Ticket 009's README](ticket-009-automation-did-exactly-what-you-told-it/README.md#before-rerunning-tests-evidence-and-platform-warnings) and [Ticket 012's testing notes](ticket-012-final-capstone/TESTING-NOTES.md).
 
 ## Evidence Integrity and Privacy
 
@@ -94,4 +94,4 @@ Evidence is preserved as collected wherever possible, and hash manifests are inc
 - On November 22, 2026, I redacted my local Windows account and computer names from evidence files, screenshots and one PDF. The affected Ticket 010 hash manifests were updated and re-verified, and a dated addendum explains the change in [`final-integrity-audit.md`](ticket-010-the-patch-that-passed-every-check/closure/final-integrity-audit.md).
 - In the same cleanup, three Ticket 002 evidence files whose line endings Git had changed on commit were restored to their original bytes. They now match the original manifest; see [`evidence-integrity-verification.md`](ticket-002-production-web-application-outage/evidence-integrity-verification.md).
 
-The repository contains no real credentials, keys or production data. Credentials in examples are placeholders, and data that resembles business data is synthetic.
+The repository, including its full Git history, was scanned for exposed credentials such as passwords, API keys, access tokens and private keys, and none were identified. Credentials in examples are placeholders, and data that resembles business data is synthetic.

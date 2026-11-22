@@ -215,7 +215,9 @@ See:
 
 ---
 
-## Production Readiness
+## Operational Readiness Controls
+
+These controls prepare the detection for a production-readiness review. They do not establish that the detection is production-ready.
 
 Operational controls include:
 
