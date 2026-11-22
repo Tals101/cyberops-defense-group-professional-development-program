@@ -1,7 +1,7 @@
 Ticket #007 — Issue B Endpoint Context
 
 Scenario Asset: HR-LT-44
-Lab Host: CYBERHUB
+Lab Host: [REDACTED-HOST]
 Logged-On Lab User: [REDACTED-ACCOUNT]
 Scenario Department: Human Resources
 
