@@ -29,7 +29,7 @@ This index explains why each artifact is in the package. The source files themse
 | `deep-investigation/02-persistence-check.txt` | Document the scheduled-task and Run-key checks performed. |
 | `deep-investigation/03-credential-access-check.txt` | Record the query and its visibility limitations; a negative match is not proof of absence. |
 | `deep-investigation/04-simulated-email-evidence.txt` | Represent the scenario's sender, attachment, and arrival timing. |
-| `deep-investigation/05-endpoint-user-context.txt` | Explain how CyberHub stands in for HR-LT-44 in the lab. |
+| `deep-investigation/05-endpoint-user-context.txt` | Explain how [REDACTED-HOST] stands in for HR-LT-44 in the lab. |
 | `deep-investigation/06-data-access-event.txt` | Show that a separate controlled PowerShell process could read sample HR data. |
 | `deep-investigation/07-lateral-movement-check.txt` | Record the limited review for common lateral-movement indicators. |
 | `deep-investigation/08-two-host-same-destination.log` | Show two lab systems contacting the same endpoint; not a shared-root-cause finding. |

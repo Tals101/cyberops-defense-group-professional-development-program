@@ -4,7 +4,7 @@ Image: ledger-api:ticket010-alpine
 === V3 VULNERABILITY GATE ===
 Image: ledger-api:ticket010-alpine
 trivy.exe : 2026-10-28T19:45:20-04:00	INFO	[vuln] Vulnerability scanning is enabled
-At C:\Users\Tals' CyberHub\Documents\GitHub\cyberops-defense-group-professional-development-program\ticket-010-the-patc
+At C:\Users\[REDACTED-ACCOUNT]\Documents\GitHub\cyberops-defense-group-professional-development-program\ticket-010-the-patc
 h-that-passed-every-check\tests\v3-stale-db-fixture\pipeline\v3-vulnerability-gate.ps1:27 char:1
 + & trivy image `
 + ~~~~~~~~~~~~~~~

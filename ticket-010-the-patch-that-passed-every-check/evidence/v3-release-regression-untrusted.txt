@@ -5,7 +5,7 @@ Image: 127.0.0.1:5500/ticket010-vulnerable-step125@sha256:ee721dc86416dfd14bce41
 Trusted public key hash: VERIFIED
 wsl : WARNING: Skipping tlog verification is an insecure practice that lacks transparency and auditability 
 verification for the signature.
-At C:\Users\Tals' CyberHub\Documents\GitHub\cyberops-defense-group-professional-development-program\ticket-010-the-patc
+At C:\Users\[REDACTED-ACCOUNT]\Documents\GitHub\cyberops-defense-group-professional-development-program\ticket-010-the-patc
 h-that-passed-every-check\pipeline\v3-image-signature-gate.ps1:46 char:5
 +     wsl -d Ubuntu -- bash -s -- $Image 2>&1
 +     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

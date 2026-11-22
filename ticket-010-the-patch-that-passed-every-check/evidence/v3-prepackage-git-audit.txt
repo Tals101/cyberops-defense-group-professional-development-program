@@ -1,5 +1,5 @@
 ﻿=== STEP 131 PRE-PACKAGE AUDIT ===
-Git root: C:/Users/Tals' CyberHub/Documents/GitHub/cyberops-defense-group-professional-development-program
+Git root: C:/Users/[REDACTED-ACCOUNT]/Documents/GitHub/cyberops-defense-group-professional-development-program
 Closure integrity: PASS (3)
 Evidence integrity: PASS (24)
 Sensitive file candidates: 0

@@ -30,7 +30,7 @@ The following checks were performed on each of these signatures:
 TEST SIGNATURE: PASS - Vulnerable image signature valid
 === SAVE TEST VERIFICATION MATERIAL ===
 Test public key SHA256:
-6a7889a21cad6c9455d347c62cc8c10484ecc112f8c027c88ab680495d9d3bb6  /mnt/c/Users/Tals' CyberHub/Documents/GitHub/cyberops-defense-group-professional-development-program/ticket-010-the-patch-that-passed-every-check/tests/v3-vulnerable-test-signer.pub
+6a7889a21cad6c9455d347c62cc8c10484ecc112f8c027c88ab680495d9d3bb6  /mnt/c/Users/[REDACTED-ACCOUNT]/Documents/GitHub/cyberops-defense-group-professional-development-program/ticket-010-the-patch-that-passed-every-check/tests/v3-vulnerable-test-signer.pub
 === TEST 2: VERIFY AGAINST EXISTING TRUSTED KEY ===
 WARNING: Skipping tlog verification is an insecure practice that lacks transparency and auditability verification for the signature.
 Error: no matching attestations: failed to verify signature: could not verify envelope: accepted signatures do not match threshold, Found: 0, Expected 1

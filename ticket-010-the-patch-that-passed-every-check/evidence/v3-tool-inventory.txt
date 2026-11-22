@@ -5,7 +5,7 @@ INSTALLED - docker
 Path: C:\Program Files\Docker\Docker\resources\bin\docker.exe
 
 INSTALLED - trivy
-Path: C:\Users\Tals' CyberHub\AppData\Local\Microsoft\WinGet\Packages\AquaSecurity.Trivy_Microsoft.Winget.Source_8wekyb3d8bbwe\trivy.exe
+Path: C:\Users\[REDACTED-ACCOUNT]\AppData\Local\Microsoft\WinGet\Packages\AquaSecurity.Trivy_Microsoft.Winget.Source_8wekyb3d8bbwe\trivy.exe
 
 NOT INSTALLED - syft
 

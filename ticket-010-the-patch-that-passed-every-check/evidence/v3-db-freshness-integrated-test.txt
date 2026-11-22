@@ -2,7 +2,7 @@
 === V3 VULNERABILITY GATE ===
 Image: ledger-api:ticket010-alpine
 trivy.exe : 2026-10-28T19:42:24-04:00	INFO	[vuln] Vulnerability scanning is enabled
-At C:\Users\Tals' CyberHub\Documents\GitHub\cyberops-defense-group-professional-development-program\ticket-010-the-patc
+At C:\Users\[REDACTED-ACCOUNT]\Documents\GitHub\cyberops-defense-group-professional-development-program\ticket-010-the-patc
 h-that-passed-every-check\pipeline\v3-vulnerability-gate.ps1:27 char:1
 + & trivy image `
 + ~~~~~~~~~~~~~~~
@@ -18,7 +18,7 @@ Database age hours: 4.41
 GATE DB PASS: Vulnerability database meets freshness policy.
 HIGH findings: 0
 CRITICAL findings: 0
-Report: C:\Users\Tals' CyberHub\Documents\GitHub\cyberops-defense-group-professional-development-program\ticket-010-the-patch-that-passed-every-check\evidence\v3-gate-freshness-integrated-alpine.json
+Report: C:\Users\[REDACTED-ACCOUNT]\Documents\GitHub\cyberops-defense-group-professional-development-program\ticket-010-the-patch-that-passed-every-check\evidence\v3-gate-freshness-integrated-alpine.json
 GATE PASS: No HIGH or CRITICAL findings detected.
 
 Gate exit code: 0
