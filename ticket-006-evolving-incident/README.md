@@ -72,11 +72,9 @@ Finance was provided a safer continuity strategy:
     ├── evidence/
     │   ├── logs/
     │   ├── network/
-    │   ├── endpoint/
-    │   └── screenshots/
-    ├── timeline/
-    │   └── incident-timeline.csv
-    └── diagrams/
+    │   └── endpoint/
+    └── timeline/
+        └── incident-timeline.csv
 
 ## Evidence
 

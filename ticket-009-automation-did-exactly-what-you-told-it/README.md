@@ -157,6 +157,28 @@ Do not execute destructive test scenarios against real accounts or production IA
 
 Historical test results should not be interpreted as current evidence freshness or execution authorization.
 
+### Before Rerunning Tests: Evidence and Platform Warnings
+
+**The tests write to the preserved evidence.** 21 of the 26 scripts in `tests/` overwrite or append to log and CSV files in `evidence/` when they run. Run them only in a disposable copy of the repository, never in the preserved evidence directory, and compare results against the committed files afterwards.
+
+**The recorded results come from Windows.** The laboratory was run on Windows with Python:
+
+- Recorded logs contain absolute Windows paths. Some still show the folder's earlier name, `ticket-009-identity-remediation-incident`.
+- The V3 source-integrity baselines (`automation/v3-source-integrity-baseline.json` and `tests/v3-a02-source-integrity-baseline.json`) store SHA-256 values of the JSON inputs as they existed on Windows, with Windows (CRLF) line endings. Git stores these inputs with Unix (LF) line endings, so a checkout that does not convert them back to CRLF produces different hashes. For example, `simulation/v3-secondary-context.json` hashes to `BD39FB38…` with CRLF line endings, which matches the baseline, and to `F39D237B…` with LF line endings.
+- `tests/v3-a03-approval-fixed-test.py` needs a Base64 HMAC key in the `A03_APPROVAL_HMAC_KEY` environment variable. Without it the test stops with "Approval verification key unavailable", as designed.
+
+**Observed on Linux.** On November 22, 2026, all 26 scripts were rerun on a disposable Linux copy (Python 3.10). The recorded evidence in this repository was not changed.
+
+| Result on Linux | Tests |
+|---|---|
+| Same decisions and outcomes as recorded, including intended failures; only timestamps, absolute paths and line endings differed | 21 |
+| `v3-decision-engine-a01-fixed-test`: same fail-closed outcome (secondary-source integrity failure), different hash values in the log | 1 |
+| `v3-decision-engine-a02-test` and `v3-decision-engine-a02-fixed-test`: stopped at the source-integrity check (`INVESTIGATE_SOURCE_INTEGRITY`) instead of producing the recorded decisions for the synthetic identities, because of the line-ending difference above | 2 |
+| `v3-a03-approval-fixed-test`: stopped because `A03_APPROVAL_HMAC_KEY` was not set | 1 |
+| `v3-decision-engine-f03-logging-failure-test`: one decision row differed in a business-context field for `payroll.emergency`; the cause was not determined | 1 |
+
+To reproduce the recorded results exactly, use Windows with CRLF line endings in the working copy.
+
 ## Portfolio Integrity
 
 This project preserves meaningful Git commits throughout the engineering process.
