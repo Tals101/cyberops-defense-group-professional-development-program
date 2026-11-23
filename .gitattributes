@@ -20,3 +20,8 @@
 
 # Preserve forensic evidence exactly as collected
 Week-01-Ticket-001/evidence/** -text
+
+# Ticket 002 - preserve original evidence bytes so files match evidence/evidence-sha256.txt
+ticket-002-production-web-application-outage/evidence/** -text
+# Documentation in the evidence folder (not in the manifest) keeps its existing normalization
+ticket-002-production-web-application-outage/evidence/timeline/technical-timeline.md text eol=lf

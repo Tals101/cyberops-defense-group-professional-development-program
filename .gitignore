@@ -22,3 +22,8 @@ Desktop.ini
 
 # Verification folders
 zip-verification/
+
+# Python caches and local databases
+__pycache__/
+*.py[cod]
+*.sqlite
