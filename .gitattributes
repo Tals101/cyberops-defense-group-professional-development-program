@@ -19,7 +19,7 @@
 *.pdf binary
 
 # Preserve forensic evidence exactly as collected
-Week-01-Ticket-001/evidence/** -text
+ticket-001-ssh-authentication-investigation/evidence/** -text
 
 # Ticket 002 - preserve original evidence bytes so files match evidence/evidence-sha256.txt
 ticket-002-production-web-application-outage/evidence/** -text

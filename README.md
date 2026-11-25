@@ -26,7 +26,7 @@ Decisions that would need organizational authority, such as production deploymen
 
 | # | Project | Technical focus | Result |
 |---|---|---|---|
-| 001 | [SSH Authentication Investigation](Week-01-Ticket-001/) | Linux auth logs, Wazuh alerts, account and network containment, Bash detector | Confirmed failed SSH logins followed by a successful login and post-login activity |
+| 001 | [SSH Authentication Investigation](ticket-001-ssh-authentication-investigation/) | Linux auth logs, Wazuh alerts, account and network containment, Bash detector | Confirmed failed SSH logins followed by a successful login and post-login activity |
 | 002 | [Production Web Application Outage](ticket-002-production-web-application-outage/) | Layered outage troubleshooting across Nginx, Flask and systemd; sudo and session correlation; recovery | Traced the outage to a command run from a specific account and session; service restored and verified from the user side |
 | 003 | [Suspicious Account Activity Detection Engineering](ticket-003-detection-engineering/) | Python SSH detector, threshold tuning, known-source and success context | Version 2 removed the Version 1 false positive and passed every other test scenario |
 | 004 | [Hypothesis-Driven Linux Threat Hunt](ticket-004-threat-hunt/) | Cron, root crontab and systemd persistence; sudo and SSH session correlation | Closed as benign with medium confidence |
