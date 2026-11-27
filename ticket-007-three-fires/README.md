@@ -34,6 +34,24 @@ The decision files preserve what was known **at the time of each choice**. Later
 
 HR-LT-51 contacted the same destination as HR-LT-44. A separate review found no matching Word-to-PowerShell activity or other supporting compromise indicators. I kept the broader indicator search open without treating the second workstation as compromised solely because of a shared destination.
 
+## The Three Alerts at a Glance
+
+```mermaid
+flowchart LR
+    Q["Three alerts<br/>within minutes"]
+    A["Issue A<br/>Privileged SSH on APP-PROD-02"]
+    B["Issue B<br/>Word launched encoded<br/>PowerShell on HR-LT-44"]
+    C["Issue C<br/>Customer portal errors<br/>and unusual HTTP requests"]
+    DA["Likely benign:<br/>authorized maintenance,<br/>process failure to fix"]
+    DB["Confirmed security incident<br/>(scenario): external contact<br/>after the PowerShell chain"]
+    DC["Operational issue:<br/>fixed by rollback,<br/>security follow-up open"]
+    Q --> A --> DA
+    Q --> B --> DB
+    Q --> C --> DC
+```
+
+Issue B held first priority for most of the exercise because the endpoint was still connected and later reached an external destination.
+
 ## Where to start
 
 - `Final_Incident_Report.pdf` — consolidated findings, limitations, response, and dispositions.
