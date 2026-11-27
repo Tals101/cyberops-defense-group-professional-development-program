@@ -80,6 +80,21 @@ The `payroll.emergency` scenario demonstrated that high decision confidence must
 
 Canonical V3 remains **dry-run only**.
 
+### Canonical V3 Decision Path
+
+```mermaid
+flowchart TD
+    I["Candidate identity<br/>(inactive interactive login)"] --> C{"Identity classified?<br/>Protected or service account?"}
+    C -- "protected / critical dependency" --> H["Defer: human approval required"]
+    C -- "eligible" --> S{"Secondary source<br/>corroborates inactivity?"}
+    S -- "conflict" --> H
+    S -- "agrees" --> T{"Evidence fresh and<br/>integrity verified?"}
+    T -- "no or error" --> FC["Fail closed: no change"]
+    T -- "yes" --> D["Dry-run recommendation<br/>with snapshot and audit log"]
+```
+
+V3 never disables an account on its own: every path ends in a deferral, a fail-closed stop or a dry-run recommendation.
+
 ## Testing Summary
 
 | Test Group | Scope |
