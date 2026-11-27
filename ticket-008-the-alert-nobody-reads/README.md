@@ -21,6 +21,8 @@ The project progressed through baseline measurement, V1 tuning, V2 correlation, 
 | Suspicious Events Represented | 143 / 145 | 64 / 145 | 64 / 145 |
 | Known Benign Alerts / Cases | 248 alerts | 1 alert | 1 case |
 
+![Alerts and analyst workload by version](images/alert-reduction.png)
+
 **Important:** Raw alert counts and case counts are not equivalent sensitivity measurements. V2 reduces analyst-facing workload by correlating V1 signals into cases; it does not independently restore event-level sensitivity removed during V1 tuning.
 
 ---
@@ -47,31 +49,16 @@ The goal was to create **better security signal per unit of analyst attention wh
 
 ## Engineering Progression
 
-    Authentication Events
-            |
-            v
-    Original Detector
-    597 alerts
-            |
-            v
-    Baseline Measurement + Noise Analysis
-            |
-            v
-    V1 Behavioral Detection
-    15 alerts
-            |
-            v
-    V2 Correlation
-    7 analyst cases
-            |
-            v
-    Analyst Usability Review
-            |
-            v
-    Purple Team + Adversarial Testing
-            |
-            v
-    Known False Negatives + Production Controls
+```mermaid
+flowchart TD
+    E["1,000 authentication events"] --> O["Original detector<br/>597 alerts"]
+    O --> BL["Baseline measurement<br/>and noise analysis"]
+    BL --> V1["V1 behavioral detection<br/>15 alerts"]
+    V1 --> V2["V2 correlation<br/>7 analyst cases"]
+    V2 --> U["Analyst usability review"]
+    U --> P["Purple Team and<br/>adversarial testing"]
+    P --> F["Known false negatives and<br/>production controls"]
+```
 
 ---
 

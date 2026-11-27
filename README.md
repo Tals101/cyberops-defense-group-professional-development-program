@@ -1,4 +1,4 @@
-﻿# CyberOps Defense Group Professional Development Program
+﻿# CyberOps Defense Group Professional Development Program (AI-generated simulation; fictional company)
 
 > **AI-generated simulation, fictional company.** CyberOps Defense Group is not a real organization. The program, its tickets, people and business data are an AI-generated training simulation.
 
@@ -25,10 +25,10 @@ Where a result says NO-GO or "not established", that is the recommendation the e
 
 ## Start Here
 
-- [Ticket 010](ticket-010-the-patch-that-passed-every-check/): release gates, admission control and supply-chain checks (Trivy, Syft, cosign)
-- [Ticket 012](ticket-012-final-capstone/): Kubernetes incident lab with two correlation detectors and 51 automated tests
+- [Ticket 010](ticket-010-the-patch-that-passed-every-check/): release gates, admission control and supply-chain checks (Trivy, Syft, cosign) ([diagrams](ticket-010-the-patch-that-passed-every-check/DIAGRAMS.md))
+- [Ticket 012](ticket-012-final-capstone/): Kubernetes incident lab with two correlation detectors and 51 automated tests ([diagrams](ticket-012-final-capstone/DIAGRAMS.md))
 - [Ticket 009](ticket-009-automation-did-exactly-what-you-told-it/): identity remediation automation with authority boundaries and failure injection
-- [Ticket 011](ticket-011-cross-system-incident-investigation/): AWS, Kubernetes and Linux event correlation with custom Falco rules
+- [Ticket 011](ticket-011-cross-system-incident-investigation/): AWS, Kubernetes and Linux event correlation with custom Falco rules ([diagrams](ticket-011-cross-system-incident-investigation/DIAGRAMS.md))
 
 Each ticket folder has its own README with the scenario, evidence, report and lessons learned. Some tests in Tickets 009 and 012 rewrite files in their evidence folders, so run them in a disposable copy; see [Ticket 009's warnings](ticket-009-automation-did-exactly-what-you-told-it/README.md#before-rerunning-tests-evidence-and-platform-warnings) and [Ticket 012's testing notes](ticket-012-final-capstone/TESTING-NOTES.md).
 
