@@ -1,5 +1,7 @@
 ﻿# CyberOps Defense Group Professional Development Program
 
+> **AI-generated simulation, fictional company.** CyberOps Defense Group is not a real organization. The program, its tickets, people and business data are an AI-generated training simulation.
+
 Twelve technical tickets I completed as the assigned engineer, covering incident response, threat hunting, vulnerability management, detection engineering, security automation, DevSecOps and Kubernetes security. All work was done in isolated lab environments with simulated or synthetic systems and data. Decisions that would need organizational authority, such as production deployment or incident closure, are recorded as recommendations, and failed tests and open findings are kept in the record.
 
 ## Results
