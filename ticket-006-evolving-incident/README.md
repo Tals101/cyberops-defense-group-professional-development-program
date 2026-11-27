@@ -48,6 +48,21 @@ The investigation did not establish that:
 | 12:30 | Maintain containment and move Finance work to a clean trusted system. |
 | 13:30 | Classify as a confirmed security incident with root cause unresolved. |
 
+## Investigation at a Glance
+
+How the assessment and the containment decisions changed as evidence arrived:
+
+```mermaid
+flowchart LR
+    A["09:17<br/>High-severity alert:<br/>outbound HTTPS from FIN-WS17"]
+    B["09:30<br/>Keep investigating;<br/>Finance not disrupted"]
+    C["10:15<br/>Targeted containment<br/>and closer monitoring"]
+    D["11:00<br/>Network containment;<br/>workstation kept powered on"]
+    E["12:30<br/>Finance moves to a<br/>clean trusted system"]
+    F["13:30<br/>Confirmed incident:<br/>Finance data sent out;<br/>root cause unresolved"]
+    A --> B --> C --> D --> E --> F
+```
+
 ## Business Continuity
 
 Security did not treat containment as the end of the problem.
